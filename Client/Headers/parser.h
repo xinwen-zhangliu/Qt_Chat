@@ -27,6 +27,8 @@ signals:
     void receivedUserList(const QJsonArray &list);
     void sendJson(const QJsonObject &json);
     void newStatus(const QString &username, const int &newStatus);
+    void newRoomCreated();
+    void errorCreatingRoom(const QString &roomName);
 
 };
 

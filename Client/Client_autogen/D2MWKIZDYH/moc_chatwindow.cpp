@@ -10,6 +10,7 @@
 #include "../../Headers/chatwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
+#include <QtCore/QList>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'chatwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
@@ -22,73 +23,87 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ChatWindow_t {
-    uint offsetsAndSizes[50];
+    uint offsetsAndSizes[62];
     char stringdata0[11];
-    char stringdata1[18];
+    char stringdata1[9];
     char stringdata2[1];
-    char stringdata3[13];
-    char stringdata4[9];
+    char stringdata3[5];
+    char stringdata4[8];
     char stringdata5[9];
-    char stringdata6[12];
-    char stringdata7[7];
-    char stringdata8[8];
-    char stringdata9[5];
-    char stringdata10[22];
-    char stringdata11[7];
-    char stringdata12[5];
-    char stringdata13[12];
-    char stringdata14[23];
-    char stringdata15[11];
-    char stringdata16[9];
-    char stringdata17[18];
-    char stringdata18[6];
-    char stringdata19[29];
-    char stringdata20[12];
-    char stringdata21[26];
-    char stringdata22[17];
-    char stringdata23[5];
-    char stringdata24[32];
+    char stringdata6[18];
+    char stringdata7[13];
+    char stringdata8[9];
+    char stringdata9[12];
+    char stringdata10[7];
+    char stringdata11[8];
+    char stringdata12[22];
+    char stringdata13[7];
+    char stringdata14[5];
+    char stringdata15[12];
+    char stringdata16[23];
+    char stringdata17[11];
+    char stringdata18[9];
+    char stringdata19[18];
+    char stringdata20[6];
+    char stringdata21[29];
+    char stringdata22[12];
+    char stringdata23[11];
+    char stringdata24[16];
+    char stringdata25[6];
+    char stringdata26[12];
+    char stringdata27[26];
+    char stringdata28[17];
+    char stringdata29[5];
+    char stringdata30[32];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_ChatWindow_t::offsetsAndSizes) + ofs), len 
 static const qt_meta_stringdata_ChatWindow_t qt_meta_stringdata_ChatWindow = {
     {
         QT_MOC_LITERAL(0, 10),  // "ChatWindow"
-        QT_MOC_LITERAL(11, 17),  // "attemptConnection"
-        QT_MOC_LITERAL(29, 0),  // ""
-        QT_MOC_LITERAL(30, 12),  // "attemptLogin"
-        QT_MOC_LITERAL(43, 8),  // "username"
-        QT_MOC_LITERAL(52, 8),  // "loggedIn"
-        QT_MOC_LITERAL(61, 11),  // "loginFailed"
-        QT_MOC_LITERAL(73, 6),  // "reason"
-        QT_MOC_LITERAL(80, 7),  // "logJson"
-        QT_MOC_LITERAL(88, 4),  // "json"
-        QT_MOC_LITERAL(93, 21),  // "publicMessageReceived"
-        QT_MOC_LITERAL(115, 6),  // "sender"
-        QT_MOC_LITERAL(122, 4),  // "text"
-        QT_MOC_LITERAL(127, 11),  // "sendMessage"
-        QT_MOC_LITERAL(139, 22),  // "disconnectedFromServer"
-        QT_MOC_LITERAL(162, 10),  // "userJoined"
-        QT_MOC_LITERAL(173, 8),  // "userLeft"
-        QT_MOC_LITERAL(182, 17),  // "connectedToServer"
-        QT_MOC_LITERAL(200, 5),  // "error"
-        QT_MOC_LITERAL(206, 28),  // "QAbstractSocket::SocketError"
-        QT_MOC_LITERAL(235, 11),  // "socketError"
-        QT_MOC_LITERAL(247, 25),  // "on_clientList_itemClicked"
-        QT_MOC_LITERAL(273, 16),  // "QListWidgetItem*"
-        QT_MOC_LITERAL(290, 4),  // "item"
-        QT_MOC_LITERAL(295, 31)   // "on_clientList_itemDoubleClicked"
+        QT_MOC_LITERAL(11, 8),  // "sendJson"
+        QT_MOC_LITERAL(20, 0),  // ""
+        QT_MOC_LITERAL(21, 4),  // "json"
+        QT_MOC_LITERAL(26, 7),  // "addUser"
+        QT_MOC_LITERAL(34, 8),  // "username"
+        QT_MOC_LITERAL(43, 17),  // "attemptConnection"
+        QT_MOC_LITERAL(61, 12),  // "attemptLogin"
+        QT_MOC_LITERAL(74, 8),  // "loggedIn"
+        QT_MOC_LITERAL(83, 11),  // "loginFailed"
+        QT_MOC_LITERAL(95, 6),  // "reason"
+        QT_MOC_LITERAL(102, 7),  // "logJson"
+        QT_MOC_LITERAL(110, 21),  // "publicMessageReceived"
+        QT_MOC_LITERAL(132, 6),  // "sender"
+        QT_MOC_LITERAL(139, 4),  // "text"
+        QT_MOC_LITERAL(144, 11),  // "sendMessage"
+        QT_MOC_LITERAL(156, 22),  // "disconnectedFromServer"
+        QT_MOC_LITERAL(179, 10),  // "userJoined"
+        QT_MOC_LITERAL(190, 8),  // "userLeft"
+        QT_MOC_LITERAL(199, 17),  // "connectedToServer"
+        QT_MOC_LITERAL(217, 5),  // "error"
+        QT_MOC_LITERAL(223, 28),  // "QAbstractSocket::SocketError"
+        QT_MOC_LITERAL(252, 11),  // "socketError"
+        QT_MOC_LITERAL(264, 10),  // "createRoom"
+        QT_MOC_LITERAL(275, 15),  // "refreshUserList"
+        QT_MOC_LITERAL(291, 5),  // "users"
+        QT_MOC_LITERAL(297, 11),  // "getUserList"
+        QT_MOC_LITERAL(309, 25),  // "on_clientList_itemClicked"
+        QT_MOC_LITERAL(335, 16),  // "QListWidgetItem*"
+        QT_MOC_LITERAL(352, 4),  // "item"
+        QT_MOC_LITERAL(357, 31)   // "on_clientList_itemDoubleClicked"
     },
     "ChatWindow",
-    "attemptConnection",
+    "sendJson",
     "",
-    "attemptLogin",
+    "json",
+    "addUser",
     "username",
+    "attemptConnection",
+    "attemptLogin",
     "loggedIn",
     "loginFailed",
     "reason",
     "logJson",
-    "json",
     "publicMessageReceived",
     "sender",
     "text",
@@ -100,6 +115,10 @@ static const qt_meta_stringdata_ChatWindow_t qt_meta_stringdata_ChatWindow = {
     "error",
     "QAbstractSocket::SocketError",
     "socketError",
+    "createRoom",
+    "refreshUserList",
+    "users",
+    "getUserList",
     "on_clientList_itemClicked",
     "QListWidgetItem*",
     "item",
@@ -113,44 +132,58 @@ static const uint qt_meta_data_ChatWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      19,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       2,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags, initial metatype offsets
+       1,    1,  128,    2, 0x06,    1 /* Public */,
+       4,    1,  131,    2, 0x06,    3 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   98,    2, 0x08,    1 /* Private */,
-       3,    1,   99,    2, 0x08,    2 /* Private */,
-       5,    0,  102,    2, 0x08,    4 /* Private */,
-       6,    1,  103,    2, 0x08,    5 /* Private */,
-       8,    1,  106,    2, 0x08,    7 /* Private */,
-      10,    2,  109,    2, 0x08,    9 /* Private */,
-      13,    0,  114,    2, 0x08,   12 /* Private */,
-      14,    0,  115,    2, 0x08,   13 /* Private */,
-      15,    1,  116,    2, 0x08,   14 /* Private */,
-      16,    1,  119,    2, 0x08,   16 /* Private */,
-      17,    0,  122,    2, 0x08,   18 /* Private */,
-      18,    1,  123,    2, 0x08,   19 /* Private */,
-      21,    1,  126,    2, 0x08,   21 /* Private */,
-      24,    1,  129,    2, 0x08,   23 /* Private */,
+       6,    0,  134,    2, 0x08,    5 /* Private */,
+       7,    1,  135,    2, 0x08,    6 /* Private */,
+       8,    0,  138,    2, 0x08,    8 /* Private */,
+       9,    1,  139,    2, 0x08,    9 /* Private */,
+      11,    1,  142,    2, 0x08,   11 /* Private */,
+      12,    2,  145,    2, 0x08,   13 /* Private */,
+      15,    0,  150,    2, 0x08,   16 /* Private */,
+      16,    0,  151,    2, 0x08,   17 /* Private */,
+      17,    1,  152,    2, 0x08,   18 /* Private */,
+      18,    1,  155,    2, 0x08,   20 /* Private */,
+      19,    0,  158,    2, 0x08,   22 /* Private */,
+      20,    1,  159,    2, 0x08,   23 /* Private */,
+      23,    0,  162,    2, 0x08,   25 /* Private */,
+      24,    1,  163,    2, 0x08,   26 /* Private */,
+      26,    0,  166,    2, 0x08,   28 /* Private */,
+      27,    1,  167,    2, 0x08,   29 /* Private */,
+      30,    1,  170,    2, 0x08,   31 /* Private */,
+
+ // signals: parameters
+    QMetaType::Void, QMetaType::QJsonObject,    3,
+    QMetaType::Void, QMetaType::QString,    5,
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    7,
-    QMetaType::Void, QMetaType::QString,    9,
-    QMetaType::Void, QMetaType::QString, QMetaType::QString,   11,   12,
+    QMetaType::Void, QMetaType::QString,   10,
+    QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString,   13,   14,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,    4,
-    QMetaType::Void, QMetaType::QString,    4,
+    QMetaType::Void, QMetaType::QString,    5,
+    QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 19,   20,
-    QMetaType::Void, 0x80000000 | 22,   23,
-    QMetaType::Void, 0x80000000 | 22,   23,
+    QMetaType::Void, 0x80000000 | 21,   22,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QStringList,   25,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 28,   29,
+    QMetaType::Void, 0x80000000 | 28,   29,
 
        0        // eod
 };
@@ -161,32 +194,53 @@ void ChatWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<ChatWindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->attemptConnection(); break;
-        case 1: _t->attemptLogin((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 2: _t->loggedIn(); break;
-        case 3: _t->loginFailed((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 4: _t->logJson((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 5: _t->publicMessageReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 6: _t->sendMessage(); break;
-        case 7: _t->disconnectedFromServer(); break;
-        case 8: _t->userJoined((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 9: _t->userLeft((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 10: _t->connectedToServer(); break;
-        case 11: _t->error((*reinterpret_cast< std::add_pointer_t<QAbstractSocket::SocketError>>(_a[1]))); break;
-        case 12: _t->on_clientList_itemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
-        case 13: _t->on_clientList_itemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 0: _t->sendJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 1: _t->addUser((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 2: _t->attemptConnection(); break;
+        case 3: _t->attemptLogin((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 4: _t->loggedIn(); break;
+        case 5: _t->loginFailed((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 6: _t->logJson((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 7: _t->publicMessageReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 8: _t->sendMessage(); break;
+        case 9: _t->disconnectedFromServer(); break;
+        case 10: _t->userJoined((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 11: _t->userLeft((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 12: _t->connectedToServer(); break;
+        case 13: _t->error((*reinterpret_cast< std::add_pointer_t<QAbstractSocket::SocketError>>(_a[1]))); break;
+        case 14: _t->createRoom(); break;
+        case 15: _t->refreshUserList((*reinterpret_cast< std::add_pointer_t<QList<QString>>>(_a[1]))); break;
+        case 16: _t->getUserList(); break;
+        case 17: _t->on_clientList_itemClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 18: _t->on_clientList_itemDoubleClicked((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
-        case 11:
+        case 13:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType(); break;
             case 0:
                 *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType::fromType< QAbstractSocket::SocketError >(); break;
             }
             break;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (ChatWindow::*)(const QJsonObject & );
+            if (_t _q_method = &ChatWindow::sendJson; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (ChatWindow::*)(const QString & );
+            if (_t _q_method = &ChatWindow::addUser; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 1;
+                return;
+            }
         }
     }
 }
@@ -198,8 +252,8 @@ const QMetaObject ChatWindow::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_ChatWindow_t
-, QtPrivate::TypeAndForceComplete<ChatWindow, std::true_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QAbstractSocket::SocketError, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>
+, QtPrivate::TypeAndForceComplete<ChatWindow, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QAbstractSocket::SocketError, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QVector<QString> &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QListWidgetItem *, std::false_type>
 
 
 >,
@@ -226,15 +280,29 @@ int ChatWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 19;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 19)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 19;
     }
     return _id;
+}
+
+// SIGNAL 0
+void ChatWindow::sendJson(const QJsonObject & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void ChatWindow::addUser(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

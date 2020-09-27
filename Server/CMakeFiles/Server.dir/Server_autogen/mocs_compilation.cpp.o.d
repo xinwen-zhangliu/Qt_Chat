@@ -250,9 +250,9 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qobject_impl.h \
  /usr/include/qt6/QtCore/qbindingstorage.h /usr/include/c++/12.2.0/chrono \
  /usr/include/c++/12.2.0/bits/chrono.h /usr/include/c++/12.2.0/ratio \
- /usr/include/c++/12.2.0/ctime /usr/include/qt6/QtCore/QVector \
- /usr/include/qt6/QtCore/qvector.h /usr/include/qt6/QtCore/QString \
- /usr/include/qt6/QtCore/qstring.h \
+ /usr/include/c++/12.2.0/ctime /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/qstring.h /usr/include/qt6/QtCore/QVector \
+ /usr/include/qt6/QtCore/qvector.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_chatserver.cpp \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/chatserver.h \
  /usr/include/qt6/QtNetwork/QTcpServer \
@@ -279,6 +279,8 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qsharedpointer_impl.h \
  /usr/include/qt6/QtNetwork/qhostaddress.h /usr/include/qt6/QtCore/QTimer \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
+ /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
+ /usr/include/qt6/QtCore/QList /usr/include/qt6/QtCore/qlist.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_serverwindow.cpp \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/serverwindow.h \
  /usr/include/qt6/QtWidgets/QWidget /usr/include/qt6/QtWidgets/qwidget.h \
@@ -304,8 +306,6 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtWidgets/qsizepolicy.h \
  /usr/include/qt6/QtGui/qcursor.h /usr/include/qt6/QtGui/qbitmap.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/serverworker.h \
- /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/user.h \
- /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
  /usr/include/qt6/QtNetwork/QTcpSocket \
  /usr/include/qt6/QtNetwork/qtcpsocket.h \
  /usr/include/qt6/QtCore/QReadWriteLock \

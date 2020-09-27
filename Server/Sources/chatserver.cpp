@@ -1,5 +1,6 @@
 #include "Headers/chatserver.h"
 #include "Headers/serverworker.h"
+#include "../Common/room.h"
 
 #include <functional>
 #include <QThread>
@@ -71,34 +72,13 @@ void ChatServer::logFinished(){
 void ChatServer::sendJson(ServerWorker *destination, const QJsonObject &message)
 {
     Q_ASSERT(destination);
-    /*
-    QTimer::singleShot(100 , destination, [destination, message](){
-        destination->sendJson(message);
-    });
-    */
-    //QMetaObject::invokeMethod(destination, "sendJson", Qt::QueuedConnection, Q_ARG(QJsonObject, message));
-    /*
-    Q_ASSERT(destination);
-    m_timer = new QTimer(this);
-    //m_timer -> setInterval(100);
-    m_timer -> setSingleShot(true);
-    connect(m_timer, &QTimer::timeout, destination, [destination, message](){
-        destination->sendJson(message);
-    });
 
-    m_timer -> start(100);
-    */
-    /*
-    qDebug()<< "ChatServer::sendJson";
-    Q_ASSERT(destination);
-    return QTimer::singleShot(2000,Qt::VeryCoarseTimer ,destination, std::bind(&ServerWorker::sendJson, destination, message));
-   QTimer::singleShot(700, destination, SLOT(sendJson(message)));
-    qDebug() << "After singleshot";
-    */
     QTimer::singleShot(2000,Qt::VeryCoarseTimer ,destination, std::bind(&ServerWorker::sendJson, destination, message));
     QTimer::singleShot(0, destination,SLOT( test()));
 
 }
+
+
 void ChatServer::broadcastAll(const QJsonObject &message, ServerWorker *exclude)
 {
 
@@ -108,8 +88,53 @@ void ChatServer::broadcastAll(const QJsonObject &message, ServerWorker *exclude)
             continue;
         sendJson(worker, message);
     }
-    qDebug() << "after broadcast all";
+
 }
+
+
+void ChatServer::broadcastRoom(const QJsonObject &message, ServerWorker *sender, const QString &roomName){
+    QVector<QString> rooms = sender->getRooms();
+
+    /*
+    for (Room roomName : rooms) {
+        //sisu nombre es igual al que buscamos , get userlist
+
+    }
+    */
+    //iteramos sobre los m_clients y si su nombres es igual al de la lista de usuarios then sendJson
+
+   // sendJson(sender, message);
+}
+
+
+
+void ChatServer::broadcastOne(const QJsonObject &message,ServerWorker *sender, const QString &destination){
+    bool userFound = false;
+    for (ServerWorker *worker : m_clients) {
+        Q_ASSERT(worker);
+        if (worker->userName().compare(destination, Qt::CaseSensitive)==0){
+            userFound = true;
+            sendJson(worker, message);
+            break;
+        }
+
+    }
+
+    if(!userFound){
+        const QJsonObject userNotFoundWarning;
+
+
+        QString message = QLatin1String("El usuario '") + destination + QLatin1String("' no existe");
+        userNotFoundWarning[QStringLiteral("type")] = QStringLiteral("WARNING");
+        userNotFoundWarning[QStringLiteral("message")] = message;
+        userNotFoundWarning[QStringLiteral("operation")] = QStringLiteral("MESSAGE");
+        userNotFoundWarning[QStringLiteral("username")] = destination;
+    }
+
+}
+
+
+
 
 void ChatServer::jsonReceived(ServerWorker *sender, const QJsonObject &json)
 {
@@ -147,9 +172,6 @@ void ChatServer::stopServer()
     close();
 }
 
-void ChatServer::broadcastRoom(const QJsonObject &message, ServerWorker *sender){
-
-}
 
 void ChatServer::jsonFromLoggedOut(ServerWorker *sender, const QJsonObject &docObj)
 {

@@ -1,24 +1,13 @@
 #include "room.h"
 
-#include <QVector>
-#include <QString>
-
-Room::Room(QObject *parent , QString roomName , QVector<QString>* users)
+Room::Room(QString roomName, QVector<QString> users, QObject *parent)
     : QObject(parent)
-    , roomName(roomName)
-    , users(users)
+
 {
-
+    this -> m_roomName = roomName;
+    this -> m_users = m_users;
 }
 
-void addUser(const QString &username){
-    users.append(username);
-}
-
-void eliminateUser(const QString &username){
-    users.removeAll(username);
-}
-
-QVector<QString> getUsers(){
-
+QString Room::getRoomName(){
+    return this->m_roomName;
 }

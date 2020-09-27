@@ -8,6 +8,7 @@
 ServerWorker::ServerWorker(QObject *parent)
     : QObject(parent)
     , m_serverSocket(new QTcpSocket(this))
+    , m_status(1)
 {
 
     connect(m_serverSocket, &QTcpSocket::readyRead, this, &ServerWorker::receiveJson);
@@ -35,16 +36,14 @@ void ServerWorker::test(){
 
 void ServerWorker::sendJson(const QJsonObject &json){
 
-    /*
-    qDebug() << "ServerWorker::senJson";
-      const QByteArray jsonData = QJsonDocument(json).toJson();
-      emit logMessage(QLatin1String("Sending to ") + userName() + QLatin1String(" - ") + QString::fromUtf8(jsonData));
-      QDataStream socketStream(m_serverSocket);
-      socketStream.setVersion(QDataStream::Qt_5_7);
 
-      socketStream << jsonData;
-      qDebug()<< "afterWriting to socketStreAM";
-*/
+    const QByteArray jsonInBA = QJsonDocument(json).toJson(QJsonDocument::Compact);
+     QString jsonQS = QString::fromUtf8(jsonInBA);
+    const char *stdJson = jsonQS.toStdString().c_str();
+
+    qDebug() << "ServerWorker::sendJson , json being sent = " <<stdJson;
+
+    m_serverSocket -> write(stdJson);
 
 
 }
@@ -63,6 +62,9 @@ QString ServerWorker::userName() const {
     return result;
 }
 
+QVector<QString> ServerWorker::getRooms(){
+    return m_rooms;
+}
 
 
 void ServerWorker::setUserName(const QString  &username){

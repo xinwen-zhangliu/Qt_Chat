@@ -32,8 +32,9 @@ private:
     QStandardItemModel *m_chatModel;
 
     QString m_lastUserName;
-    QVector<QString> connectedClients;
-    QVector<QString> selectedUsers;
+    QVector<QString> m_privateChats;
+    QVector<QString> m_groupChats;
+    QVector<QString> m_selectedUsers;
     Parser *m_parser;
     //QVector<PrivateChat>
 private slots:
@@ -51,10 +52,14 @@ private slots:
     void error(QAbstractSocket::SocketError socketError);
     void createRoom();
 
+    void refreshUserList(const QVector<QString> &users);
+    void getUserList();
 
     void on_clientList_itemClicked(QListWidgetItem *item);
-
     void on_clientList_itemDoubleClicked(QListWidgetItem *item);
+signals:
+    void sendJson(const QJsonObject &json);
+    void addUser(const QString &username);
 };
 
 #endif // CHATWONDOW_H

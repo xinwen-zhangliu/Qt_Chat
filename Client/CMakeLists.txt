@@ -17,10 +17,12 @@ add_executable(Client
     Sources/chatwindow.cpp
     Sources/chatclient.cpp
     Sources/parser.cpp
+    Sources/privatechat.cpp
 
     Headers/chatwindow.h
     Headers/chatclient.h
     Headers/parser.h
+    Headers/privatechat.h
 
     ../Common/room.cpp
     ../Common/room.h

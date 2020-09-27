@@ -274,11 +274,10 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: \
  /usr/include/qt6/QtCore/qsharedpointer_impl.h \
  /usr/include/qt6/QtNetwork/qhostaddress.h /usr/include/qt6/QtCore/QTimer \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
- /home/xinwen/proyecto1_Chat/Server/Headers/serverworker.h \
- /home/xinwen/proyecto1_Chat/Server/Headers/user.h \
  /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
  /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/qstring.h \
+ /home/xinwen/proyecto1_Chat/Server/Headers/serverworker.h \
  /usr/include/qt6/QtNetwork/QTcpSocket \
  /usr/include/qt6/QtNetwork/qtcpsocket.h \
  /usr/include/qt6/QtCore/qvariant.h \

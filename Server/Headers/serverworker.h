@@ -1,7 +1,7 @@
 #ifndef SERVERWORKER_H
 #define SERVERWORKER_H
 
-#include "user.h"
+#include "../Common/room.h"
 
 
 #include <QTcpSocket>
@@ -21,6 +21,7 @@ public:
     virtual bool setSocketDescriptor(qintptr socketDescriptor);
     QString userName() const;
     void setUserName(const QString &userName);
+    QVector<QString> getRooms();
 
 public slots:
     void disconnectFromClient();
@@ -38,8 +39,10 @@ signals:
 private:
     QTcpSocket *m_serverSocket;
     QString m_userName;
-    User *user;
     mutable QReadWriteLock m_userNameLock;
+    int m_status;
+    QVector<QString> m_rooms;
+
 };
 
 #endif // SERVERWORKER_H

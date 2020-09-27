@@ -1,6 +1,7 @@
 #include "Headers/chatwindow.h"
 #include "Headers/parser.h"
 #include "Headers/chatclient.h"
+#include "Headers/privatechat.h"
 
 #include "../ui_mainchatwindow.h"
 
@@ -36,6 +37,8 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(m_chatClient, &ChatClient::disconnected, this, &ChatWindow::disconnectedFromServer);
     connect(m_chatClient, &ChatClient::error, this, &ChatWindow::error);
     connect(m_chatClient, &ChatClient::jsonText, this, &ChatWindow::logJson);
+
+    connect(this, &ChatWindow::sendJson, m_chatClient, &ChatClient::sendJson);
 
         //connect(m_chatClient, &ChatClient::loginError, this, &ChatWindow::loginFailed);
 
@@ -160,7 +163,58 @@ void ChatWindow::loggedIn(){
     m_lastUserName.clear();
 
 
+    getUserList();
 
+}
+
+void ChatWindow::getUserList(){
+    QJsonObject getUsers;
+    getUsers[QStringLiteral("type")]= QStringLiteral("USERS");
+    emit sendJson(getUsers);
+}
+void ChatWindow::refreshUserList(const QVector<QString> &users){
+    QVector<QString> copy(users);
+    bool found = false;
+    for(QString name : copy){
+        for(int i = 0 ; i < ui -> clientList ->count(); i++){
+            QString nameInList = ui ->clientList ->item(i) ->text() ;
+            if(name.compare(nameInList)==0){
+                found = true;
+                break;
+            }
+
+        }
+        if(!found){
+            addUser(name);
+            if(copy.indexOf(name)!= -1)
+                copy.remove(copy.indexOf(name));
+
+            found = false;
+        }
+
+    }
+    for(QString name : copy ){
+        for(int i = 0 ; i < ui -> clientList ->count(); i++){
+            QString nameInList = ui ->clientList ->item(i) ->text() ;
+            if(name.compare(nameInList)==0   ){
+                delete ui -> clientList -> takeItem(ui -> clientList -> row(ui ->clientList -> item(i)));
+                break;
+            }
+
+        }
+    }
+
+}
+
+void ChatWindow::addUser(const QString &username){
+    // add user to the connnecter users list
+    QListWidgetItem *item = new QListWidgetItem;
+    item -> setCheckState(Qt::Unchecked);
+    item -> setTextAlignment(Qt::AlignHCenter);
+    item -> setText(username);
+    item -> setBackground(Qt::green);
+
+    ui -> clientList -> addItem(item);
 }
 
 void ChatWindow::loginFailed(const QString &reason){
@@ -232,12 +286,12 @@ void ChatWindow::createRoom(){
     if(ui->groupName->text().isEmpty()){
         QMessageBox::information(this, tr("Info"), tr("You cannot leave the name group blank"));
         return;
-    }else if(selectedUsers.isEmpty()){
+    }else if(m_selectedUsers.isEmpty()){
         QMessageBox::information(this, tr("Info"), tr("You cannot create a group without al least one person"));
         return;
     }
 
-    Room newRoom =
+    //Room newRoom =
 }
 
 void ChatWindow::disconnectedFromServer()
@@ -256,7 +310,7 @@ void ChatWindow::disconnectedFromServer()
 
 void ChatWindow::userJoined(const QString &username)
 {
-
+    //add it as a message in the public chat
     const int newRow = m_chatModel->rowCount();
 
     m_chatModel->insertRow(newRow);
@@ -270,6 +324,10 @@ void ChatWindow::userJoined(const QString &username)
     ui->chatView->scrollToBottom();
 
     m_lastUserName.clear();
+
+
+
+
 }
 void ChatWindow::userLeft(const QString &username)
 {
@@ -296,7 +354,7 @@ void ChatWindow::on_clientList_itemClicked(QListWidgetItem *item)
 {
      qDebug() << "you've  clicked the  item";
      if(item -> checkState() == Qt::Checked){
-        //item -> setBackground(Qt::red);
+        this -> m_selectedUsers.append(item -> text());
      }
 }
 
@@ -307,7 +365,15 @@ void ChatWindow::on_clientList_itemClicked(QListWidgetItem *item)
 void ChatWindow::on_clientList_itemDoubleClicked(QListWidgetItem *item)
 {
     qDebug() << "you've double clicked the  item";
-    //item -> setBackground(Qt::blue);
+    if (!m_privateChats.contains(item->text())) {
+            PrivateChat* privateDialog = new PrivateChat(this, item ->text());
+            // signal from the private message dialog when the user closes it so it can be removed from the list of opened dialogs
+            //connect(privateDialog, &PrivateChat::closeDialog, this, &MainWindow::onClosePrivateDialog);
+            privateDialog->setWindowTitle("Chat with " + item ->text());
+            privateDialog->show();
+
+            m_privateChats.push_back(item -> text());
+        }
 }
 
 

@@ -5,6 +5,7 @@
 #include <QTcpServer>
 #include <QTimer>
 
+#include "../Common/room.h"
 
 class QThread;
 class ServerWorker;
@@ -27,9 +28,11 @@ private:
     QVector<int> m_threadsLoad;
     QVector<ServerWorker *> m_clients; //uno por cliente
     QTimer *m_timer;
+    QVector<Room *> m_rooms;
 private slots:
     void broadcastAll(const QJsonObject &message, ServerWorker *exclude);
-    void broadcastRoom(const QJsonObject &message, ServerWorker *sender);
+    void broadcastRoom(const QJsonObject &message, ServerWorker *sender, const QString &roomName);
+    void broadcastOne(const QJsonObject &message,ServerWorker *sender, const QString &destination);
     void jsonReceived(ServerWorker *sender, const QJsonObject &doc);
     void userDisconnected(ServerWorker *sender, int threadIdx);
     void userError(ServerWorker *sender);
@@ -43,6 +46,7 @@ private:
 signals:
     void logMessage(const QString &msg);
     void stopAllClients();
+    void createRoom(ServerWorker *sender , QVector<QString> users);
 };
 
 #endif // CHATSERVER_H

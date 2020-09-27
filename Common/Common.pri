@@ -1,7 +1,4 @@
 
-
-
-
 SOURCES += \
     $$PWD/room.cpp
 

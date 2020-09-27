@@ -76,6 +76,9 @@ void ChatClient::sendJson(const QJsonObject &jsonObj){
 
 void ChatClient::disconnectFromHost()
 {
+    const QJsonObject disconnect;
+    disconnect[QStringLiteral("type")]= QStringLiteral("DISCONNECT");
+    sendJson(disconnect);
     m_clientSocket->disconnectFromHost();
 }
 

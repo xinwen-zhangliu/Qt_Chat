@@ -22,7 +22,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Parser_t {
-    uint offsetsAndSizes[34];
+    uint offsetsAndSizes[40];
     char stringdata0[7];
     char stringdata1[9];
     char stringdata2[1];
@@ -39,7 +39,10 @@ struct qt_meta_stringdata_Parser_t {
     char stringdata13[9];
     char stringdata14[5];
     char stringdata15[10];
-    char stringdata16[10];
+    char stringdata16[15];
+    char stringdata17[18];
+    char stringdata18[9];
+    char stringdata19[10];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Parser_t::offsetsAndSizes) + ofs), len 
@@ -61,7 +64,10 @@ static const qt_meta_stringdata_Parser_t qt_meta_stringdata_Parser = {
         QT_MOC_LITERAL(120, 8),  // "sendJson"
         QT_MOC_LITERAL(129, 4),  // "json"
         QT_MOC_LITERAL(134, 9),  // "newStatus"
-        QT_MOC_LITERAL(144, 9)   // "parseJson"
+        QT_MOC_LITERAL(144, 14),  // "newRoomCreated"
+        QT_MOC_LITERAL(159, 17),  // "errorCreatingRoom"
+        QT_MOC_LITERAL(177, 8),  // "roomName"
+        QT_MOC_LITERAL(186, 9)   // "parseJson"
     },
     "Parser",
     "loggedIn",
@@ -79,6 +85,9 @@ static const qt_meta_stringdata_Parser_t qt_meta_stringdata_Parser = {
     "sendJson",
     "json",
     "newStatus",
+    "newRoomCreated",
+    "errorCreatingRoom",
+    "roomName",
     "parseJson"
 };
 #undef QT_MOC_LITERAL
@@ -89,25 +98,27 @@ static const uint qt_meta_data_Parser[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       8,       // signalCount
+      10,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   68,    2, 0x06,    1 /* Public */,
-       3,    1,   69,    2, 0x06,    2 /* Public */,
-       5,    2,   72,    2, 0x06,    4 /* Public */,
-       8,    1,   77,    2, 0x06,    7 /* Public */,
-      10,    1,   80,    2, 0x06,    9 /* Public */,
-      11,    1,   83,    2, 0x06,   11 /* Public */,
-      13,    1,   86,    2, 0x06,   13 /* Public */,
-      15,    2,   89,    2, 0x06,   15 /* Public */,
+       1,    0,   80,    2, 0x06,    1 /* Public */,
+       3,    1,   81,    2, 0x06,    2 /* Public */,
+       5,    2,   84,    2, 0x06,    4 /* Public */,
+       8,    1,   89,    2, 0x06,    7 /* Public */,
+      10,    1,   92,    2, 0x06,    9 /* Public */,
+      11,    1,   95,    2, 0x06,   11 /* Public */,
+      13,    1,   98,    2, 0x06,   13 /* Public */,
+      15,    2,  101,    2, 0x06,   15 /* Public */,
+      16,    0,  106,    2, 0x06,   18 /* Public */,
+      17,    1,  107,    2, 0x06,   19 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      16,    1,   94,    2, 0x0a,   18 /* Public */,
+      19,    1,  110,    2, 0x0a,   21 /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -118,6 +129,8 @@ static const uint qt_meta_data_Parser[] = {
     QMetaType::Void, QMetaType::QJsonArray,   12,
     QMetaType::Void, QMetaType::QJsonObject,   14,
     QMetaType::Void, QMetaType::QString, QMetaType::Int,    9,   15,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   18,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QJsonObject,   14,
@@ -139,7 +152,9 @@ void Parser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 5: _t->receivedUserList((*reinterpret_cast< std::add_pointer_t<QJsonArray>>(_a[1]))); break;
         case 6: _t->sendJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
         case 7: _t->newStatus((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 8: _t->parseJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 8: _t->newRoomCreated(); break;
+        case 9: _t->errorCreatingRoom((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 10: _t->parseJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -200,6 +215,20 @@ void Parser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
                 return;
             }
         }
+        {
+            using _t = void (Parser::*)();
+            if (_t _q_method = &Parser::newRoomCreated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 8;
+                return;
+            }
+        }
+        {
+            using _t = void (Parser::*)(const QString & );
+            if (_t _q_method = &Parser::errorCreatingRoom; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 9;
+                return;
+            }
+        }
     }
 }
 
@@ -210,7 +239,7 @@ const QMetaObject Parser::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Parser_t
-, QtPrivate::TypeAndForceComplete<Parser, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonArray &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const int &, std::false_type>
+, QtPrivate::TypeAndForceComplete<Parser, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonArray &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const int &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>
 
 
@@ -238,13 +267,13 @@ int Parser::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 11;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 11)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 11;
     }
     return _id;
 }
@@ -302,6 +331,19 @@ void Parser::newStatus(const QString & _t1, const int & _t2)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
     QMetaObject::activate(this, &staticMetaObject, 7, _a);
+}
+
+// SIGNAL 8
+void Parser::newRoomCreated()
+{
+    QMetaObject::activate(this, &staticMetaObject, 8, nullptr);
+}
+
+// SIGNAL 9
+void Parser::errorCreatingRoom(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 9, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

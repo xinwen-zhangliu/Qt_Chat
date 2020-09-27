@@ -44,8 +44,34 @@ void Parser::parseJson(const QJsonObject &json){
 
         }
 
+        //NEW_ROOM
+        if(operationVal.toString().compare(QLatin1String("NEW_ROOM"))== 0){
+            if(messageVal.toString().compare(QLatin1String("success"))==0){
+                emit newRoomCreated();
+            }
+        }
 
     }
+
+    //USER_LIST
+    if(typeVal.toString().compare(QLatin1String("USER_LIST"))==0){
+        const QJsonArray users = json.value(QLatin1String("usernames")).toArray();
+
+        emit receivedUserList(users);
+    }
+
+    //WARNING
+    if(typeVal.toString().compare(QLatin1String("INFO"))==0){
+        if(!operationVal.isNull() || operationVal.isString()){
+            if(operationVal.toString().compare(QLatin1String("NEW_ROOM"))==0){
+                const QJsonValue roomnameVal= json.value(QLatin1String("roomname"));
+                emit errorCreatingRoom(roomnameVal.toString());
+            }else if(operationVal.toString().compare(QLatin1String("IDENTIFY"))==0){
+                emit loginError(messageVal.toString());
+            }
+        }
+    }
+
 
     const QJsonValue usernameVal = json.value(QLatin1String("username"));
 
@@ -91,6 +117,9 @@ void Parser::parseJson(const QJsonObject &json){
         }
 
     }
+
+
+
 
 
 }

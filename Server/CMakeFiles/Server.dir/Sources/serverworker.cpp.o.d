@@ -2,7 +2,6 @@ Server/CMakeFiles/Server.dir/Sources/serverworker.cpp.o: \
  /home/xinwen/proyecto1_Chat/Server/Sources/serverworker.cpp \
  /usr/include/stdc-predef.h \
  /home/xinwen/proyecto1_Chat/Server/Headers/serverworker.h \
- /home/xinwen/proyecto1_Chat/Server/Headers/user.h \
  /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
  /usr/include/qt6/QtCore/qobjectdefs.h \
@@ -251,9 +250,9 @@ Server/CMakeFiles/Server.dir/Sources/serverworker.cpp.o: \
  /usr/include/qt6/QtCore/qobject_impl.h \
  /usr/include/qt6/QtCore/qbindingstorage.h /usr/include/c++/12.2.0/chrono \
  /usr/include/c++/12.2.0/bits/chrono.h /usr/include/c++/12.2.0/ratio \
- /usr/include/c++/12.2.0/ctime /usr/include/qt6/QtCore/QVector \
- /usr/include/qt6/QtCore/qvector.h /usr/include/qt6/QtCore/QString \
- /usr/include/qt6/QtCore/qstring.h /usr/include/qt6/QtNetwork/QTcpSocket \
+ /usr/include/c++/12.2.0/ctime /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/qstring.h /usr/include/qt6/QtCore/QVector \
+ /usr/include/qt6/QtCore/qvector.h /usr/include/qt6/QtNetwork/QTcpSocket \
  /usr/include/qt6/QtNetwork/qtcpsocket.h \
  /usr/include/qt6/QtNetwork/qtnetworkglobal.h \
  /usr/include/qt6/QtNetwork/qtnetwork-config.h \

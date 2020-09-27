@@ -2,24 +2,21 @@
 #define ROOM_H
 
 #include <QObject>
-#include <QVector>
 #include <QString>
+#include <QVector>
+
 
 class Room : public QObject
 {
-    Q_OBJECT
+     Q_OBJECT
 public:
-    explicit Room(QObject *parent = nullptr, QString roomName = "", QVector<QString>* users = 0);
-private:
-    QVector<QString> users;
-    QString roomName;
+    explicit Room(QString roomName, QVector<QString> users , QObject *parent = nullptr);
 
 public slots:
-    void addUser(const QString &username);
-    void eliminateUser(const QString &username);
-    QVector<QString> getUsers();
-
-
+    QString getRoomName();
+private:
+    QString m_roomName;
+    QVector<QString> m_users;
 };
 
 #endif // ROOM_H

@@ -319,7 +319,8 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtWidgets/qabstractslider.h \
  /usr/include/qt6/QtWidgets/qstyle.h /usr/include/qt6/QtWidgets/qtabbar.h \
  /usr/include/qt6/QtWidgets/qtabwidget.h \
- /usr/include/qt6/QtWidgets/qrubberband.h \
+ /usr/include/qt6/QtWidgets/qrubberband.h /usr/include/qt6/QtCore/QList \
+ /usr/include/qt6/QtCore/qlist.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/moc_parser.cpp \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/parser.h \
  /usr/include/qt6/QtCore/QJsonObject \

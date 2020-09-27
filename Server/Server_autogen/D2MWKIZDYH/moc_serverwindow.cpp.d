@@ -2,7 +2,6 @@
   /home/xinwen/proyecto1_Chat/Server/Server_autogen/moc_predefs.h \
   /home/xinwen/proyecto1_Chat/Common/room.h \
   /home/xinwen/proyecto1_Chat/Server/Headers/serverworker.h \
-  /home/xinwen/proyecto1_Chat/Server/Headers/user.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \

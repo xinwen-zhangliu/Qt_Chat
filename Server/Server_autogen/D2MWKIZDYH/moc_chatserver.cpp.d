@@ -1,5 +1,6 @@
 /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_chatserver.cpp: /home/xinwen/proyecto1_Chat/Server/Headers/chatserver.h \
   /home/xinwen/proyecto1_Chat/Server/Server_autogen/moc_predefs.h \
+  /home/xinwen/proyecto1_Chat/Common/room.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -267,6 +268,8 @@
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
+  /usr/include/qt6/QtCore/QObject \
+  /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/QTimer \
   /usr/include/qt6/QtCore/QVector \
   /usr/include/qt6/QtCore/qalgorithms.h \

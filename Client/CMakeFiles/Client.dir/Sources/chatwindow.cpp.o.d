@@ -328,6 +328,40 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: \
  /usr/include/qt6/QtNetwork/qtcpsocket.h \
  /usr/include/qt6/QtNetwork/qabstractsocket.h \
  /usr/include/qt6/QtNetwork/qhostaddress.h \
+ /home/xinwen/proyecto1_Chat/Client/Headers/privatechat.h \
+ /usr/include/qt6/QtWidgets/QDialog /usr/include/qt6/QtWidgets/qdialog.h \
+ /usr/include/qt6/QtWidgets/QFileDialog \
+ /usr/include/qt6/QtWidgets/qfiledialog.h /usr/include/qt6/QtCore/qdir.h \
+ /usr/include/qt6/QtCore/qfile.h /usr/include/qt6/QtCore/qfiledevice.h \
+ /usr/include/c++/12.2.0/filesystem /usr/include/c++/12.2.0/bits/fs_fwd.h \
+ /usr/include/c++/12.2.0/bits/fs_path.h /usr/include/c++/12.2.0/locale \
+ /usr/include/c++/12.2.0/bits/locale_facets.h \
+ /usr/include/c++/12.2.0/cwctype /usr/include/wctype.h \
+ /usr/include/bits/wctype-wchar.h \
+ /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/ctype_base.h \
+ /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/ctype_inline.h \
+ /usr/include/c++/12.2.0/bits/locale_facets.tcc \
+ /usr/include/c++/12.2.0/bits/locale_facets_nonio.h \
+ /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/time_members.h \
+ /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/12.2.0/bits/codecvt.h \
+ /usr/include/c++/12.2.0/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/12.2.0/bits/locale_conv.h \
+ /usr/include/c++/12.2.0/iomanip \
+ /usr/include/c++/12.2.0/bits/quoted_string.h \
+ /usr/include/c++/12.2.0/sstream /usr/include/c++/12.2.0/istream \
+ /usr/include/c++/12.2.0/ios /usr/include/c++/12.2.0/bits/basic_ios.h \
+ /usr/include/c++/12.2.0/bits/basic_ios.tcc \
+ /usr/include/c++/12.2.0/ostream /usr/include/c++/12.2.0/bits/ostream.tcc \
+ /usr/include/c++/12.2.0/bits/istream.tcc \
+ /usr/include/c++/12.2.0/bits/sstream.tcc /usr/include/c++/12.2.0/codecvt \
+ /usr/include/c++/12.2.0/bits/fs_dir.h \
+ /usr/include/c++/12.2.0/bits/fs_ops.h \
+ /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtWidgets/qdialog.h \
+ /usr/include/qt6/QtCore/QFile /usr/include/qt6/QtCore/qfile.h \
+ /usr/include/qt6/QtCore/QByteArray /usr/include/qt6/QtCore/qbytearray.h \
+ /usr/include/qt6/QtWidgets/QMessageBox \
+ /usr/include/qt6/QtWidgets/qmessagebox.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/include/../ui_mainchatwindow.h \
  /usr/include/qt6/QtCore/QVariant /usr/include/qt6/QtCore/qvariant.h \
  /usr/include/qt6/QtWidgets/QApplication \
@@ -368,9 +402,6 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: \
  /usr/include/qt6/QtWidgets/QInputDialog \
  /usr/include/qt6/QtWidgets/qinputdialog.h \
  /usr/include/qt6/QtWidgets/qlineedit.h \
- /usr/include/qt6/QtWidgets/qdialog.h \
- /usr/include/qt6/QtWidgets/QMessageBox \
- /usr/include/qt6/QtWidgets/qmessagebox.h \
  /usr/include/qt6/QtNetwork/QHostAddress \
  /usr/include/qt6/QtNetwork/qhostaddress.h /usr/include/qt6/QtCore/QTimer \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \

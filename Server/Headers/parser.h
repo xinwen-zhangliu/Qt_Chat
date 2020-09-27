@@ -1,10 +1,12 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+
 #include <QObject>
 #include <QJsonObject>
 
 class QJsonObject;
+class ServerWorker;
 
 class Parser : public QObject
 {
@@ -14,17 +16,20 @@ public:
     explicit Parser(QObject *parent = nullptr);
 
 public slots:
-    void parseJson(const QJsonObject &json);
+    void parseJson(ServerWorker *sender,const QJsonObject &json);
 private:
 
 signals:
-    void invalidJson();
-    void identifySucess();
-    void publicMessage(const QJsonObject &newJson);
-    void privateMessage();
-    void roomMessage(const QString &user, const QString &message);
+    void invalidJson(ServerWorker *sender);
+    void publicMessage(ServerWorker *sender,const QJsonObject &newJson);
+    void privateMessage(ServerWorker *sender, const QString *destination);
+    void roomMessage(ServerWorker *sender,const QString &roomName, const QString &message);
     void userListRequest();
-    void updateStatus(const int status);
+    void updateStatus(ServerWorker *sender, const int status);
+    void newRoom(ServerWorker *sender, const QString *roomName, QVector<QString> users);
+    void invitation(ServerWorker *sender, const QString *destination);
+    void leaveRoom(ServerWorker *sender);
+
 
 };
 

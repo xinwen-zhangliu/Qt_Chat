@@ -1,3 +1,22 @@
+#ifndef GROUPCHAT_H
+#define GROUPCHAT_H
+
+#include <QObject>
+
+#include <QDialog>
+#include <QByteArray>
+#include <QMessageBox>
+
+
+namespace Ui {class GroupChat;}
+
+class GroupChat : public QDialog
+{
+public:
+    explicit GroupChat();
+};
+
+#endif // GROUPCHAT_H
 #ifndef PRIVATECHAT_
 #define PRIVATECHAT_HPP
 
@@ -14,7 +33,7 @@ namespace Ui {
 }
 
 class PrivateChat : public QDialog {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit PrivateChat(QWidget* parent = 0, QString chatPartner = "");
@@ -22,16 +41,16 @@ public:
 
 private:
     Ui::PrivateChat* ui;
-	QString chatPartner;
+    QString chatPartner;
 
 signals:
-	void closeDialog(QString username);
-	void sendPrivateMessage(QString receiver, QString message, QString sender);
-	void sendFile(QByteArray blob, int fileSize, QString receiver, QString sender);
+    void closeDialog(QString username);
+    void sendPrivateMessage(QString receiver, QString message, QString sender);
+    void sendFile(QByteArray blob, int fileSize, QString receiver, QString sender);
 
 public slots:
     void onReceivedPrivateMessage(QString sender, QString message);
-	void onSendMessageButtonClicked();
+    void onSendMessageButtonClicked();
     QString getChatPartnerName();
 };
 
