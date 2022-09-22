@@ -9,25 +9,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += debug_and_release
 
-SOURCES += Sources/*.cpp \
-    Headers/room.cpp \
-    Headers/room.cpp \
-    Sources/chatwindow.cpp \
+SOURCES += \
+    clientmain.cpp \
+    Sources/chatwindow.h \
     Sources/room.cpp \
-    Sources/rooms.cpp
-
-FORMS += Forms/*.ui \
-    Forms/clientlistitem.ui \
+    Sources/chatclient.cpp \
+    Sources/parser.cpp \
+    Sources/chatwindow.cpp
+FORMS += \
     Forms/clientlistitem.ui \
     Forms/mainchatwindow.ui \
     Forms/privatechats.ui
-
-
-HEADERS += Headers/*.h \
+HEADERS += \
     Headers/chatwindow.h \
     Headers/room.h \
-    Sources/chatwindow.h \
-    Sources/room.h \
-    Sources/rooms.h
-
-
+    Headers/chatclient.h \
+    Headers/parser.h
