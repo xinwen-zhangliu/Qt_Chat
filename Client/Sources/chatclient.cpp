@@ -1,6 +1,6 @@
 #include "Headers/chatclient.h"
 
-chatclient::chatclient()
+Chatclient::Chatclient()
 {
 
 }

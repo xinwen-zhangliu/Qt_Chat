@@ -3,10 +3,12 @@
 
 #include <QObject>
 
-class chatclient
+class Chatclient
 {
 public:
-    chatclient();
+    Chatclient();
+private:
+
 };
 
 #endif // CHATCLIENT_H
