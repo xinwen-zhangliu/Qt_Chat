@@ -23,11 +23,13 @@ public slots:
      void connectToServer(const QHostAddress &address, quint16 port);
      void login(const QString &username);
      void sendPublicMessage(const QString &text);
-
+     //
+     //void createRoom(const QString &groupName, const QVector<QString> users);
      void askUserList();
  private slots:
      void onReadyRead();
      void sendJson(const QJsonObject &jsonOnj);
+
  signals:
      void connected();
      void loggedIn();
@@ -42,10 +44,11 @@ public slots:
      void receivedUserList( const QJsonArray &list);
      void jsonReceived(const QJsonObject &doc);
 private:
+    QTcpSocket *m_clientSocket;
     int m_status; // 1=ACTIVE,  2=AWAY,  3=BUSY
     bool m_loggedIn;
     Parser *m_parser;
-    QTcpSocket *m_clientSocket;
+
 };
 
 #endif // CHATCLIENT_H

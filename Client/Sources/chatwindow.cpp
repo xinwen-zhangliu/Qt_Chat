@@ -1,6 +1,8 @@
 #include "Headers/chatwindow.h"
+
 #include "../ui_mainchatwindow.h"
 #include "Headers/chatclient.h"
+
 
 #include <QStandardItemModel>
 #include <QInputDialog>
@@ -11,6 +13,7 @@ ChatWindow::ChatWindow(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::ChatWindow)
     , m_chatClient(new ChatClient(this))
+    , m_chatModel(new QStandardItemModel(this))
 {
 
     ui->setupUi(this);
@@ -24,7 +27,7 @@ ChatWindow::ChatWindow(QWidget *parent)
 
 
     connect(m_chatClient, &ChatClient::loginError, this, &ChatWindow::loginFailed);
-    connect(m_chatClient, &ChatClient::showConnected, this, &ChatWindow::showConnected);
+
 
     connect(m_chatClient, &ChatClient::jsonText, this, &ChatWindow::logJson);
     connect(m_chatClient, &ChatClient::receivedUserList, this, &ChatWindow::displayUserList);
@@ -35,16 +38,209 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(m_chatClient, &ChatClient::error, this, &ChatWindow::error);
     connect(m_chatClient, &ChatClient::userJoined, this, &ChatWindow::userJoined);
     connect(m_chatClient, &ChatClient::userLeft, this, &ChatWindow::userLeft);
-    // connect the connect button to a slot that will attempt the connection
+
     connect(ui->connectButton, &QPushButton::clicked, this, &ChatWindow::attemptConnection);
 
     connect(ui->sendButton, &QPushButton::clicked, this, &ChatWindow::sendMessage);
     connect(ui->messageEdit, &QLineEdit::returnPressed, this, &ChatWindow::sendMessage);
     connect(ui->disconnnectButton, &QPushButton::clicked, m_chatClient, &ChatClient::disconnectFromHost);
 
+    //connect(ui->createGroup, &QPushButton::clicked , m_chatClient, &ChatClient::createRoom);
+    //connect(ui->groupName, &QLineEdit::returnPressed, m_chatClient, &ChatClient::createRoom);
+
+}
+
+ChatWindow::~ChatWindow(){
+    delete ui;
+}
+
+void ChatWindow::attemptConnection(){
+
+    const QString hostAddress = QInputDialog::getText(
+        this
+        , tr("Chose Server")
+        , tr("Server Address")
+        , QLineEdit::Normal
+        , QStringLiteral("127.0.0.1")
+    );
+
+    if (hostAddress.isEmpty())
+        return;
+    const QString port= QInputDialog::getText(
+        this
+        , tr("Choose port")
+        , tr("Port Number")
+        , QLineEdit::Normal
+        , QStringLiteral("1234")
+    );
+    if (port.isEmpty())
+        return;
+
+    bool isPort ;
+    unsigned short portNumber = port.toUShort(&isPort);
+    if (hostAddress.isEmpty())
+        return;
+
+    ui->connectButton->setEnabled(false);
+    if(!isPort){
+        ui->connectButton->setEnabled(true);
+        QMessageBox::information(this, tr("Error"), tr("Port number not valid"));
+        return;
+    }
+
+    m_chatClient->connectToServer(QHostAddress(hostAddress), portNumber);
 }
 
 
+void ChatWindow::connectedToServer(){
+    // once we connected
+    const QString newUsername = QInputDialog::getText(this, tr("Chose Username"), tr("Username"));
+    if (newUsername.isEmpty()){
+        return m_chatClient->disconnectFromHost();
+    }
+
+    attemptLogin(newUsername);
+}
+
+void ChatWindow::attemptLogin(const QString &userName){
+    m_chatClient->login(userName);
+}
+
+
+
+
+
+void ChatWindow::loggedIn(){
+    qDebug() << "ChatWindow::loggedIn";
+
+    ui->sendButton->setEnabled(true);
+    ui->messageEdit->setEnabled(true);
+    ui->chatView->setEnabled(true);
+
+    m_lastUserName.clear();
+
+
+
+}
+
+void ChatWindow::loginFailed(const QString &reason){
+
+    QMessageBox::critical(this, tr("Error"), reason);
+
+    connectedToServer();
+}
+
+void ChatWindow::logJson(const QString &json){
+       QMessageBox::information(this, tr("Json text"), json);
+}
+
+
+void ChatWindow::publicMessageReceived(const QString &sender, const QString &text)
+{
+
+    int newRow = m_chatModel->rowCount();
+
+    if (m_lastUserName != sender) {
+
+        m_lastUserName = sender;
+
+        QFont boldFont;
+        boldFont.setBold(true);
+
+        m_chatModel->insertRows(newRow, 2);
+
+        m_chatModel->setData(m_chatModel->index(newRow, 0), sender + QLatin1Char(':'));
+
+        m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
+
+        m_chatModel->setData(m_chatModel->index(newRow, 0), boldFont, Qt::FontRole);
+        ++newRow;
+    } else {
+
+        m_chatModel->insertRow(newRow);
+    }
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), text);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
+
+    ui->chatView->scrollToBottom();
+}
+
+
+void ChatWindow::sendMessage()
+{
+
+    m_chatClient->sendPublicMessage(ui->messageEdit->text());
+
+    const int newRow = m_chatModel->rowCount();
+
+    m_chatModel->insertRow(newRow);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), ui->messageEdit->text());
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignRight | Qt::AlignVCenter), Qt::TextAlignmentRole);
+
+    ui->messageEdit->clear();
+
+    ui->chatView->scrollToBottom();
+
+    m_lastUserName.clear();
+}
+
+void ChatWindow::disconnectedFromServer()
+{
+
+    QMessageBox::warning(this, tr("Disconnected"), tr("The host terminated the connection"));
+
+    ui->sendButton->setEnabled(false);
+    ui->messageEdit->setEnabled(false);
+    ui->chatView->setEnabled(false);
+
+    ui->connectButton->setEnabled(true);
+
+    m_lastUserName.clear();
+}
+
+void ChatWindow::userJoined(const QString &username)
+{
+
+    const int newRow = m_chatModel->rowCount();
+
+    m_chatModel->insertRow(newRow);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 Joined the Chat").arg(username));
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::blue), Qt::ForegroundRole);
+
+    ui->chatView->scrollToBottom();
+
+    m_lastUserName.clear();
+}
+void ChatWindow::userLeft(const QString &username)
+{
+
+    const int newRow = m_chatModel->rowCount();
+
+    m_chatModel->insertRow(newRow);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 Left the Chat").arg(username));
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::red), Qt::ForegroundRole);
+
+    ui->chatView->scrollToBottom();
+
+    m_lastUserName.clear();
+}
+
+
+void ChatWindow::displayUserList(){
+
+}
 
 void ChatWindow::error(QAbstractSocket::SocketError socketError){
 
@@ -123,13 +319,13 @@ void ChatWindow::error(QAbstractSocket::SocketError socketError){
     default:
         Q_UNREACHABLE();
     }
-    // enable the button to connect to the server again
+
     ui->connectButton->setEnabled(true);
-    // disable the ui to send and display messages
+
     ui->sendButton->setEnabled(false);
     ui->messageEdit->setEnabled(false);
     ui->chatView->setEnabled(false);
-    // reset the last printed username
+
     m_lastUserName.clear();
 
 }

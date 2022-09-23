@@ -4,12 +4,14 @@ TARGET = Server
 TEMPLATE = app
 
 DEFINES += QT_DEPRECATED_WARNINGS
+CONFIG += debug_and_release
 
-SOURCES +=
+SOURCES += \
+    servermain.cpp
 
 HEADERS +=
 
 
-CONFIG += debug_and_release
+
 
 FORMS +=
