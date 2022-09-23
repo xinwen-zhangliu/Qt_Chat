@@ -13,8 +13,39 @@ ChatWindow::ChatWindow(QWidget *parent)
     , m_chatClient(new ChatClient(this))
 {
 
+    ui->setupUi(this);
+    m_chatModel->insertColumn(0);
+    ui->chatView->setModel(m_chatModel);
+
+
+    //connecting signals to slots
+    connect(m_chatClient, &ChatClient::connected, this, &ChatWindow::connectedToServer);
+    connect(m_chatClient, &ChatClient::loggedIn, this, &ChatWindow::loggedIn);
+
+
+    connect(m_chatClient, &ChatClient::loginError, this, &ChatWindow::loginFailed);
+    connect(m_chatClient, &ChatClient::showConnected, this, &ChatWindow::showConnected);
+
+    connect(m_chatClient, &ChatClient::jsonText, this, &ChatWindow::logJson);
+    connect(m_chatClient, &ChatClient::receivedUserList, this, &ChatWindow::displayUserList);
+
+    //connnect(m_parser, &Parser::showWarning, this, &ChatWindow::showJson);
+    connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
+    connect(m_chatClient, &ChatClient::disconnected, this, &ChatWindow::disconnectedFromServer);
+    connect(m_chatClient, &ChatClient::error, this, &ChatWindow::error);
+    connect(m_chatClient, &ChatClient::userJoined, this, &ChatWindow::userJoined);
+    connect(m_chatClient, &ChatClient::userLeft, this, &ChatWindow::userLeft);
+    // connect the connect button to a slot that will attempt the connection
+    connect(ui->connectButton, &QPushButton::clicked, this, &ChatWindow::attemptConnection);
+
+    connect(ui->sendButton, &QPushButton::clicked, this, &ChatWindow::sendMessage);
+    connect(ui->messageEdit, &QLineEdit::returnPressed, this, &ChatWindow::sendMessage);
+    connect(ui->disconnnectButton, &QPushButton::clicked, m_chatClient, &ChatClient::disconnectFromHost);
 
 }
+
+
+
 void ChatWindow::error(QAbstractSocket::SocketError socketError){
 
     switch (socketError) {
