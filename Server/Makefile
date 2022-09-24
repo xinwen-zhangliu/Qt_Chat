@@ -168,6 +168,126 @@ Server_autogen/mocs_compilation.cpp.s:
 	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.s
 .PHONY : Server_autogen/mocs_compilation.cpp.s
 
+Sources/chatserver.o: Sources/chatserver.cpp.o
+.PHONY : Sources/chatserver.o
+
+# target to build an object file
+Sources/chatserver.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o
+.PHONY : Sources/chatserver.cpp.o
+
+Sources/chatserver.i: Sources/chatserver.cpp.i
+.PHONY : Sources/chatserver.i
+
+# target to preprocess a source file
+Sources/chatserver.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.i
+.PHONY : Sources/chatserver.cpp.i
+
+Sources/chatserver.s: Sources/chatserver.cpp.s
+.PHONY : Sources/chatserver.s
+
+# target to generate assembly for a file
+Sources/chatserver.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.s
+.PHONY : Sources/chatserver.cpp.s
+
+Sources/room.o: Sources/room.cpp.o
+.PHONY : Sources/room.o
+
+# target to build an object file
+Sources/room.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/room.cpp.o
+.PHONY : Sources/room.cpp.o
+
+Sources/room.i: Sources/room.cpp.i
+.PHONY : Sources/room.i
+
+# target to preprocess a source file
+Sources/room.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/room.cpp.i
+.PHONY : Sources/room.cpp.i
+
+Sources/room.s: Sources/room.cpp.s
+.PHONY : Sources/room.s
+
+# target to generate assembly for a file
+Sources/room.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/room.cpp.s
+.PHONY : Sources/room.cpp.s
+
+Sources/serverwindow.o: Sources/serverwindow.cpp.o
+.PHONY : Sources/serverwindow.o
+
+# target to build an object file
+Sources/serverwindow.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/serverwindow.cpp.o
+.PHONY : Sources/serverwindow.cpp.o
+
+Sources/serverwindow.i: Sources/serverwindow.cpp.i
+.PHONY : Sources/serverwindow.i
+
+# target to preprocess a source file
+Sources/serverwindow.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/serverwindow.cpp.i
+.PHONY : Sources/serverwindow.cpp.i
+
+Sources/serverwindow.s: Sources/serverwindow.cpp.s
+.PHONY : Sources/serverwindow.s
+
+# target to generate assembly for a file
+Sources/serverwindow.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/serverwindow.cpp.s
+.PHONY : Sources/serverwindow.cpp.s
+
+Sources/serverworker.o: Sources/serverworker.cpp.o
+.PHONY : Sources/serverworker.o
+
+# target to build an object file
+Sources/serverworker.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/serverworker.cpp.o
+.PHONY : Sources/serverworker.cpp.o
+
+Sources/serverworker.i: Sources/serverworker.cpp.i
+.PHONY : Sources/serverworker.i
+
+# target to preprocess a source file
+Sources/serverworker.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/serverworker.cpp.i
+.PHONY : Sources/serverworker.cpp.i
+
+Sources/serverworker.s: Sources/serverworker.cpp.s
+.PHONY : Sources/serverworker.s
+
+# target to generate assembly for a file
+Sources/serverworker.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/serverworker.cpp.s
+.PHONY : Sources/serverworker.cpp.s
+
+Sources/user.o: Sources/user.cpp.o
+.PHONY : Sources/user.o
+
+# target to build an object file
+Sources/user.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/user.cpp.o
+.PHONY : Sources/user.cpp.o
+
+Sources/user.i: Sources/user.cpp.i
+.PHONY : Sources/user.i
+
+# target to preprocess a source file
+Sources/user.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/user.cpp.i
+.PHONY : Sources/user.cpp.i
+
+Sources/user.s: Sources/user.cpp.s
+.PHONY : Sources/user.s
+
+# target to generate assembly for a file
+Sources/user.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/user.cpp.s
+.PHONY : Sources/user.cpp.s
+
 servermain.o: servermain.cpp.o
 .PHONY : servermain.o
 
@@ -205,6 +325,21 @@ help:
 	@echo "... Server_autogen/mocs_compilation.o"
 	@echo "... Server_autogen/mocs_compilation.i"
 	@echo "... Server_autogen/mocs_compilation.s"
+	@echo "... Sources/chatserver.o"
+	@echo "... Sources/chatserver.i"
+	@echo "... Sources/chatserver.s"
+	@echo "... Sources/room.o"
+	@echo "... Sources/room.i"
+	@echo "... Sources/room.s"
+	@echo "... Sources/serverwindow.o"
+	@echo "... Sources/serverwindow.i"
+	@echo "... Sources/serverwindow.s"
+	@echo "... Sources/serverworker.o"
+	@echo "... Sources/serverworker.i"
+	@echo "... Sources/serverworker.s"
+	@echo "... Sources/user.o"
+	@echo "... Sources/user.i"
+	@echo "... Sources/user.s"
 	@echo "... servermain.o"
 	@echo "... servermain.i"
 	@echo "... servermain.s"

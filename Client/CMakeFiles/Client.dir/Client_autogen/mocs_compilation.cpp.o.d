@@ -102,7 +102,6 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/12.2.0/pstl/glue_memory_defs.h \
  /usr/include/c++/12.2.0/pstl/execution_defs.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/chatclient.h \
- /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/parser.h \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
  /usr/include/qt6/QtCore/qobjectdefs.h \
  /usr/include/qt6/QtCore/qnamespace.h /usr/include/qt6/QtCore/qglobal.h \
@@ -301,4 +300,15 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtNetwork/QAbstractSocket \
  /usr/include/qt6/QtNetwork/qabstractsocket.h \
  /usr/include/qt6/QtCore/QVector /usr/include/qt6/QtCore/qvector.h \
- /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/qstring.h
+ /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/qstring.h \
+ /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/moc_parser.cpp \
+ /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/parser.h \
+ /usr/include/qt6/QtCore/QJsonObject \
+ /usr/include/qt6/QtCore/qjsonobject.h \
+ /usr/include/qt6/QtCore/qjsonvalue.h \
+ /usr/include/qt6/QtCore/qcborvalue.h /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qlocale.h \
+ /usr/include/qt6/QtCore/qcborcommon.h \
+ /usr/include/qt6/QtCore/qregularexpression.h \
+ /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
+ /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h

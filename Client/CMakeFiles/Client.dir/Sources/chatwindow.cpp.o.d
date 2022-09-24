@@ -347,7 +347,6 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: \
  /usr/include/qt6/QtWidgets/QVBoxLayout \
  /usr/include/qt6/QtWidgets/QWidget \
  /home/xinwen/proyecto1_Chat/Client/Headers/chatclient.h \
- /home/xinwen/proyecto1_Chat/Client/Headers/parser.h \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
  /usr/include/qt6/QtNetwork/QTcpSocket \
  /usr/include/qt6/QtNetwork/qtcpsocket.h \

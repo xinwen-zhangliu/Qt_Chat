@@ -20,7 +20,7 @@ add_executable(Client
     Sources/parser.cpp
     Headers/chatwindow.h
     Headers/chatclient.h
-
+    Headers/parser.h
 
 )
 target_link_libraries(Client PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Network)

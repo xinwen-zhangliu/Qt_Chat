@@ -2,7 +2,6 @@ Client/CMakeFiles/Client.dir/Sources/chatclient.cpp.o: \
  /home/xinwen/proyecto1_Chat/Client/Sources/chatclient.cpp \
  /usr/include/stdc-predef.h \
  /home/xinwen/proyecto1_Chat/Client/Headers/chatclient.h \
- /home/xinwen/proyecto1_Chat/Client/Headers/parser.h \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
  /usr/include/qt6/QtCore/qobjectdefs.h \
  /usr/include/qt6/QtCore/qnamespace.h /usr/include/qt6/QtCore/qglobal.h \

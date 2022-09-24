@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Server_autogen"
+  "Server_autogen/include/forms/ui_serverwindow.h"
   "Server_autogen/mocs_compilation.cpp"
 )
 

@@ -294,7 +294,39 @@
 	"CMAKE_SOURCE_DIR" : "/home/xinwen/proyecto1_Chat",
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"/home/xinwen/proyecto1_Chat/Server/Headers/chatserver.h",
+			"MU",
+			"D2MWKIZDYH/moc_chatserver.cpp",
+			null
+		],
+		[
+			"/home/xinwen/proyecto1_Chat/Server/Headers/room.h",
+			"MU",
+			"D2MWKIZDYH/moc_room.cpp",
+			null
+		],
+		[
+			"/home/xinwen/proyecto1_Chat/Server/Headers/serverwindow.h",
+			"MU",
+			"D2MWKIZDYH/moc_serverwindow.cpp",
+			null
+		],
+		[
+			"/home/xinwen/proyecto1_Chat/Server/Headers/serverworker.h",
+			"MU",
+			"D2MWKIZDYH/moc_serverworker.cpp",
+			null
+		],
+		[
+			"/home/xinwen/proyecto1_Chat/Server/Headers/user.h",
+			"MU",
+			"D2MWKIZDYH/moc_user.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/home/xinwen/proyecto1_Chat/Server/Server_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/xinwen/proyecto1_Chat/Server/Server_autogen/mocs_compilation.cpp",
@@ -318,6 +350,7 @@
 	"MOC_INCLUDES" : 
 	[
 		"/home/xinwen/proyecto1_Chat/Server",
+		"/forms",
 		"/usr/include/qt6/QtCore",
 		"/usr/include/qt6",
 		"/usr/lib/qt6/mkspecs/linux-g++",
@@ -363,10 +396,27 @@
 	"SETTINGS_FILE" : "/home/xinwen/proyecto1_Chat/Server/CMakeFiles/Server_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"/home/xinwen/proyecto1_Chat/Server/Sources/chatserver.cpp",
+			"MU",
+			null
+		],
+		[ "/home/xinwen/proyecto1_Chat/Server/Sources/room.cpp", "MU", null ],
+		[
+			"/home/xinwen/proyecto1_Chat/Server/Sources/serverwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/xinwen/proyecto1_Chat/Server/Sources/serverworker.cpp",
+			"MU",
+			null
+		],
+		[ "/home/xinwen/proyecto1_Chat/Server/Sources/user.cpp", "MU", null ],
 		[ "/home/xinwen/proyecto1_Chat/Server/servermain.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
-	"UIC_SEARCH_PATHS" : [],
+	"UIC_SEARCH_PATHS" : [ "/home/xinwen/proyecto1_Chat/Server/forms" ],
 	"UIC_SKIP" : [],
 	"UIC_UI_FILES" : [],
 	"VERBOSITY" : 0

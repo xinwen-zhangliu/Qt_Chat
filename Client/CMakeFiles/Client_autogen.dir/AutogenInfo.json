@@ -318,6 +318,12 @@
 			"MU",
 			"D2MWKIZDYH/moc_chatwindow.cpp",
 			null
+		],
+		[
+			"/home/xinwen/proyecto1_Chat/Client/Headers/parser.h",
+			"MU",
+			"D2MWKIZDYH/moc_parser.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],

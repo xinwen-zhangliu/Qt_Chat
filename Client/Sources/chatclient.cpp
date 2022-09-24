@@ -55,6 +55,7 @@ void ChatClient::login(const QString &username){
 
 
 void ChatClient::sendJson(const QJsonObject &jsonObj){
+
     const QByteArray jsonInBA = QJsonDocument(jsonObj).toJson(QJsonDocument::Compact);
      QString json = QString::fromUtf8(jsonInBA);
     const char *stdJson = json.toStdString().c_str();
@@ -82,6 +83,7 @@ void ChatClient::sendPublicMessage(const QString &text){
     sendJson(publicMessage);
 
 }
+
 void ChatClient::askUserList(){
     QJsonObject users;
    users[QStringLiteral("type")] = QStringLiteral("USERS");

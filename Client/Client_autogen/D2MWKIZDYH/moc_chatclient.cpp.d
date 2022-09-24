@@ -1,6 +1,5 @@
 /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/moc_chatclient.cpp: /home/xinwen/proyecto1_Chat/Client/Headers/chatclient.h \
   /home/xinwen/proyecto1_Chat/Client/Client_autogen/moc_predefs.h \
-  /home/xinwen/proyecto1_Chat/Client/Headers/parser.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \

@@ -2,7 +2,6 @@
 #define CHATCLIENT_H
 
 
-#include "parser.h"
 
 #include <QObject>
 #include <QTcpSocket>
