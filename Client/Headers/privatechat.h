@@ -1,0 +1,4 @@
+#ifndef PRIVATECHAT_H
+#define PRIVATECHAT_H
+
+#endif // PRIVATECHAT_H

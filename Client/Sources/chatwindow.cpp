@@ -5,9 +5,12 @@
 
 
 #include <QStandardItemModel>
+#include <QListWidgetItem>
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QHostAddress>
+#include <QTimer>
+#include <QDebug>
 
 ChatWindow::ChatWindow(QWidget *parent)
     : QWidget(parent)
@@ -20,6 +23,18 @@ ChatWindow::ChatWindow(QWidget *parent)
     m_chatModel->insertColumn(0);
     ui->chatView->setModel(m_chatModel);
 
+
+
+    QString iconPath = QString::fromStdString("../forms/chatButtonWhite.png");
+    for(int i=0; i<5; i++){
+        QListWidgetItem *item = new QListWidgetItem;
+        item -> setCheckState(Qt::Unchecked);
+        item -> setIcon(QIcon(iconPath));
+
+        ui->clientList -> addItem(item);
+
+
+    }
 
     //connecting signals to slots
     connect(m_chatClient, &ChatClient::connected, this, &ChatWindow::connectedToServer);
@@ -50,9 +65,26 @@ ChatWindow::ChatWindow(QWidget *parent)
 
 }
 
+
+
+
 ChatWindow::~ChatWindow(){
     delete ui;
 }
+
+
+void ChatWindow::refreshUserList(){
+
+
+    QListWidgetItem *item = new QListWidgetItem;
+
+}
+
+void ChatWindow::getUsers(){
+
+}
+
+
 
 void ChatWindow::attemptConnection(){
 
@@ -329,3 +361,25 @@ void ChatWindow::error(QAbstractSocket::SocketError socketError){
     m_lastUserName.clear();
 
 }
+
+
+
+
+void ChatWindow::on_clientList_itemClicked(QListWidgetItem *item)
+{
+     qDebug() << "you've  clicked the  item";
+     if(item -> checkState() == Qt::Checked){
+        item -> setBackground(Qt::red);
+     }
+}
+
+
+
+
+
+void ChatWindow::on_clientList_itemDoubleClicked(QListWidgetItem *item)
+{
+    qDebug() << "you've double clicked the  item";
+    item -> setBackground(Qt::blue);
+}
+

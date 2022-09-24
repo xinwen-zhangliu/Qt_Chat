@@ -5,10 +5,13 @@
 #include <QAbstractSocket>
 #include <QVector>
 #include <QString>
-#include <QVector>
+#include <QListWidgetItem>
+
+
 class ChatClient;
 class Parser;
 class QStandardItemModel;
+
 
 namespace Ui { class ChatWindow; }
 
@@ -20,12 +23,17 @@ class ChatWindow : public QWidget
 public:
     explicit ChatWindow(QWidget *parent = nullptr);
     ~ChatWindow();
+public slots:
+    void refreshUserList();
+    void getUsers();
 private:
     Ui::ChatWindow *ui;
     ChatClient *m_chatClient;
     QStandardItemModel *m_chatModel;
     QString m_lastUserName;
     //QVector<QString> connectedClients;
+    QVector<QString *> selectedUsers;
+    QVector<QString *> connectedUsers;
 private slots:
     void attemptConnection();
     void attemptLogin(const QString &username);
@@ -42,6 +50,10 @@ private slots:
     void error(QAbstractSocket::SocketError socketError);
 
 
+
+    void on_clientList_itemClicked(QListWidgetItem *item);
+
+    void on_clientList_itemDoubleClicked(QListWidgetItem *item);
 };
 
 #endif // CHATWONDOW_H

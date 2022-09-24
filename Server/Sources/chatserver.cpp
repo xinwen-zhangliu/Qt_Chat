@@ -179,11 +179,13 @@ void ChatServer::jsonFromLoggedOut(ServerWorker *sender, const QJsonObject &docO
         }
     }
     sender->setUserName(newUserName);
+
     QJsonObject successMessage;
     successMessage[QStringLiteral("type")] = QStringLiteral("INFO");
     successMessage[QStringLiteral("message")] = QStringLiteral("success");
     successMessage[QStringLiteral("operation")]= QStringLiteral("IDENTIFY");
     sendJson(sender, successMessage);
+
     QJsonObject connectedMessage;
     connectedMessage[QStringLiteral("type")] = QStringLiteral("NEW_USER");
     connectedMessage[QStringLiteral("username")] = newUserName;

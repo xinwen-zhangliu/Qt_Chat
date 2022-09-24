@@ -7,6 +7,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += debug_and_release
 
 SOURCES += \
+    Sources/parser.cpp \
     servermain.cpp \
     Sources/chatserver.cpp \
     Sources/room.cpp \
@@ -17,6 +18,7 @@ SOURCES += \
 
 HEADERS += \
     Headers/chatserver.h \
+    Headers/parser.h \
     Headers/room.h \
     Headers/serverwindow.h \
     Headers/serverworker.h \

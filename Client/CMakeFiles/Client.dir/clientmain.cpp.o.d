@@ -300,4 +300,22 @@ Client/CMakeFiles/Client.dir/clientmain.cpp.o: \
  /usr/include/qt6/QtNetwork/qtnetworkexports.h \
  /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/QVector \
  /usr/include/qt6/QtCore/qvector.h /usr/include/qt6/QtCore/QString \
- /usr/include/qt6/QtCore/qstring.h
+ /usr/include/qt6/QtCore/qstring.h \
+ /usr/include/qt6/QtWidgets/QListWidgetItem \
+ /usr/include/qt6/QtWidgets/qlistwidget.h \
+ /usr/include/qt6/QtWidgets/qlistview.h \
+ /usr/include/qt6/QtWidgets/qabstractitemview.h \
+ /usr/include/qt6/QtWidgets/qabstractscrollarea.h \
+ /usr/include/qt6/QtWidgets/qframe.h /usr/include/qt6/QtWidgets/qwidget.h \
+ /usr/include/qt6/QtCore/qabstractitemmodel.h \
+ /usr/include/qt6/QtCore/qitemselectionmodel.h \
+ /usr/include/qt6/QtWidgets/qabstractitemdelegate.h \
+ /usr/include/qt6/QtWidgets/qstyleoption.h \
+ /usr/include/qt6/QtWidgets/qabstractspinbox.h \
+ /usr/include/qt6/QtGui/qvalidator.h \
+ /usr/include/qt6/QtCore/qregularexpression.h \
+ /usr/include/qt6/QtWidgets/qslider.h \
+ /usr/include/qt6/QtWidgets/qabstractslider.h \
+ /usr/include/qt6/QtWidgets/qstyle.h /usr/include/qt6/QtWidgets/qtabbar.h \
+ /usr/include/qt6/QtWidgets/qtabwidget.h \
+ /usr/include/qt6/QtWidgets/qrubberband.h

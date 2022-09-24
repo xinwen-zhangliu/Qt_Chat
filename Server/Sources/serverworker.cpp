@@ -35,6 +35,7 @@ void ServerWorker::test(){
 
 void ServerWorker::sendJson(const QJsonObject &json){
 
+    /*
     qDebug() << "ServerWorker::senJson";
       const QByteArray jsonData = QJsonDocument(json).toJson();
       emit logMessage(QLatin1String("Sending to ") + userName() + QLatin1String(" - ") + QString::fromUtf8(jsonData));
@@ -43,6 +44,7 @@ void ServerWorker::sendJson(const QJsonObject &json){
 
       socketStream << jsonData;
       qDebug()<< "afterWriting to socketStreAM";
+*/
 
 
 }

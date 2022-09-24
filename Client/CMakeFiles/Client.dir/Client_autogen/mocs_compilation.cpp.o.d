@@ -301,14 +301,32 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtNetwork/qabstractsocket.h \
  /usr/include/qt6/QtCore/QVector /usr/include/qt6/QtCore/qvector.h \
  /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/qstring.h \
+ /usr/include/qt6/QtWidgets/QListWidgetItem \
+ /usr/include/qt6/QtWidgets/qlistwidget.h \
+ /usr/include/qt6/QtWidgets/qlistview.h \
+ /usr/include/qt6/QtWidgets/qabstractitemview.h \
+ /usr/include/qt6/QtWidgets/qabstractscrollarea.h \
+ /usr/include/qt6/QtWidgets/qframe.h /usr/include/qt6/QtWidgets/qwidget.h \
+ /usr/include/qt6/QtCore/qabstractitemmodel.h \
+ /usr/include/qt6/QtCore/qitemselectionmodel.h \
+ /usr/include/qt6/QtWidgets/qabstractitemdelegate.h \
+ /usr/include/qt6/QtWidgets/qstyleoption.h \
+ /usr/include/qt6/QtCore/qlocale.h \
+ /usr/include/qt6/QtWidgets/qabstractspinbox.h \
+ /usr/include/qt6/QtGui/qvalidator.h \
+ /usr/include/qt6/QtCore/qregularexpression.h \
+ /usr/include/qt6/QtWidgets/qslider.h \
+ /usr/include/qt6/QtWidgets/qabstractslider.h \
+ /usr/include/qt6/QtWidgets/qstyle.h /usr/include/qt6/QtWidgets/qtabbar.h \
+ /usr/include/qt6/QtWidgets/qtabwidget.h \
+ /usr/include/qt6/QtWidgets/qrubberband.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/moc_parser.cpp \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/parser.h \
  /usr/include/qt6/QtCore/QJsonObject \
  /usr/include/qt6/QtCore/qjsonobject.h \
  /usr/include/qt6/QtCore/qjsonvalue.h \
  /usr/include/qt6/QtCore/qcborvalue.h /usr/include/qt6/QtCore/qdatetime.h \
- /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qlocale.h \
- /usr/include/qt6/QtCore/qcborcommon.h \
- /usr/include/qt6/QtCore/qregularexpression.h \
- /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
- /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h
+ /usr/include/qt6/QtCore/qcalendar.h \
+ /usr/include/qt6/QtCore/qcborcommon.h /usr/include/qt6/QtCore/qurl.h \
+ /usr/include/qt6/QtCore/quuid.h /usr/include/qt6/QtCore/QJsonArray \
+ /usr/include/qt6/QtCore/qjsonarray.h

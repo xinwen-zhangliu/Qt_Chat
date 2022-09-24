@@ -402,6 +402,27 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: Client/Clien
   /usr/include/qt6/QtCore/qvector.h \
   /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/qstring.h \
+  /usr/include/qt6/QtWidgets/QListWidgetItem \
+  /usr/include/qt6/QtWidgets/qlistwidget.h \
+  /usr/include/qt6/QtWidgets/qlistview.h \
+  /usr/include/qt6/QtWidgets/qabstractitemview.h \
+  /usr/include/qt6/QtWidgets/qabstractscrollarea.h \
+  /usr/include/qt6/QtWidgets/qframe.h \
+  /usr/include/qt6/QtWidgets/qwidget.h \
+  /usr/include/qt6/QtCore/qabstractitemmodel.h \
+  /usr/include/qt6/QtCore/qitemselectionmodel.h \
+  /usr/include/qt6/QtWidgets/qabstractitemdelegate.h \
+  /usr/include/qt6/QtWidgets/qstyleoption.h \
+  /usr/include/qt6/QtCore/qlocale.h \
+  /usr/include/qt6/QtWidgets/qabstractspinbox.h \
+  /usr/include/qt6/QtGui/qvalidator.h \
+  /usr/include/qt6/QtCore/qregularexpression.h \
+  /usr/include/qt6/QtWidgets/qslider.h \
+  /usr/include/qt6/QtWidgets/qabstractslider.h \
+  /usr/include/qt6/QtWidgets/qstyle.h \
+  /usr/include/qt6/QtWidgets/qtabbar.h \
+  /usr/include/qt6/QtWidgets/qtabwidget.h \
+  /usr/include/qt6/QtWidgets/qrubberband.h \
   Client/Client_autogen/D2MWKIZDYH/moc_parser.cpp \
   Client/Headers/parser.h \
   /usr/include/qt6/QtCore/QJsonObject \
@@ -410,9 +431,7 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: Client/Clien
   /usr/include/qt6/QtCore/qcborvalue.h \
   /usr/include/qt6/QtCore/qdatetime.h \
   /usr/include/qt6/QtCore/qcalendar.h \
-  /usr/include/qt6/QtCore/qlocale.h \
   /usr/include/qt6/QtCore/qcborcommon.h \
-  /usr/include/qt6/QtCore/qregularexpression.h \
   /usr/include/qt6/QtCore/qurl.h \
   /usr/include/qt6/QtCore/quuid.h \
   /usr/include/qt6/QtCore/QJsonArray \
@@ -1186,6 +1205,27 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: Client/Sources/chatwindow
   /usr/include/qt6/QtCore/qvector.h \
   /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/qstring.h \
+  /usr/include/qt6/QtWidgets/QListWidgetItem \
+  /usr/include/qt6/QtWidgets/qlistwidget.h \
+  /usr/include/qt6/QtWidgets/qlistview.h \
+  /usr/include/qt6/QtWidgets/qabstractitemview.h \
+  /usr/include/qt6/QtWidgets/qabstractscrollarea.h \
+  /usr/include/qt6/QtWidgets/qframe.h \
+  /usr/include/qt6/QtWidgets/qwidget.h \
+  /usr/include/qt6/QtCore/qabstractitemmodel.h \
+  /usr/include/qt6/QtCore/qitemselectionmodel.h \
+  /usr/include/qt6/QtWidgets/qabstractitemdelegate.h \
+  /usr/include/qt6/QtWidgets/qstyleoption.h \
+  /usr/include/qt6/QtCore/qlocale.h \
+  /usr/include/qt6/QtWidgets/qabstractspinbox.h \
+  /usr/include/qt6/QtGui/qvalidator.h \
+  /usr/include/qt6/QtCore/qregularexpression.h \
+  /usr/include/qt6/QtWidgets/qslider.h \
+  /usr/include/qt6/QtWidgets/qabstractslider.h \
+  /usr/include/qt6/QtWidgets/qstyle.h \
+  /usr/include/qt6/QtWidgets/qtabbar.h \
+  /usr/include/qt6/QtWidgets/qtabwidget.h \
+  /usr/include/qt6/QtWidgets/qrubberband.h \
   Client/Client_autogen/ui_mainchatwindow.h \
   /usr/include/qt6/QtCore/QVariant \
   /usr/include/qt6/QtCore/qvariant.h \
@@ -1198,7 +1238,6 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: Client/Sources/chatwindow
   /usr/include/qt6/QtCore/qcoreapplication_platform.h \
   /usr/include/qt6/QtGui/qguiapplication.h \
   /usr/include/qt6/QtGui/qinputmethod.h \
-  /usr/include/qt6/QtCore/qlocale.h \
   /usr/include/qt6/QtGui/qguiapplication_platform.h \
   /usr/include/qt6/QtWidgets/QGridLayout \
   /usr/include/qt6/QtWidgets/qgridlayout.h \
@@ -1210,8 +1249,6 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: Client/Sources/chatwindow
   /usr/include/qt6/QtWidgets/qboxlayout.h \
   /usr/include/qt6/QtWidgets/QLabel \
   /usr/include/qt6/QtWidgets/qlabel.h \
-  /usr/include/qt6/QtWidgets/qframe.h \
-  /usr/include/qt6/QtWidgets/qwidget.h \
   /usr/include/qt6/QtGui/qpicture.h \
   /usr/include/qt6/QtGui/qtextdocument.h \
   /usr/include/qt6/QtCore/qurl.h \
@@ -1223,24 +1260,7 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: Client/Sources/chatwindow
   /usr/include/qt6/QtGui/qtextoption.h \
   /usr/include/qt6/QtWidgets/QListView \
   /usr/include/qt6/QtWidgets/qlistview.h \
-  /usr/include/qt6/QtWidgets/qabstractitemview.h \
-  /usr/include/qt6/QtWidgets/qabstractscrollarea.h \
-  /usr/include/qt6/QtCore/qabstractitemmodel.h \
-  /usr/include/qt6/QtCore/qitemselectionmodel.h \
-  /usr/include/qt6/QtWidgets/qabstractitemdelegate.h \
-  /usr/include/qt6/QtWidgets/qstyleoption.h \
-  /usr/include/qt6/QtWidgets/qabstractspinbox.h \
-  /usr/include/qt6/QtGui/qvalidator.h \
-  /usr/include/qt6/QtCore/qregularexpression.h \
-  /usr/include/qt6/QtWidgets/qslider.h \
-  /usr/include/qt6/QtWidgets/qabstractslider.h \
-  /usr/include/qt6/QtWidgets/qstyle.h \
-  /usr/include/qt6/QtWidgets/qtabbar.h \
-  /usr/include/qt6/QtWidgets/qtabwidget.h \
-  /usr/include/qt6/QtWidgets/qrubberband.h \
   /usr/include/qt6/QtWidgets/QListWidget \
-  /usr/include/qt6/QtWidgets/qlistwidget.h \
-  /usr/include/qt6/QtWidgets/qlistview.h \
   /usr/include/qt6/QtWidgets/QPushButton \
   /usr/include/qt6/QtWidgets/qpushbutton.h \
   /usr/include/qt6/QtWidgets/qabstractbutton.h \
@@ -1262,7 +1282,12 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: Client/Sources/chatwindow
   /usr/include/qt6/QtWidgets/QMessageBox \
   /usr/include/qt6/QtWidgets/qmessagebox.h \
   /usr/include/qt6/QtNetwork/QHostAddress \
-  /usr/include/qt6/QtNetwork/qhostaddress.h
+  /usr/include/qt6/QtNetwork/qhostaddress.h \
+  /usr/include/qt6/QtCore/QTimer \
+  /usr/include/qt6/QtCore/qtimer.h \
+  /usr/include/qt6/QtCore/qbasictimer.h \
+  /usr/include/qt6/QtCore/QDebug \
+  /usr/include/qt6/QtCore/qdebug.h
 
 Client/CMakeFiles/Client.dir/Sources/parser.cpp.o: Client/Sources/parser.cpp \
   /usr/include/stdc-predef.h \
@@ -2038,10 +2063,32 @@ Client/CMakeFiles/Client.dir/clientmain.cpp.o: Client/clientmain.cpp \
   /usr/include/qt6/QtCore/QVector \
   /usr/include/qt6/QtCore/qvector.h \
   /usr/include/qt6/QtCore/QString \
-  /usr/include/qt6/QtCore/qstring.h
+  /usr/include/qt6/QtCore/qstring.h \
+  /usr/include/qt6/QtWidgets/QListWidgetItem \
+  /usr/include/qt6/QtWidgets/qlistwidget.h \
+  /usr/include/qt6/QtWidgets/qlistview.h \
+  /usr/include/qt6/QtWidgets/qabstractitemview.h \
+  /usr/include/qt6/QtWidgets/qabstractscrollarea.h \
+  /usr/include/qt6/QtWidgets/qframe.h \
+  /usr/include/qt6/QtWidgets/qwidget.h \
+  /usr/include/qt6/QtCore/qabstractitemmodel.h \
+  /usr/include/qt6/QtCore/qitemselectionmodel.h \
+  /usr/include/qt6/QtWidgets/qabstractitemdelegate.h \
+  /usr/include/qt6/QtWidgets/qstyleoption.h \
+  /usr/include/qt6/QtWidgets/qabstractspinbox.h \
+  /usr/include/qt6/QtGui/qvalidator.h \
+  /usr/include/qt6/QtCore/qregularexpression.h \
+  /usr/include/qt6/QtWidgets/qslider.h \
+  /usr/include/qt6/QtWidgets/qabstractslider.h \
+  /usr/include/qt6/QtWidgets/qstyle.h \
+  /usr/include/qt6/QtWidgets/qtabbar.h \
+  /usr/include/qt6/QtWidgets/qtabwidget.h \
+  /usr/include/qt6/QtWidgets/qrubberband.h
 
 
 Client/clientmain.cpp:
+
+/usr/include/qt6/QtCore/qtimer.h:
 
 /usr/include/qt6/QtWidgets/qinputdialog.h:
 
@@ -2053,27 +2100,11 @@ Client/clientmain.cpp:
 
 /usr/include/qt6/QtWidgets/QPushButton:
 
-/usr/include/qt6/QtWidgets/qlistwidget.h:
-
-/usr/include/qt6/QtWidgets/qtabwidget.h:
-
-/usr/include/qt6/QtWidgets/qtabbar.h:
-
-/usr/include/qt6/QtWidgets/qstyle.h:
-
-/usr/include/qt6/QtWidgets/qslider.h:
-
-/usr/include/qt6/QtGui/qvalidator.h:
-
-/usr/include/qt6/QtWidgets/qstyleoption.h:
-
 /usr/include/qt6/QtGui/qtextoption.h:
 
 /usr/include/qt6/QtGui/qtextformat.h:
 
 /usr/include/qt6/QtWidgets/qlineedit.h:
-
-/usr/include/qt6/QtWidgets/qframe.h:
 
 /usr/include/qt6/QtWidgets/qlabel.h:
 
@@ -2105,8 +2136,6 @@ Client/Sources/chatwindow.cpp:
 
 /usr/include/qt6/QtCore/qurl.h:
 
-/usr/include/qt6/QtCore/qlocale.h:
-
 /usr/include/qt6/QtWidgets/QHBoxLayout:
 
 /usr/include/qt6/QtCore/qdatetime.h:
@@ -2121,6 +2150,24 @@ Client/Sources/chatwindow.cpp:
 
 Client/Headers/parser.h:
 
+/usr/include/qt6/QtWidgets/qtabwidget.h:
+
+/usr/include/qt6/QtWidgets/qtabbar.h:
+
+/usr/include/qt6/QtWidgets/qstyle.h:
+
+/usr/include/qt6/QtWidgets/qslider.h:
+
+/usr/include/qt6/QtGui/qvalidator.h:
+
+/usr/include/qt6/QtCore/qlocale.h:
+
+/usr/include/qt6/QtWidgets/qstyleoption.h:
+
+/usr/include/qt6/QtWidgets/qframe.h:
+
+/usr/include/qt6/QtWidgets/qlistwidget.h:
+
 /usr/include/qt6/QtCore/QString:
 
 /usr/include/qt6/QtCore/qvector.h:
@@ -2130,6 +2177,8 @@ Client/Headers/parser.h:
 /usr/include/qt6/QtGui/qfontmetrics.h:
 
 /usr/include/qt6/QtGui/qbrush.h:
+
+/usr/include/qt6/QtCore/qbasictimer.h:
 
 /usr/include/qt6/QtGui/qimage.h:
 
@@ -2475,6 +2524,8 @@ Client/Headers/chatwindow.h:
 
 /usr/include/c++/12.2.0/bits/postypes.h:
 
+/usr/include/qt6/QtWidgets/QListWidgetItem:
+
 /usr/include/bits/pthreadtypes.h:
 
 /usr/include/c++/12.2.0/bits/functexcept.h:
@@ -2608,6 +2659,8 @@ Client/Sources/chatclient.cpp:
 /usr/include/c++/12.2.0/cstring:
 
 /usr/include/bits/typesizes.h:
+
+/usr/include/qt6/QtCore/QDebug:
 
 /usr/include/c++/12.2.0/bits/stl_raw_storage_iter.h:
 
@@ -2840,6 +2893,8 @@ Client/Client_autogen/D2MWKIZDYH/moc_parser.cpp:
 /usr/include/bits/uio_lim.h:
 
 /usr/include/bits/math-vector.h:
+
+/usr/include/qt6/QtCore/QTimer:
 
 /usr/include/bits/libm-simd-decl-stubs.h:
 
