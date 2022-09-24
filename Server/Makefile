@@ -192,30 +192,6 @@ Sources/chatserver.cpp.s:
 	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.s
 .PHONY : Sources/chatserver.cpp.s
 
-Sources/room.o: Sources/room.cpp.o
-.PHONY : Sources/room.o
-
-# target to build an object file
-Sources/room.cpp.o:
-	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/room.cpp.o
-.PHONY : Sources/room.cpp.o
-
-Sources/room.i: Sources/room.cpp.i
-.PHONY : Sources/room.i
-
-# target to preprocess a source file
-Sources/room.cpp.i:
-	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/room.cpp.i
-.PHONY : Sources/room.cpp.i
-
-Sources/room.s: Sources/room.cpp.s
-.PHONY : Sources/room.s
-
-# target to generate assembly for a file
-Sources/room.cpp.s:
-	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/room.cpp.s
-.PHONY : Sources/room.cpp.s
-
 Sources/serverwindow.o: Sources/serverwindow.cpp.o
 .PHONY : Sources/serverwindow.o
 
@@ -288,6 +264,30 @@ Sources/user.cpp.s:
 	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/user.cpp.s
 .PHONY : Sources/user.cpp.s
 
+__/Common/room.o: __/Common/room.cpp.o
+.PHONY : __/Common/room.o
+
+# target to build an object file
+__/Common/room.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/__/Common/room.cpp.o
+.PHONY : __/Common/room.cpp.o
+
+__/Common/room.i: __/Common/room.cpp.i
+.PHONY : __/Common/room.i
+
+# target to preprocess a source file
+__/Common/room.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/__/Common/room.cpp.i
+.PHONY : __/Common/room.cpp.i
+
+__/Common/room.s: __/Common/room.cpp.s
+.PHONY : __/Common/room.s
+
+# target to generate assembly for a file
+__/Common/room.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/__/Common/room.cpp.s
+.PHONY : __/Common/room.cpp.s
+
 servermain.o: servermain.cpp.o
 .PHONY : servermain.o
 
@@ -328,9 +328,6 @@ help:
 	@echo "... Sources/chatserver.o"
 	@echo "... Sources/chatserver.i"
 	@echo "... Sources/chatserver.s"
-	@echo "... Sources/room.o"
-	@echo "... Sources/room.i"
-	@echo "... Sources/room.s"
 	@echo "... Sources/serverwindow.o"
 	@echo "... Sources/serverwindow.i"
 	@echo "... Sources/serverwindow.s"
@@ -340,6 +337,9 @@ help:
 	@echo "... Sources/user.o"
 	@echo "... Sources/user.i"
 	@echo "... Sources/user.s"
+	@echo "... __/Common/room.o"
+	@echo "... __/Common/room.i"
+	@echo "... __/Common/room.s"
 	@echo "... servermain.o"
 	@echo "... servermain.i"
 	@echo "... servermain.s"

@@ -1,7 +1,7 @@
 Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/mocs_compilation.cpp \
  /usr/include/stdc-predef.h \
- /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_chatserver.cpp \
+ /home/xinwen/proyecto1_Chat/Server/Server_autogen/ZBJRBURQQN/moc_room.cpp \
  /usr/include/c++/12.2.0/memory \
  /usr/include/c++/12.2.0/bits/stl_algobase.h \
  /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/c++config.h \
@@ -101,14 +101,11 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/12.2.0/backward/auto_ptr.h \
  /usr/include/c++/12.2.0/pstl/glue_memory_defs.h \
  /usr/include/c++/12.2.0/pstl/execution_defs.h \
- /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/chatserver.h \
- /usr/include/qt6/QtCore/QVector /usr/include/qt6/QtCore/qvector.h \
- /usr/include/qt6/QtCore/qlist.h \
- /usr/include/qt6/QtCore/qarraydatapointer.h \
- /usr/include/qt6/QtCore/qarraydataops.h \
- /usr/include/qt6/QtCore/qarraydata.h /usr/include/qt6/QtCore/qpair.h \
- /usr/include/qt6/QtCore/qglobal.h /usr/include/c++/12.2.0/cstddef \
- /usr/include/c++/12.2.0/utility \
+ /home/xinwen/proyecto1_Chat/Server/Server_autogen/ZBJRBURQQN/../../../Common/room.h \
+ /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
+ /usr/include/qt6/QtCore/qobjectdefs.h \
+ /usr/include/qt6/QtCore/qnamespace.h /usr/include/qt6/QtCore/qglobal.h \
+ /usr/include/c++/12.2.0/cstddef /usr/include/c++/12.2.0/utility \
  /usr/include/c++/12.2.0/bits/stl_relops.h \
  /usr/include/c++/12.2.0/initializer_list /usr/include/c++/12.2.0/cstdint \
  /usr/include/assert.h /usr/include/qt6/QtCore/qconfig.h \
@@ -155,8 +152,33 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/12.2.0/tr1/poly_hermite.tcc \
  /usr/include/c++/12.2.0/tr1/poly_laguerre.tcc \
  /usr/include/c++/12.2.0/tr1/riemann_zeta.tcc \
- /usr/include/qt6/QtCore/qversiontagging.h /usr/include/string.h \
- /usr/include/strings.h /usr/include/qt6/QtCore/qcontainertools_impl.h \
+ /usr/include/qt6/QtCore/qversiontagging.h \
+ /usr/include/qt6/QtCore/qtmetamacros.h \
+ /usr/include/qt6/QtCore/qobjectdefs_impl.h \
+ /usr/include/qt6/QtCore/qstring.h /usr/include/qt6/QtCore/qchar.h \
+ /usr/include/c++/12.2.0/functional \
+ /usr/include/c++/12.2.0/bits/std_function.h \
+ /usr/include/c++/12.2.0/unordered_map \
+ /usr/include/c++/12.2.0/bits/hashtable.h \
+ /usr/include/c++/12.2.0/bits/hashtable_policy.h \
+ /usr/include/c++/12.2.0/bits/node_handle.h \
+ /usr/include/c++/12.2.0/bits/unordered_map.h \
+ /usr/include/c++/12.2.0/bits/range_access.h \
+ /usr/include/c++/12.2.0/bits/erase_if.h /usr/include/c++/12.2.0/vector \
+ /usr/include/c++/12.2.0/bits/stl_vector.h \
+ /usr/include/c++/12.2.0/bits/stl_bvector.h \
+ /usr/include/c++/12.2.0/bits/vector.tcc /usr/include/c++/12.2.0/array \
+ /usr/include/c++/12.2.0/compare /usr/include/c++/12.2.0/bits/stl_algo.h \
+ /usr/include/c++/12.2.0/bits/algorithmfwd.h \
+ /usr/include/c++/12.2.0/bits/stl_heap.h \
+ /usr/include/c++/12.2.0/bits/uniform_int_dist.h \
+ /usr/include/c++/12.2.0/cstdlib /usr/include/qt6/QtCore/qstringview.h \
+ /usr/include/qt6/QtCore/qbytearray.h /usr/include/qt6/QtCore/qrefcount.h \
+ /usr/include/qt6/QtCore/qarraydata.h /usr/include/qt6/QtCore/qpair.h \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/qt6/QtCore/qarraydatapointer.h \
+ /usr/include/qt6/QtCore/qarraydataops.h \
+ /usr/include/qt6/QtCore/qcontainertools_impl.h \
  /usr/include/c++/12.2.0/cstring /usr/include/c++/12.2.0/iterator \
  /usr/include/c++/12.2.0/bits/stream_iterator.h \
  /usr/include/c++/12.2.0/bits/streambuf_iterator.h \
@@ -171,14 +193,12 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/12.2.0/bits/char_traits.h \
  /usr/include/c++/12.2.0/bits/ostream_insert.h \
  /usr/include/c++/12.2.0/bits/cxxabi_forced.h \
- /usr/include/c++/12.2.0/bits/range_access.h \
  /usr/include/c++/12.2.0/bits/basic_string.h \
  /usr/include/c++/12.2.0/string_view \
  /usr/include/c++/12.2.0/bits/string_view.tcc \
  /usr/include/c++/12.2.0/ext/string_conversions.h \
- /usr/include/c++/12.2.0/cstdlib /usr/include/c++/12.2.0/cstdio \
- /usr/include/stdio.h /usr/include/bits/types/__fpos_t.h \
- /usr/include/bits/types/__fpos64_t.h \
+ /usr/include/c++/12.2.0/cstdio /usr/include/stdio.h \
+ /usr/include/bits/types/__fpos_t.h /usr/include/bits/types/__fpos64_t.h \
  /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
  /usr/include/bits/stdio_lim.h /usr/include/c++/12.2.0/cerrno \
@@ -194,28 +214,7 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/12.2.0/stdexcept \
  /usr/include/c++/12.2.0/bits/streambuf.tcc \
  /usr/include/c++/12.2.0/algorithm \
- /usr/include/c++/12.2.0/bits/stl_algo.h \
- /usr/include/c++/12.2.0/bits/algorithmfwd.h \
- /usr/include/c++/12.2.0/bits/stl_heap.h \
- /usr/include/c++/12.2.0/bits/uniform_int_dist.h \
  /usr/include/c++/12.2.0/pstl/glue_algorithm_defs.h \
- /usr/include/qt6/QtCore/qnamespace.h \
- /usr/include/qt6/QtCore/qtmetamacros.h \
- /usr/include/qt6/QtCore/qhashfunctions.h \
- /usr/include/qt6/QtCore/qstring.h /usr/include/qt6/QtCore/qchar.h \
- /usr/include/c++/12.2.0/functional \
- /usr/include/c++/12.2.0/bits/std_function.h \
- /usr/include/c++/12.2.0/unordered_map \
- /usr/include/c++/12.2.0/bits/hashtable.h \
- /usr/include/c++/12.2.0/bits/hashtable_policy.h \
- /usr/include/c++/12.2.0/bits/node_handle.h \
- /usr/include/c++/12.2.0/bits/unordered_map.h \
- /usr/include/c++/12.2.0/bits/erase_if.h /usr/include/c++/12.2.0/vector \
- /usr/include/c++/12.2.0/bits/stl_vector.h \
- /usr/include/c++/12.2.0/bits/stl_bvector.h \
- /usr/include/c++/12.2.0/bits/vector.tcc /usr/include/c++/12.2.0/array \
- /usr/include/c++/12.2.0/compare /usr/include/qt6/QtCore/qstringview.h \
- /usr/include/qt6/QtCore/qbytearray.h /usr/include/qt6/QtCore/qrefcount.h \
  /usr/include/qt6/QtCore/qbytearrayalgorithms.h \
  /usr/include/qt6/QtCore/qbytearrayview.h \
  /usr/include/c++/12.2.0/stdlib.h \
@@ -224,6 +223,7 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qanystringview.h \
  /usr/include/qt6/QtCore/qutf8stringview.h \
  /usr/include/qt6/QtCore/qstringtokenizer.h \
+ /usr/include/qt6/QtCore/qlist.h /usr/include/qt6/QtCore/qhashfunctions.h \
  /usr/include/c++/12.2.0/numeric \
  /usr/include/c++/12.2.0/bits/stl_numeric.h \
  /usr/include/c++/12.2.0/pstl/glue_numeric_defs.h \
@@ -232,13 +232,6 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qstringlist.h \
  /usr/include/qt6/QtCore/qalgorithms.h \
  /usr/include/qt6/QtCore/qstringmatcher.h \
- /usr/include/qt6/QtNetwork/QTcpServer \
- /usr/include/qt6/QtNetwork/qtcpserver.h \
- /usr/include/qt6/QtNetwork/qtnetworkglobal.h \
- /usr/include/qt6/QtNetwork/qtnetwork-config.h \
- /usr/include/qt6/QtNetwork/qtnetworkexports.h \
- /usr/include/qt6/QtCore/qobject.h /usr/include/qt6/QtCore/qobjectdefs.h \
- /usr/include/qt6/QtCore/qobjectdefs_impl.h \
  /usr/include/qt6/QtCore/qscopedpointer.h \
  /usr/include/qt6/QtCore/qmetatype.h /usr/include/qt6/QtCore/qcompare.h \
  /usr/include/qt6/QtCore/qvarlengtharray.h \
@@ -257,7 +250,17 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qobject_impl.h \
  /usr/include/qt6/QtCore/qbindingstorage.h /usr/include/c++/12.2.0/chrono \
  /usr/include/c++/12.2.0/bits/chrono.h /usr/include/c++/12.2.0/ratio \
- /usr/include/c++/12.2.0/ctime \
+ /usr/include/c++/12.2.0/ctime /usr/include/qt6/QtCore/QVector \
+ /usr/include/qt6/QtCore/qvector.h /usr/include/qt6/QtCore/QString \
+ /usr/include/qt6/QtCore/qstring.h \
+ /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_chatserver.cpp \
+ /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/chatserver.h \
+ /usr/include/qt6/QtNetwork/QTcpServer \
+ /usr/include/qt6/QtNetwork/qtcpserver.h \
+ /usr/include/qt6/QtNetwork/qtnetworkglobal.h \
+ /usr/include/qt6/QtNetwork/qtnetwork-config.h \
+ /usr/include/qt6/QtNetwork/qtnetworkexports.h \
+ /usr/include/qt6/QtCore/qobject.h \
  /usr/include/qt6/QtNetwork/qabstractsocket.h \
  /usr/include/qt6/QtCore/qiodevice.h /usr/include/qt6/QtCore/qdebug.h \
  /usr/include/qt6/QtCore/qhash.h /usr/include/qt6/QtCore/qmap.h \
@@ -276,9 +279,6 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qsharedpointer_impl.h \
  /usr/include/qt6/QtNetwork/qhostaddress.h /usr/include/qt6/QtCore/QTimer \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
- /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_room.cpp \
- /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/room.h \
- /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_serverwindow.cpp \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/serverwindow.h \
  /usr/include/qt6/QtWidgets/QWidget /usr/include/qt6/QtWidgets/qwidget.h \
@@ -305,7 +305,7 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtGui/qcursor.h /usr/include/qt6/QtGui/qbitmap.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/serverworker.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/user.h \
- /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/room.h \
+ /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
  /usr/include/qt6/QtNetwork/QTcpSocket \
  /usr/include/qt6/QtNetwork/qtcpsocket.h \
  /usr/include/qt6/QtCore/QReadWriteLock \

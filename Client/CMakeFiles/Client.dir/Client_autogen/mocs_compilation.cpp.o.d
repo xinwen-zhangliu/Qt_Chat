@@ -329,4 +329,6 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qcalendar.h \
  /usr/include/qt6/QtCore/qcborcommon.h /usr/include/qt6/QtCore/qurl.h \
  /usr/include/qt6/QtCore/quuid.h /usr/include/qt6/QtCore/QJsonArray \
- /usr/include/qt6/QtCore/qjsonarray.h
+ /usr/include/qt6/QtCore/qjsonarray.h \
+ /home/xinwen/proyecto1_Chat/Client/Client_autogen/ZBJRBURQQN/moc_room.cpp \
+ /home/xinwen/proyecto1_Chat/Client/Client_autogen/ZBJRBURQQN/../../../Common/room.h

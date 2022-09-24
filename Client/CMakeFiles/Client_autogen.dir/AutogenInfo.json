@@ -324,6 +324,12 @@
 			"MU",
 			"D2MWKIZDYH/moc_parser.cpp",
 			null
+		],
+		[
+			"/home/xinwen/proyecto1_Chat/Common/room.h",
+			"MU",
+			"ZBJRBURQQN/moc_room.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -406,7 +412,8 @@
 			null
 		],
 		[ "/home/xinwen/proyecto1_Chat/Client/Sources/parser.cpp", "MU", null ],
-		[ "/home/xinwen/proyecto1_Chat/Client/clientmain.cpp", "MU", null ]
+		[ "/home/xinwen/proyecto1_Chat/Client/clientmain.cpp", "MU", null ],
+		[ "/home/xinwen/proyecto1_Chat/Common/room.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [ "/home/xinwen/proyecto1_Chat/Client/forms" ],

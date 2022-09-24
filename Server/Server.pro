@@ -10,16 +10,15 @@ SOURCES += \
     Sources/parser.cpp \
     servermain.cpp \
     Sources/chatserver.cpp \
-    Sources/room.cpp \
     Sources/serverwindow.cpp \
     Sources/serverworker.cpp \
     Sources/user.cpp
 
 
+
 HEADERS += \
     Headers/chatserver.h \
     Headers/parser.h \
-    Headers/room.h \
     Headers/serverwindow.h \
     Headers/serverworker.h \
     Headers/user.h
@@ -29,3 +28,6 @@ HEADERS += \
 
 FORMS += \
     forms/serverwindow.ui
+
+
+include(../Common/Common.pri)

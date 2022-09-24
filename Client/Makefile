@@ -240,6 +240,30 @@ Sources/parser.cpp.s:
 	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/parser.cpp.s
 .PHONY : Sources/parser.cpp.s
 
+__/Common/room.o: __/Common/room.cpp.o
+.PHONY : __/Common/room.o
+
+# target to build an object file
+__/Common/room.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/__/Common/room.cpp.o
+.PHONY : __/Common/room.cpp.o
+
+__/Common/room.i: __/Common/room.cpp.i
+.PHONY : __/Common/room.i
+
+# target to preprocess a source file
+__/Common/room.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/__/Common/room.cpp.i
+.PHONY : __/Common/room.cpp.i
+
+__/Common/room.s: __/Common/room.cpp.s
+.PHONY : __/Common/room.s
+
+# target to generate assembly for a file
+__/Common/room.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/__/Common/room.cpp.s
+.PHONY : __/Common/room.cpp.s
+
 clientmain.o: clientmain.cpp.o
 .PHONY : clientmain.o
 
@@ -286,6 +310,9 @@ help:
 	@echo "... Sources/parser.o"
 	@echo "... Sources/parser.i"
 	@echo "... Sources/parser.s"
+	@echo "... __/Common/room.o"
+	@echo "... __/Common/room.i"
+	@echo "... __/Common/room.s"
 	@echo "... clientmain.o"
 	@echo "... clientmain.i"
 	@echo "... clientmain.s"

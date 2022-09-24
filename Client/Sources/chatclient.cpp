@@ -1,5 +1,6 @@
 #include "Headers/chatclient.h"
 
+
 #include <QJsonDocument>
 #include <QJsonObject>
 #include  <QJsonValue>
@@ -13,12 +14,17 @@ ChatClient::ChatClient(QObject *parent)
     , m_clientSocket(new QTcpSocket(this))
     , m_loggedIn(false)
     , m_status(1) //starts as active
+
+
 {
     connect(m_clientSocket, &QTcpSocket::connected, this, &ChatClient::connected);
     connect(m_clientSocket, &QTcpSocket::disconnected, this, &ChatClient::disconnected);
 
+    //connect(m_parser, &Parser::sendJson, this, &ChatClient::sendJson);
+
 
     connect(m_clientSocket, &QTcpSocket::readyRead, this, &ChatClient::onReadyRead);
+    //connect(this, &ChatClient::jsonReceived, m_parser, &Parser::parseJson);
 
 #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
     connect(m_clientSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &ChatClient::error);
@@ -54,6 +60,7 @@ void ChatClient::login(const QString &username){
 
 
 
+
 void ChatClient::sendJson(const QJsonObject &jsonObj){
 
     const QByteArray jsonInBA = QJsonDocument(jsonObj).toJson(QJsonDocument::Compact);
@@ -84,10 +91,15 @@ void ChatClient::sendPublicMessage(const QString &text){
 
 }
 
+
 void ChatClient::askUserList(){
     QJsonObject users;
    users[QStringLiteral("type")] = QStringLiteral("USERS");
     sendJson(users);
+}
+
+void ChatClient::updateStatus(const int &newStatus){
+    this -> m_status = newStatus;
 }
 
 
@@ -105,7 +117,7 @@ void ChatClient::onReadyRead(){
     int size = rawText.size();
     qDebug() << "ba size" << size;
 
-    data.append( rawText, size);
+    data.append( rawText, size-1);
     QByteArray newData ;
     newData.append(data, -1);
     qDebug() << data;
@@ -117,17 +129,14 @@ void ChatClient::onReadyRead(){
     // we try to create a json document with the data we received
     qDebug() << "newData" << newData << "end of new data";
     const QJsonDocument jsonDoc = QJsonDocument::fromJson(newData, &parseError);
-    qDebug() << parseError.error;
+    qDebug() <<"Parse Error : "<< parseError.error;
 
     if (parseError.error == QJsonParseError::NoError){
         // if the data was indeed valid JSON
         if (jsonDoc.isObject()){ // and is a JSON object
             qDebug() <<"received"+ jsonDoc.toJson(QJsonDocument::Compact) ;
 
-            emit jsonReceived(jsonDoc.object()); // parse the JSON
-
-
-
+            emit  jsonReceived(jsonDoc.object()); // parse the JSON
 
         }
 

@@ -24,7 +24,7 @@ signals:
     void privateMessage();
     void roomMessage(const QString &user, const QString &message);
     void userListRequest();
-    void newStatus(const int &status);
+    void updateStatus(const int status);
 
 };
 

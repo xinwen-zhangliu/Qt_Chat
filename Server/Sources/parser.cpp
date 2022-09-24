@@ -24,10 +24,10 @@ void Parser::parseJson(const QJsonObject &json){
 
         //creamos el json de respuesta que vamos a eviar
         QJsonObject answerMessage;
-        answerMessage[QStringLiteral("type")] = QStringlLiteral("PUBLIC_MESSAGE_FROM");
+        answerMessage[QStringLiteral("type")] = QStringLiteral("PUBLIC_MESSAGE_FROM");
         answerMessage[QStringLiteral("username")] = username.toString();
         answerMessage[QStringLiteral("message")] = message.toString();
-        emit publicMessage(answerMessage)
+        emit publicMessage(answerMessage);
 
     }
 
@@ -35,13 +35,13 @@ void Parser::parseJson(const QJsonObject &json){
     //STATUS
     if(type.toString().compare(QLatin1String("STATUS"))){
         //1=ACTIVE , 2=AWAY , 3=BUSY
-        const QJsonValue newStatus = json.value(Qlatin1String("status"));
+        const QJsonValue newStatus = json.value(QLatin1String("status"));
          if(newStatus.toString().compare(QLatin1String("ACTIVE"))){
-             emit newStatuu(1);
+             emit updateStatus(1);
          }else if(newStatus.toString().compare(QLatin1String("AWAY"))){
-             emit newStatus(2);
+             emit updateStatus(2);
          }else if(newStatus.toString().compare(QLatin1String("BUSY"))){
-             emit newStatus(3);
+             emit updateStatus(3);
          }
 
     }

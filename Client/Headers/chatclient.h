@@ -13,8 +13,7 @@ class QJsonDocument;
 class ChatClient : public QObject
 {
     Q_OBJECT
-    Q_DISABLE_COPY(ChatClient)
-
+    //Q_DISABLE_COPY(ChatClient)
 public:
     explicit ChatClient(QObject *parent = nullptr);
 public slots:
@@ -22,13 +21,11 @@ public slots:
      void connectToServer(const QHostAddress &address, quint16 port);
      void login(const QString &username);
      void sendPublicMessage(const QString &text);
-     //
-     //void createRoom(const QString &groupName, const QVector<QString> users);
+     void sendJson(const QJsonObject &jsonOnj);
      void askUserList();
+     void updateStatus(const int &newStatus);
  private slots:
      void onReadyRead();
-     void sendJson(const QJsonObject &jsonOnj);
-
  signals:
      void connected();
      void loggedIn();
@@ -44,9 +41,10 @@ public slots:
      void jsonReceived(const QJsonObject &doc);
 private:
     QTcpSocket *m_clientSocket;
-    int m_status; // 1=ACTIVE,  2=AWAY,  3=BUSY
     bool m_loggedIn;
-    Parser *m_parser;
+    int m_status; // 1=ACTIVE,  2=AWAY,  3=BUSY
+
+
 
 };
 

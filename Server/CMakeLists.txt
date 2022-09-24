@@ -6,7 +6,6 @@ find_package(Qt${QT_VERSION_MAJOR} 5.7 COMPONENTS Core Gui Widgets Network REQUI
 
 
 set(CMAKE_INCLUDE_CURRENT_DIR "YES")
-set(CMAKE_AUTOMOC "YES")
 set(CMAKE_AUTOUIC_SEARCH_PATHS Server/../forms)
 include_directories(${SRC_BASE_DIR}/forms)
 qt_wrap_ui(UI_HEADERS ${UI})
@@ -16,22 +15,20 @@ add_executable(Server
     forms/serverwindow.ui
 
     Sources/chatserver.cpp
-    Sources/room.cpp
     Sources/serverwindow.cpp
     Sources/serverworker.cpp
     Sources/user.cpp
 
     Headers/chatserver.h
-    Headers/room.h
     Headers/serverwindow.h
     Headers/serverworker.h
     Headers/user.h
 
-
-
-
+    ../Common/room.cpp
+    ../Common/room.h
 
 )
+
 
 target_link_libraries(Server PRIVATE Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Gui Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Network)
 target_include_directories(Server PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)

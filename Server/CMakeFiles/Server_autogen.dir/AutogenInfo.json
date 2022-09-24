@@ -297,15 +297,15 @@
 	"HEADERS" : 
 	[
 		[
-			"/home/xinwen/proyecto1_Chat/Server/Headers/chatserver.h",
+			"/home/xinwen/proyecto1_Chat/Common/room.h",
 			"MU",
-			"D2MWKIZDYH/moc_chatserver.cpp",
+			"ZBJRBURQQN/moc_room.cpp",
 			null
 		],
 		[
-			"/home/xinwen/proyecto1_Chat/Server/Headers/room.h",
+			"/home/xinwen/proyecto1_Chat/Server/Headers/chatserver.h",
 			"MU",
-			"D2MWKIZDYH/moc_room.cpp",
+			"D2MWKIZDYH/moc_chatserver.cpp",
 			null
 		],
 		[
@@ -396,12 +396,12 @@
 	"SETTINGS_FILE" : "/home/xinwen/proyecto1_Chat/Server/CMakeFiles/Server_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "/home/xinwen/proyecto1_Chat/Common/room.cpp", "MU", null ],
 		[
 			"/home/xinwen/proyecto1_Chat/Server/Sources/chatserver.cpp",
 			"MU",
 			null
 		],
-		[ "/home/xinwen/proyecto1_Chat/Server/Sources/room.cpp", "MU", null ],
 		[
 			"/home/xinwen/proyecto1_Chat/Server/Sources/serverwindow.cpp",
 			"MU",

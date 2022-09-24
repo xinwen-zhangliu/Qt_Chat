@@ -313,6 +313,21 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: \
  /usr/include/qt6/QtWidgets/qstyle.h /usr/include/qt6/QtWidgets/qtabbar.h \
  /usr/include/qt6/QtWidgets/qtabwidget.h \
  /usr/include/qt6/QtWidgets/qrubberband.h \
+ /home/xinwen/proyecto1_Chat/Client/Headers/parser.h \
+ /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
+ /usr/include/qt6/QtCore/QJsonObject \
+ /usr/include/qt6/QtCore/qjsonobject.h \
+ /usr/include/qt6/QtCore/qjsonvalue.h \
+ /usr/include/qt6/QtCore/qcborvalue.h /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/qcalendar.h \
+ /usr/include/qt6/QtCore/qcborcommon.h /usr/include/qt6/QtCore/qurl.h \
+ /usr/include/qt6/QtCore/quuid.h /usr/include/qt6/QtCore/QJsonArray \
+ /usr/include/qt6/QtCore/qjsonarray.h \
+ /home/xinwen/proyecto1_Chat/Client/Headers/chatclient.h \
+ /usr/include/qt6/QtNetwork/QTcpSocket \
+ /usr/include/qt6/QtNetwork/qtcpsocket.h \
+ /usr/include/qt6/QtNetwork/qabstractsocket.h \
+ /usr/include/qt6/QtNetwork/qhostaddress.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/include/../ui_mainchatwindow.h \
  /usr/include/qt6/QtCore/QVariant /usr/include/qt6/QtCore/qvariant.h \
  /usr/include/qt6/QtWidgets/QApplication \
@@ -335,7 +350,7 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: \
  /usr/include/qt6/QtWidgets/qboxlayout.h \
  /usr/include/qt6/QtWidgets/QLabel /usr/include/qt6/QtWidgets/qlabel.h \
  /usr/include/qt6/QtGui/qpicture.h /usr/include/qt6/QtGui/qtextdocument.h \
- /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtWidgets/QLineEdit \
+ /usr/include/qt6/QtWidgets/QLineEdit \
  /usr/include/qt6/QtWidgets/qlineedit.h \
  /usr/include/qt6/QtGui/qtextcursor.h \
  /usr/include/qt6/QtGui/qtextformat.h /usr/include/qt6/QtGui/qpen.h \
@@ -348,12 +363,6 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: \
  /usr/include/qt6/QtWidgets/qabstractbutton.h \
  /usr/include/qt6/QtWidgets/QVBoxLayout \
  /usr/include/qt6/QtWidgets/QWidget \
- /home/xinwen/proyecto1_Chat/Client/Headers/chatclient.h \
- /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
- /usr/include/qt6/QtNetwork/QTcpSocket \
- /usr/include/qt6/QtNetwork/qtcpsocket.h \
- /usr/include/qt6/QtNetwork/qabstractsocket.h \
- /usr/include/qt6/QtNetwork/qhostaddress.h \
  /usr/include/qt6/QtGui/QStandardItemModel \
  /usr/include/qt6/QtGui/qstandarditemmodel.h \
  /usr/include/qt6/QtWidgets/QInputDialog \

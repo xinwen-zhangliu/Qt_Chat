@@ -1,6 +1,6 @@
 /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_serverworker.cpp: /home/xinwen/proyecto1_Chat/Server/Headers/serverworker.h \
   /home/xinwen/proyecto1_Chat/Server/Server_autogen/moc_predefs.h \
-  /home/xinwen/proyecto1_Chat/Server/Headers/room.h \
+  /home/xinwen/proyecto1_Chat/Common/room.h \
   /home/xinwen/proyecto1_Chat/Server/Headers/user.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -271,6 +271,7 @@
   /usr/include/pthread.h \
   /usr/include/qt6/QtCore/QObject \
   /usr/include/qt6/QtCore/QReadWriteLock \
+  /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/QVector \
   /usr/include/qt6/QtCore/qalgorithms.h \
   /usr/include/qt6/QtCore/qanystringview.h \

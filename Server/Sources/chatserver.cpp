@@ -127,7 +127,7 @@ void ChatServer::userDisconnected(ServerWorker *sender, int threadIdx)
     const QString userName = sender->userName();
     if (!userName.isEmpty()) {
         QJsonObject disconnectedMessage;
-        disconnectedMessage[QStringLiteral("type")] = QStringLiteral("userdisconnected");
+        disconnectedMessage[QStringLiteral("type")] = QStringLiteral("DISCONNECTED");
         disconnectedMessage[QStringLiteral("username")] = userName;
         broadcastAll(disconnectedMessage, nullptr);
         emit logMessage(userName + QLatin1String(" disconnected"));

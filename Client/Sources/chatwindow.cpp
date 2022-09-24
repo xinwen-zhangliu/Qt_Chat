@@ -1,8 +1,8 @@
 #include "Headers/chatwindow.h"
-
-#include "../ui_mainchatwindow.h"
+#include "Headers/parser.h"
 #include "Headers/chatclient.h"
 
+#include "../ui_mainchatwindow.h"
 
 #include <QStandardItemModel>
 #include <QListWidgetItem>
@@ -17,42 +17,56 @@ ChatWindow::ChatWindow(QWidget *parent)
     , ui(new Ui::ChatWindow)
     , m_chatClient(new ChatClient(this))
     , m_chatModel(new QStandardItemModel(this))
+    , m_parser(new Parser(this))
+
 {
 
     ui->setupUi(this);
     m_chatModel->insertColumn(0);
     ui->chatView->setModel(m_chatModel);
 
+    qDebug() << "inside chatWindow";
 
-
-    QString iconPath = QString::fromStdString("../forms/chatButtonWhite.png");
-    for(int i=0; i<5; i++){
-        QListWidgetItem *item = new QListWidgetItem;
-        item -> setCheckState(Qt::Unchecked);
-        item -> setIcon(QIcon(iconPath));
-
-        ui->clientList -> addItem(item);
-
-
-    }
+    //since in ChatWindow we declare the class instance used we need to declare all connect functions here
+    connect(m_chatClient, &ChatClient::jsonReceived, m_parser, &Parser::parseJson);
+    connect(m_parser, &Parser::sendJson, m_chatClient, &ChatClient::sendJson);
 
     //connecting signals to slots
     connect(m_chatClient, &ChatClient::connected, this, &ChatWindow::connectedToServer);
-    connect(m_chatClient, &ChatClient::loggedIn, this, &ChatWindow::loggedIn);
-
-
-    connect(m_chatClient, &ChatClient::loginError, this, &ChatWindow::loginFailed);
-
-
-    connect(m_chatClient, &ChatClient::jsonText, this, &ChatWindow::logJson);
-    connect(m_chatClient, &ChatClient::receivedUserList, this, &ChatWindow::displayUserList);
-
-    //connnect(m_parser, &Parser::showWarning, this, &ChatWindow::showJson);
-    connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
     connect(m_chatClient, &ChatClient::disconnected, this, &ChatWindow::disconnectedFromServer);
     connect(m_chatClient, &ChatClient::error, this, &ChatWindow::error);
+    connect(m_chatClient, &ChatClient::jsonText, this, &ChatWindow::logJson);
+
+        //connect(m_chatClient, &ChatClient::loginError, this, &ChatWindow::loginFailed);
+
+   // connect(m_chatClient, &ChatClient::loggedIn, this, &ChatWindow::loggedIn);
+
+
+
+
+
+
+    //signals from the parser
+
+    connect(m_parser, &Parser::loggedIn, this, &ChatWindow::loggedIn);
+    connect(m_parser, &Parser::loginError, this, &ChatWindow::loginFailed);
+    connect(m_parser, &Parser::publicMessageReceived, this, &ChatWindow::publicMessageReceived);
+    connect(m_parser, &Parser::userJoined, this, &ChatWindow::userJoined);
+    connect(m_parser, &Parser::userLeft, this, &ChatWindow::userLeft);
+
+    /*
+    connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
+
+
     connect(m_chatClient, &ChatClient::userJoined, this, &ChatWindow::userJoined);
     connect(m_chatClient, &ChatClient::userLeft, this, &ChatWindow::userLeft);
+    */
+
+
+    //changing the signals to connect to the parser
+
+
+
 
     connect(ui->connectButton, &QPushButton::clicked, this, &ChatWindow::attemptConnection);
 
@@ -60,8 +74,8 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(ui->messageEdit, &QLineEdit::returnPressed, this, &ChatWindow::sendMessage);
     connect(ui->disconnnectButton, &QPushButton::clicked, m_chatClient, &ChatClient::disconnectFromHost);
 
-    //connect(ui->createGroup, &QPushButton::clicked , m_chatClient, &ChatClient::createRoom);
-    //connect(ui->groupName, &QLineEdit::returnPressed, m_chatClient, &ChatClient::createRoom);
+    connect(ui->createGroup, &QPushButton::clicked , this, &ChatWindow::createRoom);
+    connect(ui->groupName, &QLineEdit::returnPressed, this, &ChatWindow::createRoom);
 
 }
 
@@ -73,16 +87,10 @@ ChatWindow::~ChatWindow(){
 }
 
 
-void ChatWindow::refreshUserList(){
-
-
-    QListWidgetItem *item = new QListWidgetItem;
-
+ChatClient* ChatWindow::getChatClient(){
+    return m_chatClient;
 }
 
-void ChatWindow::getUsers(){
-
-}
 
 
 
@@ -220,6 +228,18 @@ void ChatWindow::sendMessage()
     m_lastUserName.clear();
 }
 
+void ChatWindow::createRoom(){
+    if(ui->groupName->text().isEmpty()){
+        QMessageBox::information(this, tr("Info"), tr("You cannot leave the name group blank"));
+        return;
+    }else if(selectedUsers.isEmpty()){
+        QMessageBox::information(this, tr("Info"), tr("You cannot create a group without al least one person"));
+        return;
+    }
+
+    Room newRoom =
+}
+
 void ChatWindow::disconnectedFromServer()
 {
 
@@ -270,9 +290,26 @@ void ChatWindow::userLeft(const QString &username)
 }
 
 
-void ChatWindow::displayUserList(){
 
+
+void ChatWindow::on_clientList_itemClicked(QListWidgetItem *item)
+{
+     qDebug() << "you've  clicked the  item";
+     if(item -> checkState() == Qt::Checked){
+        //item -> setBackground(Qt::red);
+     }
 }
+
+
+
+
+
+void ChatWindow::on_clientList_itemDoubleClicked(QListWidgetItem *item)
+{
+    qDebug() << "you've double clicked the  item";
+    //item -> setBackground(Qt::blue);
+}
+
 
 void ChatWindow::error(QAbstractSocket::SocketError socketError){
 
@@ -365,21 +402,5 @@ void ChatWindow::error(QAbstractSocket::SocketError socketError){
 
 
 
-void ChatWindow::on_clientList_itemClicked(QListWidgetItem *item)
-{
-     qDebug() << "you've  clicked the  item";
-     if(item -> checkState() == Qt::Checked){
-        item -> setBackground(Qt::red);
-     }
-}
 
-
-
-
-
-void ChatWindow::on_clientList_itemDoubleClicked(QListWidgetItem *item)
-{
-    qDebug() << "you've double clicked the  item";
-    item -> setBackground(Qt::blue);
-}
 

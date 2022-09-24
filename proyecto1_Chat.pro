@@ -1,3 +1,3 @@
 TEMPLATE = subdirs
-SUBDIRS = Client Server
+SUBDIRS = Client Server Common
 

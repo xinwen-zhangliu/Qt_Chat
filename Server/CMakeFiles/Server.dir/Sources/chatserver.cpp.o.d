@@ -276,8 +276,9 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
  /home/xinwen/proyecto1_Chat/Server/Headers/serverworker.h \
  /home/xinwen/proyecto1_Chat/Server/Headers/user.h \
- /home/xinwen/proyecto1_Chat/Server/Headers/room.h \
+ /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
+ /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/qstring.h \
  /usr/include/qt6/QtNetwork/QTcpSocket \
  /usr/include/qt6/QtNetwork/qtcpsocket.h \
  /usr/include/qt6/QtCore/qvariant.h \

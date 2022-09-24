@@ -1,6 +1,7 @@
 #ifndef CHATWINDOW_H
 #define CHATWINDOW_H
 
+
 #include <QWidget>
 #include <QAbstractSocket>
 #include <QVector>
@@ -23,17 +24,18 @@ class ChatWindow : public QWidget
 public:
     explicit ChatWindow(QWidget *parent = nullptr);
     ~ChatWindow();
-public slots:
-    void refreshUserList();
-    void getUsers();
+   ChatClient* getChatClient();
+
 private:
     Ui::ChatWindow *ui;
     ChatClient *m_chatClient;
     QStandardItemModel *m_chatModel;
+
     QString m_lastUserName;
-    //QVector<QString> connectedClients;
-    QVector<QString *> selectedUsers;
-    QVector<QString *> connectedUsers;
+    QVector<QString> connectedClients;
+    QVector<QString> selectedUsers;
+    Parser *m_parser;
+    //QVector<PrivateChat>
 private slots:
     void attemptConnection();
     void attemptLogin(const QString &username);
@@ -45,10 +47,9 @@ private slots:
     void disconnectedFromServer();
     void userJoined(const QString &username);
     void userLeft(const QString &username);
-    void displayUserList();
     void connectedToServer();
     void error(QAbstractSocket::SocketError socketError);
-
+    void createRoom();
 
 
     void on_clientList_itemClicked(QListWidgetItem *item);
