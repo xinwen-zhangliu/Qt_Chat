@@ -21,6 +21,8 @@ public slots:
      void connectToServer(const QHostAddress &address, quint16 port);
      void login(const QString &username);
      void sendPublicMessage(const QString &text);
+     void sendPrivateMessage(const QString &detination, const QString &message);
+     void sendRoomMessage(const QString &roomName, const QString &message);
      void sendJson(const QJsonObject &jsonOnj);
      void askUserList();
      void updateStatus(const int &newStatus);
@@ -39,6 +41,8 @@ public slots:
      void showConnected();
      void receivedUserList( const QJsonArray &list);
      void jsonReceived(const QJsonObject &doc);
+
+
 private:
     QTcpSocket *m_clientSocket;
     bool m_loggedIn;

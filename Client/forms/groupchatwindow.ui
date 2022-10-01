@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>495</height>
+    <width>500</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,10 +16,40 @@
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="1">
     <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
+     <item>
+      <widget class="QPushButton" name="userListBtn">
+       <property name="text">
+        <string>Get User List</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="inviteBtn">
+       <property name="text">
+        <string>Invite Someone</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Leave Room</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QListView" name="chatView">
        <property name="enabled">
         <bool>false</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -37,14 +67,41 @@
        <item>
         <widget class="QLineEdit" name="messageEdit">
          <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>450</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>450</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="dragEnabled">
           <bool>false</bool>
          </property>
         </widget>
        </item>
-       <item>
+       <item alignment="Qt::AlignLeft">
         <widget class="QPushButton" name="sendButton">
          <property name="enabled">
           <bool>false</bool>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
          </property>
          <property name="text">
           <string>Send</string>
@@ -55,30 +112,6 @@
         </widget>
        </item>
       </layout>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="4">
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Users in gruop chat </string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QListWidget" name="inChatClients"/>
-     </item>
-     <item>
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Users not in group chat</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QListWidget" name="listWidget"/>
      </item>
     </layout>
    </item>

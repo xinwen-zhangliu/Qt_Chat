@@ -2,4 +2,5 @@
 #include "D2MWKIZDYH/moc_chatclient.cpp"
 #include "D2MWKIZDYH/moc_chatwindow.cpp"
 #include "D2MWKIZDYH/moc_parser.cpp"
+#include "D2MWKIZDYH/moc_privatechat.cpp"
 #include "ZBJRBURQQN/moc_room.cpp"

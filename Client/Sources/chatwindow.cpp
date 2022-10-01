@@ -366,10 +366,12 @@ void ChatWindow::on_clientList_itemDoubleClicked(QListWidgetItem *item)
 {
     qDebug() << "you've double clicked the  item";
     if (!m_privateChats.contains(item->text())) {
-            PrivateChat* privateDialog = new PrivateChat(this, item ->text());
+            PrivateChat* privateDialog = new PrivateChat( item ->text(), this);
             // signal from the private message dialog when the user closes it so it can be removed from the list of opened dialogs
             //connect(privateDialog, &PrivateChat::closeDialog, this, &MainWindow::onClosePrivateDialog);
-            privateDialog->setWindowTitle("Chat with " + item ->text());
+            QString s1 = QStringLiteral("Chat with ");
+            QString s2 = item->text();
+            privateDialog->setWindowTitle(s1+s2);
             privateDialog->show();
 
             m_privateChats.push_back(item -> text());

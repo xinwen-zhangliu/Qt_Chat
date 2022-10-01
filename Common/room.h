@@ -12,11 +12,20 @@ class Room : public QObject
 public:
     explicit Room(QString roomName, QVector<QString> users , QObject *parent = nullptr);
 
+
 public slots:
     QString getRoomName();
+    QVector<QString> getUsers();
+
+    void addUser(const QString &username);
+    void addInvitation(const QString &username);
+    void deleteUser(const QString &username);
+
 private:
     QString m_roomName;
-    QVector<QString> m_users;
+    QVector<QString> m_users; //the people that accepted the invitation and were added to the room
+    QVector<QString> m_invitations; //people that were invited but didn't join the room
+
 };
 
 #endif // ROOM_H

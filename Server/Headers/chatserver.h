@@ -6,6 +6,7 @@
 #include <QTimer>
 
 #include "../Common/room.h"
+#include "Headers/parser.h"
 
 class QThread;
 class ServerWorker;
@@ -29,7 +30,10 @@ private:
     QVector<ServerWorker *> m_clients; //uno por cliente
     QTimer *m_timer;
     QVector<Room *> m_rooms;
+    Parser *m_parser;
+
 private slots:
+
     void broadcastAll(const QJsonObject &message, ServerWorker *exclude);
     void broadcastRoom(const QJsonObject &message, ServerWorker *sender, const QString &roomName);
     void broadcastOne(const QJsonObject &message,ServerWorker *sender, const QString &destination);
@@ -37,6 +41,17 @@ private slots:
     void userDisconnected(ServerWorker *sender, int threadIdx);
     void userError(ServerWorker *sender);
     void logFinished();
+    void sendPrivateMessage(const QString &destination, const QJsonObject &message);
+    void userListRequest(ServerWorker *sender);
+
+    void sendRoomMessage(ServerWorker *sender, const QString &roomName, const QString &message);
+    void attempCreateRoom(ServerWorker *sender, const QString &roomName, QVector<QString> users);
+    void roomUsersRequest(ServerWorker *sender, const QString &roomName);
+    void leaveRoom(ServerWorker *sender, const QString &roomName);\
+
+    void updateStatus(ServerWorker *sender, const int newStatus);
+
+    void sendConnectedUsers(ServerWorker *sender);
 public slots:
     void stopServer();
 private:
@@ -47,6 +62,8 @@ signals:
     void logMessage(const QString &msg);
     void stopAllClients();
     void createRoom(ServerWorker *sender , QVector<QString> users);
+    void parseJson(ServerWorker *sender, const QJsonObject &doc);
+
 };
 
 #endif // CHATSERVER_H

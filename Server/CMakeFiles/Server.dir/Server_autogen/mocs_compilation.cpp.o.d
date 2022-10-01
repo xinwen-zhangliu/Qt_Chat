@@ -280,6 +280,15 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtNetwork/qhostaddress.h /usr/include/qt6/QtCore/QTimer \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
  /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
+ /home/xinwen/proyecto1_Chat/Server/Headers/parser.h \
+ /usr/include/qt6/QtCore/QJsonObject \
+ /usr/include/qt6/QtCore/qjsonobject.h \
+ /usr/include/qt6/QtCore/qjsonvalue.h \
+ /usr/include/qt6/QtCore/qcborvalue.h /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qlocale.h \
+ /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/qcborcommon.h \
+ /usr/include/qt6/QtCore/qregularexpression.h \
+ /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
  /usr/include/qt6/QtCore/QList /usr/include/qt6/QtCore/qlist.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_serverwindow.cpp \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/serverwindow.h \
@@ -300,9 +309,9 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtGui/qpixelformat.h \
  /usr/include/qt6/QtGui/qtransform.h /usr/include/qt6/QtGui/qpolygon.h \
  /usr/include/qt6/QtGui/qregion.h /usr/include/qt6/QtCore/qline.h \
- /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtGui/qpalette.h \
- /usr/include/qt6/QtGui/qbrush.h /usr/include/qt6/QtGui/qfont.h \
- /usr/include/qt6/QtGui/qfontmetrics.h /usr/include/qt6/QtGui/qfontinfo.h \
+ /usr/include/qt6/QtGui/qpalette.h /usr/include/qt6/QtGui/qbrush.h \
+ /usr/include/qt6/QtGui/qfont.h /usr/include/qt6/QtGui/qfontmetrics.h \
+ /usr/include/qt6/QtGui/qfontinfo.h \
  /usr/include/qt6/QtWidgets/qsizepolicy.h \
  /usr/include/qt6/QtGui/qcursor.h /usr/include/qt6/QtGui/qbitmap.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/serverworker.h \

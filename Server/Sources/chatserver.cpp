@@ -1,6 +1,8 @@
 #include "Headers/chatserver.h"
 #include "Headers/serverworker.h"
+#include "Headers/parser.h"
 #include "../Common/room.h"
+
 
 #include <functional>
 #include <QThread>
@@ -14,10 +16,16 @@
 ChatServer::ChatServer(QObject *parent)
     : QTcpServer(parent)
     , m_idealThreadCount(qMax(QThread::idealThreadCount(), 1))
+    , m_parser(new Parser(this))
     //depends on how many logical processors we have on the machine, in any case we are going to have a minimum thread count of 1
 {
     m_availableThreads.reserve(m_idealThreadCount); //we try to allocate memory to at least the size of idealThreadCount
     m_threadsLoad.reserve(m_idealThreadCount);
+
+    // connecting parser and chatserver signals and slots
+    connect(this, &ChatServer::parseJson, m_parser, &Parser::parseJson);
+    //connect(m_parser, &Parser::)
+
 
 }
 
@@ -55,12 +63,39 @@ void ChatServer::incomingConnection(qintptr socketDescriptor){
 
         connect(m_availableThreads.at(threadIdx), &QThread::finished, worker, &QObject::deleteLater);
         connect(m_availableThreads.at(threadIdx), &QThread::finished, this, &ChatServer::logFinished);
-        connect(worker, &ServerWorker::disconnectedFromClient, this, std::bind(&ChatServer::userDisconnected, this, worker, threadIdx));
+        connect(worker, &ServerWorker::disconnectedFromClient, this, std::bind(&ChatServer::userDisconnected, this, worker, threadIdx), Qt::QueuedConnection);
+
         connect(worker, &ServerWorker::error, this, std::bind(&ChatServer::userError, this, worker));
         connect(worker, &ServerWorker::jsonReceived, this, std::bind(&ChatServer::jsonReceived, this, worker, std::placeholders::_1));
         connect(this, &ChatServer::stopAllClients, worker, &ServerWorker::disconnectFromClient);
         m_clients.append(worker);
         emit logMessage(QStringLiteral("New client Connected"));
+
+        //we connect the client petitions
+        connect(m_parser, &Parser::publicMessage, this, &ChatServer::broadcastAll, Qt::QueuedConnection);
+
+        connect(m_parser, &Parser::userListRequest, this,&ChatServer::userListRequest, Qt::QueuedConnection );
+
+        connect(m_parser, &Parser::updateStatus, this,&ChatServer::updateStatus, Qt::QueuedConnection );
+
+}
+
+void ChatServer::userListRequest(ServerWorker *sender){
+    QJsonArray usernames;
+    QJsonValue name;
+    for(int i =0 ; i <m_clients.size(); i++){
+       name = m_clients[i]->userName();
+       usernames.append(name);
+    }
+
+    QJsonObject userListJson;
+    userListJson[QStringLiteral("type")]= QStringLiteral("USER_LIST");
+    userListJson[QStringLiteral("usernames")] = usernames;
+
+    sendJson(sender, userListJson);
+}
+
+void ChatServer::updateStatus(ServerWorker *sender, const int newStatus){
 
 }
 
@@ -157,8 +192,37 @@ void ChatServer::userDisconnected(ServerWorker *sender, int threadIdx)
         broadcastAll(disconnectedMessage, nullptr);
         emit logMessage(userName + QLatin1String(" disconnected"));
     }
+
+    //also deleteuserfrom rooms userlists and broadcast user left to each room
+    QVector<QString> rooms= sender->getRooms();
+
+
+    for(int i =0 ; i < m_rooms.size();i++){
+        QString roomName = m_rooms[i]->getRoomName();
+        for(int i = 0; i < rooms.size(); i++){
+            if(roomName.compare(rooms[i], Qt::CaseSensitive)==0){
+                if(m_rooms[i]->getUsers().size() <= 1){
+                    //m_rooms.remove(i);
+                    break;
+                }
+
+                //otherwise there are other users in the room so we bradcast
+                QJsonObject userLeft;
+                userLeft[QStringLiteral("type")] = QStringLiteral("LEFT_ROOM");
+                userLeft[QStringLiteral("roomname")] = roomName;
+                userLeft[QStringLiteral("username")] = sender->userName();
+                m_rooms[i]->deleteUser(sender->userName());//deleting person from room
+                broadcastRoom(userLeft, sender, roomName); //telling users the person has left the room
+
+
+            }
+        }
+    }
+
     sender->deleteLater();
 }
+
+
 
 void ChatServer::userError(ServerWorker *sender)
 {
@@ -218,5 +282,5 @@ void ChatServer::jsonFromLoggedOut(ServerWorker *sender, const QJsonObject &docO
 
 
 void ChatServer::jsonFromLoggedIn(ServerWorker *sender, const QJsonObject &doc){
-
+    emit parserJson(sender, doc);
 }

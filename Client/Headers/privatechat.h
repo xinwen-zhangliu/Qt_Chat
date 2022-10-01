@@ -17,7 +17,7 @@ class PrivateChat : public QDialog {
 	Q_OBJECT
 
 public:
-    explicit PrivateChat(QWidget* parent = 0, QString chatPartner = "");
+    explicit PrivateChat( QString chatPartner,QWidget* parent = nullptr);
     ~PrivateChat();
 
 private:
@@ -26,7 +26,7 @@ private:
 
 signals:
 	void closeDialog(QString username);
-	void sendPrivateMessage(QString receiver, QString message, QString sender);
+    void sendPrivateMessage(QString receiver, QString message);
 	void sendFile(QByteArray blob, int fileSize, QString receiver, QString sender);
 
 public slots:

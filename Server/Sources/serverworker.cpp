@@ -49,6 +49,13 @@ void ServerWorker::sendJson(const QJsonObject &json){
 }
 
 
+void setStatus(const int newStatus){
+    this->m_status =newStatus;
+}
+int getStatus(){
+    return this->m_status;
+}
+
 
 void ServerWorker::disconnectFromClient(){
     m_serverSocket -> disconnectFromHost();
@@ -99,7 +106,9 @@ void ServerWorker::receiveJson(){
 
    }else{
 
-       qDebug() << "there was a parse error in the receiveJson";
+       qDebug() << "ServerWorker::parserJson there was QJsonParseError";
+       //we diconnect the user beacuse there if there was a parse error then it's an invalid json
+        disconnectFromClient();
        return;
    }
 }

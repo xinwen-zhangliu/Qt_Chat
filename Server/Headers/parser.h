@@ -20,15 +20,29 @@ public slots:
 private:
 
 signals:
-    void invalidJson(ServerWorker *sender);
-    void publicMessage(ServerWorker *sender,const QJsonObject &newJson);
-    void privateMessage(ServerWorker *sender, const QString *destination);
-    void roomMessage(ServerWorker *sender,const QString &roomName, const QString &message);
-    void userListRequest();
+    //void answerBack(ServerWorker *destination, QJsonObject &message); //to answer back to the same sender
+
+    void disconnect(ServerWorker *sender);
+
+    void publicMessage(const QJsonObject &newJson, ServerWorker *sender);
+    void privateMessage( const QString &destination, const QJsonObject &message);
+
+
+    void userListRequest(ServerWorker *sender);
+
+
     void updateStatus(ServerWorker *sender, const int status);
-    void newRoom(ServerWorker *sender, const QString *roomName, QVector<QString> users);
-    void invitation(ServerWorker *sender, const QString *destination);
-    void leaveRoom(ServerWorker *sender);
+
+
+    void newRoomRequest(ServerWorker *sender, const QString &roomName);//connected to attempCreateRoom in ChatServer
+    void invitationsToRoom(ServerWorker *sendr, QVector<QString> users, const QString &roomName);
+    void roomInvitation(ServerWorker *sender, const QString &destination); //connected to
+    void leaveRoom(ServerWorker *sender, const QString &roomName); //connected to leaveRoom in ChatServer
+    void roomUsersRequest(ServerWorker *sender, const QString &roomName); //connected to roomUsersRequest
+    void roomMessage(ServerWorker *sender,const QString &roomName, const QString &message);
+    void joinRoomRequest(ServerWorker *sender, const QString &roomName);
+
+
 
 
 };

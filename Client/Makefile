@@ -240,6 +240,30 @@ Sources/parser.cpp.s:
 	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/parser.cpp.s
 .PHONY : Sources/parser.cpp.s
 
+Sources/privatechat.o: Sources/privatechat.cpp.o
+.PHONY : Sources/privatechat.o
+
+# target to build an object file
+Sources/privatechat.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o
+.PHONY : Sources/privatechat.cpp.o
+
+Sources/privatechat.i: Sources/privatechat.cpp.i
+.PHONY : Sources/privatechat.i
+
+# target to preprocess a source file
+Sources/privatechat.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.i
+.PHONY : Sources/privatechat.cpp.i
+
+Sources/privatechat.s: Sources/privatechat.cpp.s
+.PHONY : Sources/privatechat.s
+
+# target to generate assembly for a file
+Sources/privatechat.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.s
+.PHONY : Sources/privatechat.cpp.s
+
 __/Common/room.o: __/Common/room.cpp.o
 .PHONY : __/Common/room.o
 
@@ -310,6 +334,9 @@ help:
 	@echo "... Sources/parser.o"
 	@echo "... Sources/parser.i"
 	@echo "... Sources/parser.s"
+	@echo "... Sources/privatechat.o"
+	@echo "... Sources/privatechat.i"
+	@echo "... Sources/privatechat.s"
 	@echo "... __/Common/room.o"
 	@echo "... __/Common/room.i"
 	@echo "... __/Common/room.s"

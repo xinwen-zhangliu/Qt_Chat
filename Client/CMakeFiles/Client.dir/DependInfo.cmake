@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xinwen/proyecto1_Chat/Client/Sources/chatclient.cpp" "Client/CMakeFiles/Client.dir/Sources/chatclient.cpp.o" "gcc" "Client/CMakeFiles/Client.dir/Sources/chatclient.cpp.o.d"
   "/home/xinwen/proyecto1_Chat/Client/Sources/chatwindow.cpp" "Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o" "gcc" "Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o.d"
   "/home/xinwen/proyecto1_Chat/Client/Sources/parser.cpp" "Client/CMakeFiles/Client.dir/Sources/parser.cpp.o" "gcc" "Client/CMakeFiles/Client.dir/Sources/parser.cpp.o.d"
+  "/home/xinwen/proyecto1_Chat/Client/Sources/privatechat.cpp" "Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o" "gcc" "Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o.d"
   "/home/xinwen/proyecto1_Chat/Common/room.cpp" "Client/CMakeFiles/Client.dir/__/Common/room.cpp.o" "gcc" "Client/CMakeFiles/Client.dir/__/Common/room.cpp.o.d"
   "/home/xinwen/proyecto1_Chat/Client/clientmain.cpp" "Client/CMakeFiles/Client.dir/clientmain.cpp.o" "gcc" "Client/CMakeFiles/Client.dir/clientmain.cpp.o.d"
   )

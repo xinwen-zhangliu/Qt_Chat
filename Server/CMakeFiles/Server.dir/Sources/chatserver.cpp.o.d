@@ -277,10 +277,18 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: \
  /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
  /usr/include/qt6/QtCore/QString /usr/include/qt6/QtCore/qstring.h \
+ /home/xinwen/proyecto1_Chat/Server/Headers/parser.h \
+ /usr/include/qt6/QtCore/QJsonObject \
+ /usr/include/qt6/QtCore/qjsonobject.h \
+ /usr/include/qt6/QtCore/qjsonvalue.h \
+ /usr/include/qt6/QtCore/qcborvalue.h /usr/include/qt6/QtCore/qdatetime.h \
+ /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qlocale.h \
+ /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/qcborcommon.h \
+ /usr/include/qt6/QtCore/qregularexpression.h \
+ /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
  /home/xinwen/proyecto1_Chat/Server/Headers/serverworker.h \
  /usr/include/qt6/QtNetwork/QTcpSocket \
  /usr/include/qt6/QtNetwork/qtcpsocket.h \
- /usr/include/qt6/QtCore/qvariant.h \
  /usr/include/qt6/QtCore/QReadWriteLock \
  /usr/include/qt6/QtCore/qreadwritelock.h /usr/include/qt6/QtCore/QThread \
  /usr/include/qt6/QtCore/qthread.h \
@@ -291,14 +299,6 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: \
  /usr/include/c++/12.2.0/condition_variable \
  /usr/include/c++/12.2.0/bits/atomic_futex.h \
  /usr/include/c++/12.2.0/bits/std_thread.h \
- /usr/include/qt6/QtCore/QJsonObject \
- /usr/include/qt6/QtCore/qjsonobject.h \
- /usr/include/qt6/QtCore/qjsonvalue.h \
- /usr/include/qt6/QtCore/qcborvalue.h /usr/include/qt6/QtCore/qdatetime.h \
- /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qlocale.h \
- /usr/include/qt6/QtCore/qcborcommon.h \
- /usr/include/qt6/QtCore/qregularexpression.h \
- /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
  /usr/include/qt6/QtCore/QJsonDocument \
  /usr/include/qt6/QtCore/qjsondocument.h \
  /usr/include/qt6/QtCore/QJsonValue /usr/include/qt6/QtCore/qjsonvalue.h \

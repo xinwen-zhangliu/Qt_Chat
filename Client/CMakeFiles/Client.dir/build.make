@@ -139,10 +139,24 @@ Client/CMakeFiles/Client.dir/Sources/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/Sources/parser.cpp.s"
 	cd /home/xinwen/proyecto1_Chat/Client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinwen/proyecto1_Chat/Client/Sources/parser.cpp -o CMakeFiles/Client.dir/Sources/parser.cpp.s
 
+Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o: Client/CMakeFiles/Client.dir/flags.make
+Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o: Client/Sources/privatechat.cpp
+Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o: Client/CMakeFiles/Client.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xinwen/proyecto1_Chat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o"
+	cd /home/xinwen/proyecto1_Chat/Client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o -MF CMakeFiles/Client.dir/Sources/privatechat.cpp.o.d -o CMakeFiles/Client.dir/Sources/privatechat.cpp.o -c /home/xinwen/proyecto1_Chat/Client/Sources/privatechat.cpp
+
+Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Client.dir/Sources/privatechat.cpp.i"
+	cd /home/xinwen/proyecto1_Chat/Client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xinwen/proyecto1_Chat/Client/Sources/privatechat.cpp > CMakeFiles/Client.dir/Sources/privatechat.cpp.i
+
+Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Client.dir/Sources/privatechat.cpp.s"
+	cd /home/xinwen/proyecto1_Chat/Client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xinwen/proyecto1_Chat/Client/Sources/privatechat.cpp -o CMakeFiles/Client.dir/Sources/privatechat.cpp.s
+
 Client/CMakeFiles/Client.dir/__/Common/room.cpp.o: Client/CMakeFiles/Client.dir/flags.make
 Client/CMakeFiles/Client.dir/__/Common/room.cpp.o: Common/room.cpp
 Client/CMakeFiles/Client.dir/__/Common/room.cpp.o: Client/CMakeFiles/Client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xinwen/proyecto1_Chat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object Client/CMakeFiles/Client.dir/__/Common/room.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xinwen/proyecto1_Chat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object Client/CMakeFiles/Client.dir/__/Common/room.cpp.o"
 	cd /home/xinwen/proyecto1_Chat/Client && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT Client/CMakeFiles/Client.dir/__/Common/room.cpp.o -MF CMakeFiles/Client.dir/__/Common/room.cpp.o.d -o CMakeFiles/Client.dir/__/Common/room.cpp.o -c /home/xinwen/proyecto1_Chat/Common/room.cpp
 
 Client/CMakeFiles/Client.dir/__/Common/room.cpp.i: cmake_force
@@ -160,6 +174,7 @@ Client_OBJECTS = \
 "CMakeFiles/Client.dir/Sources/chatwindow.cpp.o" \
 "CMakeFiles/Client.dir/Sources/chatclient.cpp.o" \
 "CMakeFiles/Client.dir/Sources/parser.cpp.o" \
+"CMakeFiles/Client.dir/Sources/privatechat.cpp.o" \
 "CMakeFiles/Client.dir/__/Common/room.cpp.o"
 
 # External object files for target Client
@@ -170,6 +185,7 @@ Client/Client-1.0.0: Client/CMakeFiles/Client.dir/clientmain.cpp.o
 Client/Client-1.0.0: Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o
 Client/Client-1.0.0: Client/CMakeFiles/Client.dir/Sources/chatclient.cpp.o
 Client/Client-1.0.0: Client/CMakeFiles/Client.dir/Sources/parser.cpp.o
+Client/Client-1.0.0: Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o
 Client/Client-1.0.0: Client/CMakeFiles/Client.dir/__/Common/room.cpp.o
 Client/Client-1.0.0: Client/CMakeFiles/Client.dir/build.make
 Client/Client-1.0.0: /usr/lib/libQt6Widgets.so.6.3.2
@@ -179,7 +195,7 @@ Client/Client-1.0.0: /usr/lib/libGLX.so
 Client/Client-1.0.0: /usr/lib/libOpenGL.so
 Client/Client-1.0.0: /usr/lib/libQt6Core.so.6.3.2
 Client/Client-1.0.0: Client/CMakeFiles/Client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xinwen/proyecto1_Chat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable Client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xinwen/proyecto1_Chat/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Client"
 	cd /home/xinwen/proyecto1_Chat/Client && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Client.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/xinwen/proyecto1_Chat/Client && $(CMAKE_COMMAND) -E cmake_symlink_executable Client-1.0.0 Client
 

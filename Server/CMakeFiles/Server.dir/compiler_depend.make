@@ -368,6 +368,19 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: Server/Serve
   /usr/include/qt6/QtCore/qtimer.h \
   /usr/include/qt6/QtCore/qbasictimer.h \
   Common/room.h \
+  Server/Headers/parser.h \
+  /usr/include/qt6/QtCore/QJsonObject \
+  /usr/include/qt6/QtCore/qjsonobject.h \
+  /usr/include/qt6/QtCore/qjsonvalue.h \
+  /usr/include/qt6/QtCore/qcborvalue.h \
+  /usr/include/qt6/QtCore/qdatetime.h \
+  /usr/include/qt6/QtCore/qcalendar.h \
+  /usr/include/qt6/QtCore/qlocale.h \
+  /usr/include/qt6/QtCore/qvariant.h \
+  /usr/include/qt6/QtCore/qcborcommon.h \
+  /usr/include/qt6/QtCore/qregularexpression.h \
+  /usr/include/qt6/QtCore/qurl.h \
+  /usr/include/qt6/QtCore/quuid.h \
   /usr/include/qt6/QtCore/QList \
   /usr/include/qt6/QtCore/qlist.h \
   Server/Server_autogen/D2MWKIZDYH/moc_serverwindow.cpp \
@@ -399,7 +412,6 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: Server/Serve
   /usr/include/qt6/QtGui/qpolygon.h \
   /usr/include/qt6/QtGui/qregion.h \
   /usr/include/qt6/QtCore/qline.h \
-  /usr/include/qt6/QtCore/qvariant.h \
   /usr/include/qt6/QtGui/qpalette.h \
   /usr/include/qt6/QtGui/qbrush.h \
   /usr/include/qt6/QtGui/qfont.h \
@@ -780,10 +792,22 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: Server/Sources/chatserver
   /usr/include/qt6/QtCore/qobject.h \
   /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/qstring.h \
+  Server/Headers/parser.h \
+  /usr/include/qt6/QtCore/QJsonObject \
+  /usr/include/qt6/QtCore/qjsonobject.h \
+  /usr/include/qt6/QtCore/qjsonvalue.h \
+  /usr/include/qt6/QtCore/qcborvalue.h \
+  /usr/include/qt6/QtCore/qdatetime.h \
+  /usr/include/qt6/QtCore/qcalendar.h \
+  /usr/include/qt6/QtCore/qlocale.h \
+  /usr/include/qt6/QtCore/qvariant.h \
+  /usr/include/qt6/QtCore/qcborcommon.h \
+  /usr/include/qt6/QtCore/qregularexpression.h \
+  /usr/include/qt6/QtCore/qurl.h \
+  /usr/include/qt6/QtCore/quuid.h \
   Server/Headers/serverworker.h \
   /usr/include/qt6/QtNetwork/QTcpSocket \
   /usr/include/qt6/QtNetwork/qtcpsocket.h \
-  /usr/include/qt6/QtCore/qvariant.h \
   /usr/include/qt6/QtCore/QReadWriteLock \
   /usr/include/qt6/QtCore/qreadwritelock.h \
   /usr/include/qt6/QtCore/QThread \
@@ -797,17 +821,6 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: Server/Sources/chatserver
   /usr/include/c++/12.2.0/condition_variable \
   /usr/include/c++/12.2.0/bits/atomic_futex.h \
   /usr/include/c++/12.2.0/bits/std_thread.h \
-  /usr/include/qt6/QtCore/QJsonObject \
-  /usr/include/qt6/QtCore/qjsonobject.h \
-  /usr/include/qt6/QtCore/qjsonvalue.h \
-  /usr/include/qt6/QtCore/qcborvalue.h \
-  /usr/include/qt6/QtCore/qdatetime.h \
-  /usr/include/qt6/QtCore/qcalendar.h \
-  /usr/include/qt6/QtCore/qlocale.h \
-  /usr/include/qt6/QtCore/qcborcommon.h \
-  /usr/include/qt6/QtCore/qregularexpression.h \
-  /usr/include/qt6/QtCore/qurl.h \
-  /usr/include/qt6/QtCore/quuid.h \
   /usr/include/qt6/QtCore/QJsonDocument \
   /usr/include/qt6/QtCore/qjsondocument.h \
   /usr/include/qt6/QtCore/QJsonValue \
@@ -2798,25 +2811,9 @@ Server/Sources/serverwindow.cpp:
 
 /usr/include/qt6/QtCore/QJsonValue:
 
-/usr/include/qt6/QtCore/quuid.h:
-
-/usr/include/qt6/QtCore/qlocale.h:
-
-/usr/include/qt6/QtCore/qdatetime.h:
-
-/usr/include/qt6/QtCore/qjsonvalue.h:
-
-/usr/include/qt6/QtCore/qjsonobject.h:
-
-/usr/include/qt6/QtCore/QJsonObject:
-
 /usr/include/c++/12.2.0/bits/std_mutex.h:
 
 /usr/include/c++/12.2.0/mutex:
-
-/usr/include/qt6/QtCore/qurl.h:
-
-/usr/include/qt6/QtCore/qelapsedtimer.h:
 
 /usr/include/qt6/QtCore/qdeadlinetimer.h:
 
@@ -2859,6 +2856,22 @@ Server/Headers/serverworker.h:
 /usr/include/qt6/QtWidgets/qtwidgetsexports.h:
 
 /usr/include/qt6/QtGui/qtgui-config.h:
+
+/usr/include/qt6/QtCore/quuid.h:
+
+/usr/include/qt6/QtCore/qelapsedtimer.h:
+
+/usr/include/qt6/QtCore/qurl.h:
+
+/usr/include/qt6/QtCore/qlocale.h:
+
+/usr/include/qt6/QtCore/qdatetime.h:
+
+/usr/include/qt6/QtCore/qjsonvalue.h:
+
+/usr/include/qt6/QtCore/qjsonobject.h:
+
+/usr/include/qt6/QtCore/QJsonObject:
 
 /usr/include/qt6/QtGui/qimage.h:
 
@@ -3383,6 +3396,8 @@ Server/Server_autogen/D2MWKIZDYH/moc_chatserver.cpp:
 /usr/include/bits/types/struct_sched_param.h:
 
 /usr/include/c++/12.2.0/ext/aligned_buffer.h:
+
+Server/Headers/parser.h:
 
 Server/Server_autogen/mocs_compilation.cpp:
 

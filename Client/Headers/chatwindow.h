@@ -57,9 +57,19 @@ private slots:
 
     void on_clientList_itemClicked(QListWidgetItem *item);
     void on_clientList_itemDoubleClicked(QListWidgetItem *item);
+    void addUser(const QString &username);
 signals:
     void sendJson(const QJsonObject &json);
-    void addUser(const QString &username);
+
+
+
+    //slots to handle room operations
+    void invitationReceived(const QString &sender, const QString &roomName);
+    void roomUsers(const QString &roomName, const QVector<QString> &users);
+    void roomMessageReceived(const QString &roomName, const QString &sender, const QString &message);
+
+
+
 };
 
 #endif // CHATWONDOW_H
