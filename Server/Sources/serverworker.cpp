@@ -49,10 +49,10 @@ void ServerWorker::sendJson(const QJsonObject &json){
 }
 
 
-void setStatus(const int newStatus){
+void ServerWorker::setStatus(const int newStatus){
     this->m_status =newStatus;
 }
-int getStatus(){
+int ServerWorker::getStatus(){
     return this->m_status;
 }
 

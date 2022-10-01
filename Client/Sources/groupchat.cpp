@@ -1,8 +1,9 @@
 #include "Headers/groupchat.h"
+#include "../ui_groupchatwindow.h"
 
 #include <QJsonObject>
 
-GroupChat::GroupChat(QWidget* parent, QString roomName)
+GroupChat::GroupChat(QString roomName, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::GroupChat)
 {
@@ -11,7 +12,7 @@ GroupChat::GroupChat(QWidget* parent, QString roomName)
     ui->setupUi(this);
 
     connect(ui->leaveBtn, &QPushButton::clicked, this, &GroupChat::leaveRoom);
-    connect(ui->inviteBtn, &QPushButton::clicked, this &GroupChat::addUser);
+    connect(ui->inviteBtn, &QPushButton::clicked, this, &GroupChat::addUser);
     connect(ui->userListBtn , &QPushButton::clicked, this , &GroupChat::leaveRoom);
     connect(ui->sendButton, &QPushButton::clicked, this , &GroupChat::sendMessage);
 }

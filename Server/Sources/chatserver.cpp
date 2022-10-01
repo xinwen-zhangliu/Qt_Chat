@@ -11,6 +11,7 @@
 #include <QJsonValue>
 #include <QTimer>
 #include <QDebug>
+#include <QJsonArray>
 
 
 ChatServer::ChatServer(QObject *parent)

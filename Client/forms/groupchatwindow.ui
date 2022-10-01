@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ChatWindow</class>
- <widget class="QWidget" name="ChatWindow">
+ <class>GroupChat</class>
+ <widget class="QWidget" name="GroupChat">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -34,7 +34,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="leaveBtn">
        <property name="text">
         <string>Leave Room</string>
        </property>

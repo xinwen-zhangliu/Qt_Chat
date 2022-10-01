@@ -17,6 +17,7 @@ public:
     explicit GroupChat( QString roomName,QWidget* parent);
     ~GroupChat();
 private:
+    Ui::GroupChat* ui;
     QString roomName;
 public slots:
     void receivedRoomMessage();
