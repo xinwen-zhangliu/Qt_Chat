@@ -25,20 +25,24 @@ ChatWindow::ChatWindow(QWidget *parent)
     ui->setupUi(this);
     m_chatModel->insertColumn(0);
     ui->chatView->setModel(m_chatModel);
+    ui->createGroup->setEnabled(false);
+    ui->disconnnectButton->setEnabled(false);
 
     qDebug() << "inside chatWindow";
 
     //since in ChatWindow we declare the class instance used we need to declare all connect functions here
-    connect(m_chatClient, &ChatClient::jsonReceived, m_parser, &Parser::parseJson);
-    connect(m_parser, &Parser::sendJson, m_chatClient, &ChatClient::sendJson);
+
+
 
     //connecting signals to slots
+     connect(m_chatClient, &ChatClient::jsonReceived, m_parser, &Parser::parseJson);
     connect(m_chatClient, &ChatClient::connected, this, &ChatWindow::connectedToServer);
     connect(m_chatClient, &ChatClient::disconnected, this, &ChatWindow::disconnectedFromServer);
     connect(m_chatClient, &ChatClient::error, this, &ChatWindow::error);
     connect(m_chatClient, &ChatClient::jsonText, this, &ChatWindow::logJson);
 
     connect(this, &ChatWindow::sendJson, m_chatClient, &ChatClient::sendJson);
+
 
         //connect(m_chatClient, &ChatClient::loginError, this, &ChatWindow::loginFailed);
 
@@ -50,12 +54,18 @@ ChatWindow::ChatWindow(QWidget *parent)
 
 
     //signals from the parser
-
+    connect(m_parser, &Parser::showJson, this , &ChatWindow::logJson);
     connect(m_parser, &Parser::loggedIn, this, &ChatWindow::loggedIn);
     connect(m_parser, &Parser::loginError, this, &ChatWindow::loginFailed);
     connect(m_parser, &Parser::publicMessageReceived, this, &ChatWindow::publicMessageReceived);
+
+    connect(m_parser, &Parser::sendJson, m_chatClient, &ChatClient::sendJson);
+
+    connect(m_parser, &Parser::receivedUserList, this, &ChatWindow::userListReceived);
+
     connect(m_parser, &Parser::userJoined, this, &ChatWindow::userJoined);
     connect(m_parser, &Parser::userLeft, this, &ChatWindow::userLeft);
+
 
     /*
     connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
@@ -76,16 +86,20 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(ui->sendButton, &QPushButton::clicked, this, &ChatWindow::sendMessage);
     connect(ui->messageEdit, &QLineEdit::returnPressed, this, &ChatWindow::sendMessage);
     connect(ui->disconnnectButton, &QPushButton::clicked, m_chatClient, &ChatClient::disconnectFromHost);
+    connect(this, &ChatWindow::processTerminated, m_chatClient, &ChatClient::disconnectFromHost);
 
     connect(ui->createGroup, &QPushButton::clicked , this, &ChatWindow::createRoom);
     connect(ui->groupName, &QLineEdit::returnPressed, this, &ChatWindow::createRoom);
 
 }
 
+void ChatWindow::sigHandler(int signal){
 
+}
 
 
 ChatWindow::~ChatWindow(){
+    emit processTerminated();
     delete ui;
 }
 
@@ -147,18 +161,36 @@ void ChatWindow::connectedToServer(){
 
 void ChatWindow::attemptLogin(const QString &userName){
     m_chatClient->login(userName);
+    m_chatClient->setUsername(userName);
+}
+
+void ChatWindow::userListReceived(const QJsonArray &userList){
+    qDebug() << "inside ChatWindow::userListReceived";
+    QString myUsername = m_chatClient->getUsername();
+    qDebug() << "myUsername: " << myUsername;
+
+    for(int i = 0; i< userList.size(); i++){
+       if(userList[i].toString().compare(myUsername, Qt::CaseSensitive)!=0){
+           addUser(userList[i].toString());
+
+       }
+    }
+
 }
 
 
 
 
-
-void ChatWindow::loggedIn(){
+void ChatWindow::loggedIn(const QString &username){
     qDebug() << "ChatWindow::loggedIn";
+    //m_chatClient->setUsername(username);
 
     ui->sendButton->setEnabled(true);
     ui->messageEdit->setEnabled(true);
     ui->chatView->setEnabled(true);
+
+    ui->createGroup->setEnabled(true);
+    ui->disconnnectButton->setEnabled(true);
 
     m_lastUserName.clear();
 
@@ -207,6 +239,8 @@ void ChatWindow::refreshUserList(const QVector<QString> &users){
 }
 
 void ChatWindow::addUser(const QString &username){
+    if(username.size()==0)
+        return;
     // add user to the connnecter users list
     QListWidgetItem *item = new QListWidgetItem;
     item -> setCheckState(Qt::Unchecked);
@@ -219,7 +253,8 @@ void ChatWindow::addUser(const QString &username){
 
 void ChatWindow::loginFailed(const QString &reason){
 
-    QMessageBox::critical(this, tr("Error"), reason);
+    QMessageBox::critical(this, tr("Error"), reason);\
+    ui->connectButton->setEnabled(true);
 
     connectedToServer();
 }
@@ -231,6 +266,7 @@ void ChatWindow::logJson(const QString &json){
 
 void ChatWindow::publicMessageReceived(const QString &sender, const QString &text)
 {
+    qDebug() << "iniside ChatWindow::publicMessageReceived";
 
     int newRow = m_chatModel->rowCount();
 
@@ -297,7 +333,9 @@ void ChatWindow::createRoom(){
 void ChatWindow::disconnectedFromServer()
 {
 
-    QMessageBox::warning(this, tr("Disconnected"), tr("The host terminated the connection"));
+    QMessageBox::warning(this, tr("Disconnected"), tr("You are diconnected"));
+
+
 
     ui->sendButton->setEnabled(false);
     ui->messageEdit->setEnabled(false);
@@ -324,6 +362,8 @@ void ChatWindow::userJoined(const QString &username)
     ui->chatView->scrollToBottom();
 
     m_lastUserName.clear();
+
+    addUser(username);
 
 
 
@@ -365,7 +405,8 @@ void ChatWindow::on_clientList_itemClicked(QListWidgetItem *item)
 void ChatWindow::on_clientList_itemDoubleClicked(QListWidgetItem *item)
 {
     qDebug() << "you've double clicked the  item";
-    if (!m_privateChats.contains(item->text())) {
+
+    //if (!m_privateChats.contains(item->text())) {
             PrivateChat* privateDialog = new PrivateChat( item ->text(), this);
             // signal from the private message dialog when the user closes it so it can be removed from the list of opened dialogs
             //connect(privateDialog, &PrivateChat::closeDialog, this, &MainWindow::onClosePrivateDialog);
@@ -374,8 +415,8 @@ void ChatWindow::on_clientList_itemDoubleClicked(QListWidgetItem *item)
             privateDialog->setWindowTitle(s1+s2);
             privateDialog->show();
 
-            m_privateChats.push_back(item -> text());
-        }
+            m_privateChats.push_back(privateDialog);
+        //}
 }
 
 

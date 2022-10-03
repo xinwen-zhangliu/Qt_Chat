@@ -192,6 +192,30 @@ Sources/chatserver.cpp.s:
 	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.s
 .PHONY : Sources/chatserver.cpp.s
 
+Sources/parser.o: Sources/parser.cpp.o
+.PHONY : Sources/parser.o
+
+# target to build an object file
+Sources/parser.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/parser.cpp.o
+.PHONY : Sources/parser.cpp.o
+
+Sources/parser.i: Sources/parser.cpp.i
+.PHONY : Sources/parser.i
+
+# target to preprocess a source file
+Sources/parser.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/parser.cpp.i
+.PHONY : Sources/parser.cpp.i
+
+Sources/parser.s: Sources/parser.cpp.s
+.PHONY : Sources/parser.s
+
+# target to generate assembly for a file
+Sources/parser.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Server/CMakeFiles/Server.dir/build.make Server/CMakeFiles/Server.dir/Sources/parser.cpp.s
+.PHONY : Sources/parser.cpp.s
+
 Sources/serverwindow.o: Sources/serverwindow.cpp.o
 .PHONY : Sources/serverwindow.o
 
@@ -328,6 +352,9 @@ help:
 	@echo "... Sources/chatserver.o"
 	@echo "... Sources/chatserver.i"
 	@echo "... Sources/chatserver.s"
+	@echo "... Sources/parser.o"
+	@echo "... Sources/parser.i"
+	@echo "... Sources/parser.s"
 	@echo "... Sources/serverwindow.o"
 	@echo "... Sources/serverwindow.i"
 	@echo "... Sources/serverwindow.s"

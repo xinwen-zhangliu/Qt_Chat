@@ -2,6 +2,7 @@
 
 
 #include <QJsonObject>
+#include <QJsonDocument>
 
 Parser::Parser(QObject *parent)
     : QObject(parent)
@@ -10,9 +11,10 @@ Parser::Parser(QObject *parent)
 
 }
 void Parser::parseJson(const QJsonObject &json){
-    qDebug() << "inside Parser::parseJson";
+
     const QJsonValue typeVal = json.value(QLatin1String("type"));
     const QJsonValue operationVal = json.value(QLatin1String("operation"));
+    qDebug() << "inside Parser::parseJson";
     const QJsonValue messageVal = json.value(QLatin1String("message"));
 
 
@@ -38,8 +40,9 @@ void Parser::parseJson(const QJsonObject &json){
             qDebug() << "operation == IDENTIFY";
             qDebug() << messageVal.toString();
             if(messageVal.toString().compare(QLatin1String("success"))==0){
+                QJsonValue usernameVal= json.value(QLatin1String("username"));
                 qDebug() << "we're logged in";
-                emit loggedIn();
+                emit loggedIn(usernameVal.toString());
             }
 
         }
@@ -61,7 +64,7 @@ void Parser::parseJson(const QJsonObject &json){
     }
 
     //WARNING
-    if(typeVal.toString().compare(QLatin1String("INFO"))==0){
+    if(typeVal.toString().compare(QLatin1String("WARNING"))==0){
         if(!operationVal.isNull() || operationVal.isString()){
             if(operationVal.toString().compare(QLatin1String("NEW_ROOM"))==0){
                 const QJsonValue roomnameVal= json.value(QLatin1String("roomname"));
@@ -69,7 +72,15 @@ void Parser::parseJson(const QJsonObject &json){
             }else if(operationVal.toString().compare(QLatin1String("IDENTIFY"))==0){
                 emit loginError(messageVal.toString());
             }
+
+
         }
+
+        QJsonDocument doc(json);
+
+        QString strJson = QString::fromUtf8(doc.toJson(QJsonDocument::Indented));
+
+        emit showJson(strJson);
     }
 
 
@@ -77,11 +88,12 @@ void Parser::parseJson(const QJsonObject &json){
 
 
     //PUBLIC_MESSAGE
-    if(typeVal.toString().compare(QLatin1String("PUBLIC_MESSAGE"))==0){
+    if(typeVal.toString().compare(QLatin1String("PUBLIC_MESSAGE_FROM"))==0){
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
         if (messageVal.isNull() || !messageVal.isString())
             return;
+        qDebug() << "received public message";
         emit publicMessageReceived(usernameVal.toString(), messageVal.toString());
      }
 

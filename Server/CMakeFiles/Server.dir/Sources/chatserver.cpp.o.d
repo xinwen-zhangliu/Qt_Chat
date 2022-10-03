@@ -302,4 +302,5 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: \
  /usr/include/qt6/QtCore/QJsonDocument \
  /usr/include/qt6/QtCore/qjsondocument.h \
  /usr/include/qt6/QtCore/QJsonValue /usr/include/qt6/QtCore/qjsonvalue.h \
- /usr/include/qt6/QtCore/QDebug /usr/include/qt6/QtCore/qdebug.h
+ /usr/include/qt6/QtCore/QDebug /usr/include/qt6/QtCore/qdebug.h \
+ /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h

@@ -40,8 +40,8 @@ void ServerWorker::sendJson(const QJsonObject &json){
     const QByteArray jsonInBA = QJsonDocument(json).toJson(QJsonDocument::Compact);
      QString jsonQS = QString::fromUtf8(jsonInBA);
     const char *stdJson = jsonQS.toStdString().c_str();
-
-    qDebug() << "ServerWorker::sendJson , json being sent = " <<stdJson;
+    const std::string stdStringJson = jsonQS.toStdString();
+    qDebug() << "ServerWorker::sendJson , json being sent = " <<jsonInBA;
 
     m_serverSocket -> write(stdJson);
 

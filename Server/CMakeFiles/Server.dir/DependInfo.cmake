@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xinwen/proyecto1_Chat/Server/Server_autogen/mocs_compilation.cpp" "Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o" "gcc" "Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o.d"
   "/home/xinwen/proyecto1_Chat/Server/Sources/chatserver.cpp" "Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o" "gcc" "Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o.d"
+  "/home/xinwen/proyecto1_Chat/Server/Sources/parser.cpp" "Server/CMakeFiles/Server.dir/Sources/parser.cpp.o" "gcc" "Server/CMakeFiles/Server.dir/Sources/parser.cpp.o.d"
   "/home/xinwen/proyecto1_Chat/Server/Sources/serverwindow.cpp" "Server/CMakeFiles/Server.dir/Sources/serverwindow.cpp.o" "gcc" "Server/CMakeFiles/Server.dir/Sources/serverwindow.cpp.o.d"
   "/home/xinwen/proyecto1_Chat/Server/Sources/serverworker.cpp" "Server/CMakeFiles/Server.dir/Sources/serverworker.cpp.o" "gcc" "Server/CMakeFiles/Server.dir/Sources/serverworker.cpp.o.d"
   "/home/xinwen/proyecto1_Chat/Server/Sources/user.cpp" "Server/CMakeFiles/Server.dir/Sources/user.cpp.o" "gcc" "Server/CMakeFiles/Server.dir/Sources/user.cpp.o.d"

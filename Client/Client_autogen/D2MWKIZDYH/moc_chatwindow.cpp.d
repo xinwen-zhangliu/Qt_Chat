@@ -267,6 +267,7 @@
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
+  /usr/include/qt6/QtCore/QQueue \
   /usr/include/qt6/QtCore/QString \
   /usr/include/qt6/QtCore/QVector \
   /usr/include/qt6/QtCore/qabstractitemmodel.h \
@@ -323,6 +324,7 @@
   /usr/include/qt6/QtCore/qpair.h \
   /usr/include/qt6/QtCore/qpoint.h \
   /usr/include/qt6/QtCore/qprocessordetection.h \
+  /usr/include/qt6/QtCore/qqueue.h \
   /usr/include/qt6/QtCore/qrect.h \
   /usr/include/qt6/QtCore/qrefcount.h \
   /usr/include/qt6/QtCore/qregularexpression.h \

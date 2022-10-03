@@ -19,7 +19,7 @@ public:
 public slots:
     void parseJson(const QJsonObject &json);
 signals:
-    void loggedIn();
+    void loggedIn(const QString &username);
     void loginError(const QString &reason);
     void publicMessageReceived(const QString &sender, const QString &text);
     void userJoined(const QString &username);
@@ -29,6 +29,8 @@ signals:
     void newStatus(const QString &username, const int &newStatus);
     void newRoomCreated();
     void errorCreatingRoom(const QString &roomName);
+    void showJson(const QString &json);
+
 
 };
 

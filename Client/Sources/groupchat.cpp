@@ -2,25 +2,37 @@
 #include "../ui_groupchatwindow.h"
 
 #include <QJsonObject>
+#include <QInputDialog>
+#include <QStandardItemModel>
+#include <QJsonArray>
 
 GroupChat::GroupChat(QString roomName, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::GroupChat)
+    , m_chatModel(new QStandardItemModel(this))
 {
 
     this->roomName = roomName;
     ui->setupUi(this);
+    m_chatModel->insertColumn(0);
+    ui->chatView->setModel(m_chatModel);
+
 
     connect(ui->leaveBtn, &QPushButton::clicked, this, &GroupChat::leaveRoom);
     connect(ui->inviteBtn, &QPushButton::clicked, this, &GroupChat::addUser);
     connect(ui->userListBtn , &QPushButton::clicked, this , &GroupChat::leaveRoom);
     connect(ui->sendButton, &QPushButton::clicked, this , &GroupChat::sendMessage);
+
+
 }
 
 GroupChat::~GroupChat(){
     delete ui;
 }
 
+void GroupChat::receivedRoomMessage(const QString sender, const QString &message){
+
+}
 
 void GroupChat::addUser(){
     const QString username = QInputDialog::getText(
@@ -33,26 +45,32 @@ void GroupChat::addUser(){
     if(username.isEmpty())
         return;
     QJsonObject newUser ;
-    QJsonArray user;
+    QJsonValue usernameVal = username;
+    QJsonArray user = {usernameVal};
 
-    QJsonValue usernameVal = QLatin1String(username);
+   // user.push_back(usernameVal);
     newUser[QStringLiteral("type")] = QStringLiteral("INVITE");
     newUser[QStringLiteral("roomname")] = roomName;
-    newUser[QStringLiteral("usernames")] = user.push_back(usernameVal);
+    newUser[QStringLiteral("usernames")] = user;
 
     emit sendJson(newUser);
 }
 
 void GroupChat::sendMessage(){
     QJsonObject message;
-    QString messageText = ui->messageEdit->toPlainText();
+    QString messageText = ui->messageEdit->text();
     message[QStringLiteral("type")] = QStringLiteral("ROOM_MESSAGE");
     message[QStringLiteral("roomname")] = roomName;
     message[QStringLiteral("message")]= messageText;
 
 
     ui->messageEdit->clear();
-    ui->chatView->append(messageText);
+    //ui->chatView->append(messageText);
+
+    m_chatModel->insertRow(m_chatModel->rowCount());
+    //QModelIndex index = m_chatModel->index(m_chatModel->rowCount()-1);
+    //m_chatModel->setData(index, messageText);
+    m_chatModel->setData(m_chatModel->index(m_chatModel->rowCount(), 0), messageText);
 
     emit sendJson(message);
 
@@ -70,7 +88,7 @@ void GroupChat::getUserList(){
 
 void GroupChat::leaveRoom(){
     QJsonObject leaveRoomJson;
-    leaveRoomJson[QStringLiteral("type")] = QStringLteral("LEAVE_ROOM");
+    leaveRoomJson[QStringLiteral("type")] = QStringLiteral("LEAVE_ROOM");
     leaveRoomJson[QStringLiteral("roomname")] = roomName;
     emit sendJson(leaveRoomJson);
 }

@@ -353,4 +353,11 @@ Client/CMakeFiles/Client.dir/Sources/privatechat.cpp.o: \
  /usr/include/qt6/QtGui/qtextdocument.h \
  /usr/include/qt6/QtGui/qtextoption.h \
  /usr/include/qt6/QtGui/qtextcursor.h \
- /usr/include/qt6/QtGui/qtextformat.h /usr/include/qt6/QtGui/qpen.h
+ /usr/include/qt6/QtGui/qtextformat.h /usr/include/qt6/QtGui/qpen.h \
+ /usr/include/qt6/QtCore/QJsonObject \
+ /usr/include/qt6/QtCore/qjsonobject.h \
+ /usr/include/qt6/QtCore/qjsonvalue.h \
+ /usr/include/qt6/QtCore/qcborvalue.h \
+ /usr/include/qt6/QtCore/qcborcommon.h \
+ /usr/include/qt6/QtCore/qregularexpression.h \
+ /usr/include/qt6/QtCore/quuid.h

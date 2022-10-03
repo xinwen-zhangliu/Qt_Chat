@@ -27,8 +27,7 @@ private:
 signals:
 	void closeDialog(QString username);
     void sendPrivateMessage(QString receiver, QString message);
-	void sendFile(QByteArray blob, int fileSize, QString receiver, QString sender);
-
+   void sendJson(const QJsonObject &json);
 public slots:
     void onReceivedPrivateMessage(QString sender, QString message);
 	void onSendMessageButtonClicked();

@@ -6,6 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o.d"
   "CMakeFiles/Server.dir/Sources/chatserver.cpp.o"
   "CMakeFiles/Server.dir/Sources/chatserver.cpp.o.d"
+  "CMakeFiles/Server.dir/Sources/parser.cpp.o"
+  "CMakeFiles/Server.dir/Sources/parser.cpp.o.d"
   "CMakeFiles/Server.dir/Sources/serverwindow.cpp.o"
   "CMakeFiles/Server.dir/Sources/serverwindow.cpp.o.d"
   "CMakeFiles/Server.dir/Sources/serverworker.cpp.o"

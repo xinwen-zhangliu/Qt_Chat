@@ -22,7 +22,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_PrivateChat_t {
-    uint offsetsAndSizes[28];
+    uint offsetsAndSizes[26];
     char stringdata0[12];
     char stringdata1[12];
     char stringdata2[1];
@@ -32,11 +32,10 @@ struct qt_meta_stringdata_PrivateChat_t {
     char stringdata6[8];
     char stringdata7[9];
     char stringdata8[5];
-    char stringdata9[9];
+    char stringdata9[25];
     char stringdata10[7];
-    char stringdata11[25];
-    char stringdata12[27];
-    char stringdata13[19];
+    char stringdata11[27];
+    char stringdata12[19];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_PrivateChat_t::offsetsAndSizes) + ofs), len 
@@ -49,13 +48,12 @@ static const qt_meta_stringdata_PrivateChat_t qt_meta_stringdata_PrivateChat = {
         QT_MOC_LITERAL(34, 18),  // "sendPrivateMessage"
         QT_MOC_LITERAL(53, 8),  // "receiver"
         QT_MOC_LITERAL(62, 7),  // "message"
-        QT_MOC_LITERAL(70, 8),  // "sendFile"
-        QT_MOC_LITERAL(79, 4),  // "blob"
-        QT_MOC_LITERAL(84, 8),  // "fileSize"
-        QT_MOC_LITERAL(93, 6),  // "sender"
-        QT_MOC_LITERAL(100, 24),  // "onReceivedPrivateMessage"
-        QT_MOC_LITERAL(125, 26),  // "onSendMessageButtonClicked"
-        QT_MOC_LITERAL(152, 18)   // "getChatPartnerName"
+        QT_MOC_LITERAL(70, 8),  // "sendJson"
+        QT_MOC_LITERAL(79, 4),  // "json"
+        QT_MOC_LITERAL(84, 24),  // "onReceivedPrivateMessage"
+        QT_MOC_LITERAL(109, 6),  // "sender"
+        QT_MOC_LITERAL(116, 26),  // "onSendMessageButtonClicked"
+        QT_MOC_LITERAL(143, 18)   // "getChatPartnerName"
     },
     "PrivateChat",
     "closeDialog",
@@ -64,11 +62,10 @@ static const qt_meta_stringdata_PrivateChat_t qt_meta_stringdata_PrivateChat = {
     "sendPrivateMessage",
     "receiver",
     "message",
-    "sendFile",
-    "blob",
-    "fileSize",
-    "sender",
+    "sendJson",
+    "json",
     "onReceivedPrivateMessage",
+    "sender",
     "onSendMessageButtonClicked",
     "getChatPartnerName"
 };
@@ -90,17 +87,17 @@ static const uint qt_meta_data_PrivateChat[] = {
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
        1,    1,   50,    2, 0x06,    1 /* Public */,
        4,    2,   53,    2, 0x06,    3 /* Public */,
-       7,    4,   58,    2, 0x06,    6 /* Public */,
+       7,    1,   58,    2, 0x06,    6 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      11,    2,   67,    2, 0x0a,   11 /* Public */,
-      12,    0,   72,    2, 0x0a,   14 /* Public */,
-      13,    0,   73,    2, 0x0a,   15 /* Public */,
+       9,    2,   61,    2, 0x0a,    8 /* Public */,
+      11,    0,   66,    2, 0x0a,   11 /* Public */,
+      12,    0,   67,    2, 0x0a,   12 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    5,    6,
-    QMetaType::Void, QMetaType::QByteArray, QMetaType::Int, QMetaType::QString, QMetaType::QString,    8,    9,    5,   10,
+    QMetaType::Void, QMetaType::QJsonObject,    8,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString,   10,    6,
@@ -118,7 +115,7 @@ void PrivateChat::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         switch (_id) {
         case 0: _t->closeDialog((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 1: _t->sendPrivateMessage((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 2: _t->sendFile((*reinterpret_cast< std::add_pointer_t<QByteArray>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[4]))); break;
+        case 2: _t->sendJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
         case 3: _t->onReceivedPrivateMessage((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         case 4: _t->onSendMessageButtonClicked(); break;
         case 5: { QString _r = _t->getChatPartnerName();
@@ -142,8 +139,8 @@ void PrivateChat::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             }
         }
         {
-            using _t = void (PrivateChat::*)(QByteArray , int , QString , QString );
-            if (_t _q_method = &PrivateChat::sendFile; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (PrivateChat::*)(const QJsonObject & );
+            if (_t _q_method = &PrivateChat::sendJson; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 2;
                 return;
             }
@@ -158,7 +155,7 @@ const QMetaObject PrivateChat::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_PrivateChat_t
-, QtPrivate::TypeAndForceComplete<PrivateChat, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QByteArray, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
+, QtPrivate::TypeAndForceComplete<PrivateChat, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QString, std::false_type>
 
 
@@ -212,9 +209,9 @@ void PrivateChat::sendPrivateMessage(QString _t1, QString _t2)
 }
 
 // SIGNAL 2
-void PrivateChat::sendFile(QByteArray _t1, int _t2, QString _t3, QString _t4)
+void PrivateChat::sendJson(const QJsonObject & _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 QT_WARNING_POP

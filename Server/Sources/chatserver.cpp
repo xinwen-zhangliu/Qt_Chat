@@ -26,6 +26,14 @@ ChatServer::ChatServer(QObject *parent)
     // connecting parser and chatserver signals and slots
     connect(this, &ChatServer::parseJson, m_parser, &Parser::parseJson);
     //connect(m_parser, &Parser::)
+    //we connect the client petitions
+    connect(m_parser, &Parser::publicMessage, this, &ChatServer::broadcastAll, Qt::QueuedConnection);
+
+    connect(m_parser, &Parser::userListRequest, this,&ChatServer::userListRequest, Qt::QueuedConnection );
+
+    connect(m_parser, &Parser::updateStatus, this,&ChatServer::updateStatus, Qt::QueuedConnection );
+
+    connect(m_parser, &Parser::newRoomRequest, this, &ChatServer::createRoom, Qt::QueuedConnection);
 
 
 }
@@ -72,12 +80,7 @@ void ChatServer::incomingConnection(qintptr socketDescriptor){
         m_clients.append(worker);
         emit logMessage(QStringLiteral("New client Connected"));
 
-        //we connect the client petitions
-        connect(m_parser, &Parser::publicMessage, this, &ChatServer::broadcastAll, Qt::QueuedConnection);
 
-        connect(m_parser, &Parser::userListRequest, this,&ChatServer::userListRequest, Qt::QueuedConnection );
-
-        connect(m_parser, &Parser::updateStatus, this,&ChatServer::updateStatus, Qt::QueuedConnection );
 
 }
 
@@ -97,9 +100,169 @@ void ChatServer::userListRequest(ServerWorker *sender){
 }
 
 void ChatServer::updateStatus(ServerWorker *sender, const int newStatus){
+    int currentStatus = sender->getStatus();
+    QString status;
+    switch (newStatus) {
+    case 1:
+        status = QLatin1String("ACTIVE");
+        break;
+    case 2:
+        status = QLatin1String("AWAY");
+        break;
+    case 3:
+        status = QLatin1String("BUSY");
+        break;
+    default:
+        break;
+    }
+    if(currentStatus==newStatus){
+
+        QJsonObject warningMessage;
+        warningMessage[QStringLiteral("type")] = QStringLiteral("WARNING");
+        warningMessage[QStringLiteral("message")] = QStringLiteral("El estado ya es '") + status+QStringLiteral("'");
+        warningMessage[QStringLiteral("operation")] = QStringLiteral("STATUS");
+        warningMessage[QStringLiteral("status")] = status;
+        sendJson(sender, warningMessage);
+    }
+    sender->setStatus(newStatus);
+    QJsonObject statusUpdated;
+    statusUpdated[QStringLiteral("type")] = QStringLiteral("NEW_STATUS");
+    statusUpdated[QStringLiteral("username")] = sender->userName();
+    statusUpdated[QStringLiteral("status")] = status;
+
+    broadcastAll(statusUpdated,sender);
 
 }
 
+void ChatServer::createRoom(ServerWorker *sender, const QString &roomname){
+    for(int i = 0; i<m_rooms.size(); i++){
+        if(m_rooms[i]->getRoomName().compare(roomname, Qt::CaseSensitive)==0){
+            QJsonObject warningJson;
+            warningJson[QStringLiteral("type")] = QStringLiteral("WARNING");
+            warningJson[QStringLiteral("message")] = QStringLiteral("El cuarto '") +roomname+ QStringLiteral("' ya existe");
+            warningJson[QStringLiteral("operation")] = QStringLiteral("NEW_ROOM");
+            warningJson[QStringLiteral("roomname")] = roomname;
+             sendJson(sender , warningJson);
+             return;
+
+        }
+    }
+
+    QJsonObject succesfulJson;
+    succesfulJson[QStringLiteral("type")] = QStringLiteral("INFO");
+    succesfulJson[QStringLiteral("message")] = QStringLiteral("successs");
+    succesfulJson[QStringLiteral("operation")] = QStringLiteral("NEW_ROOM");
+
+    m_rooms.push_back(new Room(roomname, this));
+    sendJson(sender, succesfulJson);
+
+}
+
+
+void ChatServer::sendOutRoomInvitations(ServerWorker *sender, const QString &roomName, QVector<QString> users){
+    //check if room exists
+    for(int i =0 ; i<m_rooms.size(); i++){
+        if(m_rooms[i]->getRoomName().compare(roomName,Qt::CaseSensitive)==0){
+            QVector<QString> users = m_rooms[i]->getUsers();
+            QVector<QString> usersCopy(users);
+
+        }
+
+
+    }
+
+    for(int j=0; j<users.size(); j++){
+        //send put invitations
+        QJsonObject invitation;
+        invitation[QStringLiteral("type")] = QStringLiteral("INVITATION");
+        invitation[QStringLiteral("message")] = sender->userName() +QStringLiteral(" te invita al cuarto '") + roomName +QStringLiteral("'");
+        invitation[QStringLiteral("username")] = sender->userName();
+        invitation[QStringLiteral("roomname")] = roomName;
+
+        //broadcastOne(invitation, sender, users[i]);
+        bool userFound = false;
+        for (ServerWorker *worker : m_clients) {
+            Q_ASSERT(worker);
+            if (worker->userName().compare(users[j], Qt::CaseSensitive)==0){
+                userFound = true;
+                sendJson(worker, invitation);
+                break;
+            }
+
+        }
+
+        QJsonObject userNotFoundWarning;
+
+        if(!userFound)
+            sendJson(sender, userNotFoundWarning);
+
+
+
+    }
+
+    QJsonObject successJson;
+    successJson[QStringLiteral("type")] = QStringLiteral("INFO");
+    successJson[QStringLiteral("message")] = QStringLiteral("success");
+    successJson[QStringLiteral("operation")] = QStringLiteral("INVITE");
+    successJson[QStringLiteral("roomname")] = roomName;
+
+    sendJson(sender, successJson);
+
+
+
+
+
+
+
+    QJsonObject warningJson;
+    warningJson[QStringLiteral("type")] = QStringLiteral("INFO");
+    warningJson[QStringLiteral("message")] = QStringLiteral("El cuarto");
+    warningJson[QStringLiteral("operation")] = QStringLiteral("INVITE");
+    warningJson[QStringLiteral("roomname")] = roomName;
+
+    sendJson(sender, successJson);
+}
+
+void ChatServer::sendRoomMessage(ServerWorker *sender, const QString &roomName, const QString &message){
+
+}
+
+void ChatServer::roomUsersRequest(ServerWorker *sender, const QString &roomName){
+
+    for(Room *room:m_rooms){
+        if(room->getRoomName().compare(roomName, Qt::CaseSensitive)==0){
+            QVector<QString> users =room->getUsers();
+            QJsonArray usersArray;
+            for(QString username : users){
+                usersArray.push_back(username);
+            }
+            QJsonObject userList;
+            userList[QStringLiteral("type")] = QStringLiteral("ROOM_USER_LIST");
+            userList[QStringLiteral("usernames")] = usersArray;
+            sendJson(sender, userList);
+            return;
+        }
+    }
+
+    QJsonObject warning;
+    warning[QStringLiteral("type")]= QStringLiteral("WARNING");
+    warning[QStringLiteral("message")] = QStringLiteral("El cuarto '") + roomName + QStringLiteral("' no existe");
+    warning[QStringLiteral("operation")] = QStringLiteral("ROOM_USERS");
+    warning[QStringLiteral("roomname")] = roomName;
+    sendJson(sender , warning);
+}
+
+void ChatServer::leaveRoom(ServerWorker *sender, const QString &roomName){
+
+}
+
+void ChatServer::sendConnectedUsers(ServerWorker *sender){
+
+}
+
+void ChatServer::sendPrivateMessage(const QString &destination, const QJsonObject &message){
+
+}
 
 void ChatServer::logFinished(){
     qDebug() << "QThread::finished";
@@ -108,7 +271,9 @@ void ChatServer::logFinished(){
 void ChatServer::sendJson(ServerWorker *destination, const QJsonObject &message)
 {
     Q_ASSERT(destination);
-
+    QJsonDocument doc(message);
+    QString jsonStr = QString::fromUtf8(doc.toJson(QJsonDocument::Indented));
+    qDebug()<<"ChatServer::sendJson, json being sent out"<<jsonStr;
     QTimer::singleShot(2000,Qt::VeryCoarseTimer ,destination, std::bind(&ServerWorker::sendJson, destination, message));
     QTimer::singleShot(0, destination,SLOT( test()));
 
@@ -129,17 +294,23 @@ void ChatServer::broadcastAll(const QJsonObject &message, ServerWorker *exclude)
 
 
 void ChatServer::broadcastRoom(const QJsonObject &message, ServerWorker *sender, const QString &roomName){
-    QVector<QString> rooms = sender->getRooms();
+    //QVector<QString> rooms = sender->getRooms();
+    QVector<QString> usernames;
 
-    /*
-    for (Room roomName : rooms) {
-        //sisu nombre es igual al que buscamos , get userlist
+   for(int i = 0 ; i<m_rooms.size(); i++){
+       if(m_rooms[i]->getRoomName().compare(roomName, Qt::CaseSensitive)==0){
+            usernames = m_rooms[i]->getUsers();
+       }
+   }
 
-    }
-    */
-    //iteramos sobre los m_clients y si su nombres es igual al de la lista de usuarios then sendJson
+   for(int i = 0; i<usernames.size(); i++){
+       for(int j = 0; j<m_clients.size(); j++){
+           if(m_clients[i]->userName().compare(usernames[i], Qt::CaseSensitive)==0){
+                sendJson(m_clients[i], message);
+           }
+       }
+   }
 
-   // sendJson(sender, message);
 }
 
 
@@ -283,5 +454,5 @@ void ChatServer::jsonFromLoggedOut(ServerWorker *sender, const QJsonObject &docO
 
 
 void ChatServer::jsonFromLoggedIn(ServerWorker *sender, const QJsonObject &doc){
-    emit parserJson(sender, doc);
+    emit parseJson(sender, doc);
 }

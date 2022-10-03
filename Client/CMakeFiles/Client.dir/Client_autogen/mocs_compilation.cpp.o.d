@@ -272,7 +272,8 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/bits/uio_lim.h /usr/include/qt6/QtCore/qsharedpointer.h \
  /usr/include/qt6/QtCore/qsharedpointer_impl.h \
  /usr/include/qt6/QtNetwork/qhostaddress.h \
- /usr/include/qt6/QtCore/qvariant.h \
+ /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/QQueue \
+ /usr/include/qt6/QtCore/qqueue.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/moc_chatwindow.cpp \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/chatwindow.h \
  /usr/include/qt6/QtWidgets/QWidget /usr/include/qt6/QtWidgets/qwidget.h \

@@ -5,6 +5,7 @@
 
 #include <QObject>
 #include <QTcpSocket>
+#include <QQueue>
 
 class Parser;
 class QHostAddress;
@@ -16,16 +17,17 @@ class ChatClient : public QObject
     //Q_DISABLE_COPY(ChatClient)
 public:
     explicit ChatClient(QObject *parent = nullptr);
+    QString getUsername();
 public slots:
      void disconnectFromHost();
      void connectToServer(const QHostAddress &address, quint16 port);
      void login(const QString &username);
      void sendPublicMessage(const QString &text);
-     void sendPrivateMessage(const QString &detination, const QString &message);
-     void sendRoomMessage(const QString &roomName, const QString &message);
      void sendJson(const QJsonObject &jsonOnj);
      void askUserList();
      void updateStatus(const int &newStatus);
+     void setUsername(const QString &username);
+
  private slots:
      void onReadyRead();
  signals:
@@ -43,11 +45,12 @@ public slots:
      void jsonReceived(const QJsonObject &doc);
 
 
+
 private:
     QTcpSocket *m_clientSocket;
     bool m_loggedIn;
     int m_status; // 1=ACTIVE,  2=AWAY,  3=BUSY
-
+    QString m_username;
 
 
 };

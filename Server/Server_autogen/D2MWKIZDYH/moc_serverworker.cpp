@@ -22,7 +22,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ServerWorker_t {
-    uint offsetsAndSizes[34];
+    uint offsetsAndSizes[40];
     char stringdata0[13];
     char stringdata1[13];
     char stringdata2[1];
@@ -39,7 +39,10 @@ struct qt_meta_stringdata_ServerWorker_t {
     char stringdata13[29];
     char stringdata14[12];
     char stringdata15[5];
-    char stringdata16[12];
+    char stringdata16[10];
+    char stringdata17[10];
+    char stringdata18[10];
+    char stringdata19[12];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_ServerWorker_t::offsetsAndSizes) + ofs), len 
@@ -61,7 +64,10 @@ static const qt_meta_stringdata_ServerWorker_t qt_meta_stringdata_ServerWorker =
         QT_MOC_LITERAL(129, 28),  // "QAbstractSocket::SocketError"
         QT_MOC_LITERAL(158, 11),  // "socketError"
         QT_MOC_LITERAL(170, 4),  // "test"
-        QT_MOC_LITERAL(175, 11)   // "receiveJson"
+        QT_MOC_LITERAL(175, 9),  // "setStatus"
+        QT_MOC_LITERAL(185, 9),  // "newStatus"
+        QT_MOC_LITERAL(195, 9),  // "getStatus"
+        QT_MOC_LITERAL(205, 11)   // "receiveJson"
     },
     "ServerWorker",
     "jsonReceived",
@@ -79,6 +85,9 @@ static const qt_meta_stringdata_ServerWorker_t qt_meta_stringdata_ServerWorker =
     "QAbstractSocket::SocketError",
     "socketError",
     "test",
+    "setStatus",
+    "newStatus",
+    "getStatus",
     "receiveJson"
 };
 #undef QT_MOC_LITERAL
@@ -89,7 +98,7 @@ static const uint qt_meta_data_ServerWorker[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -97,18 +106,20 @@ static const uint qt_meta_data_ServerWorker[] = {
        5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   74,    2, 0x06,    1 /* Public */,
-       4,    0,   77,    2, 0x06,    3 /* Public */,
-       5,    0,   78,    2, 0x06,    4 /* Public */,
-       6,    0,   79,    2, 0x06,    5 /* Public */,
-       7,    1,   80,    2, 0x06,    6 /* Public */,
+       1,    1,   86,    2, 0x06,    1 /* Public */,
+       4,    0,   89,    2, 0x06,    3 /* Public */,
+       5,    0,   90,    2, 0x06,    4 /* Public */,
+       6,    0,   91,    2, 0x06,    5 /* Public */,
+       7,    1,   92,    2, 0x06,    6 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       9,    0,   83,    2, 0x0a,    8 /* Public */,
-      10,    1,   84,    2, 0x0a,    9 /* Public */,
-      12,    1,   87,    2, 0x0a,   11 /* Public */,
-      15,    0,   90,    2, 0x0a,   13 /* Public */,
-      16,    0,   91,    2, 0x08,   14 /* Private */,
+       9,    0,   95,    2, 0x0a,    8 /* Public */,
+      10,    1,   96,    2, 0x0a,    9 /* Public */,
+      12,    1,   99,    2, 0x0a,   11 /* Public */,
+      15,    0,  102,    2, 0x0a,   13 /* Public */,
+      16,    1,  103,    2, 0x0a,   14 /* Public */,
+      18,    0,  106,    2, 0x0a,   16 /* Public */,
+      19,    0,  107,    2, 0x08,   17 /* Private */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QJsonObject,    3,
@@ -122,6 +133,8 @@ static const uint qt_meta_data_ServerWorker[] = {
     QMetaType::Void, QMetaType::QJsonObject,   11,
     QMetaType::Void, 0x80000000 | 13,   14,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,   17,
+    QMetaType::Int,
     QMetaType::Void,
 
        0        // eod
@@ -142,7 +155,10 @@ void ServerWorker::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
         case 6: _t->sendJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
         case 7: _t->Errors((*reinterpret_cast< std::add_pointer_t<QAbstractSocket::SocketError>>(_a[1]))); break;
         case 8: _t->test(); break;
-        case 9: _t->receiveJson(); break;
+        case 9: _t->setStatus((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 10: { int _r = _t->getStatus();
+            if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
+        case 11: _t->receiveJson(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -204,7 +220,7 @@ const QMetaObject ServerWorker::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_ServerWorker_t
 , QtPrivate::TypeAndForceComplete<ServerWorker, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QAbstractSocket::SocketError, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QAbstractSocket::SocketError, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const int, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -231,13 +247,13 @@ int ServerWorker::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 10)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 12;
     }
     return _id;
 }

@@ -1,11 +1,11 @@
 #include "room.h"
 
-Room::Room(QString roomName, QVector<QString> users, QObject *parent)
+Room::Room(QString roomName, QObject *parent)
     : QObject(parent)
 
 {
     this -> m_roomName = roomName;
-    this -> m_users = m_users;
+    //this -> m_users = m_users;
 }
 
 

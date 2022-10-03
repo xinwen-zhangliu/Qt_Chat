@@ -271,7 +271,8 @@ Client/CMakeFiles/Client.dir/Sources/chatclient.cpp.o: \
  /usr/include/bits/uio_lim.h /usr/include/qt6/QtCore/qsharedpointer.h \
  /usr/include/qt6/QtCore/qsharedpointer_impl.h \
  /usr/include/qt6/QtNetwork/qhostaddress.h \
- /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/QJsonDocument \
+ /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/QQueue \
+ /usr/include/qt6/QtCore/qqueue.h /usr/include/qt6/QtCore/QJsonDocument \
  /usr/include/qt6/QtCore/qjsondocument.h \
  /usr/include/qt6/QtCore/qjsonvalue.h \
  /usr/include/qt6/QtCore/qcborvalue.h /usr/include/qt6/QtCore/qdatetime.h \

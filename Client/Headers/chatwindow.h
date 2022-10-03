@@ -7,11 +7,13 @@
 #include <QVector>
 #include <QString>
 #include <QListWidgetItem>
-
+#include <QQueue>
 
 class ChatClient;
 class Parser;
 class QStandardItemModel;
+class PrivateChat;
+class GroupChat;
 
 
 namespace Ui { class ChatWindow; }
@@ -25,6 +27,7 @@ public:
     explicit ChatWindow(QWidget *parent = nullptr);
     ~ChatWindow();
    ChatClient* getChatClient();
+   void sigHandler(int signal);
 
 private:
     Ui::ChatWindow *ui;
@@ -32,15 +35,17 @@ private:
     QStandardItemModel *m_chatModel;
 
     QString m_lastUserName;
-    QVector<QString> m_privateChats;
-    QVector<QString> m_groupChats;
+    //QVector<QString> m_privateChats;
+    //QVector<QString> m_groupChats;
     QVector<QString> m_selectedUsers;
     Parser *m_parser;
-    //QVector<PrivateChat>
+     QQueue<QString> m_rooms;
+     QVector<PrivateChat *> m_privateChats;
+    QVector<GroupChat *> m_groupChats;
 private slots:
     void attemptConnection();
     void attemptLogin(const QString &username);
-    void loggedIn();
+    void loggedIn(const QString &username);
     void loginFailed(const QString &reason);
     void logJson(const QString &json);
     void publicMessageReceived(const QString &sender, const QString &text);
@@ -51,7 +56,7 @@ private slots:
     void connectedToServer();
     void error(QAbstractSocket::SocketError socketError);
     void createRoom();
-
+    void userListReceived(const QJsonArray &userList);
     void refreshUserList(const QVector<QString> &users);
     void getUserList();
 
@@ -62,7 +67,7 @@ signals:
     void sendJson(const QJsonObject &json);
 
 
-
+    void processTerminated();
     //slots to handle room operations
     void invitationReceived(const QString &sender, const QString &roomName);
     void roomUsers(const QString &roomName, const QVector<QString> &users);

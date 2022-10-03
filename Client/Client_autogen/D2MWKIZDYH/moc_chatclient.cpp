@@ -22,7 +22,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ChatClient_t {
-    uint offsetsAndSizes[70];
+    uint offsetsAndSizes[72];
     char stringdata0[11];
     char stringdata1[10];
     char stringdata2[1];
@@ -58,6 +58,7 @@ struct qt_meta_stringdata_ChatClient_t {
     char stringdata32[13];
     char stringdata33[10];
     char stringdata34[12];
+    char stringdata35[12];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_ChatClient_t::offsetsAndSizes) + ofs), len 
@@ -97,7 +98,8 @@ static const qt_meta_stringdata_ChatClient_t qt_meta_stringdata_ChatClient = {
         QT_MOC_LITERAL(330, 11),  // "askUserList"
         QT_MOC_LITERAL(342, 12),  // "updateStatus"
         QT_MOC_LITERAL(355, 9),  // "newStatus"
-        QT_MOC_LITERAL(365, 11)   // "onReadyRead"
+        QT_MOC_LITERAL(365, 11),  // "setUsername"
+        QT_MOC_LITERAL(377, 11)   // "onReadyRead"
     },
     "ChatClient",
     "connected",
@@ -133,6 +135,7 @@ static const qt_meta_stringdata_ChatClient_t qt_meta_stringdata_ChatClient = {
     "askUserList",
     "updateStatus",
     "newStatus",
+    "setUsername",
     "onReadyRead"
 };
 #undef QT_MOC_LITERAL
@@ -143,7 +146,7 @@ static const uint qt_meta_data_ChatClient[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      20,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -151,28 +154,29 @@ static const uint qt_meta_data_ChatClient[] = {
       12,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,  134,    2, 0x06,    1 /* Public */,
-       3,    0,  135,    2, 0x06,    2 /* Public */,
-       4,    1,  136,    2, 0x06,    3 /* Public */,
-       6,    0,  139,    2, 0x06,    5 /* Public */,
-       7,    2,  140,    2, 0x06,    6 /* Public */,
-      10,    1,  145,    2, 0x06,    9 /* Public */,
-      13,    1,  148,    2, 0x06,   11 /* Public */,
-      15,    1,  151,    2, 0x06,   13 /* Public */,
-      16,    1,  154,    2, 0x06,   15 /* Public */,
-      17,    0,  157,    2, 0x06,   17 /* Public */,
-      18,    1,  158,    2, 0x06,   18 /* Public */,
-      20,    1,  161,    2, 0x06,   20 /* Public */,
+       1,    0,  140,    2, 0x06,    1 /* Public */,
+       3,    0,  141,    2, 0x06,    2 /* Public */,
+       4,    1,  142,    2, 0x06,    3 /* Public */,
+       6,    0,  145,    2, 0x06,    5 /* Public */,
+       7,    2,  146,    2, 0x06,    6 /* Public */,
+      10,    1,  151,    2, 0x06,    9 /* Public */,
+      13,    1,  154,    2, 0x06,   11 /* Public */,
+      15,    1,  157,    2, 0x06,   13 /* Public */,
+      16,    1,  160,    2, 0x06,   15 /* Public */,
+      17,    0,  163,    2, 0x06,   17 /* Public */,
+      18,    1,  164,    2, 0x06,   18 /* Public */,
+      20,    1,  167,    2, 0x06,   20 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      22,    0,  164,    2, 0x0a,   22 /* Public */,
-      23,    2,  165,    2, 0x0a,   23 /* Public */,
-      27,    1,  170,    2, 0x0a,   26 /* Public */,
-      28,    1,  173,    2, 0x0a,   28 /* Public */,
-      29,    1,  176,    2, 0x0a,   30 /* Public */,
-      31,    0,  179,    2, 0x0a,   32 /* Public */,
-      32,    1,  180,    2, 0x0a,   33 /* Public */,
-      34,    0,  183,    2, 0x08,   35 /* Private */,
+      22,    0,  170,    2, 0x0a,   22 /* Public */,
+      23,    2,  171,    2, 0x0a,   23 /* Public */,
+      27,    1,  176,    2, 0x0a,   26 /* Public */,
+      28,    1,  179,    2, 0x0a,   28 /* Public */,
+      29,    1,  182,    2, 0x0a,   30 /* Public */,
+      31,    0,  185,    2, 0x0a,   32 /* Public */,
+      32,    1,  186,    2, 0x0a,   33 /* Public */,
+      34,    1,  189,    2, 0x0a,   35 /* Public */,
+      35,    0,  192,    2, 0x08,   37 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -196,6 +200,7 @@ static const uint qt_meta_data_ChatClient[] = {
     QMetaType::Void, QMetaType::QJsonObject,   30,
     QMetaType::Void,
     QMetaType::Void, QMetaType::Int,   33,
+    QMetaType::Void, QMetaType::QString,   14,
     QMetaType::Void,
 
        0        // eod
@@ -226,7 +231,8 @@ void ChatClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 16: _t->sendJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
         case 17: _t->askUserList(); break;
         case 18: _t->updateStatus((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 19: _t->onReadyRead(); break;
+        case 19: _t->setUsername((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 20: _t->onReadyRead(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -337,7 +343,7 @@ const QMetaObject ChatClient::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_ChatClient_t
 , QtPrivate::TypeAndForceComplete<ChatClient, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<QAbstractSocket::SocketError, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonArray &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QHostAddress &, std::false_type>, QtPrivate::TypeAndForceComplete<quint16, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const int &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QHostAddress &, std::false_type>, QtPrivate::TypeAndForceComplete<quint16, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const int &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -364,13 +370,13 @@ int ChatClient::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 20)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 20;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 20)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 20;
+        _id -= 21;
     }
     return _id;
 }

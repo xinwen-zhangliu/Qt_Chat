@@ -48,6 +48,7 @@ void ChatClient::login(const QString &username){
         QDataStream clientStream(m_clientSocket);
         clientStream.setVersion(QDataStream::Qt_5_7);
 
+
         //create json we want to send
         QJsonObject identify;
        identify[QStringLiteral("type")] = QStringLiteral("IDENTIFY");
@@ -55,9 +56,19 @@ void ChatClient::login(const QString &username){
 
        sendJson(identify);
 
+       setUsername(username);
+
     }
 }
 
+QString ChatClient::getUsername(){
+    return m_username;
+}
+
+void ChatClient::setUsername(const QString &username){
+    qDebug() << "setUsername: " << username;
+    this->m_username= username;
+}
 
 
 
@@ -76,7 +87,7 @@ void ChatClient::sendJson(const QJsonObject &jsonObj){
 
 void ChatClient::disconnectFromHost()
 {
-    const QJsonObject disconnect;
+    QJsonObject disconnect;
     disconnect[QStringLiteral("type")]= QStringLiteral("DISCONNECT");
     sendJson(disconnect);
     m_clientSocket->disconnectFromHost();
@@ -116,28 +127,61 @@ void ChatClient::onReadyRead(){
 
     rawText.resize(1023);
     rawText = m_clientSocket->readAll();
-    qDebug() << "rawTExt: " << rawText;
-    int size = rawText.size();
-    qDebug() << "ba size" << size;
 
-    data.append( rawText, size-1);
+    int size = rawText.size();
+    qDebug() << "rawTExt: " << rawText;
+    qDebug() << "Json byte size" << size;
+    if(rawText.contains('\x0')){
+       data.append( rawText, size-1);
+    }else{
+       data.append( rawText, size);
+    }
+    qDebug() << "data: " << data;
+//    if(rawText.endsWith('\x00')){
+//
+//    }else{
+//        data.append( rawText, size);
+//    }
+
+
     QByteArray newData ;
-    newData.append(data, -1);
-    qDebug() << data;
+    //newData.append(data, -1);
+    //qDebug() << data;
     QJsonParseError parseError;
-    const QString jsonString= QString::fromUtf8(data);
-    newData = jsonString.toUtf8();
+    //const QString jsonString= QString::fromUtf8(data);
+    //newData = jsonString.toUtf8();
 
 
     // we try to create a json document with the data we received
-    qDebug() << "newData" << newData << "end of new data";
-    const QJsonDocument jsonDoc = QJsonDocument::fromJson(newData, &parseError);
+    //qDebug() << "newData" << newData << "end of new data";
+
+
+
+//    QByteArray::iterator iterator = newData.begin();
+//    int index = 0;
+
+//    while(iterator != data.end()){
+//        QChar charInBA = *iterator;
+//        if(charInBA == '\x0'){
+//            newData.remove(index, index);
+//            break;
+//        }
+//        index++;
+//        iterator++;
+//    }
+//    for(int i =0; i< newData.size(); i++){
+//        if(newData.at(i) == '\x00'){
+//            newData.remove(i, i);
+//        }
+//    }
+
+    const QJsonDocument jsonDoc = QJsonDocument::fromJson(data, &parseError);
     qDebug() <<"Parse Error : "<< parseError.error;
 
     if (parseError.error == QJsonParseError::NoError){
         // if the data was indeed valid JSON
         if (jsonDoc.isObject()){ // and is a JSON object
-            qDebug() <<"received"+ jsonDoc.toJson(QJsonDocument::Compact) ;
+            qDebug() <<"Json received: "+ jsonDoc.toJson(QJsonDocument::Compact) ;
 
             emit  jsonReceived(jsonDoc.object()); // parse the JSON
 

@@ -1,4 +1,5 @@
 #include "Headers/parser.h"
+#include "Headers/serverworker.h"
 
 #include <QString>
 #include <QJsonValue>
@@ -36,8 +37,9 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
         //creamos el json de respuesta que vamos a eviar
         QJsonObject answerMessage;
         answerMessage[QStringLiteral("type")] = QStringLiteral("PUBLIC_MESSAGE_FROM");
-        answerMessage[QStringLiteral("username")] = username.toString();
+        answerMessage[QStringLiteral("username")] = sender->userName();
         answerMessage[QStringLiteral("message")] = message.toString();
+
         emit publicMessage(answerMessage, sender);
 
     }

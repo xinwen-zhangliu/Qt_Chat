@@ -10,8 +10,7 @@ class Room : public QObject
 {
      Q_OBJECT
 public:
-    explicit Room(QString roomName, QVector<QString> users , QObject *parent = nullptr);
-
+    explicit Room(QString roomName,  QObject *parent = nullptr);
 
 public slots:
     QString getRoomName();

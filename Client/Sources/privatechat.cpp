@@ -1,6 +1,8 @@
 #include "Headers/privatechat.h"
 #include "ui_privatechatwindow.h"
 
+#include <QJsonObject>
+
 PrivateChat::PrivateChat( QString chatPartner,QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::PrivateChat)
@@ -10,7 +12,7 @@ PrivateChat::PrivateChat( QString chatPartner,QWidget* parent)
     ui->setupUi(this);
 
 
-    //connect chatcleint received private message with thi
+    //connect chatcleint received private message with
     connect(ui->btnSendMessage, &QPushButton::clicked, this, &PrivateChat::onSendMessageButtonClicked);
 
 ;

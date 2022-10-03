@@ -17,11 +17,13 @@ add_executable(Server
     Sources/chatserver.cpp
     Sources/serverwindow.cpp
     Sources/serverworker.cpp
+    Sources/parser.cpp
     Sources/user.cpp
 
     Headers/chatserver.h
     Headers/serverwindow.h
     Headers/serverworker.h
+    Headers/parser.h
     Headers/user.h
 
     ../Common/room.cpp

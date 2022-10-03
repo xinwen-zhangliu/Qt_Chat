@@ -312,7 +312,8 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: \
  /usr/include/qt6/QtWidgets/qabstractslider.h \
  /usr/include/qt6/QtWidgets/qstyle.h /usr/include/qt6/QtWidgets/qtabbar.h \
  /usr/include/qt6/QtWidgets/qtabwidget.h \
- /usr/include/qt6/QtWidgets/qrubberband.h \
+ /usr/include/qt6/QtWidgets/qrubberband.h /usr/include/qt6/QtCore/QQueue \
+ /usr/include/qt6/QtCore/qqueue.h \
  /home/xinwen/proyecto1_Chat/Client/Headers/parser.h \
  /usr/include/qt6/QtCore/QObject /usr/include/qt6/QtCore/qobject.h \
  /usr/include/qt6/QtCore/QJsonObject \

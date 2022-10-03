@@ -272,4 +272,6 @@ Client/CMakeFiles/Client.dir/Sources/parser.cpp.o: \
  /usr/include/qt6/QtCore/qcborcommon.h \
  /usr/include/qt6/QtCore/qregularexpression.h \
  /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
- /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h
+ /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h \
+ /usr/include/qt6/QtCore/QJsonDocument \
+ /usr/include/qt6/QtCore/qjsondocument.h

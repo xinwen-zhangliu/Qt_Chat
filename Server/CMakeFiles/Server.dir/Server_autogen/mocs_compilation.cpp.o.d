@@ -290,6 +290,8 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qregularexpression.h \
  /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
  /usr/include/qt6/QtCore/QList /usr/include/qt6/QtCore/qlist.h \
+ /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_parser.cpp \
+ /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/parser.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_serverwindow.cpp \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/serverwindow.h \
  /usr/include/qt6/QtWidgets/QWidget /usr/include/qt6/QtWidgets/qwidget.h \

@@ -6,6 +6,7 @@
 #include <QDialog>
 #include <QByteArray>
 #include <QMessageBox>
+#include <QStandardItemModel>
 
 
 namespace Ui {class GroupChat;}
@@ -19,15 +20,17 @@ public:
 private:
     Ui::GroupChat* ui;
     QString roomName;
+    QStandardItemModel *m_chatModel;
 public slots:
-    void receivedRoomMessage();
+    void receivedRoomMessage(const QString sender, const QString &message);
 private slots:
     void addUser();
     void getUserList();
     void leaveRoom();
     void sendMessage();
 signals:
-    void sendRoomMessage(const QString &roomName, const QString &message);
+
+    void sendJson(const QJsonObject &json);
 
 
 };

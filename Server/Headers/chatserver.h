@@ -11,6 +11,7 @@
 class QThread;
 class ServerWorker;
 class QJsonObject;
+class Parser;
 
 
 class ChatServer : public  QTcpServer
@@ -44,24 +45,26 @@ private slots:
     void sendPrivateMessage(const QString &destination, const QJsonObject &message);
     void userListRequest(ServerWorker *sender);
 
+    void createRoom(ServerWorker *sender, const QString &roomname);
     void sendRoomMessage(ServerWorker *sender, const QString &roomName, const QString &message);
-    void attempCreateRoom(ServerWorker *sender, const QString &roomName, QVector<QString> users);
+    void sendOutRoomInvitations(ServerWorker *sender, const QString &roomName, QVector<QString> users);
     void roomUsersRequest(ServerWorker *sender, const QString &roomName);
-    void leaveRoom(ServerWorker *sender, const QString &roomName);\
+    void leaveRoom(ServerWorker *sender, const QString &roomName);
 
     void updateStatus(ServerWorker *sender, const int newStatus);
 
     void sendConnectedUsers(ServerWorker *sender);
+    void sendJson(ServerWorker *destination, const QJsonObject &message);
 public slots:
     void stopServer();
 private:
     void jsonFromLoggedOut(ServerWorker *sender, const QJsonObject &doc); //check for the identify json
     void jsonFromLoggedIn(ServerWorker *sender, const QJsonObject &doc); //check for other jsons
-    void sendJson(ServerWorker *destination, const QJsonObject &message);
+
 signals:
     void logMessage(const QString &msg);
     void stopAllClients();
-    void createRoom(ServerWorker *sender , QVector<QString> users);
+
     void parseJson(ServerWorker *sender, const QJsonObject &doc);
 
 };

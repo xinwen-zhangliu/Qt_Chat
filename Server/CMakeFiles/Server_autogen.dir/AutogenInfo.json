@@ -309,6 +309,12 @@
 			null
 		],
 		[
+			"/home/xinwen/proyecto1_Chat/Server/Headers/parser.h",
+			"MU",
+			"D2MWKIZDYH/moc_parser.cpp",
+			null
+		],
+		[
 			"/home/xinwen/proyecto1_Chat/Server/Headers/serverwindow.h",
 			"MU",
 			"D2MWKIZDYH/moc_serverwindow.cpp",
@@ -402,6 +408,7 @@
 			"MU",
 			null
 		],
+		[ "/home/xinwen/proyecto1_Chat/Server/Sources/parser.cpp", "MU", null ],
 		[
 			"/home/xinwen/proyecto1_Chat/Server/Sources/serverwindow.cpp",
 			"MU",
