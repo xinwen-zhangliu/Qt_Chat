@@ -44,6 +44,7 @@ void ServerWorker::sendJson(const QJsonObject &json){
     qDebug() << "ServerWorker::sendJson , json being sent = " <<jsonInBA;
 
     m_serverSocket -> write(stdJson);
+    m_serverSocket -> flush();
 
 
 }
@@ -115,7 +116,7 @@ void ServerWorker::receiveJson(){
 
 
 void ServerWorker::Errors(QAbstractSocket::SocketError socketError){
-
+    //not the same enumerations as the documentatios but all possible errors will be displayed
 
     switch (socketError) {
     case QAbstractSocket::RemoteHostClosedError:

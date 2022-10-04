@@ -19,6 +19,7 @@ class PrivateChat : public QDialog {
 public:
     explicit PrivateChat( QString chatPartner,QWidget* parent = nullptr);
     ~PrivateChat();
+    void onReceivedPrivateMessage(QString sender, QString message);
 
 private:
     Ui::PrivateChat* ui;
@@ -28,10 +29,13 @@ signals:
 	void closeDialog(QString username);
     void sendPrivateMessage(QString receiver, QString message);
    void sendJson(const QJsonObject &json);
+   void chatClosed(const QString &name);
+
 public slots:
-    void onReceivedPrivateMessage(QString sender, QString message);
+
 	void onSendMessageButtonClicked();
     QString getChatPartnerName();
+
 };
 
 #endif // PRIVATEMESSAGEDIALOG_HPP

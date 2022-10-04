@@ -97,6 +97,16 @@ void Parser::parseJson(const QJsonObject &json){
         emit publicMessageReceived(usernameVal.toString(), messageVal.toString());
      }
 
+    //PRIVATE MESSAGE
+    if(typeVal.toString().compare(QLatin1String("MESSAGE_FROM"))==0){
+        if (usernameVal.isNull() || !usernameVal.isString())
+            return;
+        if (messageVal.isNull() || !messageVal.isString())
+            return;
+        qDebug() << "received private message from: " << usernameVal.toString();
+        emit privateMessageReceived(usernameVal.toString(), messageVal.toString());
+     }
+
     //NEW_USER
     if(typeVal.toString().compare(QLatin1String("NEW_USER"))==0){
         if (usernameVal.isNull() || !usernameVal.isString())

@@ -66,6 +66,8 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(m_parser, &Parser::userJoined, this, &ChatWindow::userJoined);
     connect(m_parser, &Parser::userLeft, this, &ChatWindow::userLeft);
 
+    connect(m_parser, &Parser::privateMessageReceived, this , &ChatWindow::privateMessageReceived);
+
 
     /*
     connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
@@ -93,9 +95,7 @@ ChatWindow::ChatWindow(QWidget *parent)
 
 }
 
-void ChatWindow::sigHandler(int signal){
 
-}
 
 
 ChatWindow::~ChatWindow(){
@@ -195,6 +195,9 @@ void ChatWindow::loggedIn(const QString &username){
     m_lastUserName.clear();
 
 
+
+    this->setWindowTitle(m_chatClient->getUsername());
+
     getUserList();
 
 }
@@ -263,6 +266,31 @@ void ChatWindow::logJson(const QString &json){
        QMessageBox::information(this, tr("Json text"), json);
 }
 
+void ChatWindow::privateMessageReceived(const QString &sender, const QString &message){
+    qDebug() <<"ChatWindow::privateMessageREceived";
+    qDebug()<< m_privateChats.size();
+
+    if(!containsPrivateChat(sender)){
+        QListWidgetItem *item = new QListWidgetItem;
+        item->setText(sender);
+        on_clientList_itemDoubleClicked(item);
+
+    }
+
+   for(PrivateChat *chat : m_privateChats){
+       qDebug() << "found chat";
+        if(chat->getChatPartnerName().compare(sender, Qt::CaseSensitive)==0){
+            chat->onReceivedPrivateMessage(sender,message);
+            return;
+        }
+    }
+
+
+
+
+
+
+}
 
 void ChatWindow::publicMessageReceived(const QString &sender, const QString &text)
 {
@@ -400,23 +428,50 @@ void ChatWindow::on_clientList_itemClicked(QListWidgetItem *item)
 
 
 
+void ChatWindow::privateChatClosed(const QString &chatName){
 
+    for(PrivateChat *chat : m_privateChats){
+        if(chat->getChatPartnerName().compare(chatName, Qt::CaseSensitive)==0){
+           m_privateChats.removeAt(m_privateChats.indexOf(chat));
+        }
+    }
+}
+
+
+bool ChatWindow::containsPrivateChat(const QString &chatName){
+
+    for(PrivateChat *chat : m_privateChats){
+        if(chat->getChatPartnerName().compare(chatName, Qt::CaseSensitive)==0){
+            return true;
+        }
+    }
+    return false;
+
+}
 
 void ChatWindow::on_clientList_itemDoubleClicked(QListWidgetItem *item)
 {
     qDebug() << "you've double clicked the  item";
 
-    //if (!m_privateChats.contains(item->text())) {
-            PrivateChat* privateDialog = new PrivateChat( item ->text(), this);
-            // signal from the private message dialog when the user closes it so it can be removed from the list of opened dialogs
-            //connect(privateDialog, &PrivateChat::closeDialog, this, &MainWindow::onClosePrivateDialog);
+
+
+    if (!containsPrivateChat(item->text())) {
+            PrivateChat *privateDialog = new PrivateChat( item ->text(), this);
+
+
+            connect(privateDialog, &PrivateChat::sendJson, m_chatClient, &ChatClient::sendJson, Qt::QueuedConnection);
+            connect(privateDialog, &PrivateChat::chatClosed, this , &ChatWindow::privateChatClosed);
+
             QString s1 = QStringLiteral("Chat with ");
             QString s2 = item->text();
             privateDialog->setWindowTitle(s1+s2);
             privateDialog->show();
 
             m_privateChats.push_back(privateDialog);
-        //}
+            qDebug() <<"privateChat created, now you have this number of chats: " << m_privateChats.size();
+
+
+     }
 }
 
 

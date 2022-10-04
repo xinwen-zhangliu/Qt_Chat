@@ -37,7 +37,7 @@ private slots:
 
     void broadcastAll(const QJsonObject &message, ServerWorker *exclude);
     void broadcastRoom(const QJsonObject &message, ServerWorker *sender, const QString &roomName);
-    void broadcastOne(const QJsonObject &message,ServerWorker *sender, const QString &destination);
+    void broadcastOne(const QJsonObject &message,ServerWorker *sender, const QString &destination, const QString &operation);
     void jsonReceived(ServerWorker *sender, const QJsonObject &doc);
     void userDisconnected(ServerWorker *sender, int threadIdx);
     void userError(ServerWorker *sender);

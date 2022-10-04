@@ -25,7 +25,7 @@ signals:
     void disconnect(ServerWorker *sender);
 
     void publicMessage(const QJsonObject &newJson, ServerWorker *sender);
-    void privateMessage( const QString &destination, const QJsonObject &message);
+    void privateMessage( const QJsonObject &message,ServerWorker *sender, const QString &destination, const QString &operation);
 
 
     void userListRequest(ServerWorker *sender);
@@ -35,7 +35,7 @@ signals:
 
 
     void newRoomRequest(ServerWorker *sender, const QString &roomName);//connected to attempCreateRoom in ChatServer
-    void invitationsToRoom(ServerWorker *sendr, QVector<QString> users, const QString &roomName);
+    void invitationsToRoom(ServerWorker *sender, QVector<QString> users, const QString &roomName);
     void roomInvitation(ServerWorker *sender, const QString &destination); //connected to
     void leaveRoom(ServerWorker *sender, const QString &roomName); //connected to leaveRoom in ChatServer
     void roomUsersRequest(ServerWorker *sender, const QString &roomName); //connected to roomUsersRequest

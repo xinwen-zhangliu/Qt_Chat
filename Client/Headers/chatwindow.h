@@ -27,7 +27,7 @@ public:
     explicit ChatWindow(QWidget *parent = nullptr);
     ~ChatWindow();
    ChatClient* getChatClient();
-   void sigHandler(int signal);
+
 
 private:
     Ui::ChatWindow *ui;
@@ -49,6 +49,7 @@ private slots:
     void loginFailed(const QString &reason);
     void logJson(const QString &json);
     void publicMessageReceived(const QString &sender, const QString &text);
+    void privateMessageReceived(const QString &sender, const QString &message);
     void sendMessage();
     void disconnectedFromServer();
     void userJoined(const QString &username);
@@ -59,6 +60,11 @@ private slots:
     void userListReceived(const QJsonArray &userList);
     void refreshUserList(const QVector<QString> &users);
     void getUserList();
+
+    bool containsPrivateChat(const QString &chatName);
+
+
+    void privateChatClosed(const QString &chatName);
 
     void on_clientList_itemClicked(QListWidgetItem *item);
     void on_clientList_itemDoubleClicked(QListWidgetItem *item);

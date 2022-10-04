@@ -10,7 +10,7 @@ PrivateChat::PrivateChat( QString chatPartner,QWidget* parent)
 {
     this->chatPartner = chatPartner;
     ui->setupUi(this);
-
+    this->setWindowTitle(chatPartner);
 
     //connect chatcleint received private message with
     connect(ui->btnSendMessage, &QPushButton::clicked, this, &PrivateChat::onSendMessageButtonClicked);
@@ -19,10 +19,12 @@ PrivateChat::PrivateChat( QString chatPartner,QWidget* parent)
 }
 
 PrivateChat::~PrivateChat() {
+    emit chatClosed(chatPartner);
 	delete ui;
 }
 
 void PrivateChat::onReceivedPrivateMessage(QString sender, QString message) {
+    qDebug() << "received private message at " << chatPartner;
     QString semicolon = QStringLiteral(": ");
     QString output = sender +semicolon + message;
 	ui->editRecvMessage->append(output);

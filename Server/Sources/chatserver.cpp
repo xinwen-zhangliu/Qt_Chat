@@ -35,6 +35,8 @@ ChatServer::ChatServer(QObject *parent)
 
     connect(m_parser, &Parser::newRoomRequest, this, &ChatServer::createRoom, Qt::QueuedConnection);
 
+    connect(m_parser, &Parser::privateMessage, this , &ChatServer::broadcastOne, Qt::QueuedConnection);
+
 
 }
 
@@ -85,6 +87,8 @@ void ChatServer::incomingConnection(qintptr socketDescriptor){
 }
 
 void ChatServer::userListRequest(ServerWorker *sender){
+
+    qDebug() << "received user list request, processing";
     QJsonArray usernames;
     QJsonValue name;
     for(int i =0 ; i <m_clients.size(); i++){
@@ -92,9 +96,13 @@ void ChatServer::userListRequest(ServerWorker *sender){
        usernames.append(name);
     }
 
+
     QJsonObject userListJson;
     userListJson[QStringLiteral("type")]= QStringLiteral("USER_LIST");
     userListJson[QStringLiteral("usernames")] = usernames;
+
+    QJsonDocument doc(userListJson);
+    qDebug() << "userList: " << doc.toJson(QJsonDocument::Compact);
 
     sendJson(sender, userListJson);
 }
@@ -179,24 +187,9 @@ void ChatServer::sendOutRoomInvitations(ServerWorker *sender, const QString &roo
         invitation[QStringLiteral("username")] = sender->userName();
         invitation[QStringLiteral("roomname")] = roomName;
 
-        //broadcastOne(invitation, sender, users[i]);
-        bool userFound = false;
-        for (ServerWorker *worker : m_clients) {
-            Q_ASSERT(worker);
-            if (worker->userName().compare(users[j], Qt::CaseSensitive)==0){
-                userFound = true;
-                sendJson(worker, invitation);
-                break;
-            }
+        QString operation = QStringLiteral("INVITATION");
 
-        }
-
-        QJsonObject userNotFoundWarning;
-
-        if(!userFound)
-            sendJson(sender, userNotFoundWarning);
-
-
+        broadcastOne( invitation,sender,sender->userName(),operation);
 
     }
 
@@ -257,6 +250,23 @@ void ChatServer::leaveRoom(ServerWorker *sender, const QString &roomName){
 }
 
 void ChatServer::sendConnectedUsers(ServerWorker *sender){
+    QJsonArray users;
+    for(ServerWorker *worker : m_clients){
+        QJsonValue username = worker->userName();
+        users.append(username);
+
+    }
+    QJsonObject requestJson;
+    requestJson[QStringLiteral("type")] = QStringLiteral("USER_LIST");
+    requestJson[QStringLiteral("usernames")]= users;
+
+    QJsonDocument doc(requestJson);
+    qDebug() << "connect users json: "<<doc.toJson();
+
+    sendJson(sender, requestJson);
+
+
+
 
 }
 
@@ -315,7 +325,7 @@ void ChatServer::broadcastRoom(const QJsonObject &message, ServerWorker *sender,
 
 
 
-void ChatServer::broadcastOne(const QJsonObject &message,ServerWorker *sender, const QString &destination){
+void ChatServer::broadcastOne(const QJsonObject &message,ServerWorker *sender, const QString &destination, const QString &operation){
     bool userFound = false;
     for (ServerWorker *worker : m_clients) {
         Q_ASSERT(worker);
@@ -330,12 +340,22 @@ void ChatServer::broadcastOne(const QJsonObject &message,ServerWorker *sender, c
     if(!userFound){
         const QJsonObject userNotFoundWarning;
 
+        if(operation.compare(QLatin1String("MESSAGE"), Qt::CaseSensitive)==0){
+            QString message = QLatin1String("El usuario '") + destination + QLatin1String("' no existe");
+            userNotFoundWarning[QStringLiteral("type")] = QStringLiteral("WARNING");
+            userNotFoundWarning[QStringLiteral("message")] = message;
+            userNotFoundWarning[QStringLiteral("operation")] = QStringLiteral("MESSAGE");
+            userNotFoundWarning[QStringLiteral("username")] = destination;
+        }else if(operation.compare(QLatin1String("INVITE"), Qt::CaseSensitive)==0){
 
-        QString message = QLatin1String("El usuario '") + destination + QLatin1String("' no existe");
-        userNotFoundWarning[QStringLiteral("type")] = QStringLiteral("WARNING");
-        userNotFoundWarning[QStringLiteral("message")] = message;
-        userNotFoundWarning[QStringLiteral("operation")] = QStringLiteral("MESSAGE");
-        userNotFoundWarning[QStringLiteral("username")] = destination;
+        }
+
+
+
+
+
+    userFound=false;
+
     }
 
 }

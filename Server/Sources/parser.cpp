@@ -29,6 +29,13 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
         return;
     }
 
+    //USERS
+    if(type.toString().compare(QLatin1String("USERS"))==0){
+        qDebug() << "user list request received";
+        emit userListRequest(sender);
+    }
+
+
     //PUBLIC MESSAGE
     if(type.toString().compare(QLatin1String("PUBLIC_MESSAGE"))==0){
         const QJsonValue username = json.value(QLatin1String("username"));
@@ -44,6 +51,24 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
 
     }
 
+
+
+    //PRIVATE MESSAGE
+    if(type.toString().compare(QLatin1String("MESSAGE"))==0){
+        const QJsonValue usernameDestination = json.value(QLatin1String("username"));
+        const QJsonValue message = json.value(QLatin1String("message"));
+
+
+        //json to send to the other person
+        QJsonObject answerMessage;
+        answerMessage[QStringLiteral("type")] = QStringLiteral("MESSAGE_FROM");
+        answerMessage[QStringLiteral("username")] = sender->userName();
+        answerMessage[QStringLiteral("message")] = message.toString();
+        QString operation = QStringLiteral("MESSAGE");
+
+        emit privateMessage(answerMessage,sender,usernameDestination.toString(),operation);
+
+    }
 
     //STATUS
     if(type.toString().compare(QLatin1String("STATUS"))==0){
@@ -78,13 +103,17 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
 
     }
 
+    //JOIN ROOM REQUEST
     if(type.toString().compare(QLatin1String("JOIN_ROOM"))==0){
         emit joinRoomRequest(sender, roomnameVal.toString());
     }
 
+
+    //ROOM_USERS
     if(type.toString().compare(QLatin1String("ROOM_USERS"))==0){
         emit roomUsersRequest(sender, roomnameVal.toString());
     }
+
 
 
     if(type.toString().compare(QLatin1String("ROOM_MESSAGE"))==0){
@@ -98,5 +127,7 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
     if(type.toString().compare(QLatin1String("LEAVE_ROOM"))==0){
         emit leaveRoom(sender, roomnameVal.toString());
     }
+
+
 
 }

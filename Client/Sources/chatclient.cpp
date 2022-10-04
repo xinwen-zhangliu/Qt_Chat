@@ -61,6 +61,8 @@ void ChatClient::login(const QString &username){
     }
 }
 
+
+
 QString ChatClient::getUsername(){
     return m_username;
 }
@@ -131,11 +133,29 @@ void ChatClient::onReadyRead(){
     int size = rawText.size();
     qDebug() << "rawTExt: " << rawText;
     qDebug() << "Json byte size" << size;
-    if(rawText.contains('\x0')){
-       data.append( rawText, size-1);
-    }else{
-       data.append( rawText, size);
+
+
+//    if(rawText.contains('\x0')){
+//       data.append( rawText, size-1);
+//    }else{
+//       data.append( rawText, size);
+//    }
+
+
+    QByteArray::iterator iterator = rawText.begin();
+    int index = 0;
+
+    while(iterator != data.end()){
+        //QChar charInBA = *iterator;
+        if(*iterator == '\x0'){
+            rawText.remove(index, index);
+            break;
+        }
+        index++;
+        iterator++;
     }
+
+    data.append( rawText, rawText.size());
     qDebug() << "data: " << data;
 //    if(rawText.endsWith('\x00')){
 //
@@ -144,7 +164,7 @@ void ChatClient::onReadyRead(){
 //    }
 
 
-    QByteArray newData ;
+    //QByteArray newData ;
     //newData.append(data, -1);
     //qDebug() << data;
     QJsonParseError parseError;
@@ -157,18 +177,7 @@ void ChatClient::onReadyRead(){
 
 
 
-//    QByteArray::iterator iterator = newData.begin();
-//    int index = 0;
 
-//    while(iterator != data.end()){
-//        QChar charInBA = *iterator;
-//        if(charInBA == '\x0'){
-//            newData.remove(index, index);
-//            break;
-//        }
-//        index++;
-//        iterator++;
-//    }
 //    for(int i =0; i< newData.size(); i++){
 //        if(newData.at(i) == '\x00'){
 //            newData.remove(i, i);
