@@ -67,6 +67,27 @@ QString ChatClient::getUsername(){
     return m_username;
 }
 
+int ChatClient::getSocketState(){
+    QAbstractSocket::SocketState state = m_clientSocket->state();
+    switch (state) {
+    case QAbstractSocket::UnconnectedState:
+        return 0;
+    case QAbstractSocket::HostLookupState:
+        return 1;
+    case QAbstractSocket::ConnectingState:
+        return 2;
+    case QAbstractSocket::ConnectedState:
+        return 3;
+    case QAbstractSocket::BoundState:
+        return 4;
+    case QAbstractSocket::ClosingState:
+        return 6;
+    default:
+        //couldnt get socket state
+        return -1;
+    }
+}
+
 void ChatClient::setUsername(const QString &username){
     qDebug() << "setUsername: " << username;
     this->m_username= username;

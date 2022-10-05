@@ -18,6 +18,7 @@ class ChatClient : public QObject
 public:
     explicit ChatClient(QObject *parent = nullptr);
     QString getUsername();
+    int getSocketState();
 public slots:
      void disconnectFromHost();
      void connectToServer(const QHostAddress &address, quint16 port);

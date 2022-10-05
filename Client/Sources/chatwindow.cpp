@@ -99,7 +99,8 @@ ChatWindow::ChatWindow(QWidget *parent)
 
 
 ChatWindow::~ChatWindow(){
-    emit processTerminated();
+    if(m_chatClient->getSocketState()==3)
+        emit processTerminated();
     delete ui;
 }
 
@@ -199,6 +200,7 @@ void ChatWindow::loggedIn(const QString &username){
     this->setWindowTitle(m_chatClient->getUsername());
 
     getUserList();
+    qDebug() << "socket state: " << m_chatClient->getSocketState();
 
 }
 
@@ -413,6 +415,19 @@ void ChatWindow::userLeft(const QString &username)
     ui->chatView->scrollToBottom();
 
     m_lastUserName.clear();
+
+    //now we delete the user from the connected users list
+    qDebug() << "number of users before " << ui->clientList->count();
+    for(int i =0 ; i < ui->clientList->count(); i++){
+        //QListWidgetItem *itemAt = ui->clientList->itemAt(i, 0);
+        qDebug() << "ChatWindow::userLeft itemAt "<<ui->clientList->item(i)->text();
+        if(ui->clientList->item(i)->text().compare(username, Qt::CaseSensitive)==0){
+            delete ui->clientList->takeItem(i);
+            qDebug() << "number of user after: " << ui->clientList->count();
+            return;
+        }
+    }
+
 }
 
 
