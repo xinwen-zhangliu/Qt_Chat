@@ -23,6 +23,7 @@ signals:
     void loginError(const QString &reason);
     void publicMessageReceived(const QString &sender, const QString &text);
     void privateMessageReceived(const QString &sender, const QString &message);
+    void roomMessageReceived(const QString &sender, const QString &roomName, const QString &message);
     void userJoined(const QString &username);
     void userLeft(const QString &username);
     void receivedUserList(const QJsonArray &list);
@@ -31,6 +32,8 @@ signals:
     void newRoomCreated();
     void errorCreatingRoom(const QString &roomName);
     void showJson(const QString &json);
+    void newRoomRejected();
+
 
 
 

@@ -320,6 +320,12 @@
 			null
 		],
 		[
+			"/home/xinwen/proyecto1_Chat/Client/Headers/groupchat.h",
+			"MU",
+			"D2MWKIZDYH/moc_groupchat.cpp",
+			null
+		],
+		[
 			"/home/xinwen/proyecto1_Chat/Client/Headers/parser.h",
 			"MU",
 			"D2MWKIZDYH/moc_parser.cpp",
@@ -414,6 +420,11 @@
 		],
 		[
 			"/home/xinwen/proyecto1_Chat/Client/Sources/chatwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/xinwen/proyecto1_Chat/Client/Sources/groupchat.cpp",
 			"MU",
 			null
 		],

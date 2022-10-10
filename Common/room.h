@@ -15,6 +15,7 @@ public:
 public slots:
     QString getRoomName();
     QVector<QString> getUsers();
+    QVector<QString> getInvitations();
 
     void addUser(const QString &username);
     void addInvitation(const QString &username);

@@ -36,6 +36,7 @@ void Parser::parseJson(const QJsonObject &json){
         }
 
 
+
         if(operationVal.toString().compare(QLatin1String("IDENTIFY"))== 0){
             qDebug() << "operation == IDENTIFY";
             qDebug() << messageVal.toString();

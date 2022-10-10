@@ -18,6 +18,9 @@ QString Room::getRoomName(){
 QVector<QString> Room::getUsers(){
     return this->m_users;
 }
+QVector<QString> Room::getInvitations(){
+    return this->m_invitations;
+}
 
 void Room::addUser(const QString &username){
     this->m_users.append(username);

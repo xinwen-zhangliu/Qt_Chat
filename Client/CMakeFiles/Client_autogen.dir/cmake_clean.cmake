@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Client_autogen"
+  "Client_autogen/include/forms/ui_groupchatwindow.h"
   "Client_autogen/include/forms/ui_mainchatwindow.h"
   "Client_autogen/include/forms/ui_privatechatwindow.h"
   "Client_autogen/mocs_compilation.cpp"

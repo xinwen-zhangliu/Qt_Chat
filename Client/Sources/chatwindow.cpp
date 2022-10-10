@@ -2,6 +2,7 @@
 #include "Headers/parser.h"
 #include "Headers/chatclient.h"
 #include "Headers/privatechat.h"
+#include "Headers/groupchat.h"
 
 #include "../ui_mainchatwindow.h"
 
@@ -68,6 +69,9 @@ ChatWindow::ChatWindow(QWidget *parent)
 
     connect(m_parser, &Parser::privateMessageReceived, this , &ChatWindow::privateMessageReceived);
 
+    connect(m_parser, &Parser::newRoomRejected, this, &ChatWindow::newRoomRejected);
+    connect(m_parser, &Parser::newRoomCreated, this, &ChatWindow::newRoomCreated);
+    connect(m_parser, &Parser::roomMessageReceived, this, &ChatWindow::roomMessageReceived);
 
     /*
     connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
@@ -349,7 +353,8 @@ void ChatWindow::sendMessage()
 }
 
 void ChatWindow::createRoom(){
-    if(ui->groupName->text().isEmpty()){
+    QString roomName = ui->groupName->text();
+    if(roomName.isEmpty()){
         QMessageBox::information(this, tr("Info"), tr("You cannot leave the name group blank"));
         return;
     }else if(m_selectedUsers.isEmpty()){
@@ -357,8 +362,109 @@ void ChatWindow::createRoom(){
         return;
     }
 
-    //Room newRoom =
+    m_roomRequests.append(roomName);
+
+    QJsonObject newRoomRequest;
+    newRoomRequest[QStringLiteral("type")] = QStringLiteral("NEW_ROOM");
+    newRoomRequest[QStringLiteral("roomname")] = roomName;
+
+    sendJson(newRoomRequest);
+
 }
+
+void ChatWindow::newRoomRejected(){
+    m_roomRequests.pop_back();
+
+}
+
+void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &message){
+    QMessageBox msgBox;
+    msgBox.setText(message);
+    msgBox.setInformativeText(QLatin1String("Do you want to accept? You won't be able to change your answer later"));
+    msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    msgBox.setDefaultButton(QMessageBox::Yes);
+    int answer = msgBox.exec();
+
+    switch (answer) {
+    case QMessageBox::Yes:
+    {
+        //we send the accept json
+        QJsonObject acceptInvitation;
+        acceptInvitation[QStringLiteral("type")] = QStringLiteral("JOIN_ROOM");
+        acceptInvitation[QStringLiteral("roomname")] = roomName;
+
+        sendJson(acceptInvitation);
+
+        //we open the groupchat window
+        ui->groupName->setText(roomName);
+        createRoom();
+
+        break;
+
+    }
+
+    case QMessageBox::No:
+    {
+        //do nothing
+
+        break;
+    }
+    default:
+    {
+         break;
+    }
+
+    }
+}
+
+
+void ChatWindow::roomMessageReceived(const QString &sender, const QString &roomName, const QString &message){
+    for(GroupChat *chat : m_groupChats){
+        if(chat->getRoomName().compare(roomName) ==0){
+            if(!chat->getVisibility()){
+                chat->show();
+                chat->setVisibility(true);
+
+            }
+            chat->receivedRoomMessage(sender, message);
+            return;
+        }
+    }
+}
+
+
+void ChatWindow::newRoomCreated(){
+    QString roomName;
+    if(!m_roomRequests.isEmpty()){
+        roomName = m_roomRequests.back();
+        m_roomRequests.pop_back();
+    }
+
+    //now we create the room ui and show it
+    GroupChat *groupChat = new GroupChat(roomName, this);
+
+    connect(groupChat, &GroupChat::sendJson, m_chatClient, &ChatClient::sendJson, Qt::QueuedConnection);
+
+
+
+    QString s1 = QStringLiteral("Chat room ");
+    QString s2 = roomName;
+    groupChat->setWindowTitle(s1+s2);
+    groupChat->show();
+
+    m_groupChats.push_back(groupChat);
+
+    //now we send out the invitations
+    for(QString username :m_selectedUsers){
+        QJsonObject invitation;
+        invitation[QStringLiteral("type")] = QStringLiteral("INVITE");
+        invitation[QStringLiteral("roomname")] = roomName;
+        invitation[QStringLiteral("usernames")] = username;
+        sendJson(invitation);
+    }
+
+}
+
 
 void ChatWindow::disconnectedFromServer()
 {

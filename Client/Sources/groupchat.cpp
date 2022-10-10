@@ -16,7 +16,7 @@ GroupChat::GroupChat(QString roomName, QWidget* parent)
     ui->setupUi(this);
     m_chatModel->insertColumn(0);
     ui->chatView->setModel(m_chatModel);
-
+    this->m_isVisible= true;
 
     connect(ui->leaveBtn, &QPushButton::clicked, this, &GroupChat::leaveRoom);
     connect(ui->inviteBtn, &QPushButton::clicked, this, &GroupChat::addUser);
@@ -27,10 +27,49 @@ GroupChat::GroupChat(QString roomName, QWidget* parent)
 }
 
 GroupChat::~GroupChat(){
+    this->m_isVisible= false;
     delete ui;
 }
 
+bool GroupChat::getVisibility(){
+    return this->m_isVisible;
+}
+void GroupChat::setVisibility(bool visibility){
+    this->m_isVisible= visibility;
+}
+
+QString GroupChat::getRoomName(){
+    return this->roomName;
+}
+
 void GroupChat::receivedRoomMessage(const QString sender, const QString &message){
+    int newRow = m_chatModel->rowCount();
+
+    //if ( != sender) {
+
+        //m_lastUserName = sender;
+
+        QFont boldFont;
+        boldFont.setBold(true);
+
+        m_chatModel->insertRows(newRow, 2);
+
+        m_chatModel->setData(m_chatModel->index(newRow, 0), sender + QLatin1Char(':'));
+
+        m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
+
+        m_chatModel->setData(m_chatModel->index(newRow, 0), boldFont, Qt::FontRole);
+        ++newRow;
+    //} else {
+
+        //m_chatModel->insertRow(newRow);
+    //}
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), message);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignLeft | Qt::AlignVCenter), Qt::TextAlignmentRole);
+
+    ui->chatView->scrollToBottom();
 
 }
 

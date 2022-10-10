@@ -42,6 +42,7 @@ private:
      QQueue<QString> m_rooms;
      QVector<PrivateChat *> m_privateChats;
     QVector<GroupChat *> m_groupChats;
+    QList<QString> m_roomRequests;
 private slots:
     void attemptConnection();
     void attemptLogin(const QString &username);
@@ -60,8 +61,10 @@ private slots:
     void userListReceived(const QJsonArray &userList);
     void refreshUserList(const QVector<QString> &users);
     void getUserList();
-
+    void newRoomRejected();
+    void newRoomCreated();
     bool containsPrivateChat(const QString &chatName);
+    void roomInvitationReceived(const QString &roomName, const QString &message);
 
 
     void privateChatClosed(const QString &chatName);
@@ -69,6 +72,7 @@ private slots:
     void on_clientList_itemClicked(QListWidgetItem *item);
     void on_clientList_itemDoubleClicked(QListWidgetItem *item);
     void addUser(const QString &username);
+    void roomMessageReceived(const QString &sender, const QString &roomName, const QString &message);
 signals:
     void sendJson(const QJsonObject &json);
 
@@ -77,7 +81,7 @@ signals:
     //slots to handle room operations
     void invitationReceived(const QString &sender, const QString &roomName);
     void roomUsers(const QString &roomName, const QVector<QString> &users);
-    void roomMessageReceived(const QString &roomName, const QString &sender, const QString &message);
+
 
 
 

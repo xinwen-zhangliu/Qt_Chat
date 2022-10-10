@@ -216,6 +216,30 @@ Sources/chatwindow.cpp.s:
 	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.s
 .PHONY : Sources/chatwindow.cpp.s
 
+Sources/groupchat.o: Sources/groupchat.cpp.o
+.PHONY : Sources/groupchat.o
+
+# target to build an object file
+Sources/groupchat.cpp.o:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/groupchat.cpp.o
+.PHONY : Sources/groupchat.cpp.o
+
+Sources/groupchat.i: Sources/groupchat.cpp.i
+.PHONY : Sources/groupchat.i
+
+# target to preprocess a source file
+Sources/groupchat.cpp.i:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/groupchat.cpp.i
+.PHONY : Sources/groupchat.cpp.i
+
+Sources/groupchat.s: Sources/groupchat.cpp.s
+.PHONY : Sources/groupchat.s
+
+# target to generate assembly for a file
+Sources/groupchat.cpp.s:
+	cd /home/xinwen/proyecto1_Chat && $(MAKE) $(MAKESILENT) -f Client/CMakeFiles/Client.dir/build.make Client/CMakeFiles/Client.dir/Sources/groupchat.cpp.s
+.PHONY : Sources/groupchat.cpp.s
+
 Sources/parser.o: Sources/parser.cpp.o
 .PHONY : Sources/parser.o
 
@@ -331,6 +355,9 @@ help:
 	@echo "... Sources/chatwindow.o"
 	@echo "... Sources/chatwindow.i"
 	@echo "... Sources/chatwindow.s"
+	@echo "... Sources/groupchat.o"
+	@echo "... Sources/groupchat.i"
+	@echo "... Sources/groupchat.s"
 	@echo "... Sources/parser.o"
 	@echo "... Sources/parser.i"
 	@echo "... Sources/parser.s"

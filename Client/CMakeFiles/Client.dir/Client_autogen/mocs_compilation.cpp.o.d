@@ -322,6 +322,15 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtWidgets/qtabwidget.h \
  /usr/include/qt6/QtWidgets/qrubberband.h /usr/include/qt6/QtCore/QList \
  /usr/include/qt6/QtCore/qlist.h \
+ /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/moc_groupchat.cpp \
+ /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/groupchat.h \
+ /usr/include/qt6/QtWidgets/QDialog /usr/include/qt6/QtWidgets/qdialog.h \
+ /usr/include/qt6/QtCore/QByteArray /usr/include/qt6/QtCore/qbytearray.h \
+ /usr/include/qt6/QtWidgets/QMessageBox \
+ /usr/include/qt6/QtWidgets/qmessagebox.h \
+ /usr/include/qt6/QtWidgets/qdialog.h \
+ /usr/include/qt6/QtGui/QStandardItemModel \
+ /usr/include/qt6/QtGui/qstandarditemmodel.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/moc_parser.cpp \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/parser.h \
  /usr/include/qt6/QtCore/QJsonObject \
@@ -334,7 +343,6 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qjsonarray.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/moc_privatechat.cpp \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/D2MWKIZDYH/../../Headers/privatechat.h \
- /usr/include/qt6/QtWidgets/QDialog /usr/include/qt6/QtWidgets/qdialog.h \
  /usr/include/qt6/QtWidgets/QFileDialog \
  /usr/include/qt6/QtWidgets/qfiledialog.h /usr/include/qt6/QtCore/qdir.h \
  /usr/include/qt6/QtCore/qfile.h /usr/include/qt6/QtCore/qfiledevice.h \
@@ -362,10 +370,7 @@ Client/CMakeFiles/Client.dir/Client_autogen/mocs_compilation.cpp.o: \
  /usr/include/c++/12.2.0/bits/sstream.tcc /usr/include/c++/12.2.0/codecvt \
  /usr/include/c++/12.2.0/bits/fs_dir.h \
  /usr/include/c++/12.2.0/bits/fs_ops.h \
- /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtWidgets/qdialog.h \
- /usr/include/qt6/QtCore/QFile /usr/include/qt6/QtCore/qfile.h \
- /usr/include/qt6/QtCore/QByteArray /usr/include/qt6/QtCore/qbytearray.h \
- /usr/include/qt6/QtWidgets/QMessageBox \
- /usr/include/qt6/QtWidgets/qmessagebox.h \
+ /usr/include/qt6/QtCore/qfileinfo.h /usr/include/qt6/QtCore/QFile \
+ /usr/include/qt6/QtCore/qfile.h \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/ZBJRBURQQN/moc_room.cpp \
  /home/xinwen/proyecto1_Chat/Client/Client_autogen/ZBJRBURQQN/../../../Common/room.h

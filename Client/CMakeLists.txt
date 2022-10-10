@@ -13,16 +13,19 @@ add_executable(Client
     clientmain.cpp
     forms/mainchatwindow.ui
     forms/privatechatwindow.ui
+    forms/groupchatwindow.ui
 
     Sources/chatwindow.cpp
     Sources/chatclient.cpp
     Sources/parser.cpp
     Sources/privatechat.cpp
+    Sources/groupchat.cpp
 
     Headers/chatwindow.h
     Headers/chatclient.h
     Headers/parser.h
     Headers/privatechat.h
+    Headers/groupchat.h
 
     ../Common/room.cpp
     ../Common/room.h

@@ -28,7 +28,7 @@ public slots:
     void disconnectFromClient();
     void sendJson(const QJsonObject &json);
     void Errors(QAbstractSocket::SocketError socketError);
-    void test();
+
     void setStatus(const int newStatus);
     int getStatus();
 private slots:

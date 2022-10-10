@@ -83,6 +83,9 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
          }
 
     }
+
+
+
     //ROOMS
     const QJsonValue roomnameVal = json.value(QLatin1String("roomname"));
     if(roomnameVal.isNull() || !roomnameVal.isString())
@@ -95,11 +98,10 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
          QJsonArray usernameVal = json.value(QLatin1String("usernames")).toArray();
         if(usernameVal.isEmpty())
             return;
-        QVector<QString> usernames;
-        for(int i =0  ; i<usernameVal.size(); i++){
-            usernames.append(usernameVal[i].toString());
-        }
-        emit invitationsToRoom(sender,usernames,roomnameVal.toString()  );
+
+
+        qDebug() << "received invitations request";
+        emit invitationsToRoom(sender,roomnameVal.toString(), usernameVal  );
 
     }
 
@@ -115,7 +117,7 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
     }
 
 
-
+    //ROOM MESSAGE
     if(type.toString().compare(QLatin1String("ROOM_MESSAGE"))==0){
         const QJsonValue message = json.value(QLatin1String("message"));
         if(message.isNull() || !message.isString())
@@ -123,7 +125,7 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
         emit roomMessage(sender, roomnameVal.toString(), message.toString() );
     }
 
-
+    //LEAVE ROOM
     if(type.toString().compare(QLatin1String("LEAVE_ROOM"))==0){
         emit leaveRoom(sender, roomnameVal.toString());
     }

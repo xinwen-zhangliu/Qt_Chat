@@ -29,9 +29,7 @@ bool ServerWorker::setSocketDescriptor(qintptr socketDescriptor){
     return m_serverSocket -> setSocketDescriptor(socketDescriptor);
 }
 
-void ServerWorker::test(){
-    qDebug() << "text succesful";
-}
+
 
 
 void ServerWorker::sendJson(const QJsonObject &json){

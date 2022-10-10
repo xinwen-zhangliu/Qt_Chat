@@ -22,7 +22,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Parser_t {
-    uint offsetsAndSizes[46];
+    uint offsetsAndSizes[50];
     char stringdata0[7];
     char stringdata1[9];
     char stringdata2[1];
@@ -34,18 +34,20 @@ struct qt_meta_stringdata_Parser_t {
     char stringdata8[5];
     char stringdata9[23];
     char stringdata10[8];
-    char stringdata11[11];
+    char stringdata11[20];
     char stringdata12[9];
-    char stringdata13[17];
-    char stringdata14[5];
-    char stringdata15[9];
+    char stringdata13[11];
+    char stringdata14[9];
+    char stringdata15[17];
     char stringdata16[5];
-    char stringdata17[10];
-    char stringdata18[15];
-    char stringdata19[18];
-    char stringdata20[9];
-    char stringdata21[9];
-    char stringdata22[10];
+    char stringdata17[9];
+    char stringdata18[5];
+    char stringdata19[10];
+    char stringdata20[15];
+    char stringdata21[18];
+    char stringdata22[9];
+    char stringdata23[16];
+    char stringdata24[10];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Parser_t::offsetsAndSizes) + ofs), len 
@@ -62,18 +64,20 @@ static const qt_meta_stringdata_Parser_t qt_meta_stringdata_Parser = {
         QT_MOC_LITERAL(73, 4),  // "text"
         QT_MOC_LITERAL(78, 22),  // "privateMessageReceived"
         QT_MOC_LITERAL(101, 7),  // "message"
-        QT_MOC_LITERAL(109, 10),  // "userJoined"
-        QT_MOC_LITERAL(120, 8),  // "userLeft"
-        QT_MOC_LITERAL(129, 16),  // "receivedUserList"
-        QT_MOC_LITERAL(146, 4),  // "list"
-        QT_MOC_LITERAL(151, 8),  // "sendJson"
-        QT_MOC_LITERAL(160, 4),  // "json"
-        QT_MOC_LITERAL(165, 9),  // "newStatus"
-        QT_MOC_LITERAL(175, 14),  // "newRoomCreated"
-        QT_MOC_LITERAL(190, 17),  // "errorCreatingRoom"
-        QT_MOC_LITERAL(208, 8),  // "roomName"
-        QT_MOC_LITERAL(217, 8),  // "showJson"
-        QT_MOC_LITERAL(226, 9)   // "parseJson"
+        QT_MOC_LITERAL(109, 19),  // "roomMessageReceived"
+        QT_MOC_LITERAL(129, 8),  // "roomName"
+        QT_MOC_LITERAL(138, 10),  // "userJoined"
+        QT_MOC_LITERAL(149, 8),  // "userLeft"
+        QT_MOC_LITERAL(158, 16),  // "receivedUserList"
+        QT_MOC_LITERAL(175, 4),  // "list"
+        QT_MOC_LITERAL(180, 8),  // "sendJson"
+        QT_MOC_LITERAL(189, 4),  // "json"
+        QT_MOC_LITERAL(194, 9),  // "newStatus"
+        QT_MOC_LITERAL(204, 14),  // "newRoomCreated"
+        QT_MOC_LITERAL(219, 17),  // "errorCreatingRoom"
+        QT_MOC_LITERAL(237, 8),  // "showJson"
+        QT_MOC_LITERAL(246, 15),  // "newRoomRejected"
+        QT_MOC_LITERAL(262, 9)   // "parseJson"
     },
     "Parser",
     "loggedIn",
@@ -86,6 +90,8 @@ static const qt_meta_stringdata_Parser_t qt_meta_stringdata_Parser = {
     "text",
     "privateMessageReceived",
     "message",
+    "roomMessageReceived",
+    "roomName",
     "userJoined",
     "userLeft",
     "receivedUserList",
@@ -95,8 +101,8 @@ static const qt_meta_stringdata_Parser_t qt_meta_stringdata_Parser = {
     "newStatus",
     "newRoomCreated",
     "errorCreatingRoom",
-    "roomName",
     "showJson",
+    "newRoomRejected",
     "parseJson"
 };
 #undef QT_MOC_LITERAL
@@ -107,46 +113,50 @@ static const uint qt_meta_data_Parser[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-      12,       // signalCount
+      14,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,   92,    2, 0x06,    1 /* Public */,
-       4,    1,   95,    2, 0x06,    3 /* Public */,
-       6,    2,   98,    2, 0x06,    5 /* Public */,
-       9,    2,  103,    2, 0x06,    8 /* Public */,
-      11,    1,  108,    2, 0x06,   11 /* Public */,
-      12,    1,  111,    2, 0x06,   13 /* Public */,
-      13,    1,  114,    2, 0x06,   15 /* Public */,
-      15,    1,  117,    2, 0x06,   17 /* Public */,
-      17,    2,  120,    2, 0x06,   19 /* Public */,
-      18,    0,  125,    2, 0x06,   22 /* Public */,
-      19,    1,  126,    2, 0x06,   23 /* Public */,
-      21,    1,  129,    2, 0x06,   25 /* Public */,
+       1,    1,  104,    2, 0x06,    1 /* Public */,
+       4,    1,  107,    2, 0x06,    3 /* Public */,
+       6,    2,  110,    2, 0x06,    5 /* Public */,
+       9,    2,  115,    2, 0x06,    8 /* Public */,
+      11,    3,  120,    2, 0x06,   11 /* Public */,
+      13,    1,  127,    2, 0x06,   15 /* Public */,
+      14,    1,  130,    2, 0x06,   17 /* Public */,
+      15,    1,  133,    2, 0x06,   19 /* Public */,
+      17,    1,  136,    2, 0x06,   21 /* Public */,
+      19,    2,  139,    2, 0x06,   23 /* Public */,
+      20,    0,  144,    2, 0x06,   26 /* Public */,
+      21,    1,  145,    2, 0x06,   27 /* Public */,
+      22,    1,  148,    2, 0x06,   29 /* Public */,
+      23,    0,  151,    2, 0x06,   31 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      22,    1,  132,    2, 0x0a,   27 /* Public */,
+      24,    1,  152,    2, 0x0a,   32 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::QString,    5,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    7,    8,
     QMetaType::Void, QMetaType::QString, QMetaType::QString,    7,   10,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString,    7,   12,   10,
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void, QMetaType::QString,    3,
-    QMetaType::Void, QMetaType::QJsonArray,   14,
-    QMetaType::Void, QMetaType::QJsonObject,   16,
-    QMetaType::Void, QMetaType::QString, QMetaType::Int,    3,   17,
+    QMetaType::Void, QMetaType::QJsonArray,   16,
+    QMetaType::Void, QMetaType::QJsonObject,   18,
+    QMetaType::Void, QMetaType::QString, QMetaType::Int,    3,   19,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::QString,   20,
-    QMetaType::Void, QMetaType::QString,   16,
+    QMetaType::Void, QMetaType::QString,   12,
+    QMetaType::Void, QMetaType::QString,   18,
+    QMetaType::Void,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::QJsonObject,   16,
+    QMetaType::Void, QMetaType::QJsonObject,   18,
 
        0        // eod
 };
@@ -161,15 +171,17 @@ void Parser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 1: _t->loginError((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
         case 2: _t->publicMessageReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         case 3: _t->privateMessageReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 4: _t->userJoined((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 5: _t->userLeft((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 6: _t->receivedUserList((*reinterpret_cast< std::add_pointer_t<QJsonArray>>(_a[1]))); break;
-        case 7: _t->sendJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
-        case 8: _t->newStatus((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 9: _t->newRoomCreated(); break;
-        case 10: _t->errorCreatingRoom((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 11: _t->showJson((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
-        case 12: _t->parseJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 4: _t->roomMessageReceived((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3]))); break;
+        case 5: _t->userJoined((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 6: _t->userLeft((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 7: _t->receivedUserList((*reinterpret_cast< std::add_pointer_t<QJsonArray>>(_a[1]))); break;
+        case 8: _t->sendJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
+        case 9: _t->newStatus((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 10: _t->newRoomCreated(); break;
+        case 11: _t->errorCreatingRoom((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 12: _t->showJson((*reinterpret_cast< std::add_pointer_t<QString>>(_a[1]))); break;
+        case 13: _t->newRoomRejected(); break;
+        case 14: _t->parseJson((*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -203,58 +215,72 @@ void Parser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
             }
         }
         {
-            using _t = void (Parser::*)(const QString & );
-            if (_t _q_method = &Parser::userJoined; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            using _t = void (Parser::*)(const QString & , const QString & , const QString & );
+            if (_t _q_method = &Parser::roomMessageReceived; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 4;
                 return;
             }
         }
         {
             using _t = void (Parser::*)(const QString & );
-            if (_t _q_method = &Parser::userLeft; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &Parser::userJoined; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 5;
+                return;
+            }
+        }
+        {
+            using _t = void (Parser::*)(const QString & );
+            if (_t _q_method = &Parser::userLeft; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 6;
                 return;
             }
         }
         {
             using _t = void (Parser::*)(const QJsonArray & );
             if (_t _q_method = &Parser::receivedUserList; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 6;
+                *result = 7;
                 return;
             }
         }
         {
             using _t = void (Parser::*)(const QJsonObject & );
             if (_t _q_method = &Parser::sendJson; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 7;
+                *result = 8;
                 return;
             }
         }
         {
             using _t = void (Parser::*)(const QString & , const int & );
             if (_t _q_method = &Parser::newStatus; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 8;
+                *result = 9;
                 return;
             }
         }
         {
             using _t = void (Parser::*)();
             if (_t _q_method = &Parser::newRoomCreated; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
-                *result = 9;
-                return;
-            }
-        }
-        {
-            using _t = void (Parser::*)(const QString & );
-            if (_t _q_method = &Parser::errorCreatingRoom; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 10;
                 return;
             }
         }
         {
             using _t = void (Parser::*)(const QString & );
-            if (_t _q_method = &Parser::showJson; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &Parser::errorCreatingRoom; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 11;
+                return;
+            }
+        }
+        {
+            using _t = void (Parser::*)(const QString & );
+            if (_t _q_method = &Parser::showJson; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 12;
+                return;
+            }
+        }
+        {
+            using _t = void (Parser::*)();
+            if (_t _q_method = &Parser::newRoomRejected; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+                *result = 13;
                 return;
             }
         }
@@ -268,7 +294,7 @@ const QMetaObject Parser::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Parser_t
-, QtPrivate::TypeAndForceComplete<Parser, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonArray &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const int &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+, QtPrivate::TypeAndForceComplete<Parser, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonArray &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const int &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>
 
 
@@ -296,13 +322,13 @@ int Parser::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 15)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 13;
+        _id -= 15;
     }
     return _id;
 }
@@ -336,58 +362,71 @@ void Parser::privateMessageReceived(const QString & _t1, const QString & _t2)
 }
 
 // SIGNAL 4
-void Parser::userJoined(const QString & _t1)
+void Parser::roomMessageReceived(const QString & _t1, const QString & _t2, const QString & _t3)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 4, _a);
 }
 
 // SIGNAL 5
-void Parser::userLeft(const QString & _t1)
+void Parser::userJoined(const QString & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 5, _a);
 }
 
 // SIGNAL 6
-void Parser::receivedUserList(const QJsonArray & _t1)
+void Parser::userLeft(const QString & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 6, _a);
 }
 
 // SIGNAL 7
-void Parser::sendJson(const QJsonObject & _t1)
+void Parser::receivedUserList(const QJsonArray & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 7, _a);
 }
 
 // SIGNAL 8
-void Parser::newStatus(const QString & _t1, const int & _t2)
+void Parser::sendJson(const QJsonObject & _t1)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 8, _a);
 }
 
 // SIGNAL 9
-void Parser::newRoomCreated()
+void Parser::newStatus(const QString & _t1, const int & _t2)
 {
-    QMetaObject::activate(this, &staticMetaObject, 9, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))) };
+    QMetaObject::activate(this, &staticMetaObject, 9, _a);
 }
 
 // SIGNAL 10
-void Parser::errorCreatingRoom(const QString & _t1)
+void Parser::newRoomCreated()
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
-    QMetaObject::activate(this, &staticMetaObject, 10, _a);
+    QMetaObject::activate(this, &staticMetaObject, 10, nullptr);
 }
 
 // SIGNAL 11
-void Parser::showJson(const QString & _t1)
+void Parser::errorCreatingRoom(const QString & _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 11, _a);
+}
+
+// SIGNAL 12
+void Parser::showJson(const QString & _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 12, _a);
+}
+
+// SIGNAL 13
+void Parser::newRoomRejected()
+{
+    QMetaObject::activate(this, &staticMetaObject, 13, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

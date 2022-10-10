@@ -35,7 +35,7 @@ signals:
 
 
     void newRoomRequest(ServerWorker *sender, const QString &roomName);//connected to attempCreateRoom in ChatServer
-    void invitationsToRoom(ServerWorker *sender, QVector<QString> users, const QString &roomName);
+    void invitationsToRoom(ServerWorker *sender,  const QString &roomName, QJsonArray &usernames);
     void roomInvitation(ServerWorker *sender, const QString &destination); //connected to
     void leaveRoom(ServerWorker *sender, const QString &roomName); //connected to leaveRoom in ChatServer
     void roomUsersRequest(ServerWorker *sender, const QString &roomName); //connected to roomUsersRequest

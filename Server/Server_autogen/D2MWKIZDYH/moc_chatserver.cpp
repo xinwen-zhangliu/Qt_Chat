@@ -23,7 +23,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_ChatServer_t {
-    uint offsetsAndSizes[72];
+    uint offsetsAndSizes[74];
     char stringdata0[11];
     char stringdata1[11];
     char stringdata2[1];
@@ -55,11 +55,12 @@ struct qt_meta_stringdata_ChatServer_t {
     char stringdata28[6];
     char stringdata29[17];
     char stringdata30[10];
-    char stringdata31[13];
-    char stringdata32[10];
-    char stringdata33[19];
-    char stringdata34[9];
-    char stringdata35[11];
+    char stringdata31[16];
+    char stringdata32[13];
+    char stringdata33[10];
+    char stringdata34[19];
+    char stringdata35[9];
+    char stringdata36[11];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_ChatServer_t::offsetsAndSizes) + ofs), len 
@@ -96,11 +97,12 @@ static const qt_meta_stringdata_ChatServer_t qt_meta_stringdata_ChatServer = {
         QT_MOC_LITERAL(320, 5),  // "users"
         QT_MOC_LITERAL(326, 16),  // "roomUsersRequest"
         QT_MOC_LITERAL(343, 9),  // "leaveRoom"
-        QT_MOC_LITERAL(353, 12),  // "updateStatus"
-        QT_MOC_LITERAL(366, 9),  // "newStatus"
-        QT_MOC_LITERAL(376, 18),  // "sendConnectedUsers"
-        QT_MOC_LITERAL(395, 8),  // "sendJson"
-        QT_MOC_LITERAL(404, 10)   // "stopServer"
+        QT_MOC_LITERAL(353, 15),  // "joinRoomRequest"
+        QT_MOC_LITERAL(369, 12),  // "updateStatus"
+        QT_MOC_LITERAL(382, 9),  // "newStatus"
+        QT_MOC_LITERAL(392, 18),  // "sendConnectedUsers"
+        QT_MOC_LITERAL(411, 8),  // "sendJson"
+        QT_MOC_LITERAL(420, 10)   // "stopServer"
     },
     "ChatServer",
     "logMessage",
@@ -133,6 +135,7 @@ static const qt_meta_stringdata_ChatServer_t qt_meta_stringdata_ChatServer = {
     "users",
     "roomUsersRequest",
     "leaveRoom",
+    "joinRoomRequest",
     "updateStatus",
     "newStatus",
     "sendConnectedUsers",
@@ -147,7 +150,7 @@ static const uint qt_meta_data_ChatServer[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-      21,   14, // methods
+      22,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -155,29 +158,30 @@ static const uint qt_meta_data_ChatServer[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    1,  140,    2, 0x06,    1 /* Public */,
-       4,    0,  143,    2, 0x06,    3 /* Public */,
-       5,    2,  144,    2, 0x06,    4 /* Public */,
+       1,    1,  146,    2, 0x06,    1 /* Public */,
+       4,    0,  149,    2, 0x06,    3 /* Public */,
+       5,    2,  150,    2, 0x06,    4 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       9,    2,  149,    2, 0x08,    7 /* Private */,
-      12,    3,  154,    2, 0x08,   10 /* Private */,
-      14,    4,  161,    2, 0x08,   14 /* Private */,
-      17,    2,  170,    2, 0x08,   19 /* Private */,
-      18,    2,  175,    2, 0x08,   22 /* Private */,
-      20,    1,  180,    2, 0x08,   25 /* Private */,
-      21,    0,  183,    2, 0x08,   27 /* Private */,
-      22,    2,  184,    2, 0x08,   28 /* Private */,
-      23,    1,  189,    2, 0x08,   31 /* Private */,
-      24,    2,  192,    2, 0x08,   33 /* Private */,
-      26,    3,  197,    2, 0x08,   36 /* Private */,
-      27,    3,  204,    2, 0x08,   40 /* Private */,
-      29,    2,  211,    2, 0x08,   44 /* Private */,
-      30,    2,  216,    2, 0x08,   47 /* Private */,
-      31,    2,  221,    2, 0x08,   50 /* Private */,
-      33,    1,  226,    2, 0x08,   53 /* Private */,
-      34,    2,  229,    2, 0x08,   55 /* Private */,
-      35,    0,  234,    2, 0x0a,   58 /* Public */,
+       9,    2,  155,    2, 0x08,    7 /* Private */,
+      12,    3,  160,    2, 0x08,   10 /* Private */,
+      14,    4,  167,    2, 0x08,   14 /* Private */,
+      17,    2,  176,    2, 0x08,   19 /* Private */,
+      18,    2,  181,    2, 0x08,   22 /* Private */,
+      20,    1,  186,    2, 0x08,   25 /* Private */,
+      21,    0,  189,    2, 0x08,   27 /* Private */,
+      22,    2,  190,    2, 0x08,   28 /* Private */,
+      23,    1,  195,    2, 0x08,   31 /* Private */,
+      24,    2,  198,    2, 0x08,   33 /* Private */,
+      26,    3,  203,    2, 0x08,   36 /* Private */,
+      27,    3,  210,    2, 0x08,   40 /* Private */,
+      29,    2,  217,    2, 0x08,   44 /* Private */,
+      30,    2,  222,    2, 0x08,   47 /* Private */,
+      31,    2,  227,    2, 0x08,   50 /* Private */,
+      32,    2,  232,    2, 0x08,   53 /* Private */,
+      34,    1,  237,    2, 0x08,   56 /* Private */,
+      35,    2,  240,    2, 0x08,   58 /* Private */,
+      36,    0,  245,    2, 0x0a,   61 /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -199,7 +203,8 @@ static const uint qt_meta_data_ChatServer[] = {
     QMetaType::Void, 0x80000000 | 6, QMetaType::QString, QMetaType::QStringList,    7,   13,   28,
     QMetaType::Void, 0x80000000 | 6, QMetaType::QString,    7,   13,
     QMetaType::Void, 0x80000000 | 6, QMetaType::QString,    7,   13,
-    QMetaType::Void, 0x80000000 | 6, QMetaType::Int,    7,   32,
+    QMetaType::Void, 0x80000000 | 6, QMetaType::QString,    7,   13,
+    QMetaType::Void, 0x80000000 | 6, QMetaType::Int,    7,   33,
     QMetaType::Void, 0x80000000 | 6,    7,
     QMetaType::Void, 0x80000000 | 6, QMetaType::QJsonObject,   15,   10,
     QMetaType::Void,
@@ -230,10 +235,11 @@ void ChatServer::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 14: _t->sendOutRoomInvitations((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QList<QString>>>(_a[3]))); break;
         case 15: _t->roomUsersRequest((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         case 16: _t->leaveRoom((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 17: _t->updateStatus((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
-        case 18: _t->sendConnectedUsers((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1]))); break;
-        case 19: _t->sendJson((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
-        case 20: _t->stopServer(); break;
+        case 17: _t->joinRoomRequest((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
+        case 18: _t->updateStatus((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
+        case 19: _t->sendConnectedUsers((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1]))); break;
+        case 20: _t->sendJson((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QJsonObject>>(_a[2]))); break;
+        case 21: _t->stopServer(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -270,7 +276,7 @@ const QMetaObject ChatServer::staticMetaObject = { {
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_ChatServer_t
 , QtPrivate::TypeAndForceComplete<ChatServer, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>
-, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
+, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>
 
 
 >,
@@ -297,13 +303,13 @@ int ChatServer::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 21)
+        if (_id < 22)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 21;
+        _id -= 22;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 21)
+        if (_id < 22)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 21;
+        _id -= 22;
     }
     return _id;
 }

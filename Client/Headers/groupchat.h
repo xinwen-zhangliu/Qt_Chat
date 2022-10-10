@@ -17,10 +17,14 @@ class GroupChat : public QDialog
 public:
     explicit GroupChat( QString roomName,QWidget* parent);
     ~GroupChat();
+    bool getVisibility();
+    QString getRoomName();
+    void setVisibility(bool visibility);
 private:
     Ui::GroupChat* ui;
     QString roomName;
     QStandardItemModel *m_chatModel;
+    bool m_isVisible;
 public slots:
     void receivedRoomMessage(const QString sender, const QString &message);
 private slots:

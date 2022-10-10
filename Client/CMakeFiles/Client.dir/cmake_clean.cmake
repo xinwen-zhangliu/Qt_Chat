@@ -8,6 +8,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Client.dir/Sources/chatclient.cpp.o.d"
   "CMakeFiles/Client.dir/Sources/chatwindow.cpp.o"
   "CMakeFiles/Client.dir/Sources/chatwindow.cpp.o.d"
+  "CMakeFiles/Client.dir/Sources/groupchat.cpp.o"
+  "CMakeFiles/Client.dir/Sources/groupchat.cpp.o.d"
   "CMakeFiles/Client.dir/Sources/parser.cpp.o"
   "CMakeFiles/Client.dir/Sources/parser.cpp.o.d"
   "CMakeFiles/Client.dir/Sources/privatechat.cpp.o"
