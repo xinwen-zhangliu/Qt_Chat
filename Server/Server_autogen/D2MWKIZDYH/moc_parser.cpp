@@ -10,7 +10,6 @@
 #include "../../Headers/parser.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
-#include <QtCore/QList>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'parser.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 68
@@ -23,7 +22,7 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Parser_t {
-    uint offsetsAndSizes[50];
+    uint offsetsAndSizes[52];
     char stringdata0[7];
     char stringdata1[11];
     char stringdata2[1];
@@ -41,14 +40,15 @@ struct qt_meta_stringdata_Parser_t {
     char stringdata14[15];
     char stringdata15[9];
     char stringdata16[18];
-    char stringdata17[6];
-    char stringdata18[15];
-    char stringdata19[10];
-    char stringdata20[17];
-    char stringdata21[12];
-    char stringdata22[16];
-    char stringdata23[10];
-    char stringdata24[5];
+    char stringdata17[12];
+    char stringdata18[10];
+    char stringdata19[15];
+    char stringdata20[10];
+    char stringdata21[17];
+    char stringdata22[12];
+    char stringdata23[16];
+    char stringdata24[10];
+    char stringdata25[5];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_Parser_t::offsetsAndSizes) + ofs), len 
@@ -71,14 +71,15 @@ static const qt_meta_stringdata_Parser_t qt_meta_stringdata_Parser = {
         QT_MOC_LITERAL(143, 14),  // "newRoomRequest"
         QT_MOC_LITERAL(158, 8),  // "roomName"
         QT_MOC_LITERAL(167, 17),  // "invitationsToRoom"
-        QT_MOC_LITERAL(185, 5),  // "users"
-        QT_MOC_LITERAL(191, 14),  // "roomInvitation"
-        QT_MOC_LITERAL(206, 9),  // "leaveRoom"
-        QT_MOC_LITERAL(216, 16),  // "roomUsersRequest"
-        QT_MOC_LITERAL(233, 11),  // "roomMessage"
-        QT_MOC_LITERAL(245, 15),  // "joinRoomRequest"
-        QT_MOC_LITERAL(261, 9),  // "parseJson"
-        QT_MOC_LITERAL(271, 4)   // "json"
+        QT_MOC_LITERAL(185, 11),  // "QJsonArray&"
+        QT_MOC_LITERAL(197, 9),  // "usernames"
+        QT_MOC_LITERAL(207, 14),  // "roomInvitation"
+        QT_MOC_LITERAL(222, 9),  // "leaveRoom"
+        QT_MOC_LITERAL(232, 16),  // "roomUsersRequest"
+        QT_MOC_LITERAL(249, 11),  // "roomMessage"
+        QT_MOC_LITERAL(261, 15),  // "joinRoomRequest"
+        QT_MOC_LITERAL(277, 9),  // "parseJson"
+        QT_MOC_LITERAL(287, 4)   // "json"
     },
     "Parser",
     "disconnect",
@@ -97,7 +98,8 @@ static const qt_meta_stringdata_Parser_t qt_meta_stringdata_Parser = {
     "newRoomRequest",
     "roomName",
     "invitationsToRoom",
-    "users",
+    "QJsonArray&",
+    "usernames",
     "roomInvitation",
     "leaveRoom",
     "roomUsersRequest",
@@ -129,14 +131,14 @@ static const uint qt_meta_data_Parser[] = {
       12,    2,  112,    2, 0x06,   13 /* Public */,
       14,    2,  117,    2, 0x06,   16 /* Public */,
       16,    3,  122,    2, 0x06,   19 /* Public */,
-      18,    2,  129,    2, 0x06,   23 /* Public */,
-      19,    2,  134,    2, 0x06,   26 /* Public */,
-      20,    2,  139,    2, 0x06,   29 /* Public */,
-      21,    3,  144,    2, 0x06,   32 /* Public */,
-      22,    2,  151,    2, 0x06,   36 /* Public */,
+      19,    2,  129,    2, 0x06,   23 /* Public */,
+      20,    2,  134,    2, 0x06,   26 /* Public */,
+      21,    2,  139,    2, 0x06,   29 /* Public */,
+      22,    3,  144,    2, 0x06,   32 /* Public */,
+      23,    2,  151,    2, 0x06,   36 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-      23,    2,  156,    2, 0x0a,   39 /* Public */,
+      24,    2,  156,    2, 0x0a,   39 /* Public */,
 
  // signals: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -145,7 +147,7 @@ static const uint qt_meta_data_Parser[] = {
     QMetaType::Void, 0x80000000 | 3,    4,
     QMetaType::Void, 0x80000000 | 3, QMetaType::Int,    4,   13,
     QMetaType::Void, 0x80000000 | 3, QMetaType::QString,    4,   15,
-    QMetaType::Void, 0x80000000 | 3, QMetaType::QStringList, QMetaType::QString,    4,   17,   15,
+    QMetaType::Void, 0x80000000 | 3, QMetaType::QString, 0x80000000 | 17,    4,   15,   18,
     QMetaType::Void, 0x80000000 | 3, QMetaType::QString,    4,    9,
     QMetaType::Void, 0x80000000 | 3, QMetaType::QString,    4,   15,
     QMetaType::Void, 0x80000000 | 3, QMetaType::QString,    4,   15,
@@ -153,7 +155,7 @@ static const uint qt_meta_data_Parser[] = {
     QMetaType::Void, 0x80000000 | 3, QMetaType::QString,    4,   15,
 
  // slots: parameters
-    QMetaType::Void, 0x80000000 | 3, QMetaType::QJsonObject,    4,   24,
+    QMetaType::Void, 0x80000000 | 3, QMetaType::QJsonObject,    4,   25,
 
        0        // eod
 };
@@ -170,7 +172,7 @@ void Parser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->userListRequest((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1]))); break;
         case 4: _t->updateStatus((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
         case 5: _t->newRoomRequest((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
-        case 6: _t->invitationsToRoom((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QList<QString>>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[3]))); break;
+        case 6: _t->invitationsToRoom((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2])),(*reinterpret_cast< std::add_pointer_t<QJsonArray&>>(_a[3]))); break;
         case 7: _t->roomInvitation((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         case 8: _t->leaveRoom((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
         case 9: _t->roomUsersRequest((*reinterpret_cast< std::add_pointer_t<ServerWorker*>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<QString>>(_a[2]))); break;
@@ -224,7 +226,7 @@ void Parser::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
             }
         }
         {
-            using _t = void (Parser::*)(ServerWorker * , QVector<QString> , const QString & );
+            using _t = void (Parser::*)(ServerWorker * , const QString & , QJsonArray & );
             if (_t _q_method = &Parser::invitationsToRoom; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 6;
                 return;
@@ -275,7 +277,7 @@ const QMetaObject Parser::staticMetaObject = { {
     qt_static_metacall,
     nullptr,
 qt_incomplete_metaTypeArray<qt_meta_stringdata_Parser_t
-, QtPrivate::TypeAndForceComplete<Parser, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<QVector<QString>, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
+, QtPrivate::TypeAndForceComplete<Parser, std::true_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const int, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<QJsonArray &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>, QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QString &, std::false_type>
 , QtPrivate::TypeAndForceComplete<void, std::false_type>, QtPrivate::TypeAndForceComplete<ServerWorker *, std::false_type>, QtPrivate::TypeAndForceComplete<const QJsonObject &, std::false_type>
 
 
@@ -357,7 +359,7 @@ void Parser::newRoomRequest(ServerWorker * _t1, const QString & _t2)
 }
 
 // SIGNAL 6
-void Parser::invitationsToRoom(ServerWorker * _t1, QVector<QString> _t2, const QString & _t3)
+void Parser::invitationsToRoom(ServerWorker * _t1, const QString & _t2, QJsonArray & _t3)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 6, _a);

@@ -47,7 +47,7 @@ private slots:
 
     void createRoom(ServerWorker *sender, const QString &roomname);
     void sendRoomMessage(ServerWorker *sender, const QString &roomName, const QString &message);
-    void sendOutRoomInvitations(ServerWorker *sender, const QString &roomName, QVector<QString> users);
+    void sendOutRoomInvitations(ServerWorker *sender,  const QString &roomName, QJsonArray &usernames);
     void roomUsersRequest(ServerWorker *sender, const QString &roomName);
     void leaveRoom(ServerWorker *sender, const QString &roomName);
     void joinRoomRequest(ServerWorker *sender, const QString &roomName);

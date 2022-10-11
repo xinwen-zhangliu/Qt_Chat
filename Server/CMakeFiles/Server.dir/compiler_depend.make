@@ -381,8 +381,6 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: Server/Serve
   /usr/include/qt6/QtCore/qregularexpression.h \
   /usr/include/qt6/QtCore/qurl.h \
   /usr/include/qt6/QtCore/quuid.h \
-  /usr/include/qt6/QtCore/QList \
-  /usr/include/qt6/QtCore/qlist.h \
   Server/Server_autogen/D2MWKIZDYH/moc_parser.cpp \
   Server/Headers/parser.h \
   Server/Server_autogen/D2MWKIZDYH/moc_serverwindow.cpp \
@@ -4104,9 +4102,9 @@ Server/Server_autogen/D2MWKIZDYH/moc_parser.cpp:
 
 /usr/include/c++/12.2.0/bits/range_access.h:
 
-/usr/include/qt6/QtWidgets/qabstractscrollarea.h:
-
 /usr/include/qt6/QtCore/QList:
+
+/usr/include/qt6/QtWidgets/qabstractscrollarea.h:
 
 /usr/include/c++/12.2.0/bits/locale_classes.h:
 

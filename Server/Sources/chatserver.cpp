@@ -197,15 +197,21 @@ void ChatServer::sendOutRoomInvitations(ServerWorker *sender,  const QString &ro
 
     if(!roomFound){
         QJsonObject roomNotFound;
-        userNotFoundWarning[QStringLiteral("type")] = QStringLiteral("WARNING");
-        userNotFoundWarning[QStringLiteral("message")] = QStringLiteral("El cuarto '") + roomName + QStringLiteral("' no existe");
-        userNotFoundWarning[QStringLiteral("operation")] = QStringLiteral("INVITE");
-        userNotFoundWarning[QStringLiteral("roomname")] = roomName;
+        roomNotFound[QStringLiteral("type")] = QStringLiteral("WARNING");
+        roomNotFound[QStringLiteral("message")] = QStringLiteral("El cuarto '") + roomName + QStringLiteral("' no existe");
+        roomNotFound[QStringLiteral("operation")] = QStringLiteral("INVITE");
+        roomNotFound[QStringLiteral("roomname")] = roomName;
         sendJson(sender, roomNotFound);
+        return;
     }
 
 
 
+    QJsonObject successJson;
+    successJson[QStringLiteral("type")] = QStringLiteral("INFO");
+    successJson[QStringLiteral("message")] = QStringLiteral("success");
+    successJson[QStringLiteral("operation")] = QStringLiteral("INVITE");
+    successJson[QStringLiteral("roomname")] = roomName;
     sendJson(sender, successJson);
 }
 
@@ -222,13 +228,13 @@ void ChatServer::sendRoomMessage(ServerWorker *sender, const QString &roomName, 
                     break;
                 }
             }
-            found = true;
+            roomFound = true;
             break;
         }
 
     }
 
-    if(!roomNotFound || !userInRoom){
+    if(!roomFound || !userInRoom){
         QJsonObject warningMessage;
         QString message;
 
@@ -242,7 +248,7 @@ void ChatServer::sendRoomMessage(ServerWorker *sender, const QString &roomName, 
         }
 
 
-        warningMessage[QStirngLiteral("type")] = QStringLiteral("WARNING");
+        warningMessage[QStringLiteral("type")] = QStringLiteral("WARNING");
         warningMessage[QStringLiteral("message")] = message;
         warningMessage[QStringLiteral("operation")] = QStringLiteral("ROOM_MESSAGE");
         warningMessage[QStringLiteral("roomname")] = roomName;
