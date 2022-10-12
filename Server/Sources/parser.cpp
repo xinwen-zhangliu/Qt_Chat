@@ -88,13 +88,19 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
 
     //ROOMS
     const QJsonValue roomnameVal = json.value(QLatin1String("roomname"));
+    qDebug() << "rooms section in parser";
     if(roomnameVal.isNull() || !roomnameVal.isString())
         return;
+
+    //NEW_ROOM
     if(type.toString().compare(QLatin1String("NEW_ROOM"))==0){
         emit newRoomRequest(sender, roomnameVal.toString());
     }
+
+
     //INVITE
-    if(type.toString().compare(QLatin1String("INVITE"))){
+    if(type.toString().compare(QLatin1String("INVITE"))==0){
+        qDebug() << "parser , INVITE request";
          QJsonArray usernameVal = json.value(QLatin1String("usernames")).toArray();
         if(usernameVal.isEmpty())
             return;

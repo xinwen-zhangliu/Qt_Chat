@@ -64,7 +64,7 @@ private slots:
     void newRoomRejected();
     void newRoomCreated();
     bool containsPrivateChat(const QString &chatName);
-    void roomInvitationReceived(const QString &roomName, const QString &message);
+    void roomInvitationReceived(const QString &roomName, const QString &message, const QString &sender);
 
 
     void privateChatClosed(const QString &chatName);

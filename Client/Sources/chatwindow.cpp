@@ -377,7 +377,8 @@ void ChatWindow::newRoomRejected(){
 
 }
 
-void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &message){
+void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &message, const QString &sender){
+    qDebug() << "ChatWindow::roomInvitationReceived";
     QMessageBox msgBox;
     msgBox.setText(message);
     msgBox.setInformativeText(QLatin1String("Do you want to accept? You won't be able to change your answer later"));
@@ -398,6 +399,14 @@ void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &
         //we open the groupchat window
         ui->groupName->setText(roomName);
         createRoom();
+
+        //find the group chat we created and call message received function
+        for(GroupChat *chat : m_groupChats){
+            if(chat->getRoomName().compare(roomName) == 0){
+                //we foundt he room , so we send the message
+                chat->receivedRoomMessage(sender,message);
+            }
+        }
 
         break;
 
@@ -457,11 +466,16 @@ void ChatWindow::newRoomCreated(){
     //now we send out the invitations
     for(QString username :m_selectedUsers){
         QJsonObject invitation;
+        QJsonValue usernameVal = username;
+        QJsonArray users;
+        users.append(usernameVal);
         invitation[QStringLiteral("type")] = QStringLiteral("INVITE");
         invitation[QStringLiteral("roomname")] = roomName;
-        invitation[QStringLiteral("usernames")] = username;
+        invitation[QStringLiteral("usernames")] = users;
         sendJson(invitation);
     }
+    //then we clear the old user , since we already sent out the invitations
+    m_selectedUsers.clear();
 
 }
 
@@ -479,6 +493,8 @@ void ChatWindow::disconnectedFromServer()
 
     ui->connectButton->setEnabled(true);
 
+    //we clear the stuff needed
+    ui->clientList->clear();
     m_lastUserName.clear();
 }
 

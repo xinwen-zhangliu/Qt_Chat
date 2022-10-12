@@ -17,6 +17,7 @@ GroupChat::GroupChat(QString roomName, QWidget* parent)
     m_chatModel->insertColumn(0);
     ui->chatView->setModel(m_chatModel);
     this->m_isVisible= true;
+    ui->sendButton->setDisabled(false);
 
     connect(ui->leaveBtn, &QPushButton::clicked, this, &GroupChat::leaveRoom);
     connect(ui->inviteBtn, &QPushButton::clicked, this, &GroupChat::addUser);
@@ -104,12 +105,17 @@ void GroupChat::sendMessage(){
 
 
     ui->messageEdit->clear();
-    //ui->chatView->append(messageText);
+    const int newRow = m_chatModel->rowCount();
 
-    m_chatModel->insertRow(m_chatModel->rowCount());
-    //QModelIndex index = m_chatModel->index(m_chatModel->rowCount()-1);
-    //m_chatModel->setData(index, messageText);
-    m_chatModel->setData(m_chatModel->index(m_chatModel->rowCount(), 0), messageText);
+    m_chatModel->insertRow(newRow);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), messageText);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), int(Qt::AlignRight | Qt::AlignVCenter), Qt::TextAlignmentRole);
+
+    ui->messageEdit->clear();
+
+    ui->chatView->scrollToBottom();
 
     emit sendJson(message);
 

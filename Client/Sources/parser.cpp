@@ -86,6 +86,20 @@ void Parser::parseJson(const QJsonObject &json){
 
 
     const QJsonValue usernameVal = json.value(QLatin1String("username"));
+    const QJsonValue roomNameVal = json.value(QLatin1String("roomname"));
+
+    //INVITATION RECEIVED
+    if(typeVal.toString().compare(QLatin1String("INVITATION"))==0){
+        if (usernameVal.isNull() || !usernameVal.isString())
+            return;
+        if (messageVal.isNull() || !messageVal.isString())
+            return;
+        if (roomNameVal.isNull() || !messageVal.isString())
+            return;
+        qDebug() << "received invitation from " << usernameVal.toString();
+        emit invitationReceived(roomNameVal.toString(), usernameVal.toString(), messageVal.toString());
+     }
+
 
 
     //PUBLIC_MESSAGE
@@ -106,6 +120,20 @@ void Parser::parseJson(const QJsonObject &json){
             return;
         qDebug() << "received private message from: " << usernameVal.toString();
         emit privateMessageReceived(usernameVal.toString(), messageVal.toString());
+     }
+
+    //ROOM MESSAGE
+    if(typeVal.toString().compare(QLatin1String("ROOM_MESSAGE_FROM"))==0){
+        QJsonValue roomName = json.value(QLatin1String("roomname"));
+
+        if (usernameVal.isNull() || !usernameVal.isString())
+            return;
+        if (messageVal.isNull() || !messageVal.isString())
+            return;
+        if (roomName.isNull() || !messageVal.isString())
+            return;
+        qDebug() << "received room message from: " << usernameVal.toString();
+        emit roomMessageReceived(usernameVal.toString(), roomName.toString(), messageVal.toString());
      }
 
     //NEW_USER

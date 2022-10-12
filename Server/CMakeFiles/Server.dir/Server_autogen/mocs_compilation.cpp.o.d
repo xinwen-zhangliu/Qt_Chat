@@ -279,16 +279,17 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: \
  /usr/include/qt6/QtCore/qsharedpointer_impl.h \
  /usr/include/qt6/QtNetwork/qhostaddress.h /usr/include/qt6/QtCore/QTimer \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
- /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
- /home/xinwen/proyecto1_Chat/Server/Headers/parser.h \
- /usr/include/qt6/QtCore/QJsonObject \
- /usr/include/qt6/QtCore/qjsonobject.h \
+ /usr/include/qt6/QtCore/QJsonArray /usr/include/qt6/QtCore/qjsonarray.h \
  /usr/include/qt6/QtCore/qjsonvalue.h \
  /usr/include/qt6/QtCore/qcborvalue.h /usr/include/qt6/QtCore/qdatetime.h \
  /usr/include/qt6/QtCore/qcalendar.h /usr/include/qt6/QtCore/qlocale.h \
  /usr/include/qt6/QtCore/qvariant.h /usr/include/qt6/QtCore/qcborcommon.h \
  /usr/include/qt6/QtCore/qregularexpression.h \
  /usr/include/qt6/QtCore/qurl.h /usr/include/qt6/QtCore/quuid.h \
+ /home/xinwen/proyecto1_Chat/Server/../Common/room.h \
+ /home/xinwen/proyecto1_Chat/Server/Headers/parser.h \
+ /usr/include/qt6/QtCore/QJsonObject \
+ /usr/include/qt6/QtCore/qjsonobject.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_parser.cpp \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/../../Headers/parser.h \
  /home/xinwen/proyecto1_Chat/Server/Server_autogen/D2MWKIZDYH/moc_serverwindow.cpp \

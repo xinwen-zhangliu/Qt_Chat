@@ -33,6 +33,7 @@ signals:
     void errorCreatingRoom(const QString &roomName);
     void showJson(const QString &json);
     void newRoomRejected();
+    void invitationReceived(const QString &roomName, const QString &message, const QString &sender);
 
 
 

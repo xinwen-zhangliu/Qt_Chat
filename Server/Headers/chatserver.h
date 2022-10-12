@@ -4,6 +4,7 @@
 #include <QVector>
 #include <QTcpServer>
 #include <QTimer>
+#include <QJsonArray>
 
 #include "../Common/room.h"
 #include "Headers/parser.h"
@@ -47,7 +48,7 @@ private slots:
 
     void createRoom(ServerWorker *sender, const QString &roomname);
     void sendRoomMessage(ServerWorker *sender, const QString &roomName, const QString &message);
-    void sendOutRoomInvitations(ServerWorker *sender,  const QString &roomName, QJsonArray &usernames);
+    void sendOutRoomInvitations(ServerWorker *sender,  const QString &roomName, QJsonArray usernames);
     void roomUsersRequest(ServerWorker *sender, const QString &roomName);
     void leaveRoom(ServerWorker *sender, const QString &roomName);
     void joinRoomRequest(ServerWorker *sender, const QString &roomName);

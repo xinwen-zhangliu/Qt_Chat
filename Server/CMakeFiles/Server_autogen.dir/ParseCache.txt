@@ -1074,6 +1074,7 @@
  mdp:/usr/include/linux/limits.h
  mdp:/usr/include/locale.h
  mdp:/usr/include/pthread.h
+ mdp:/usr/include/qt6/QtCore/QJsonArray
  mdp:/usr/include/qt6/QtCore/QJsonObject
  mdp:/usr/include/qt6/QtCore/QObject
  mdp:/usr/include/qt6/QtCore/QString
@@ -1118,6 +1119,7 @@
  mdp:/usr/include/qt6/QtCore/qiodevicebase.h
  mdp:/usr/include/qt6/QtCore/qiterable.h
  mdp:/usr/include/qt6/QtCore/qiterator.h
+ mdp:/usr/include/qt6/QtCore/qjsonarray.h
  mdp:/usr/include/qt6/QtCore/qjsonobject.h
  mdp:/usr/include/qt6/QtCore/qjsonvalue.h
  mdp:/usr/include/qt6/QtCore/qlist.h

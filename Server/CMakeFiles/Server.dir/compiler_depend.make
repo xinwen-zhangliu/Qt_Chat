@@ -367,10 +367,8 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: Server/Serve
   /usr/include/qt6/QtCore/QTimer \
   /usr/include/qt6/QtCore/qtimer.h \
   /usr/include/qt6/QtCore/qbasictimer.h \
-  Common/room.h \
-  Server/Headers/parser.h \
-  /usr/include/qt6/QtCore/QJsonObject \
-  /usr/include/qt6/QtCore/qjsonobject.h \
+  /usr/include/qt6/QtCore/QJsonArray \
+  /usr/include/qt6/QtCore/qjsonarray.h \
   /usr/include/qt6/QtCore/qjsonvalue.h \
   /usr/include/qt6/QtCore/qcborvalue.h \
   /usr/include/qt6/QtCore/qdatetime.h \
@@ -381,6 +379,10 @@ Server/CMakeFiles/Server.dir/Server_autogen/mocs_compilation.cpp.o: Server/Serve
   /usr/include/qt6/QtCore/qregularexpression.h \
   /usr/include/qt6/QtCore/qurl.h \
   /usr/include/qt6/QtCore/quuid.h \
+  Common/room.h \
+  Server/Headers/parser.h \
+  /usr/include/qt6/QtCore/QJsonObject \
+  /usr/include/qt6/QtCore/qjsonobject.h \
   Server/Server_autogen/D2MWKIZDYH/moc_parser.cpp \
   Server/Headers/parser.h \
   Server/Server_autogen/D2MWKIZDYH/moc_serverwindow.cpp \
@@ -787,14 +789,8 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: Server/Sources/chatserver
   /usr/include/qt6/QtCore/QTimer \
   /usr/include/qt6/QtCore/qtimer.h \
   /usr/include/qt6/QtCore/qbasictimer.h \
-  Common/room.h \
-  /usr/include/qt6/QtCore/QObject \
-  /usr/include/qt6/QtCore/qobject.h \
-  /usr/include/qt6/QtCore/QString \
-  /usr/include/qt6/QtCore/qstring.h \
-  Server/Headers/parser.h \
-  /usr/include/qt6/QtCore/QJsonObject \
-  /usr/include/qt6/QtCore/qjsonobject.h \
+  /usr/include/qt6/QtCore/QJsonArray \
+  /usr/include/qt6/QtCore/qjsonarray.h \
   /usr/include/qt6/QtCore/qjsonvalue.h \
   /usr/include/qt6/QtCore/qcborvalue.h \
   /usr/include/qt6/QtCore/qdatetime.h \
@@ -805,6 +801,14 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: Server/Sources/chatserver
   /usr/include/qt6/QtCore/qregularexpression.h \
   /usr/include/qt6/QtCore/qurl.h \
   /usr/include/qt6/QtCore/quuid.h \
+  Common/room.h \
+  /usr/include/qt6/QtCore/QObject \
+  /usr/include/qt6/QtCore/qobject.h \
+  /usr/include/qt6/QtCore/QString \
+  /usr/include/qt6/QtCore/qstring.h \
+  Server/Headers/parser.h \
+  /usr/include/qt6/QtCore/QJsonObject \
+  /usr/include/qt6/QtCore/qjsonobject.h \
   Server/Headers/serverworker.h \
   /usr/include/qt6/QtNetwork/QTcpSocket \
   /usr/include/qt6/QtNetwork/qtcpsocket.h \
@@ -826,9 +830,7 @@ Server/CMakeFiles/Server.dir/Sources/chatserver.cpp.o: Server/Sources/chatserver
   /usr/include/qt6/QtCore/QJsonValue \
   /usr/include/qt6/QtCore/qjsonvalue.h \
   /usr/include/qt6/QtCore/QDebug \
-  /usr/include/qt6/QtCore/qdebug.h \
-  /usr/include/qt6/QtCore/QJsonArray \
-  /usr/include/qt6/QtCore/qjsonarray.h
+  /usr/include/qt6/QtCore/qdebug.h
 
 Server/CMakeFiles/Server.dir/Sources/parser.cpp.o: Server/Sources/parser.cpp \
   /usr/include/stdc-predef.h \
@@ -1681,9 +1683,8 @@ Server/CMakeFiles/Server.dir/Sources/serverwindow.cpp.o: Server/Sources/serverwi
   /usr/include/qt6/QtCore/QTimer \
   /usr/include/qt6/QtCore/qtimer.h \
   /usr/include/qt6/QtCore/qbasictimer.h \
-  Server/Headers/parser.h \
-  /usr/include/qt6/QtCore/QJsonObject \
-  /usr/include/qt6/QtCore/qjsonobject.h \
+  /usr/include/qt6/QtCore/QJsonArray \
+  /usr/include/qt6/QtCore/qjsonarray.h \
   /usr/include/qt6/QtCore/qjsonvalue.h \
   /usr/include/qt6/QtCore/qcborvalue.h \
   /usr/include/qt6/QtCore/qdatetime.h \
@@ -1691,6 +1692,9 @@ Server/CMakeFiles/Server.dir/Sources/serverwindow.cpp.o: Server/Sources/serverwi
   /usr/include/qt6/QtCore/qcborcommon.h \
   /usr/include/qt6/QtCore/qregularexpression.h \
   /usr/include/qt6/QtCore/quuid.h \
+  Server/Headers/parser.h \
+  /usr/include/qt6/QtCore/QJsonObject \
+  /usr/include/qt6/QtCore/qjsonobject.h \
   /usr/include/qt6/QtWidgets/QMessageBox \
   /usr/include/qt6/QtWidgets/qmessagebox.h \
   /usr/include/qt6/QtWidgets/qdialog.h
@@ -3202,10 +3206,6 @@ Server/Sources/serverworker.cpp:
 
 Server/Sources/serverwindow.cpp:
 
-/usr/include/qt6/QtCore/qjsonarray.h:
-
-/usr/include/qt6/QtCore/QJsonArray:
-
 /usr/include/qt6/QtCore/QJsonValue:
 
 /usr/include/c++/12.2.0/bits/std_mutex.h:
@@ -3254,6 +3254,10 @@ Server/Headers/serverworker.h:
 
 /usr/include/qt6/QtGui/qtgui-config.h:
 
+/usr/include/qt6/QtCore/qjsonobject.h:
+
+/usr/include/qt6/QtCore/QJsonObject:
+
 /usr/include/qt6/QtCore/quuid.h:
 
 /usr/include/qt6/QtCore/qelapsedtimer.h:
@@ -3266,9 +3270,9 @@ Server/Headers/serverworker.h:
 
 /usr/include/qt6/QtCore/qjsonvalue.h:
 
-/usr/include/qt6/QtCore/qjsonobject.h:
+/usr/include/qt6/QtCore/qjsonarray.h:
 
-/usr/include/qt6/QtCore/QJsonObject:
+/usr/include/qt6/QtCore/QJsonArray:
 
 /usr/include/qt6/QtGui/qimage.h:
 

@@ -170,7 +170,7 @@ void ChatServer::createRoom(ServerWorker *sender, const QString &roomname){
 }
 
 
-void ChatServer::sendOutRoomInvitations(ServerWorker *sender,  const QString &roomName, QJsonArray &usernames){
+void ChatServer::sendOutRoomInvitations(ServerWorker *sender,  const QString &roomName, QJsonArray usernames){
     qDebug() << "ChatServer::sendOutInvitations processing";
     //check if room exists
 
@@ -188,6 +188,9 @@ void ChatServer::sendOutRoomInvitations(ServerWorker *sender,  const QString &ro
                 QString operation = QStringLiteral("INVITE");
 
                 broadcastOne( invitation,sender,val.toString(),operation);
+
+                //add the user to the invitated list
+                room->addInvitation(val.toString());
             }
 
 
@@ -287,6 +290,8 @@ void ChatServer::joinRoomRequest(ServerWorker *sender, const QString &roomName){
                             break;
                         }
                     }
+                    //let's check that they weren't invited first
+
                     if(!inRoom){
                         invited = true;
                         room->addUser(sender->userName());
@@ -307,6 +312,9 @@ void ChatServer::joinRoomRequest(ServerWorker *sender, const QString &roomName){
                         userJoined[QStringLiteral("roomname")] = roomName;
                         userJoined[QStringLiteral("username")] = sender->userName();
                         broadcastRoom(userJoined,sender,roomName);
+
+                        //add the person to the room userlist
+                        room->addUser(invitation);
                     }
 
 
