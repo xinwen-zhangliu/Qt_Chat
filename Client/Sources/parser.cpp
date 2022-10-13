@@ -97,7 +97,7 @@ void Parser::parseJson(const QJsonObject &json){
         if (roomNameVal.isNull() || !messageVal.isString())
             return;
         qDebug() << "received invitation from " << usernameVal.toString();
-        emit invitationReceived(roomNameVal.toString(), usernameVal.toString(), messageVal.toString());
+        emit invitationReceived(roomNameVal.toString(),  messageVal.toString(), usernameVal.toString());
      }
 
 

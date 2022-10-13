@@ -72,6 +72,7 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(m_parser, &Parser::newRoomRejected, this, &ChatWindow::newRoomRejected);
     connect(m_parser, &Parser::newRoomCreated, this, &ChatWindow::newRoomCreated);
     connect(m_parser, &Parser::roomMessageReceived, this, &ChatWindow::roomMessageReceived);
+    connect(m_parser, &Parser::invitationReceived, this, &ChatWindow::roomInvitationReceived);
 
     /*
     connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
@@ -397,8 +398,17 @@ void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &
         sendJson(acceptInvitation);
 
         //we open the groupchat window
-        ui->groupName->setText(roomName);
-        createRoom();
+        //ui->groupName->setText(roomName);
+        //createRoom();
+        GroupChat *groupChat = new GroupChat(roomName, this);
+
+        connect(groupChat, &GroupChat::sendJson, m_chatClient, &ChatClient::sendJson, Qt::QueuedConnection);
+
+
+        QString s1 = QStringLiteral("Chat room ");
+        QString s2 = roomName;
+        groupChat->setWindowTitle(s1+s2);
+        groupChat->show();
 
         //find the group chat we created and call message received function
         for(GroupChat *chat : m_groupChats){

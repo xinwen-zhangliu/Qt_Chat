@@ -105,8 +105,9 @@ void ServerWorker::receiveJson(){
 
    }else{
 
-       qDebug() << "ServerWorker::parserJson there was QJsonParseError";
+       qDebug() <<parseError.error<< "ServerWorker::parserJson there was QJsonParseError";
        //we diconnect the user beacuse there if there was a parse error then it's an invalid json
+       qDebug() << "bad Json received: " << data;
         disconnectFromClient();
        return;
    }

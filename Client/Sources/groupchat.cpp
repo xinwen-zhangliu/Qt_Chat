@@ -17,11 +17,12 @@ GroupChat::GroupChat(QString roomName, QWidget* parent)
     m_chatModel->insertColumn(0);
     ui->chatView->setModel(m_chatModel);
     this->m_isVisible= true;
-    ui->sendButton->setDisabled(false);
+    ui->sendButton->setEnabled(true);
+    ui->chatView->setEnabled(true);
 
     connect(ui->leaveBtn, &QPushButton::clicked, this, &GroupChat::leaveRoom);
     connect(ui->inviteBtn, &QPushButton::clicked, this, &GroupChat::addUser);
-    connect(ui->userListBtn , &QPushButton::clicked, this , &GroupChat::leaveRoom);
+    connect(ui->userListBtn , &QPushButton::clicked, this , &GroupChat::getUserList);
     connect(ui->sendButton, &QPushButton::clicked, this , &GroupChat::sendMessage);
 
 

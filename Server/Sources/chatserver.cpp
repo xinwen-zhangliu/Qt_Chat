@@ -164,7 +164,10 @@ void ChatServer::createRoom(ServerWorker *sender, const QString &roomname){
     succesfulJson[QStringLiteral("message")] = QStringLiteral("success");
     succesfulJson[QStringLiteral("operation")] = QStringLiteral("NEW_ROOM");
 
-    m_rooms.push_back(new Room(roomname, this));
+    Room *newRoom = new Room(roomname, this);
+    m_rooms.push_back(newRoom);
+    newRoom->addInvitation(sender->userName());
+    newRoom->addUser(sender->userName());
     sendJson(sender, succesfulJson);
 
 }
