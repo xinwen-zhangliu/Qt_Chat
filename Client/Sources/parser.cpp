@@ -100,6 +100,33 @@ void Parser::parseJson(const QJsonObject &json){
         emit invitationReceived(roomNameVal.toString(),  messageVal.toString(), usernameVal.toString());
      }
 
+    //ROOM USER LIST
+    if(typeVal.toString().compare(QLatin1String("ROOM_USER_LIST"))==0){
+        if (roomNameVal.isNull() || !messageVal.isString())
+            return;
+        qDebug() << "received room user list " ;
+        const QJsonArray users = json.value(QLatin1String("usernames")).toArray();
+        emit receivedRoomUserList( users);
+     }
+
+    //USER LEFT ROOM
+    if(typeVal.toString().compare(QLatin1String("LEFT_ROOM"))==0){
+        if (roomNameVal.isNull() || !messageVal.isString())
+            return;
+        if (usernameVal.isNull() || !usernameVal.isString())
+            return;
+        emit userLeftRoom(roomNameVal.toString(),usernameVal.toString());
+     }
+
+    //USER JOINED ROOM
+    if(typeVal.toString().compare(QLatin1String("JOINED_ROOM"))==0){
+        if (roomNameVal.isNull() || !messageVal.isString())
+            return;
+        if (usernameVal.isNull() || !usernameVal.isString())
+            return;
+        emit userJoinedRoom(roomNameVal.toString(),usernameVal.toString());
+     }
+
 
 
     //PUBLIC_MESSAGE

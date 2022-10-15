@@ -23,7 +23,7 @@ QVector<QString> Room::getInvitations(){
 }
 
 void Room::addUser(const QString &username){
-    this->m_users.append(username);
+    this->m_users.push_back(username);
 }
 void Room::addInvitation(const QString &username){
     this->m_invitations.append(username);

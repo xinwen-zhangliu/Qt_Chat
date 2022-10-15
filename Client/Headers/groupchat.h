@@ -27,11 +27,15 @@ private:
     bool m_isVisible;
 public slots:
     void receivedRoomMessage(const QString sender, const QString &message);
+    void userLeft(const QString &username);
+    void userJoined(const QString &username);
+    void receivedUserList(const QString &list);
 private slots:
     void addUser();
     void getUserList();
     void leaveRoom();
     void sendMessage();
+
 signals:
 
     void sendJson(const QJsonObject &json);

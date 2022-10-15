@@ -113,6 +113,7 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
 
     //JOIN ROOM REQUEST
     if(type.toString().compare(QLatin1String("JOIN_ROOM"))==0){
+        qDebug() << "received JOIN ROOM request";
         emit joinRoomRequest(sender, roomnameVal.toString());
     }
 

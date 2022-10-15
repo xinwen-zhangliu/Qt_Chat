@@ -73,7 +73,9 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(m_parser, &Parser::newRoomCreated, this, &ChatWindow::newRoomCreated);
     connect(m_parser, &Parser::roomMessageReceived, this, &ChatWindow::roomMessageReceived);
     connect(m_parser, &Parser::invitationReceived, this, &ChatWindow::roomInvitationReceived);
-
+    connect(m_parser, &Parser::receivedRoomUserList, this, &ChatWindow::roomUsers);
+    connect(m_parser, &Parser::userJoinedRoom, this, &ChatWindow::roomUserJoined);
+    connect(m_parser, &Parser::userLeftRoom, this, &ChatWindow::roomUserLeft);
     /*
     connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
 
@@ -409,6 +411,7 @@ void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &
         QString s2 = roomName;
         groupChat->setWindowTitle(s1+s2);
         groupChat->show();
+        m_groupChats.push_back(groupChat);
 
         //find the group chat we created and call message received function
         for(GroupChat *chat : m_groupChats){
@@ -506,6 +509,27 @@ void ChatWindow::disconnectedFromServer()
     //we clear the stuff needed
     ui->clientList->clear();
     m_lastUserName.clear();
+}
+
+void ChatWindow::roomUsers(const QJsonArray &list){
+    //we received room users
+}
+void ChatWindow::requestRoomUsers(const QString &roomName){
+    //requesting roomm users
+}
+void ChatWindow::roomUserJoined(const QString &roomName, const QString &username){
+    for(GroupChat *chat : m_groupChats){
+        if(chat->getRoomName().compare(roomName) ==0){
+            chat->userJoined(username);
+        }
+    }
+}
+void ChatWindow::roomUserLeft(const QString &roomName, const QString &username){
+    for(GroupChat *chat : m_groupChats){
+        if(chat->getRoomName().compare(roomName) ==0){
+            chat->userLeft(username);
+        }
+    }
 }
 
 void ChatWindow::userJoined(const QString &username)

@@ -139,3 +139,55 @@ void GroupChat::leaveRoom(){
     emit sendJson(leaveRoomJson);
 }
 
+void GroupChat::userJoined(const QString &username)
+{
+    //add it as a message in the public chat
+    const int newRow = m_chatModel->rowCount();
+
+    m_chatModel->insertRow(newRow);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 Joined the Chat").arg(username));
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::blue), Qt::ForegroundRole);
+
+    ui->chatView->scrollToBottom();
+
+
+
+
+
+
+}
+void GroupChat::receivedUserList(const QString &list){
+    const int newRow = m_chatModel->rowCount();
+
+    m_chatModel->insertRow(newRow);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 User List: ").arg(list));
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::blue), Qt::ForegroundRole);
+
+    ui->chatView->scrollToBottom();
+}
+void GroupChat::userLeft(const QString &username)
+{
+
+    const int newRow = m_chatModel->rowCount();
+
+    m_chatModel->insertRow(newRow);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), tr("%1 Left the Chat").arg(username));
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), Qt::AlignCenter, Qt::TextAlignmentRole);
+
+    m_chatModel->setData(m_chatModel->index(newRow, 0), QBrush(Qt::red), Qt::ForegroundRole);
+
+    ui->chatView->scrollToBottom();
+
+
+
+}

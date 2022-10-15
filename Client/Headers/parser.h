@@ -26,7 +26,7 @@ signals:
     void roomMessageReceived(const QString &sender, const QString &roomName, const QString &message);
     void userJoined(const QString &username);
     void userLeft(const QString &username);
-    void receivedUserList(const QJsonArray &list);
+    void receivedUserList( const QJsonArray &list);
     void sendJson(const QJsonObject &json);
     void newStatus(const QString &username, const int &newStatus);
     void newRoomCreated();
@@ -34,6 +34,9 @@ signals:
     void showJson(const QString &json);
     void newRoomRejected();
     void invitationReceived(const QString &roomName, const QString &message, const QString &sender);
+    void userJoinedRoom(const QString &roomName, const QString &user);
+    void userLeftRoom(const QString &roomName, const QString &user);
+    void receivedRoomUserList( const QJsonArray &list);
 
 
 
