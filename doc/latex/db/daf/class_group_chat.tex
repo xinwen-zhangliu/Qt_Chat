@@ -1,5 +1,14 @@
 \hypertarget{class_group_chat}{}\doxysection{Group\+Chat Class Reference}
 \label{class_group_chat}\index{GroupChat@{GroupChat}}
+
+
+The \mbox{\hyperlink{class_group_chat}{Group\+Chat}} class this is the controller for the group chat.  
+
+
+
+
+{\ttfamily \#include $<$groupchat.\+h$>$}
+
 Inheritance diagram for Group\+Chat\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,18 +18,14 @@ Inheritance diagram for Group\+Chat\+:\begin{figure}[H]
 \doxysubsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}\label{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}} 
-void {\bfseries received\+Room\+Message} (const QString sender, const QString \&message)
-\item 
-\mbox{\Hypertarget{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}\label{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}} 
-void {\bfseries user\+Left} (const QString \&username)
-\item 
-\mbox{\Hypertarget{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}\label{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}} 
-void {\bfseries user\+Joined} (const QString \&username)
-\item 
-\mbox{\Hypertarget{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}\label{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}} 
-void {\bfseries received\+User\+List} (const QString \&list)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}{received\+Room\+Message}} (const QString sender, const QString \&message)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}{Group\+Chat\+::received\+Room\+Message}} displays messages received. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}{user\+Left}} (const QString \&username)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}{Group\+Chat\+::user\+Left}} displays notifications for when a user leaves. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}{user\+Joined}} (const QString \&username)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}{Group\+Chat\+::user\+Joined}} displays a message when a user joins the room. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}{received\+User\+List}} (const QString \&list)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}{Group\+Chat\+::received\+User\+List}} displays the list of active users in the room. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
@@ -36,9 +41,8 @@ void {\bfseries user\+List\+Request} (const QString \&room\+Name)
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}\label{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}} 
-{\bfseries Group\+Chat} (QString room\+Name, QWidget $\ast$parent)
-\item 
+\mbox{\hyperlink{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}{Group\+Chat}} (QString room\+Name, QWidget $\ast$parent)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}{Group\+Chat\+::\+Group\+Chat}} controller for the groups chat, diplays infomation received from the server. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_group_chat_a1091e8ec40bb6553e5d959c459ab4e99}\label{class_group_chat_a1091e8ec40bb6553e5d959c459ab4e99}} 
 bool {\bfseries get\+Visibility} ()
 \item 
@@ -48,6 +52,94 @@ QString {\bfseries get\+Room\+Name} ()
 \mbox{\Hypertarget{class_group_chat_aeb6b0676975e3608cb39a5f853ea7d46}\label{class_group_chat_aeb6b0676975e3608cb39a5f853ea7d46}} 
 void {\bfseries set\+Visibility} (bool visibility)
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_group_chat}{Group\+Chat}} class this is the controller for the group chat. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}\label{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}} 
+\index{GroupChat@{GroupChat}!GroupChat@{GroupChat}}
+\index{GroupChat@{GroupChat}!GroupChat@{GroupChat}}
+\doxysubsubsection{\texorpdfstring{GroupChat()}{GroupChat()}}
+{\footnotesize\ttfamily Group\+Chat\+::\+Group\+Chat (\begin{DoxyParamCaption}\item[{QString}]{room\+Name,  }\item[{QWidget $\ast$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}{Group\+Chat\+::\+Group\+Chat}} controller for the groups chat, diplays infomation received from the server. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em room\+Name} & the name of the room \\
+\hline
+{\em parent} & QObject parent , intances are created in \mbox{\hyperlink{class_chat_window}{Chat\+Window}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}\label{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}} 
+\index{GroupChat@{GroupChat}!receivedRoomMessage@{receivedRoomMessage}}
+\index{receivedRoomMessage@{receivedRoomMessage}!GroupChat@{GroupChat}}
+\doxysubsubsection{\texorpdfstring{receivedRoomMessage}{receivedRoomMessage}}
+{\footnotesize\ttfamily void Group\+Chat\+::received\+Room\+Message (\begin{DoxyParamCaption}\item[{const QString}]{sender,  }\item[{const QString \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\mbox{\hyperlink{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}{Group\+Chat\+::received\+Room\+Message}} displays messages received. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & the sender of the message \\
+\hline
+{\em message} & the text of the message \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}\label{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}} 
+\index{GroupChat@{GroupChat}!receivedUserList@{receivedUserList}}
+\index{receivedUserList@{receivedUserList}!GroupChat@{GroupChat}}
+\doxysubsubsection{\texorpdfstring{receivedUserList}{receivedUserList}}
+{\footnotesize\ttfamily void Group\+Chat\+::received\+User\+List (\begin{DoxyParamCaption}\item[{const QString \&}]{list }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\mbox{\hyperlink{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}{Group\+Chat\+::received\+User\+List}} displays the list of active users in the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & the list of users \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}\label{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}} 
+\index{GroupChat@{GroupChat}!userJoined@{userJoined}}
+\index{userJoined@{userJoined}!GroupChat@{GroupChat}}
+\doxysubsubsection{\texorpdfstring{userJoined}{userJoined}}
+{\footnotesize\ttfamily void Group\+Chat\+::user\+Joined (\begin{DoxyParamCaption}\item[{const QString \&}]{username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\mbox{\hyperlink{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}{Group\+Chat\+::user\+Joined}} displays a message when a user joins the room. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username of the person that joined \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}\label{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}} 
+\index{GroupChat@{GroupChat}!userLeft@{userLeft}}
+\index{userLeft@{userLeft}!GroupChat@{GroupChat}}
+\doxysubsubsection{\texorpdfstring{userLeft}{userLeft}}
+{\footnotesize\ttfamily void Group\+Chat\+::user\+Left (\begin{DoxyParamCaption}\item[{const QString \&}]{username }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+\mbox{\hyperlink{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}{Group\+Chat\+::user\+Left}} displays notifications for when a user leaves. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & the username of the person that left \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
