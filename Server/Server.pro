@@ -11,8 +11,7 @@ SOURCES += \
     servermain.cpp \
     Sources/chatserver.cpp \
     Sources/serverwindow.cpp \
-    Sources/serverworker.cpp \
-    Sources/user.cpp
+    Sources/serverworker.cpp
 
 
 
