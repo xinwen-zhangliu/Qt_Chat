@@ -20,7 +20,7 @@ HEADERS += \
     Headers/parser.h \
     Headers/serverwindow.h \
     Headers/serverworker.h \
-    Headers/user.h
+
 
 
 
