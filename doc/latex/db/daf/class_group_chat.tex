@@ -1,0 +1,57 @@
+\hypertarget{class_group_chat}{}\doxysection{Group\+Chat Class Reference}
+\label{class_group_chat}\index{GroupChat@{GroupChat}}
+Inheritance diagram for Group\+Chat\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{db/daf/class_group_chat}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}\label{class_group_chat_a8dfadfd1ac46058c6a76cd51964a62fc}} 
+void {\bfseries received\+Room\+Message} (const QString sender, const QString \&message)
+\item 
+\mbox{\Hypertarget{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}\label{class_group_chat_a27511ffabafe70ae67ad3f5ab29b1c26}} 
+void {\bfseries user\+Left} (const QString \&username)
+\item 
+\mbox{\Hypertarget{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}\label{class_group_chat_ad67dfad70379fc8e4da939ed3c40bd99}} 
+void {\bfseries user\+Joined} (const QString \&username)
+\item 
+\mbox{\Hypertarget{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}\label{class_group_chat_a3fe76f7f6ea8e4853c08c4711b672e02}} 
+void {\bfseries received\+User\+List} (const QString \&list)
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_group_chat_a99989191d76c650d6c56f91fc0ec1d68}\label{class_group_chat_a99989191d76c650d6c56f91fc0ec1d68}} 
+void {\bfseries send\+Json} (const QJson\+Object \&json)
+\item 
+\mbox{\Hypertarget{class_group_chat_a425803aa0922fbbb54e4c17c4ade49fb}\label{class_group_chat_a425803aa0922fbbb54e4c17c4ade49fb}} 
+void {\bfseries leaving\+Room} (const QString \&room\+Name)
+\item 
+\mbox{\Hypertarget{class_group_chat_abf2ff121d9ef44d2075683b7af9fbb33}\label{class_group_chat_abf2ff121d9ef44d2075683b7af9fbb33}} 
+void {\bfseries user\+List\+Request} (const QString \&room\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}\label{class_group_chat_a958301e5b0f8d87b74fa2a0b56660605}} 
+{\bfseries Group\+Chat} (QString room\+Name, QWidget $\ast$parent)
+\item 
+\mbox{\Hypertarget{class_group_chat_a1091e8ec40bb6553e5d959c459ab4e99}\label{class_group_chat_a1091e8ec40bb6553e5d959c459ab4e99}} 
+bool {\bfseries get\+Visibility} ()
+\item 
+\mbox{\Hypertarget{class_group_chat_ae233975dfaee2a724aa2c440fd75a13d}\label{class_group_chat_ae233975dfaee2a724aa2c440fd75a13d}} 
+QString {\bfseries get\+Room\+Name} ()
+\item 
+\mbox{\Hypertarget{class_group_chat_aeb6b0676975e3608cb39a5f853ea7d46}\label{class_group_chat_aeb6b0676975e3608cb39a5f853ea7d46}} 
+void {\bfseries set\+Visibility} (bool visibility)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+groupchat.\+h\item 
+moc\+\_\+groupchat.\+cpp\item 
+groupchat.\+cpp\end{DoxyCompactItemize}

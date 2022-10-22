@@ -47,10 +47,6 @@ QString GroupChat::getRoomName(){
 void GroupChat::receivedRoomMessage(const QString sender, const QString &message){
     int newRow = m_chatModel->rowCount();
 
-    //if ( != sender) {
-
-        //m_lastUserName = sender;
-
         QFont boldFont;
         boldFont.setBold(true);
 
@@ -62,10 +58,7 @@ void GroupChat::receivedRoomMessage(const QString sender, const QString &message
 
         m_chatModel->setData(m_chatModel->index(newRow, 0), boldFont, Qt::FontRole);
         ++newRow;
-    //} else {
 
-        //m_chatModel->insertRow(newRow);
-    //}
 
     m_chatModel->setData(m_chatModel->index(newRow, 0), message);
 
@@ -129,6 +122,7 @@ void GroupChat::getUserList(){
     getUserListJson[QStringLiteral("roomname")] = roomName;
 
     emit sendJson(getUserListJson);
+    emit userListRequest(roomName);
 
 }
 
@@ -137,11 +131,13 @@ void GroupChat::leaveRoom(){
     leaveRoomJson[QStringLiteral("type")] = QStringLiteral("LEAVE_ROOM");
     leaveRoomJson[QStringLiteral("roomname")] = roomName;
     emit sendJson(leaveRoomJson);
+    emit leavingRoom(this->roomName);
 }
 
 void GroupChat::userJoined(const QString &username)
 {
     //add it as a message in the public chat
+    qDebug() << "group chat user joined";
     const int newRow = m_chatModel->rowCount();
 
     m_chatModel->insertRow(newRow);
@@ -173,8 +169,10 @@ void GroupChat::receivedUserList(const QString &list){
 
     ui->chatView->scrollToBottom();
 }
+
 void GroupChat::userLeft(const QString &username)
 {
+    qDebug() << "group chat user left";
 
     const int newRow = m_chatModel->rowCount();
 

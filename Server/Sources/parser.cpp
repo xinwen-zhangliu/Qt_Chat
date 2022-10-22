@@ -18,9 +18,9 @@ Parser::Parser(QObject *parent)
 }
 
 /*!
- * \brief Parser::parseJson
- * \param sender
- * \param json
+ * \brief Parser::parseJson This is the parser class for the server, when ServerWorker receives json it tells ChatServer and chatServer calls Parser
+ * \param sender the sender of the json
+ * \param json the json received
  */
 void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
     const QJsonValue type = json.value(QLatin1String("type"));
@@ -88,13 +88,23 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
 
     //ROOMS
     const QJsonValue roomnameVal = json.value(QLatin1String("roomname"));
+
+
     qDebug() << "rooms section in parser";
     if(roomnameVal.isNull() || !roomnameVal.isString())
         return;
 
+
+
     //NEW_ROOM
     if(type.toString().compare(QLatin1String("NEW_ROOM"))==0){
         emit newRoomRequest(sender, roomnameVal.toString());
+    }
+
+    //ROOM USERS
+    if(type.toString().compare(QLatin1String("ROOM_USERS")) == 0){
+        qDebug() << "received roo users request";
+        emit roomUsersRequest(sender, roomnameVal.toString());
     }
 
 
@@ -118,10 +128,7 @@ void Parser::parseJson(ServerWorker *sender, const QJsonObject &json){
     }
 
 
-    //ROOM_USERS
-    if(type.toString().compare(QLatin1String("ROOM_USERS"))==0){
-        emit roomUsersRequest(sender, roomnameVal.toString());
-    }
+
 
 
     //ROOM MESSAGE

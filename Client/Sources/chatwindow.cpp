@@ -13,6 +13,7 @@
 #include <QHostAddress>
 #include <QTimer>
 #include <QDebug>
+#include <QJsonDocument>
 
 ChatWindow::ChatWindow(QWidget *parent)
     : QWidget(parent)
@@ -45,14 +46,6 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(this, &ChatWindow::sendJson, m_chatClient, &ChatClient::sendJson);
 
 
-        //connect(m_chatClient, &ChatClient::loginError, this, &ChatWindow::loginFailed);
-
-   // connect(m_chatClient, &ChatClient::loggedIn, this, &ChatWindow::loggedIn);
-
-
-
-
-
 
     //signals from the parser
     connect(m_parser, &Parser::showJson, this , &ChatWindow::logJson);
@@ -76,20 +69,12 @@ ChatWindow::ChatWindow(QWidget *parent)
     connect(m_parser, &Parser::receivedRoomUserList, this, &ChatWindow::roomUsers);
     connect(m_parser, &Parser::userJoinedRoom, this, &ChatWindow::roomUserJoined);
     connect(m_parser, &Parser::userLeftRoom, this, &ChatWindow::roomUserLeft);
-    /*
-    connect(m_chatClient, &ChatClient::messageReceived, this, &ChatWindow::publicMessageReceived);
-
-
-    connect(m_chatClient, &ChatClient::userJoined, this, &ChatWindow::userJoined);
-    connect(m_chatClient, &ChatClient::userLeft, this, &ChatWindow::userLeft);
-    */
-
-
-    //changing the signals to connect to the parser
+    connect(m_parser, &Parser::newStatus, this, &ChatWindow::changeUserStatus);
 
 
 
 
+    // connnecting the signals from the ui
     connect(ui->connectButton, &QPushButton::clicked, this, &ChatWindow::attemptConnection);
 
     connect(ui->sendButton, &QPushButton::clicked, this, &ChatWindow::sendMessage);
@@ -120,6 +105,10 @@ ChatClient* ChatWindow::getChatClient(){
 
 
 void ChatWindow::attemptConnection(){
+    if(m_chatClient->getSocketState()==3){
+        connectedToServer();
+        return;
+    }
 
     const QString hostAddress = QInputDialog::getText(
         this
@@ -146,7 +135,7 @@ void ChatWindow::attemptConnection(){
     if (hostAddress.isEmpty())
         return;
 
-    ui->connectButton->setEnabled(false);
+
     if(!isPort){
         ui->connectButton->setEnabled(true);
         QMessageBox::information(this, tr("Error"), tr("Port number not valid"));
@@ -170,6 +159,7 @@ void ChatWindow::connectedToServer(){
 void ChatWindow::attemptLogin(const QString &userName){
     m_chatClient->login(userName);
     m_chatClient->setUsername(userName);
+
 }
 
 void ChatWindow::userListReceived(const QJsonArray &userList){
@@ -192,6 +182,7 @@ void ChatWindow::userListReceived(const QJsonArray &userList){
 void ChatWindow::loggedIn(const QString &username){
     qDebug() << "ChatWindow::loggedIn";
     //m_chatClient->setUsername(username);
+    ui->connectButton->setEnabled(false);
 
     ui->sendButton->setEnabled(true);
     ui->messageEdit->setEnabled(true);
@@ -337,8 +328,30 @@ void ChatWindow::publicMessageReceived(const QString &sender, const QString &tex
 
 void ChatWindow::sendMessage()
 {
+    QString message = ui->messageEdit->text();
+
+    if(message.endsWith(QLatin1String("**"))){
+        QString status =message.chopped(2);
+        qDebug() << "status new String" << status;
+        QString newStatus;
+        if(status.compare(QLatin1String("ACTIVE"), Qt::CaseSensitive)==0 ){
+            newStatus = QLatin1String("ACTIVE");
+
+        }else if(status.compare(QLatin1String("AWAY"), Qt::CaseSensitive)==0 ){
+            newStatus = QLatin1String("AWAY");
+        }else if(status.compare(QLatin1String("BUSY"), Qt::CaseSensitive)==0){
+            newStatus = QLatin1String("BUSY");
+        }
+        QJsonObject changeStatusRequest;
+        changeStatusRequest[QStringLiteral("type")] = QStringLiteral("STATUS");
+        changeStatusRequest[QStringLiteral("status")] = newStatus;
+        sendJson(changeStatusRequest);
+        ui->messageEdit->clear();
+        return;
+    }
 
     m_chatClient->sendPublicMessage(ui->messageEdit->text());
+
 
     const int newRow = m_chatModel->rowCount();
 
@@ -380,6 +393,29 @@ void ChatWindow::newRoomRejected(){
 
 }
 
+void ChatWindow::changeUserStatus(const QString &username, int newStatus){
+    qDebug() << "updating status to " << newStatus;
+    for(int i =0 ; i < ui->clientList->count(); i++){
+        if(ui->clientList->item(i)->text().compare(username, Qt::CaseSensitive)==0){
+            switch (newStatus) {
+            case 1:
+                ui->clientList->item(i)->setBackground(Qt::green);
+                break;
+            case 2:
+                ui->clientList->item(i)->setBackground(Qt::yellow);
+                break;
+            case 3:
+                ui->clientList->item(i)->setBackground(Qt::red);
+                break;
+            default:
+                break;
+            }
+            return;
+        }
+    }
+
+}
+
 void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &message, const QString &sender){
     qDebug() << "ChatWindow::roomInvitationReceived";
     QMessageBox msgBox;
@@ -388,6 +424,13 @@ void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &
     msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
     msgBox.setDefaultButton(QMessageBox::Yes);
     int answer = msgBox.exec();
+
+    for(GroupChat *chat : m_groupChats){
+        if(chat->getRoomName().compare(roomName, Qt::CaseSensitive)==0){
+
+            return;
+        }
+    }
 
     switch (answer) {
     case QMessageBox::Yes:
@@ -405,6 +448,8 @@ void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &
         GroupChat *groupChat = new GroupChat(roomName, this);
 
         connect(groupChat, &GroupChat::sendJson, m_chatClient, &ChatClient::sendJson, Qt::QueuedConnection);
+        connect(groupChat, &GroupChat::leavingRoom, this, &ChatWindow::leaveRoom);
+        connect(groupChat, &GroupChat::userListRequest, this, &ChatWindow::requestRoomUsers);
 
 
         QString s1 = QStringLiteral("Chat room ");
@@ -439,6 +484,14 @@ void ChatWindow::roomInvitationReceived(const QString &roomName, const QString &
     }
 }
 
+void ChatWindow::leaveRoom(const QString &roomName){
+    for(GroupChat *chat : m_groupChats){
+        if(chat->getRoomName().compare(roomName)==0){
+            chat->~GroupChat();
+            m_groupChats.removeAll(chat);
+        }
+    }
+}
 
 void ChatWindow::roomMessageReceived(const QString &sender, const QString &roomName, const QString &message){
     for(GroupChat *chat : m_groupChats){
@@ -466,7 +519,8 @@ void ChatWindow::newRoomCreated(){
     GroupChat *groupChat = new GroupChat(roomName, this);
 
     connect(groupChat, &GroupChat::sendJson, m_chatClient, &ChatClient::sendJson, Qt::QueuedConnection);
-
+    connect(groupChat, &GroupChat::leavingRoom, this, &ChatWindow::leaveRoom);
+    connect(groupChat, &GroupChat::userListRequest, this, &ChatWindow::requestRoomUsers);
 
 
     QString s1 = QStringLiteral("Chat room ");
@@ -477,16 +531,18 @@ void ChatWindow::newRoomCreated(){
     m_groupChats.push_back(groupChat);
 
     //now we send out the invitations
+    QJsonObject invitation;
+    QJsonArray users;
     for(QString username :m_selectedUsers){
-        QJsonObject invitation;
         QJsonValue usernameVal = username;
-        QJsonArray users;
+
         users.append(usernameVal);
-        invitation[QStringLiteral("type")] = QStringLiteral("INVITE");
-        invitation[QStringLiteral("roomname")] = roomName;
-        invitation[QStringLiteral("usernames")] = users;
-        sendJson(invitation);
+
     }
+    invitation[QStringLiteral("type")] = QStringLiteral("INVITE");
+    invitation[QStringLiteral("roomname")] = roomName;
+    invitation[QStringLiteral("usernames")] = users;
+    sendJson(invitation);
     //then we clear the old user , since we already sent out the invitations
     m_selectedUsers.clear();
 
@@ -496,7 +552,7 @@ void ChatWindow::newRoomCreated(){
 void ChatWindow::disconnectedFromServer()
 {
 
-    QMessageBox::warning(this, tr("Disconnected"), tr("You are diconnected"));
+    QMessageBox::warning(this, tr("Disconnected"), tr("You are disconnected"));
 
 
 
@@ -513,11 +569,27 @@ void ChatWindow::disconnectedFromServer()
 
 void ChatWindow::roomUsers(const QJsonArray &list){
     //we received room users
+    QString roomName;
+    if(!m_roomUsersRequest.isEmpty())
+        roomName= m_roomUsersRequest.at(0);
+
+    for(GroupChat *chat : m_groupChats){
+        if(chat->getRoomName().compare(roomName, Qt::CaseSensitive)==0){
+            QJsonDocument doc;
+            doc.setArray(list);
+
+            QString users = QLatin1String(doc.toJson(QJsonDocument::Compact));
+            chat->receivedUserList(users);
+        }
+    }
 }
+
 void ChatWindow::requestRoomUsers(const QString &roomName){
     //requesting roomm users
+    m_roomUsersRequest.push_back(roomName);
 }
 void ChatWindow::roomUserJoined(const QString &roomName, const QString &username){
+    qDebug() << "Chat window room user joined";
     for(GroupChat *chat : m_groupChats){
         if(chat->getRoomName().compare(roomName) ==0){
             chat->userJoined(username);
@@ -525,6 +597,7 @@ void ChatWindow::roomUserJoined(const QString &roomName, const QString &username
     }
 }
 void ChatWindow::roomUserLeft(const QString &roomName, const QString &username){
+    qDebug() << "Chat window room user left";
     for(GroupChat *chat : m_groupChats){
         if(chat->getRoomName().compare(roomName) ==0){
             chat->userLeft(username);
@@ -593,6 +666,8 @@ void ChatWindow::on_clientList_itemClicked(QListWidgetItem *item)
 {
      qDebug() << "you've  clicked the  item";
      if(item -> checkState() == Qt::Checked){
+         if(m_selectedUsers.contains(item->text()))
+             return;
         this -> m_selectedUsers.append(item -> text());
      }
 }
@@ -650,7 +725,7 @@ void ChatWindow::error(QAbstractSocket::SocketError socketError){
 
     switch (socketError) {
     case QAbstractSocket::RemoteHostClosedError:
-        QMessageBox::critical(this, tr("Error"), tr("RemoteHostClosedError"));
+        QMessageBox::critical(this, tr("Error"), tr("RemoteHostClosed"));
     case QAbstractSocket::ProxyConnectionClosedError:
         return;
     case QAbstractSocket::ConnectionRefusedError:

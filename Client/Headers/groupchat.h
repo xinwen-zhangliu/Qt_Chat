@@ -39,7 +39,8 @@ private slots:
 signals:
 
     void sendJson(const QJsonObject &json);
-
+    void leavingRoom(const QString &roomName);
+    void userListRequest(const QString &roomName);
 
 };
 

@@ -1,0 +1,165 @@
+\hypertarget{class_parser}{}\doxysection{Parser Class Reference}
+\label{class_parser}\index{Parser@{Parser}}
+Inheritance diagram for Parser\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{dc/db7/class_parser}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_parser_ad0cfb2a014f445c48d5d32a0d7bdf7ed}\label{class_parser_ad0cfb2a014f445c48d5d32a0d7bdf7ed}} 
+void {\bfseries parse\+Json} (const QJson\+Object \&json)
+\item 
+void \mbox{\hyperlink{class_parser_a5267a68d866ec909793a186d7f5cac89}{parse\+Json}} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QJson\+Object \&json)
+\begin{DoxyCompactList}\small\item\em Parser\+::parse\+Json This is the parser class for the server, when \mbox{\hyperlink{class_server_worker}{Server\+Worker}} receives json it tells \mbox{\hyperlink{class_chat_server}{Chat\+Server}} and chat\+Server calls \mbox{\hyperlink{class_parser}{Parser}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_parser_a0ac21007b126d79ef790da97246789c0}\label{class_parser_a0ac21007b126d79ef790da97246789c0}} 
+void {\bfseries logged\+In} (const QString \&username)
+\item 
+\mbox{\Hypertarget{class_parser_a68a62e6a91ac4a5458c443267d72f675}\label{class_parser_a68a62e6a91ac4a5458c443267d72f675}} 
+void {\bfseries login\+Error} (const QString \&reason)
+\item 
+\mbox{\Hypertarget{class_parser_a926cea6ce8cb7aba108f8c87f4a7d932}\label{class_parser_a926cea6ce8cb7aba108f8c87f4a7d932}} 
+void {\bfseries public\+Message\+Received} (const QString \&sender, const QString \&text)
+\item 
+\mbox{\Hypertarget{class_parser_a176f24b9802b9e87e61d6fcb626205c5}\label{class_parser_a176f24b9802b9e87e61d6fcb626205c5}} 
+void {\bfseries private\+Message\+Received} (const QString \&sender, const QString \&message)
+\item 
+\mbox{\Hypertarget{class_parser_a0675653b5a78ddfd343273339e4eff4f}\label{class_parser_a0675653b5a78ddfd343273339e4eff4f}} 
+void {\bfseries room\+Message\+Received} (const QString \&sender, const QString \&room\+Name, const QString \&message)
+\item 
+\mbox{\Hypertarget{class_parser_a7e1762ea62dfa735546d94fd05a8f900}\label{class_parser_a7e1762ea62dfa735546d94fd05a8f900}} 
+void {\bfseries user\+Joined} (const QString \&username)
+\item 
+\mbox{\Hypertarget{class_parser_a365f250cc615f389d03fa3a771cd8f53}\label{class_parser_a365f250cc615f389d03fa3a771cd8f53}} 
+void {\bfseries user\+Left} (const QString \&username)
+\item 
+\mbox{\Hypertarget{class_parser_a193e2a3abbcc6204cd3441250acb4d9d}\label{class_parser_a193e2a3abbcc6204cd3441250acb4d9d}} 
+void {\bfseries received\+User\+List} (const QJson\+Array \&list)
+\item 
+\mbox{\Hypertarget{class_parser_a9b0b91f169dc8c2a904327b1af60a3c4}\label{class_parser_a9b0b91f169dc8c2a904327b1af60a3c4}} 
+void {\bfseries send\+Json} (const QJson\+Object \&json)
+\item 
+\mbox{\Hypertarget{class_parser_a33daeffb963535afb1914ab139cc8c90}\label{class_parser_a33daeffb963535afb1914ab139cc8c90}} 
+void {\bfseries new\+Status} (const QString \&username, const int \&new\+Status)
+\item 
+\mbox{\Hypertarget{class_parser_a90dd6d5c2c9f9a5d411d1f7016444482}\label{class_parser_a90dd6d5c2c9f9a5d411d1f7016444482}} 
+void {\bfseries new\+Room\+Created} ()
+\item 
+\mbox{\Hypertarget{class_parser_a936d45d88fc8e30ba64a2e263f7844e9}\label{class_parser_a936d45d88fc8e30ba64a2e263f7844e9}} 
+void {\bfseries error\+Creating\+Room} (const QString \&room\+Name)
+\item 
+\mbox{\Hypertarget{class_parser_a6d09a68dc24e6dff82cf7da03753d8d2}\label{class_parser_a6d09a68dc24e6dff82cf7da03753d8d2}} 
+void {\bfseries show\+Json} (const QString \&json)
+\item 
+\mbox{\Hypertarget{class_parser_a5431cb83c433899eaf50e38ed5c0e451}\label{class_parser_a5431cb83c433899eaf50e38ed5c0e451}} 
+void {\bfseries new\+Room\+Rejected} ()
+\item 
+\mbox{\Hypertarget{class_parser_a38c957023f377965c2d733856180aef0}\label{class_parser_a38c957023f377965c2d733856180aef0}} 
+void {\bfseries invitation\+Received} (const QString \&room\+Name, const QString \&message, const QString \&sender)
+\item 
+\mbox{\Hypertarget{class_parser_abcbfbe4e3207d495a257661bf0e23b20}\label{class_parser_abcbfbe4e3207d495a257661bf0e23b20}} 
+void {\bfseries user\+Joined\+Room} (const QString \&room\+Name, const QString \&user)
+\item 
+\mbox{\Hypertarget{class_parser_ac72b0de4c567b60ecd38fcb9333e2137}\label{class_parser_ac72b0de4c567b60ecd38fcb9333e2137}} 
+void {\bfseries user\+Left\+Room} (const QString \&room\+Name, const QString \&user)
+\item 
+\mbox{\Hypertarget{class_parser_ab45db2071bab4bcf281316969a90d5a1}\label{class_parser_ab45db2071bab4bcf281316969a90d5a1}} 
+void {\bfseries received\+Room\+User\+List} (const QJson\+Array \&list)
+\item 
+\mbox{\Hypertarget{class_parser_ad01ff66fdd6100fb755f91a02ace6915}\label{class_parser_ad01ff66fdd6100fb755f91a02ace6915}} 
+void {\bfseries disconnect} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender)
+\item 
+\mbox{\Hypertarget{class_parser_a9feb33f3d9e52b9f55d1e9d5db8434de}\label{class_parser_a9feb33f3d9e52b9f55d1e9d5db8434de}} 
+void {\bfseries public\+Message} (const QJson\+Object \&new\+Json, \mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender)
+\item 
+\mbox{\Hypertarget{class_parser_a153f06d77800962f441f165f40d5cfe4}\label{class_parser_a153f06d77800962f441f165f40d5cfe4}} 
+void {\bfseries private\+Message} (const QJson\+Object \&message, \mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QString \&destination, const QString \&operation)
+\item 
+\mbox{\Hypertarget{class_parser_a7c81a606b67200a76bd7dbea1fa5147c}\label{class_parser_a7c81a606b67200a76bd7dbea1fa5147c}} 
+void {\bfseries user\+List\+Request} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender)
+\item 
+\mbox{\Hypertarget{class_parser_a6ccb9245056c660804a28e25fc1c08d5}\label{class_parser_a6ccb9245056c660804a28e25fc1c08d5}} 
+void {\bfseries update\+Status} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const int status)
+\item 
+\mbox{\Hypertarget{class_parser_a3c66b10fa40b6a11290a9b10e5456b83}\label{class_parser_a3c66b10fa40b6a11290a9b10e5456b83}} 
+void {\bfseries new\+Room\+Request} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QString \&room\+Name)
+\item 
+\mbox{\Hypertarget{class_parser_a2d03806724012b5f78d1fc710f28cac1}\label{class_parser_a2d03806724012b5f78d1fc710f28cac1}} 
+void {\bfseries invitations\+To\+Room} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QString \&room\+Name, QJson\+Array usernames)
+\item 
+\mbox{\Hypertarget{class_parser_a046267015d4abea544073ee6f4b88852}\label{class_parser_a046267015d4abea544073ee6f4b88852}} 
+void {\bfseries room\+Invitation} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QString \&destination)
+\item 
+\mbox{\Hypertarget{class_parser_af8a64b92e567416c088710df1998904c}\label{class_parser_af8a64b92e567416c088710df1998904c}} 
+void {\bfseries leave\+Room} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QString \&room\+Name)
+\item 
+\mbox{\Hypertarget{class_parser_aefd7e1e96f94e35ca95e664b63016209}\label{class_parser_aefd7e1e96f94e35ca95e664b63016209}} 
+void {\bfseries room\+Users\+Request} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QString \&room\+Name)
+\item 
+\mbox{\Hypertarget{class_parser_ad0cbb9dddfe2aeb6b7186fab4047d90b}\label{class_parser_ad0cbb9dddfe2aeb6b7186fab4047d90b}} 
+void {\bfseries room\+Message} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QString \&room\+Name, const QString \&message)
+\item 
+\mbox{\Hypertarget{class_parser_ac6065ddfccb5e1a8d4f8c42d3b94cfe2}\label{class_parser_ac6065ddfccb5e1a8d4f8c42d3b94cfe2}} 
+void {\bfseries join\+Room\+Request} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QString \&room\+Name)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser}} (QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser\+::\+Parser}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_parser_a7541c757aaea76a24227074efe730a25}\label{class_parser_a7541c757aaea76a24227074efe730a25}} 
+{\bfseries Parser} (QObject $\ast$parent=nullptr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_parser_a7541c757aaea76a24227074efe730a25}\label{class_parser_a7541c757aaea76a24227074efe730a25}} 
+\index{Parser@{Parser}!Parser@{Parser}}
+\index{Parser@{Parser}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{Parser()}{Parser()}}
+{\footnotesize\ttfamily Parser\+::\+Parser (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser\+::\+Parser}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_parser_a5267a68d866ec909793a186d7f5cac89}\label{class_parser_a5267a68d866ec909793a186d7f5cac89}} 
+\index{Parser@{Parser}!parseJson@{parseJson}}
+\index{parseJson@{parseJson}!Parser@{Parser}}
+\doxysubsubsection{\texorpdfstring{parseJson}{parseJson}}
+{\footnotesize\ttfamily void Parser\+::parse\+Json (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$}]{sender,  }\item[{const QJson\+Object \&}]{json }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Parser\+::parse\+Json This is the parser class for the server, when \mbox{\hyperlink{class_server_worker}{Server\+Worker}} receives json it tells \mbox{\hyperlink{class_chat_server}{Chat\+Server}} and chat\+Server calls \mbox{\hyperlink{class_parser}{Parser}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & the sender of the json \\
+\hline
+{\em json} & the json received \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Client/\+Headers/parser.\+h\item 
+Server/\+Headers/parser.\+h\item 
+Client/\+Client\+\_\+autogen/\+D2\+MWKIZDYH/moc\+\_\+parser.\+cpp\item 
+Client/\+Sources/parser.\+cpp\item 
+Server/\+Server\+\_\+autogen/\+D2\+MWKIZDYH/moc\+\_\+parser.\+cpp\item 
+Server/\+Sources/parser.\+cpp\end{DoxyCompactItemize}

@@ -65,7 +65,7 @@ private slots:
     bool containsPrivateChat(const QString &chatName);
     void roomInvitationReceived(const QString &roomName, const QString &message, const QString &sender);
 
-
+    void changeUserStatus(const QString &username, int newStatus);
     void privateChatClosed(const QString &chatName);
 
     void on_clientList_itemClicked(QListWidgetItem *item);
@@ -78,6 +78,7 @@ private slots:
     void requestRoomUsers(const QString &roomName);
     void roomUserJoined(const QString &roomName, const QString &username);
     void roomUserLeft(const QString &roomName, const QString &username);
+    void leaveRoom(const QString &roomName);
 signals:
     void sendJson(const QJsonObject &json);
 

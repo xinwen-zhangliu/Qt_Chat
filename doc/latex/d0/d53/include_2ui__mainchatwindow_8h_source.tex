@@ -1,0 +1,163 @@
+\hypertarget{include_2ui__mainchatwindow_8h_source}{}\doxysection{include/ui\+\_\+mainchatwindow.h}
+\label{include_2ui__mainchatwindow_8h_source}\index{ui\_mainchatwindow.h@{ui\_mainchatwindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/********************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{** Form generated from reading UI file 'mainchatwindow.ui'}}
+\DoxyCodeLine{3 \textcolor{comment}{**}}
+\DoxyCodeLine{4 \textcolor{comment}{** Created by: Qt User Interface Compiler version 6.3.2}}
+\DoxyCodeLine{5 \textcolor{comment}{**}}
+\DoxyCodeLine{6 \textcolor{comment}{** WARNING! All changes made in this file will be lost when recompiling UI file!}}
+\DoxyCodeLine{7 \textcolor{comment}{********************************************************************************/}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef UI\_MAINCHATWINDOW\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define UI\_MAINCHATWINDOW\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QtCore/QVariant>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <QtWidgets/QApplication>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <QtWidgets/QGridLayout>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <QtWidgets/QHBoxLayout>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <QtWidgets/QLabel>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <QtWidgets/QLineEdit>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <QtWidgets/QListView>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <QtWidgets/QListWidget>}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include <QtWidgets/QPushButton>}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include <QtWidgets/QVBoxLayout>}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include <QtWidgets/QWidget>}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{keyword}{class }\mbox{\hyperlink{class_ui___chat_window}{Ui\_ChatWindow}}}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28 \textcolor{keyword}{public}:}
+\DoxyCodeLine{29     QGridLayout *gridLayout;}
+\DoxyCodeLine{30     QVBoxLayout *verticalLayout;}
+\DoxyCodeLine{31     QPushButton *connectButton;}
+\DoxyCodeLine{32     QPushButton *disconnnectButton;}
+\DoxyCodeLine{33     QListView *chatView;}
+\DoxyCodeLine{34     QHBoxLayout *horizontalLayout;}
+\DoxyCodeLine{35     QLineEdit *messageEdit;}
+\DoxyCodeLine{36     QPushButton *sendButton;}
+\DoxyCodeLine{37     QVBoxLayout *verticalLayout\_2;}
+\DoxyCodeLine{38     QLabel *userListTitle;}
+\DoxyCodeLine{39     QListWidget *clientList;}
+\DoxyCodeLine{40     QLineEdit *groupName;}
+\DoxyCodeLine{41     QPushButton *createGroup;}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} setupUi(QWidget *\mbox{\hyperlink{class_chat_window}{ChatWindow}})}
+\DoxyCodeLine{44     \{}
+\DoxyCodeLine{45         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_chat_window}{ChatWindow}}-\/>objectName().isEmpty())}
+\DoxyCodeLine{46             \mbox{\hyperlink{class_chat_window}{ChatWindow}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}ChatWindow"{}}));}
+\DoxyCodeLine{47         \mbox{\hyperlink{class_chat_window}{ChatWindow}}-\/>resize(800, 495);}
+\DoxyCodeLine{48         gridLayout = \textcolor{keyword}{new} QGridLayout(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{49         gridLayout-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}gridLayout"{}}));}
+\DoxyCodeLine{50         verticalLayout = \textcolor{keyword}{new} QVBoxLayout();}
+\DoxyCodeLine{51         verticalLayout-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}verticalLayout"{}}));}
+\DoxyCodeLine{52         connectButton = \textcolor{keyword}{new} QPushButton(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{53         connectButton-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}connectButton"{}}));}
+\DoxyCodeLine{54         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);}
+\DoxyCodeLine{55         sizePolicy.setHorizontalStretch(0);}
+\DoxyCodeLine{56         sizePolicy.setVerticalStretch(0);}
+\DoxyCodeLine{57         sizePolicy.setHeightForWidth(connectButton-\/>sizePolicy().hasHeightForWidth());}
+\DoxyCodeLine{58         connectButton-\/>setSizePolicy(sizePolicy);}
+\DoxyCodeLine{59         connectButton-\/>setMinimumSize(QSize(250, 0));}
+\DoxyCodeLine{60         connectButton-\/>setMaximumSize(QSize(250, 500));}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         verticalLayout-\/>addWidget(connectButton);}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64         disconnnectButton = \textcolor{keyword}{new} QPushButton(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{65         disconnnectButton-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}disconnnectButton"{}}));}
+\DoxyCodeLine{66         sizePolicy.setHeightForWidth(disconnnectButton-\/>sizePolicy().hasHeightForWidth());}
+\DoxyCodeLine{67         disconnnectButton-\/>setSizePolicy(sizePolicy);}
+\DoxyCodeLine{68         disconnnectButton-\/>setMinimumSize(QSize(250, 2));}
+\DoxyCodeLine{69         disconnnectButton-\/>setMaximumSize(QSize(250, 16777215));}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         verticalLayout-\/>addWidget(disconnnectButton);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73         chatView = \textcolor{keyword}{new} QListView(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{74         chatView-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}chatView"{}}));}
+\DoxyCodeLine{75         chatView-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{76         chatView-\/>setMaximumSize(QSize(500, 16777215));}
+\DoxyCodeLine{77         chatView-\/>setEditTriggers(QAbstractItemView::NoEditTriggers);}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{79         verticalLayout-\/>addWidget(chatView);}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         horizontalLayout = \textcolor{keyword}{new} QHBoxLayout();}
+\DoxyCodeLine{82         horizontalLayout-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}horizontalLayout"{}}));}
+\DoxyCodeLine{83         messageEdit = \textcolor{keyword}{new} QLineEdit(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{84         messageEdit-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}messageEdit"{}}));}
+\DoxyCodeLine{85         messageEdit-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         horizontalLayout-\/>addWidget(messageEdit);}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89         sendButton = \textcolor{keyword}{new} QPushButton(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{90         sendButton-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}sendButton"{}}));}
+\DoxyCodeLine{91         sendButton-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93         horizontalLayout-\/>addWidget(sendButton);}
+\DoxyCodeLine{94 }
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96         verticalLayout-\/>addLayout(horizontalLayout);}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99         gridLayout-\/>addLayout(verticalLayout, 1, 1, 1, 1);}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101         verticalLayout\_2 = \textcolor{keyword}{new} QVBoxLayout();}
+\DoxyCodeLine{102         verticalLayout\_2-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}verticalLayout\_2"{}}));}
+\DoxyCodeLine{103         userListTitle = \textcolor{keyword}{new} QLabel(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{104         userListTitle-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}userListTitle"{}}));}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         verticalLayout\_2-\/>addWidget(userListTitle);}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108         clientList = \textcolor{keyword}{new} QListWidget(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{109         clientList-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}clientList"{}}));}
+\DoxyCodeLine{110 }
+\DoxyCodeLine{111         verticalLayout\_2-\/>addWidget(clientList);}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113         groupName = \textcolor{keyword}{new} QLineEdit(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{114         groupName-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}groupName"{}}));}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         verticalLayout\_2-\/>addWidget(groupName);}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{118         createGroup = \textcolor{keyword}{new} QPushButton(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{119         createGroup-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}createGroup"{}}));}
+\DoxyCodeLine{120         createGroup-\/>setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{121         createGroup-\/>setMinimumSize(QSize(20, 0));}
+\DoxyCodeLine{122         createGroup-\/>setMaximumSize(QSize(100, 16777215));}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124         verticalLayout\_2-\/>addWidget(createGroup, 0, Qt::AlignRight);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126 }
+\DoxyCodeLine{127         gridLayout-\/>addLayout(verticalLayout\_2, 1, 4, 1, 1);}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130         retranslateUi(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{131 }
+\DoxyCodeLine{132         sendButton-\/>setDefault(\textcolor{keyword}{true});}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135         QMetaObject::connectSlotsByName(\mbox{\hyperlink{class_chat_window}{ChatWindow}});}
+\DoxyCodeLine{136     \} \textcolor{comment}{// setupUi}}
+\DoxyCodeLine{137 }
+\DoxyCodeLine{138     \textcolor{keywordtype}{void} retranslateUi(QWidget *\mbox{\hyperlink{class_chat_window}{ChatWindow}})}
+\DoxyCodeLine{139     \{}
+\DoxyCodeLine{140         \mbox{\hyperlink{class_chat_window}{ChatWindow}}-\/>setWindowTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}ChatWindow"{}}, \textcolor{stringliteral}{"{}Qt Simple Chat Client"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{141         connectButton-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}ChatWindow"{}}, \textcolor{stringliteral}{"{}Connect"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{142         disconnnectButton-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}ChatWindow"{}}, \textcolor{stringliteral}{"{}Disconnect"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{143         sendButton-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}ChatWindow"{}}, \textcolor{stringliteral}{"{}Send"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{144         userListTitle-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}ChatWindow"{}}, \textcolor{stringliteral}{"{}Connected Users"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{145         groupName-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}ChatWindow"{}}, \textcolor{stringliteral}{"{}Group Name"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{146         createGroup-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}ChatWindow"{}}, \textcolor{stringliteral}{"{}CreateGroup"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{147     \} \textcolor{comment}{// retranslateUi}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \};}
+\DoxyCodeLine{150 }
+\DoxyCodeLine{151 \textcolor{keyword}{namespace }Ui \{}
+\DoxyCodeLine{152     \textcolor{keyword}{class }\mbox{\hyperlink{class_ui_1_1_chat_window}{ChatWindow}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_ui___chat_window}{Ui\_ChatWindow}} \{\};}
+\DoxyCodeLine{153 \} \textcolor{comment}{// namespace Ui}}
+\DoxyCodeLine{154 }
+\DoxyCodeLine{155 QT\_END\_NAMESPACE}
+\DoxyCodeLine{156 }
+\DoxyCodeLine{157 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// UI\_MAINCHATWINDOW\_H}}
+
+\end{DoxyCode}

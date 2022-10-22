@@ -1,0 +1,57 @@
+\hypertarget{serverworker_8h_source}{}\doxysection{serverworker.\+h}
+\label{serverworker_8h_source}\index{serverworker.h@{serverworker.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef SERVERWORKER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define SERVERWORKER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../Common/room.h"{}}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QTcpSocket>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <QReadWriteLock>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QVector>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }QJsonObject;}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_server_worker}{ServerWorker}} : \textcolor{keyword}{public} QObject}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     Q\_OBJECT}
+\DoxyCodeLine{18     Q\_DISABLE\_COPY(\mbox{\hyperlink{class_server_worker}{ServerWorker}})}
+\DoxyCodeLine{19 \textcolor{keyword}{public}:}
+\DoxyCodeLine{20     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_server_worker}{ServerWorker}}(QObject *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{21     \textcolor{keyword}{virtual} \textcolor{keywordtype}{bool} setSocketDescriptor(qintptr socketDescriptor);}
+\DoxyCodeLine{22     QString userName() \textcolor{keyword}{const};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{void} setUserName(\textcolor{keyword}{const} QString \&userName);}
+\DoxyCodeLine{24     QVector<QString> getRooms();}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} disconnectFromClient();}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} sendJson(\textcolor{keyword}{const} QJsonObject \&json);}
+\DoxyCodeLine{30     \textcolor{keywordtype}{void} Errors(QAbstractSocket::SocketError socketError);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} setStatus(\textcolor{keyword}{const} \textcolor{keywordtype}{int} newStatus);}
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} getStatus();}
+\DoxyCodeLine{34 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} receiveJson();}
+\DoxyCodeLine{36 signals:}
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} jsonReceived(\textcolor{keyword}{const} QJsonObject \&jsonDoc);}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} disconnectedFromClient();}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} error();}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} timeout();}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} logMessage(\textcolor{keyword}{const} QString \&msg);}
+\DoxyCodeLine{42 \textcolor{keyword}{private}:}
+\DoxyCodeLine{43     QTcpSocket *m\_serverSocket;}
+\DoxyCodeLine{44     QString m\_userName;}
+\DoxyCodeLine{45     \textcolor{keyword}{mutable} QReadWriteLock m\_userNameLock;}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} m\_status;}
+\DoxyCodeLine{47     QVector<QString> m\_rooms;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SERVERWORKER\_H}}
+
+\end{DoxyCode}

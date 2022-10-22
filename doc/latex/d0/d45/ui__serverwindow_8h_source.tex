@@ -1,0 +1,86 @@
+\hypertarget{ui__serverwindow_8h_source}{}\doxysection{ui\+\_\+serverwindow.\+h}
+\label{ui__serverwindow_8h_source}\index{ui\_serverwindow.h@{ui\_serverwindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/********************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{** Form generated from reading UI file 'serverwindow.ui'}}
+\DoxyCodeLine{3 \textcolor{comment}{**}}
+\DoxyCodeLine{4 \textcolor{comment}{** Created by: Qt User Interface Compiler version 6.3.2}}
+\DoxyCodeLine{5 \textcolor{comment}{**}}
+\DoxyCodeLine{6 \textcolor{comment}{** WARNING! All changes made in this file will be lost when recompiling UI file!}}
+\DoxyCodeLine{7 \textcolor{comment}{********************************************************************************/}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef UI\_SERVERWINDOW\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define UI\_SERVERWINDOW\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QtCore/QVariant>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <QtWidgets/QApplication>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <QtWidgets/QGridLayout>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <QtWidgets/QLabel>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <QtWidgets/QPlainTextEdit>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <QtWidgets/QPushButton>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <QtWidgets/QSpacerItem>}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include <QtWidgets/QWidget>}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{class_ui___server_window}{Ui\_ServerWindow}}}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25 \textcolor{keyword}{public}:}
+\DoxyCodeLine{26     QGridLayout *gridLayout;}
+\DoxyCodeLine{27     QLabel *label;}
+\DoxyCodeLine{28     QPlainTextEdit *logEditor;}
+\DoxyCodeLine{29     QSpacerItem *horizontalSpacer;}
+\DoxyCodeLine{30     QPushButton *startStopButton;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} setupUi(QWidget *\mbox{\hyperlink{class_server_window}{ServerWindow}})}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_server_window}{ServerWindow}}-\/>objectName().isEmpty())}
+\DoxyCodeLine{35             \mbox{\hyperlink{class_server_window}{ServerWindow}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}ServerWindow"{}}));}
+\DoxyCodeLine{36         \mbox{\hyperlink{class_server_window}{ServerWindow}}-\/>resize(400, 300);}
+\DoxyCodeLine{37         gridLayout = \textcolor{keyword}{new} QGridLayout(\mbox{\hyperlink{class_server_window}{ServerWindow}});}
+\DoxyCodeLine{38         gridLayout-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}gridLayout"{}}));}
+\DoxyCodeLine{39         label = \textcolor{keyword}{new} QLabel(\mbox{\hyperlink{class_server_window}{ServerWindow}});}
+\DoxyCodeLine{40         label-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}label"{}}));}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42         gridLayout-\/>addWidget(label, 0, 0, 1, 2);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         logEditor = \textcolor{keyword}{new} QPlainTextEdit(\mbox{\hyperlink{class_server_window}{ServerWindow}});}
+\DoxyCodeLine{45         logEditor-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}logEditor"{}}));}
+\DoxyCodeLine{46         logEditor-\/>setReadOnly(\textcolor{keyword}{true});}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48         gridLayout-\/>addWidget(logEditor, 1, 0, 1, 2);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50         horizontalSpacer = \textcolor{keyword}{new} QSpacerItem(298, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         gridLayout-\/>addItem(horizontalSpacer, 2, 0, 1, 1);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         startStopButton = \textcolor{keyword}{new} QPushButton(\mbox{\hyperlink{class_server_window}{ServerWindow}});}
+\DoxyCodeLine{55         startStopButton-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}startStopButton"{}}));}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         gridLayout-\/>addWidget(startStopButton, 2, 1, 1, 1);}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60         retranslateUi(\mbox{\hyperlink{class_server_window}{ServerWindow}});}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62         QMetaObject::connectSlotsByName(\mbox{\hyperlink{class_server_window}{ServerWindow}});}
+\DoxyCodeLine{63     \} \textcolor{comment}{// setupUi}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} retranslateUi(QWidget *\mbox{\hyperlink{class_server_window}{ServerWindow}})}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67         \mbox{\hyperlink{class_server_window}{ServerWindow}}-\/>setWindowTitle(QCoreApplication::translate(\textcolor{stringliteral}{"{}ServerWindow"{}}, \textcolor{stringliteral}{"{}Qt Simple Chat Server"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{68         label-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}ServerWindow"{}}, \textcolor{stringliteral}{"{}Server Log"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{69         startStopButton-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}ServerWindow"{}}, \textcolor{stringliteral}{"{}Start Server"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{70     \} \textcolor{comment}{// retranslateUi}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72 \};}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74 \textcolor{keyword}{namespace }Ui \{}
+\DoxyCodeLine{75     \textcolor{keyword}{class }\mbox{\hyperlink{class_ui_1_1_server_window}{ServerWindow}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_ui___server_window}{Ui\_ServerWindow}} \{\};}
+\DoxyCodeLine{76 \} \textcolor{comment}{// namespace Ui}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78 QT\_END\_NAMESPACE}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// UI\_SERVERWINDOW\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,99 @@
+\hypertarget{chatwindow_8h_source}{}\doxysection{chatwindow.\+h}
+\label{chatwindow_8h_source}\index{chatwindow.h@{chatwindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CHATWINDOW\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CHATWINDOW\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QWidget>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QAbstractSocket>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QVector>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <QString>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <QListWidgetItem>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <QQueue>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_chat_client}{ChatClient}};}
+\DoxyCodeLine{13 \textcolor{keyword}{class }\mbox{\hyperlink{class_parser}{Parser}};}
+\DoxyCodeLine{14 \textcolor{keyword}{class }QStandardItemModel;}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_private_chat}{PrivateChat}};}
+\DoxyCodeLine{16 \textcolor{keyword}{class }\mbox{\hyperlink{class_group_chat}{GroupChat}};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19 \textcolor{keyword}{namespace }Ui \{ \textcolor{keyword}{class }\mbox{\hyperlink{class_chat_window}{ChatWindow}}; \}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_chat_window}{ChatWindow}} : \textcolor{keyword}{public} QWidget}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     Q\_OBJECT}
+\DoxyCodeLine{25     Q\_DISABLE\_COPY(\mbox{\hyperlink{class_chat_window}{ChatWindow}})}
+\DoxyCodeLine{26 \textcolor{keyword}{public}:}
+\DoxyCodeLine{27     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_chat_window}{ChatWindow}}(QWidget *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_chat_window}{\string~ChatWindow}}();}
+\DoxyCodeLine{29    \mbox{\hyperlink{class_chat_client}{ChatClient}}* getChatClient();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \textcolor{keyword}{private}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_ui_1_1_chat_window}{Ui::ChatWindow}} *ui;}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_chat_client}{ChatClient}} *m\_chatClient;}
+\DoxyCodeLine{35     QStandardItemModel *m\_chatModel;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     QString m\_lastUserName;}
+\DoxyCodeLine{38     QVector<QString> m\_selectedUsers;}
+\DoxyCodeLine{39     \mbox{\hyperlink{class_parser}{Parser}} *m\_parser;}
+\DoxyCodeLine{40      QQueue<QString> m\_rooms;}
+\DoxyCodeLine{41      QVector<PrivateChat *> m\_privateChats;}
+\DoxyCodeLine{42     QVector<GroupChat *> m\_groupChats;}
+\DoxyCodeLine{43     QList<QString> m\_roomRequests;}
+\DoxyCodeLine{44     QList<QString> m\_roomUsersRequest;}
+\DoxyCodeLine{45 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} attemptConnection();}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} attemptLogin(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} loggedIn(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} loginFailed(\textcolor{keyword}{const} QString \&reason);}
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} logJson(\textcolor{keyword}{const} QString \&json);}
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} publicMessageReceived(\textcolor{keyword}{const} QString \&sender, \textcolor{keyword}{const} QString \&text);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} privateMessageReceived(\textcolor{keyword}{const} QString \&sender, \textcolor{keyword}{const} QString \&message);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} sendMessage();}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} disconnectedFromServer();}
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} userJoined(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} userLeft(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{57     \textcolor{keywordtype}{void} connectedToServer();}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} error(QAbstractSocket::SocketError socketError);}
+\DoxyCodeLine{59     \textcolor{keywordtype}{void} createRoom();}
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} userListReceived(\textcolor{keyword}{const} QJsonArray \&userList);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} refreshUserList(\textcolor{keyword}{const} QVector<QString> \&users);}
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} getUserList();}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} newRoomRejected();}
+\DoxyCodeLine{64     \textcolor{keywordtype}{void} newRoomCreated();}
+\DoxyCodeLine{65     \textcolor{keywordtype}{bool} containsPrivateChat(\textcolor{keyword}{const} QString \&chatName);}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} roomInvitationReceived(\textcolor{keyword}{const} QString \&roomName, \textcolor{keyword}{const} QString \&message, \textcolor{keyword}{const} QString \&sender);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} changeUserStatus(\textcolor{keyword}{const} QString \&username, \textcolor{keywordtype}{int} newStatus);}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} privateChatClosed(\textcolor{keyword}{const} QString \&chatName);}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{void} on\_clientList\_itemClicked(QListWidgetItem *item);}
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} on\_clientList\_itemDoubleClicked(QListWidgetItem *item);}
+\DoxyCodeLine{73     \textcolor{keywordtype}{void} addUser(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} roomMessageReceived(\textcolor{keyword}{const} QString \&sender, \textcolor{keyword}{const} QString \&roomName, \textcolor{keyword}{const} QString \&message);}
+\DoxyCodeLine{75     \textcolor{comment}{//slots to handle room operations}}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} roomUsers(\textcolor{keyword}{const} QJsonArray \&list);}
+\DoxyCodeLine{78     \textcolor{keywordtype}{void} requestRoomUsers(\textcolor{keyword}{const} QString \&roomName);}
+\DoxyCodeLine{79     \textcolor{keywordtype}{void} roomUserJoined(\textcolor{keyword}{const} QString \&roomName, \textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{80     \textcolor{keywordtype}{void} roomUserLeft(\textcolor{keyword}{const} QString \&roomName, \textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{81     \textcolor{keywordtype}{void} leaveRoom(\textcolor{keyword}{const} QString \&roomName);}
+\DoxyCodeLine{82 signals:}
+\DoxyCodeLine{83     \textcolor{keywordtype}{void} sendJson(\textcolor{keyword}{const} QJsonObject \&json);}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} processTerminated();}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88         \textcolor{keywordtype}{void} invitationReceived(\textcolor{keyword}{const} QString \&sender, \textcolor{keyword}{const} QString \&roomName);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90 }
+\DoxyCodeLine{91 \};}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{93 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CHATWONDOW\_H}}
+
+\end{DoxyCode}

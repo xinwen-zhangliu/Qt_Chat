@@ -102,8 +102,6 @@ void Parser::parseJson(const QJsonObject &json){
 
     //ROOM USER LIST
     if(typeVal.toString().compare(QLatin1String("ROOM_USER_LIST"))==0){
-        if (roomNameVal.isNull() || !messageVal.isString())
-            return;
         qDebug() << "received room user list " ;
         const QJsonArray users = json.value(QLatin1String("usernames")).toArray();
         emit receivedRoomUserList( users);
@@ -111,7 +109,7 @@ void Parser::parseJson(const QJsonObject &json){
 
     //USER LEFT ROOM
     if(typeVal.toString().compare(QLatin1String("LEFT_ROOM"))==0){
-        if (roomNameVal.isNull() || !messageVal.isString())
+        if (roomNameVal.isNull() || !roomNameVal.isString())
             return;
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
@@ -120,10 +118,13 @@ void Parser::parseJson(const QJsonObject &json){
 
     //USER JOINED ROOM
     if(typeVal.toString().compare(QLatin1String("JOINED_ROOM"))==0){
-        if (roomNameVal.isNull() || !messageVal.isString())
+        qDebug() << "parser, someone joined room " << roomNameVal.toString() << "with username" << usernameVal.toString();
+        if (usernameVal.isNull() || !roomNameVal.isString())
             return;
+
         if (usernameVal.isNull() || !usernameVal.isString())
             return;
+        qDebug() << "emitting";
         emit userJoinedRoom(roomNameVal.toString(),usernameVal.toString());
      }
 

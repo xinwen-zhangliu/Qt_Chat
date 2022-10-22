@@ -1,0 +1,56 @@
+\hypertarget{_server_2_headers_2parser_8h_source}{}\doxysection{Server/\+Headers/parser.h}
+\label{_server_2_headers_2parser_8h_source}\index{parser.h@{parser.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef PARSER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define PARSER\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QJsonObject>}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{keyword}{class }QJsonObject;}
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_server_worker}{ServerWorker}};}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{class }\mbox{\hyperlink{class_parser}{Parser}} : \textcolor{keyword}{public} QObject}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     Q\_OBJECT}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 \textcolor{keyword}{public}:}
+\DoxyCodeLine{16     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser}}(QObject *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} parseJson(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender,\textcolor{keyword}{const} QJsonObject \&json);}
+\DoxyCodeLine{20 \textcolor{keyword}{private}:}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 signals:}
+\DoxyCodeLine{23     \textcolor{comment}{//void answerBack(ServerWorker *destination, QJsonObject \&message); //to answer back to the same sender}}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{void} disconnect(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{void} publicMessage(\textcolor{keyword}{const} QJsonObject \&newJson, \mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
+\DoxyCodeLine{28     \textcolor{keywordtype}{void} privateMessage( \textcolor{keyword}{const} QJsonObject \&message,\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&destination, \textcolor{keyword}{const} QString \&operation);}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{keywordtype}{void} userListRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33 }
+\DoxyCodeLine{34     \textcolor{keywordtype}{void} updateStatus(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} \textcolor{keywordtype}{int} status);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{void} newRoomRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);\textcolor{comment}{//connected to attempCreateRoom in ChatServer}}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} invitationsToRoom(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender,  \textcolor{keyword}{const} QString \&roomName, QJsonArray usernames);}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} roomInvitation(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&destination); \textcolor{comment}{//connected to}}
+\DoxyCodeLine{40     \textcolor{keywordtype}{void} leaveRoom(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName); \textcolor{comment}{//connected to leaveRoom in ChatServer}}
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} roomUsersRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName); \textcolor{comment}{//connected to roomUsersRequest}}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} roomMessage(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender,\textcolor{keyword}{const} QString \&roomName, \textcolor{keyword}{const} QString \&message);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} joinRoomRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 \};}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// PARSER\_H}}
+
+\end{DoxyCode}

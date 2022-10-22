@@ -1,0 +1,28 @@
+\hypertarget{user_8h_source}{}\doxysection{user.\+h}
+\label{user_8h_source}\index{user.h@{user.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef USER\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define USER\_H}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}../Common/room.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <QVector>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{class }\mbox{\hyperlink{class_user}{User}}}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9 \textcolor{keyword}{public}:}
+\DoxyCodeLine{10     \mbox{\hyperlink{class_user}{User}}();}
+\DoxyCodeLine{11     \mbox{\hyperlink{class_user}{\string~User}}();}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{13 \textcolor{keyword}{private}:}
+\DoxyCodeLine{14     \textcolor{keywordtype}{int} status; \textcolor{comment}{//1 =ACTIVE , 2=AWAY, 3=BUSY}}
+\DoxyCodeLine{15     QVector<Room *> roomsIn;}
+\DoxyCodeLine{16 \textcolor{keyword}{public}:}
+\DoxyCodeLine{17     QVector<Room *> getRooms();}
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} setStatus(\textcolor{keyword}{const} \textcolor{keywordtype}{int} status);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 \};}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// USER\_H}}
+
+\end{DoxyCode}

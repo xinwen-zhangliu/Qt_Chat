@@ -1407,7 +1407,9 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: Client/Sources/chatwindow
   /usr/include/qt6/QtCore/qtimer.h \
   /usr/include/qt6/QtCore/qbasictimer.h \
   /usr/include/qt6/QtCore/QDebug \
-  /usr/include/qt6/QtCore/qdebug.h
+  /usr/include/qt6/QtCore/qdebug.h \
+  /usr/include/qt6/QtCore/QJsonDocument \
+  /usr/include/qt6/QtCore/qjsondocument.h
 
 Client/CMakeFiles/Client.dir/Sources/groupchat.cpp.o: Client/Sources/groupchat.cpp \
   /usr/include/stdc-predef.h \

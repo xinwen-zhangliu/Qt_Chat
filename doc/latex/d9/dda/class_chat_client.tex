@@ -1,0 +1,93 @@
+\hypertarget{class_chat_client}{}\doxysection{Chat\+Client Class Reference}
+\label{class_chat_client}\index{ChatClient@{ChatClient}}
+Inheritance diagram for Chat\+Client\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d9/dda/class_chat_client}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chat_client_ae9fada9f0b1ce7125dce5a3e626d0d6f}\label{class_chat_client_ae9fada9f0b1ce7125dce5a3e626d0d6f}} 
+void {\bfseries disconnect\+From\+Host} ()
+\item 
+\mbox{\Hypertarget{class_chat_client_a0cc29c27d9a13d597ef0d1f740e6e0a1}\label{class_chat_client_a0cc29c27d9a13d597ef0d1f740e6e0a1}} 
+void {\bfseries connect\+To\+Server} (const QHost\+Address \&address, quint16 port)
+\item 
+\mbox{\Hypertarget{class_chat_client_adab3029c333caa707d47519297c04bed}\label{class_chat_client_adab3029c333caa707d47519297c04bed}} 
+void {\bfseries login} (const QString \&username)
+\item 
+\mbox{\Hypertarget{class_chat_client_a125e0f47c456720bfe62973fda5b79b9}\label{class_chat_client_a125e0f47c456720bfe62973fda5b79b9}} 
+void {\bfseries send\+Public\+Message} (const QString \&text)
+\item 
+\mbox{\Hypertarget{class_chat_client_aac0ca59a6d233602e4214173687a764e}\label{class_chat_client_aac0ca59a6d233602e4214173687a764e}} 
+void {\bfseries send\+Json} (const QJson\+Object \&json\+Onj)
+\item 
+\mbox{\Hypertarget{class_chat_client_a4a671a60d745fb193d471f3187f1de1b}\label{class_chat_client_a4a671a60d745fb193d471f3187f1de1b}} 
+void {\bfseries ask\+User\+List} ()
+\item 
+\mbox{\Hypertarget{class_chat_client_a363c2c6a4ccf80e3690099158c6afbb4}\label{class_chat_client_a363c2c6a4ccf80e3690099158c6afbb4}} 
+void {\bfseries update\+Status} (const int \&new\+Status)
+\item 
+\mbox{\Hypertarget{class_chat_client_a0b14d08cf3282d9e232507a451821025}\label{class_chat_client_a0b14d08cf3282d9e232507a451821025}} 
+void {\bfseries set\+Username} (const QString \&username)
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chat_client_ad8515ddb963e663c2329270dbbd7a962}\label{class_chat_client_ad8515ddb963e663c2329270dbbd7a962}} 
+void {\bfseries connected} ()
+\item 
+\mbox{\Hypertarget{class_chat_client_a23ad59ec10fad0d9f5a3a95e563a292a}\label{class_chat_client_a23ad59ec10fad0d9f5a3a95e563a292a}} 
+void {\bfseries logged\+In} ()
+\item 
+\mbox{\Hypertarget{class_chat_client_a1a46bd9bd68d097796953e666a35eef3}\label{class_chat_client_a1a46bd9bd68d097796953e666a35eef3}} 
+void {\bfseries login\+Error} (const QString \&reason)
+\item 
+\mbox{\Hypertarget{class_chat_client_abc2dcfb22ff21e1e5daf2622dfe2ec35}\label{class_chat_client_abc2dcfb22ff21e1e5daf2622dfe2ec35}} 
+void {\bfseries disconnected} ()
+\item 
+\mbox{\Hypertarget{class_chat_client_a092d485b0a0c24defb0267b9c49ce78a}\label{class_chat_client_a092d485b0a0c24defb0267b9c49ce78a}} 
+void {\bfseries message\+Received} (const QString \&sender, const QString \&text)
+\item 
+\mbox{\Hypertarget{class_chat_client_a29ba0501ef9a7d27740ed5d2e410948b}\label{class_chat_client_a29ba0501ef9a7d27740ed5d2e410948b}} 
+void {\bfseries error} (QAbstract\+Socket\+::\+Socket\+Error socket\+Error)
+\item 
+\mbox{\Hypertarget{class_chat_client_a6df6eb34e4d22030012ec13473dcb119}\label{class_chat_client_a6df6eb34e4d22030012ec13473dcb119}} 
+void {\bfseries user\+Joined} (const QString \&username)
+\item 
+\mbox{\Hypertarget{class_chat_client_a254953805122a301f7c4dc5c884c75fa}\label{class_chat_client_a254953805122a301f7c4dc5c884c75fa}} 
+void {\bfseries user\+Left} (const QString \&username)
+\item 
+\mbox{\Hypertarget{class_chat_client_a7a5665a7383874e2aeea90e5ec41f095}\label{class_chat_client_a7a5665a7383874e2aeea90e5ec41f095}} 
+void {\bfseries json\+Text} (const QString \&text)
+\item 
+\mbox{\Hypertarget{class_chat_client_aa2e38aed4ce5e0e62c9471ab7d6dfd96}\label{class_chat_client_aa2e38aed4ce5e0e62c9471ab7d6dfd96}} 
+void {\bfseries show\+Connected} ()
+\item 
+\mbox{\Hypertarget{class_chat_client_ab0ad6fc450bb95ef8a5d48bafba8d953}\label{class_chat_client_ab0ad6fc450bb95ef8a5d48bafba8d953}} 
+void {\bfseries received\+User\+List} (const QJson\+Array \&list)
+\item 
+\mbox{\Hypertarget{class_chat_client_ada8efcbf92d74f8b5dfaedb0742965d1}\label{class_chat_client_ada8efcbf92d74f8b5dfaedb0742965d1}} 
+void {\bfseries json\+Received} (const QJson\+Object \&doc)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chat_client_a8d20b3dd41d4f1f05e950db3262b68bc}\label{class_chat_client_a8d20b3dd41d4f1f05e950db3262b68bc}} 
+{\bfseries Chat\+Client} (QObject $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_chat_client_abc395c79924dc7b93d47b6100308de76}\label{class_chat_client_abc395c79924dc7b93d47b6100308de76}} 
+QString {\bfseries get\+Username} ()
+\item 
+\mbox{\Hypertarget{class_chat_client_a93b4eb193d5b16b045c7e98117184272}\label{class_chat_client_a93b4eb193d5b16b045c7e98117184272}} 
+int {\bfseries get\+Socket\+State} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+chatclient.\+h\item 
+moc\+\_\+chatclient.\+cpp\item 
+chatclient.\+cpp\end{DoxyCompactItemize}

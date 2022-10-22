@@ -1,0 +1,45 @@
+\hypertarget{class_chat_server}{}\doxysection{Chat\+Server Class Reference}
+\label{class_chat_server}\index{ChatServer@{ChatServer}}
+Inheritance diagram for Chat\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{df/d71/class_chat_server}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chat_server_a1f24101b3bed667ec2fcf72e57e9d472}\label{class_chat_server_a1f24101b3bed667ec2fcf72e57e9d472}} 
+void {\bfseries stop\+Server} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chat_server_a1f24101b3bed667ec2fcf72e57e9d472}{Chat\+Server\+::stop\+Server}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chat_server_abcf93763407b6015bb1d78b12b452ba0}\label{class_chat_server_abcf93763407b6015bb1d78b12b452ba0}} 
+void {\bfseries log\+Message} (const QString \&msg)
+\item 
+\mbox{\Hypertarget{class_chat_server_a23a396c3d1868ff987f0729c6aaf8397}\label{class_chat_server_a23a396c3d1868ff987f0729c6aaf8397}} 
+void {\bfseries stop\+All\+Clients} ()
+\item 
+\mbox{\Hypertarget{class_chat_server_aa795494efcc41f86e15299e6160a8724}\label{class_chat_server_aa795494efcc41f86e15299e6160a8724}} 
+void {\bfseries parse\+Json} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QJson\+Object \&doc)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chat_server_aeec14b3988212a6185e10fb6c9df6403}\label{class_chat_server_aeec14b3988212a6185e10fb6c9df6403}} 
+{\bfseries Chat\+Server} (QObject $\ast$pareant=nullptr)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_chat_server_aedfc45b0671bde426ad4b3b8be7b3668}\label{class_chat_server_aedfc45b0671bde426ad4b3b8be7b3668}} 
+void {\bfseries incoming\+Connection} (qintptr socket\+Descriptor) override
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+chatserver.\+h\item 
+moc\+\_\+chatserver.\+cpp\item 
+chatserver.\+cpp\end{DoxyCompactItemize}

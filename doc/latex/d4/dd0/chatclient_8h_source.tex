@@ -1,0 +1,65 @@
+\hypertarget{chatclient_8h_source}{}\doxysection{chatclient.\+h}
+\label{chatclient_8h_source}\index{chatclient.h@{chatclient.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef CHATCLIENT\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define CHATCLIENT\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <QObject>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <QTcpSocket>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <QQueue>}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{class }\mbox{\hyperlink{class_parser}{Parser}};}
+\DoxyCodeLine{11 \textcolor{keyword}{class }QHostAddress;}
+\DoxyCodeLine{12 \textcolor{keyword}{class }QJsonDocument;}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{keyword}{class }\mbox{\hyperlink{class_chat_client}{ChatClient}} : \textcolor{keyword}{public} QObject}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     Q\_OBJECT}
+\DoxyCodeLine{17     \textcolor{comment}{//Q\_DISABLE\_COPY(ChatClient)}}
+\DoxyCodeLine{18 \textcolor{keyword}{public}:}
+\DoxyCodeLine{19     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_chat_client}{ChatClient}}(QObject *parent = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{20     QString getUsername();}
+\DoxyCodeLine{21     \textcolor{keywordtype}{int} getSocketState();}
+\DoxyCodeLine{22 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{23      \textcolor{keywordtype}{void} disconnectFromHost();}
+\DoxyCodeLine{24      \textcolor{keywordtype}{void} connectToServer(\textcolor{keyword}{const} QHostAddress \&address, quint16 port);}
+\DoxyCodeLine{25      \textcolor{keywordtype}{void} login(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{26      \textcolor{keywordtype}{void} sendPublicMessage(\textcolor{keyword}{const} QString \&text);}
+\DoxyCodeLine{27      \textcolor{keywordtype}{void} sendJson(\textcolor{keyword}{const} QJsonObject \&jsonOnj);}
+\DoxyCodeLine{28      \textcolor{keywordtype}{void} askUserList();}
+\DoxyCodeLine{29      \textcolor{keywordtype}{void} updateStatus(\textcolor{keyword}{const} \textcolor{keywordtype}{int} \&newStatus);}
+\DoxyCodeLine{30      \textcolor{keywordtype}{void} setUsername(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32  \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{33      \textcolor{keywordtype}{void} onReadyRead();}
+\DoxyCodeLine{34  signals:}
+\DoxyCodeLine{35      \textcolor{keywordtype}{void} connected();}
+\DoxyCodeLine{36      \textcolor{keywordtype}{void} loggedIn();}
+\DoxyCodeLine{37      \textcolor{keywordtype}{void} loginError(\textcolor{keyword}{const} QString \&reason);}
+\DoxyCodeLine{38      \textcolor{keywordtype}{void} disconnected();}
+\DoxyCodeLine{39      \textcolor{keywordtype}{void} messageReceived(\textcolor{keyword}{const} QString \&sender, \textcolor{keyword}{const} QString \&text);}
+\DoxyCodeLine{40      \textcolor{keywordtype}{void} error(QAbstractSocket::SocketError socketError);}
+\DoxyCodeLine{41      \textcolor{keywordtype}{void} userJoined(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{42      \textcolor{keywordtype}{void} userLeft(\textcolor{keyword}{const} QString \&username);}
+\DoxyCodeLine{43      \textcolor{keywordtype}{void} jsonText(\textcolor{keyword}{const} QString \&text);}
+\DoxyCodeLine{44      \textcolor{keywordtype}{void} showConnected();}
+\DoxyCodeLine{45      \textcolor{keywordtype}{void} receivedUserList( \textcolor{keyword}{const} QJsonArray \&list);}
+\DoxyCodeLine{46      \textcolor{keywordtype}{void} jsonReceived(\textcolor{keyword}{const} QJsonObject \&doc);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{keyword}{private}:}
+\DoxyCodeLine{51     QTcpSocket *m\_clientSocket;}
+\DoxyCodeLine{52     \textcolor{keywordtype}{bool} m\_loggedIn;}
+\DoxyCodeLine{53     \textcolor{keywordtype}{int} m\_status; \textcolor{comment}{// 1=ACTIVE,  2=AWAY,  3=BUSY}}
+\DoxyCodeLine{54     QString m\_username;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \};}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CHATCLIENT\_H}}
+
+\end{DoxyCode}

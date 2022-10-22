@@ -1,0 +1,69 @@
+\hypertarget{class_server_worker}{}\doxysection{Server\+Worker Class Reference}
+\label{class_server_worker}\index{ServerWorker@{ServerWorker}}
+Inheritance diagram for Server\+Worker\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{d2/dec/class_server_worker}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_server_worker_a63fcb2e44f78b5dea4f676255459d66c}\label{class_server_worker_a63fcb2e44f78b5dea4f676255459d66c}} 
+void {\bfseries disconnect\+From\+Client} ()
+\item 
+\mbox{\Hypertarget{class_server_worker_a96605b1267036f243a6a82b7ced96d0a}\label{class_server_worker_a96605b1267036f243a6a82b7ced96d0a}} 
+void {\bfseries send\+Json} (const QJson\+Object \&json)
+\item 
+\mbox{\Hypertarget{class_server_worker_a944e0f6c4c70c175fe9f9ac538187059}\label{class_server_worker_a944e0f6c4c70c175fe9f9ac538187059}} 
+void {\bfseries Errors} (QAbstract\+Socket\+::\+Socket\+Error socket\+Error)
+\item 
+\mbox{\Hypertarget{class_server_worker_af81f1e3073b7465661ffd225b69bf86c}\label{class_server_worker_af81f1e3073b7465661ffd225b69bf86c}} 
+void {\bfseries set\+Status} (const int new\+Status)
+\item 
+\mbox{\Hypertarget{class_server_worker_a3f97ff0b9d362bb640b12cb799b35083}\label{class_server_worker_a3f97ff0b9d362bb640b12cb799b35083}} 
+int {\bfseries get\+Status} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_server_worker_a4c0ecabb218149825bac11878aae3cb8}\label{class_server_worker_a4c0ecabb218149825bac11878aae3cb8}} 
+void {\bfseries json\+Received} (const QJson\+Object \&json\+Doc)
+\item 
+\mbox{\Hypertarget{class_server_worker_a2e6c11702849e3f0aeeb8e4ff4267d5c}\label{class_server_worker_a2e6c11702849e3f0aeeb8e4ff4267d5c}} 
+void {\bfseries disconnected\+From\+Client} ()
+\item 
+\mbox{\Hypertarget{class_server_worker_acac590313c425ce3bbc6c7425faf4f82}\label{class_server_worker_acac590313c425ce3bbc6c7425faf4f82}} 
+void {\bfseries error} ()
+\item 
+\mbox{\Hypertarget{class_server_worker_a7223706c68ef561c7d8e06e42eb8d1f5}\label{class_server_worker_a7223706c68ef561c7d8e06e42eb8d1f5}} 
+void {\bfseries timeout} ()
+\item 
+\mbox{\Hypertarget{class_server_worker_acbcc05d95c2b08e10f3f30224692a313}\label{class_server_worker_acbcc05d95c2b08e10f3f30224692a313}} 
+void {\bfseries log\+Message} (const QString \&msg)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}\label{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}} 
+{\bfseries Server\+Worker} (QObject $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{class_server_worker_af7fabee95d40a9d14d31c0373d69eaeb}\label{class_server_worker_af7fabee95d40a9d14d31c0373d69eaeb}} 
+virtual bool {\bfseries set\+Socket\+Descriptor} (qintptr socket\+Descriptor)
+\item 
+\mbox{\Hypertarget{class_server_worker_a302565e75390613de437beadd01fb9c1}\label{class_server_worker_a302565e75390613de437beadd01fb9c1}} 
+QString {\bfseries user\+Name} () const
+\item 
+\mbox{\Hypertarget{class_server_worker_a98aeba7b1ed30b9c73de957b77475d6d}\label{class_server_worker_a98aeba7b1ed30b9c73de957b77475d6d}} 
+void {\bfseries set\+User\+Name} (const QString \&user\+Name)
+\item 
+\mbox{\Hypertarget{class_server_worker_a911129281a047c269a5952c49900b9fd}\label{class_server_worker_a911129281a047c269a5952c49900b9fd}} 
+QVector$<$ QString $>$ {\bfseries get\+Rooms} ()
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+serverworker.\+h\item 
+moc\+\_\+serverworker.\+cpp\item 
+serverworker.\+cpp\end{DoxyCompactItemize}

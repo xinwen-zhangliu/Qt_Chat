@@ -1,0 +1,115 @@
+\hypertarget{ui__privatechatwindow_8h_source}{}\doxysection{ui\+\_\+privatechatwindow.\+h}
+\label{ui__privatechatwindow_8h_source}\index{ui\_privatechatwindow.h@{ui\_privatechatwindow.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{/********************************************************************************}}
+\DoxyCodeLine{2 \textcolor{comment}{** Form generated from reading UI file 'privatechatwindow.ui'}}
+\DoxyCodeLine{3 \textcolor{comment}{**}}
+\DoxyCodeLine{4 \textcolor{comment}{** Created by: Qt User Interface Compiler version 6.3.2}}
+\DoxyCodeLine{5 \textcolor{comment}{**}}
+\DoxyCodeLine{6 \textcolor{comment}{** WARNING! All changes made in this file will be lost when recompiling UI file!}}
+\DoxyCodeLine{7 \textcolor{comment}{********************************************************************************/}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#ifndef UI\_PRIVATECHATWINDOW\_H}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#define UI\_PRIVATECHATWINDOW\_H}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <QtCore/QVariant>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <QtWidgets/QApplication>}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include <QtWidgets/QDialog>}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include <QtWidgets/QGridLayout>}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include <QtWidgets/QPushButton>}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include <QtWidgets/QSpacerItem>}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include <QtWidgets/QTextEdit>}}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20 QT\_BEGIN\_NAMESPACE}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{class_ui___private_chat}{Ui\_PrivateChat}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     QGridLayout *gridLayout\_2;}
+\DoxyCodeLine{26     QGridLayout *gridLayout;}
+\DoxyCodeLine{27     QSpacerItem *horizontalSpacer;}
+\DoxyCodeLine{28     QPushButton *btnSendMessage;}
+\DoxyCodeLine{29     QTextEdit *editSendMessage;}
+\DoxyCodeLine{30     QSpacerItem *horizontalSpacer\_2;}
+\DoxyCodeLine{31     QTextEdit *editRecvMessage;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} setupUi(QDialog *\mbox{\hyperlink{class_private_chat}{PrivateChat}})}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_private_chat}{PrivateChat}}-\/>objectName().isEmpty())}
+\DoxyCodeLine{36             \mbox{\hyperlink{class_private_chat}{PrivateChat}}-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}PrivateChat"{}}));}
+\DoxyCodeLine{37         \mbox{\hyperlink{class_private_chat}{PrivateChat}}-\/>resize(588, 771);}
+\DoxyCodeLine{38         gridLayout\_2 = \textcolor{keyword}{new} QGridLayout(\mbox{\hyperlink{class_private_chat}{PrivateChat}});}
+\DoxyCodeLine{39         gridLayout\_2-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}gridLayout\_2"{}}));}
+\DoxyCodeLine{40         gridLayout = \textcolor{keyword}{new} QGridLayout();}
+\DoxyCodeLine{41         gridLayout-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}gridLayout"{}}));}
+\DoxyCodeLine{42         horizontalSpacer = \textcolor{keyword}{new} QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         gridLayout-\/>addItem(horizontalSpacer, 2, 0, 1, 1);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46         btnSendMessage = \textcolor{keyword}{new} QPushButton(\mbox{\hyperlink{class_private_chat}{PrivateChat}});}
+\DoxyCodeLine{47         btnSendMessage-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}btnSendMessage"{}}));}
+\DoxyCodeLine{48         QFont font;}
+\DoxyCodeLine{49         font.setBold(\textcolor{keyword}{true});}
+\DoxyCodeLine{50         btnSendMessage-\/>setFont(font);}
+\DoxyCodeLine{51         btnSendMessage-\/>setStyleSheet(QString::fromUtf8(\textcolor{stringliteral}{"{}\(\backslash\)n"{}}}
+\DoxyCodeLine{52 \textcolor{stringliteral}{"{}background-\/color: rgb(85, 255, 255) ; color: rgb(0,0,0); "{}}));}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54         gridLayout-\/>addWidget(btnSendMessage, 2, 1, 1, 1);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56         editSendMessage = \textcolor{keyword}{new} QTextEdit(\mbox{\hyperlink{class_private_chat}{PrivateChat}});}
+\DoxyCodeLine{57         editSendMessage-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}editSendMessage"{}}));}
+\DoxyCodeLine{58         editSendMessage-\/>setMaximumSize(QSize(16777215, 150));}
+\DoxyCodeLine{59         editSendMessage-\/>setFrameShape(QFrame::Panel);}
+\DoxyCodeLine{60         editSendMessage-\/>setFrameShadow(QFrame::Plain);}
+\DoxyCodeLine{61         editSendMessage-\/>setLineWidth(1);}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         gridLayout-\/>addWidget(editSendMessage, 1, 0, 1, 3);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65         horizontalSpacer\_2 = \textcolor{keyword}{new} QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);}
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67         gridLayout-\/>addItem(horizontalSpacer\_2, 2, 2, 1, 1);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69         editRecvMessage = \textcolor{keyword}{new} QTextEdit(\mbox{\hyperlink{class_private_chat}{PrivateChat}});}
+\DoxyCodeLine{70         editRecvMessage-\/>setObjectName(QString::fromUtf8(\textcolor{stringliteral}{"{}editRecvMessage"{}}));}
+\DoxyCodeLine{71         editRecvMessage-\/>setFrameShape(QFrame::Panel);}
+\DoxyCodeLine{72         editRecvMessage-\/>setFrameShadow(QFrame::Plain);}
+\DoxyCodeLine{73         editRecvMessage-\/>setReadOnly(\textcolor{keyword}{true});}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75         gridLayout-\/>addWidget(editRecvMessage, 0, 0, 1, 3);}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         gridLayout\_2-\/>addLayout(gridLayout, 0, 0, 1, 1);}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81         retranslateUi(\mbox{\hyperlink{class_private_chat}{PrivateChat}});}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83         QMetaObject::connectSlotsByName(\mbox{\hyperlink{class_private_chat}{PrivateChat}});}
+\DoxyCodeLine{84     \} \textcolor{comment}{// setupUi}}
+\DoxyCodeLine{85 }
+\DoxyCodeLine{86     \textcolor{keywordtype}{void} retranslateUi(QDialog *\mbox{\hyperlink{class_private_chat}{PrivateChat}})}
+\DoxyCodeLine{87     \{}
+\DoxyCodeLine{88         \mbox{\hyperlink{class_private_chat}{PrivateChat}}-\/>setWindowTitle(QString());}
+\DoxyCodeLine{89         btnSendMessage-\/>setText(QCoreApplication::translate(\textcolor{stringliteral}{"{}PrivateChat"{}}, \textcolor{stringliteral}{"{}Send Message"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#if QT\_CONFIG(shortcut)}}
+\DoxyCodeLine{91         btnSendMessage-\/>setShortcut(QCoreApplication::translate(\textcolor{stringliteral}{"{}PrivateChat"{}}, \textcolor{stringliteral}{"{}Return"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{92 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// QT\_CONFIG(shortcut)}}
+\DoxyCodeLine{93         editSendMessage-\/>setHtml(QCoreApplication::translate(\textcolor{stringliteral}{"{}PrivateChat"{}}, \textcolor{stringliteral}{"{}<!DOCTYPE HTML PUBLIC \(\backslash\)"{}-\///W3C//DTD HTML 4.0//EN\(\backslash\)"{} \(\backslash\)"{}http://www.w3.org/TR/REC-\/html40/strict.dtd\(\backslash\)"{}>\(\backslash\)n"{}}}
+\DoxyCodeLine{94 \textcolor{stringliteral}{"{}<html><head><meta name=\(\backslash\)"{}qrichtext\(\backslash\)"{} content=\(\backslash\)"{}1\(\backslash\)"{} /><meta charset=\(\backslash\)"{}utf-\/8\(\backslash\)"{} /><style type=\(\backslash\)"{}text/css\(\backslash\)"{}>\(\backslash\)n"{}}}
+\DoxyCodeLine{95 \textcolor{stringliteral}{"{}p, li \{ white-\/space: pre-\/wrap; \}\(\backslash\)n"{}}}
+\DoxyCodeLine{96 \textcolor{stringliteral}{"{}hr \{ height: 1px; border-\/width: 0; \}\(\backslash\)n"{}}}
+\DoxyCodeLine{97 \textcolor{stringliteral}{"{}</style></head><body style=\(\backslash\)"{} font-\/family:'Sans Serif'; font-\/size:9pt; font-\/weight:400; font-\/style:normal;\(\backslash\)"{}>\(\backslash\)n"{}}}
+\DoxyCodeLine{98 \textcolor{stringliteral}{"{}<p style=\(\backslash\)"{}-\/qt-\/paragraph-\/type:empty; margin-\/top:0px; margin-\/bottom:0px; margin-\/left:0px; margin-\/right:0px; -\/qt-\/block-\/indent:0; text-\/indent:0px;\(\backslash\)"{}><br /></p></body></html>"{}}, \textcolor{keyword}{nullptr}));}
+\DoxyCodeLine{99     \} \textcolor{comment}{// retranslateUi}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101 \};}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103 \textcolor{keyword}{namespace }Ui \{}
+\DoxyCodeLine{104     \textcolor{keyword}{class }\mbox{\hyperlink{class_ui_1_1_private_chat}{PrivateChat}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_ui___private_chat}{Ui\_PrivateChat}} \{\};}
+\DoxyCodeLine{105 \} \textcolor{comment}{// namespace Ui}}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107 QT\_END\_NAMESPACE}
+\DoxyCodeLine{108 }
+\DoxyCodeLine{109 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// UI\_PRIVATECHATWINDOW\_H}}
+
+\end{DoxyCode}

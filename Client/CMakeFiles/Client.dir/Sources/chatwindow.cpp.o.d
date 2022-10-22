@@ -407,4 +407,6 @@ Client/CMakeFiles/Client.dir/Sources/chatwindow.cpp.o: \
  /usr/include/qt6/QtNetwork/QHostAddress \
  /usr/include/qt6/QtNetwork/qhostaddress.h /usr/include/qt6/QtCore/QTimer \
  /usr/include/qt6/QtCore/qtimer.h /usr/include/qt6/QtCore/qbasictimer.h \
- /usr/include/qt6/QtCore/QDebug /usr/include/qt6/QtCore/qdebug.h
+ /usr/include/qt6/QtCore/QDebug /usr/include/qt6/QtCore/qdebug.h \
+ /usr/include/qt6/QtCore/QJsonDocument \
+ /usr/include/qt6/QtCore/qjsondocument.h
