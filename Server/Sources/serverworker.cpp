@@ -5,6 +5,10 @@
 #include <QJsonParseError>
 #include <QJsonObject>
 
+/*!
+ * \brief ServerWorker::ServerWorker handles the client socket, and threads
+ * \param parent
+ */
 ServerWorker::ServerWorker(QObject *parent)
     : QObject(parent)
     , m_serverSocket(new QTcpSocket(this))

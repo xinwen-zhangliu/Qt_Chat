@@ -12,6 +12,9 @@
 
 
 class QJsonObject;
+/*!
+ * \brief The ServerWorker class handles the client socket, and threads
+ */
 class ServerWorker : public QObject
 {
     Q_OBJECT

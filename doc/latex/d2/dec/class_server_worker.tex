@@ -1,5 +1,14 @@
 \hypertarget{class_server_worker}{}\doxysection{Server\+Worker Class Reference}
 \label{class_server_worker}\index{ServerWorker@{ServerWorker}}
+
+
+The \mbox{\hyperlink{class_server_worker}{Server\+Worker}} class handles the client socket, and threads.  
+
+
+
+
+{\ttfamily \#include $<$serverworker.\+h$>$}
+
 Inheritance diagram for Server\+Worker\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -45,9 +54,8 @@ void {\bfseries log\+Message} (const QString \&msg)
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}\label{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}} 
-{\bfseries Server\+Worker} (QObject $\ast$parent=nullptr)
-\item 
+\mbox{\hyperlink{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}{Server\+Worker}} (QObject $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}{Server\+Worker\+::\+Server\+Worker}} handles the client socket, and threads. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_server_worker_af7fabee95d40a9d14d31c0373d69eaeb}\label{class_server_worker_af7fabee95d40a9d14d31c0373d69eaeb}} 
 virtual bool {\bfseries set\+Socket\+Descriptor} (qintptr socket\+Descriptor)
 \item 
@@ -60,6 +68,27 @@ void {\bfseries set\+User\+Name} (const QString \&user\+Name)
 \mbox{\Hypertarget{class_server_worker_a911129281a047c269a5952c49900b9fd}\label{class_server_worker_a911129281a047c269a5952c49900b9fd}} 
 QVector$<$ QString $>$ {\bfseries get\+Rooms} ()
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_server_worker}{Server\+Worker}} class handles the client socket, and threads. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}\label{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}} 
+\index{ServerWorker@{ServerWorker}!ServerWorker@{ServerWorker}}
+\index{ServerWorker@{ServerWorker}!ServerWorker@{ServerWorker}}
+\doxysubsubsection{\texorpdfstring{ServerWorker()}{ServerWorker()}}
+{\footnotesize\ttfamily Server\+Worker\+::\+Server\+Worker (\begin{DoxyParamCaption}\item[{QObject $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_server_worker_a877c40ee4c9824f8c95cdca7ca9435e6}{Server\+Worker\+::\+Server\+Worker}} handles the client socket, and threads. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

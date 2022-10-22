@@ -14,7 +14,9 @@ class ServerWorker;
 class QJsonObject;
 class Parser;
 
-
+/*!
+ * \brief The ChatServer class processes all requests from the client
+ */
 class ChatServer : public  QTcpServer
 {
     Q_OBJECT

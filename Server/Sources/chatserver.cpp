@@ -150,7 +150,7 @@ void ChatServer::updateStatus(ServerWorker *sender, const int newStatus){
 
 void ChatServer::createRoom(ServerWorker *sender, const QString &roomname){
     for(int i = 0; i<m_rooms.size(); i++){
-        if(m_rooms[i]->getRoomName().compare(roomname, Qt::CaseSensitive)==0){
+        if(m_rooms[i]->getRoomName().compare(roomname, Qt::CaseInsensitive)==0){
             QJsonObject warningJson;
             warningJson[QStringLiteral("type")] = QStringLiteral("WARNING");
             warningJson[QStringLiteral("message")] = QStringLiteral("El cuarto '") +roomname+ QStringLiteral("' ya existe");

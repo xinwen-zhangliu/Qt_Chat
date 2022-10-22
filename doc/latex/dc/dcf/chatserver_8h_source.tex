@@ -18,63 +18,62 @@
 \DoxyCodeLine{14 \textcolor{keyword}{class }QJsonObject;}
 \DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{class_parser}{Parser}};}
 \DoxyCodeLine{16 }
-\DoxyCodeLine{17 }
-\DoxyCodeLine{18 \textcolor{keyword}{class }\mbox{\hyperlink{class_chat_server}{ChatServer}} : \textcolor{keyword}{public}  QTcpServer}
-\DoxyCodeLine{19 \{}
-\DoxyCodeLine{20     Q\_OBJECT}
-\DoxyCodeLine{21     Q\_DISABLE\_COPY(\mbox{\hyperlink{class_chat_server}{ChatServer}})}
-\DoxyCodeLine{22 \textcolor{keyword}{public}:}
-\DoxyCodeLine{23     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_chat_server}{ChatServer}}(QObject *pareant = \textcolor{keyword}{nullptr});}
-\DoxyCodeLine{24     \mbox{\hyperlink{class_chat_server}{\string~ChatServer}}();}
-\DoxyCodeLine{25 }
-\DoxyCodeLine{26 \textcolor{keyword}{protected}:}
-\DoxyCodeLine{27     \textcolor{keywordtype}{void} incomingConnection(qintptr socketDescriptor) \textcolor{keyword}{override};}
-\DoxyCodeLine{28 \textcolor{keyword}{private}:}
-\DoxyCodeLine{29     \textcolor{keyword}{const} \textcolor{keywordtype}{int} m\_idealThreadCount;}
-\DoxyCodeLine{30     QVector<QThread *> m\_availableThreads;}
-\DoxyCodeLine{31     QVector<int> m\_threadsLoad;}
-\DoxyCodeLine{32     QVector<ServerWorker *> m\_clients; \textcolor{comment}{//uno por cliente}}
-\DoxyCodeLine{33     QTimer *m\_timer;}
-\DoxyCodeLine{34     QVector<Room *> m\_rooms;}
-\DoxyCodeLine{35     \mbox{\hyperlink{class_parser}{Parser}} *m\_parser;}
-\DoxyCodeLine{36 }
-\DoxyCodeLine{37 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{20 \textcolor{keyword}{class }\mbox{\hyperlink{class_chat_server}{ChatServer}} : \textcolor{keyword}{public}  QTcpServer}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     Q\_OBJECT}
+\DoxyCodeLine{23     Q\_DISABLE\_COPY(\mbox{\hyperlink{class_chat_server}{ChatServer}})}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{25     \textcolor{keyword}{explicit} \mbox{\hyperlink{class_chat_server}{ChatServer}}(QObject *pareant = \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_chat_server}{\string~ChatServer}}();}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28 \textcolor{keyword}{protected}:}
+\DoxyCodeLine{29     \textcolor{keywordtype}{void} incomingConnection(qintptr socketDescriptor) \textcolor{keyword}{override};}
+\DoxyCodeLine{30 \textcolor{keyword}{private}:}
+\DoxyCodeLine{31     \textcolor{keyword}{const} \textcolor{keywordtype}{int} m\_idealThreadCount;}
+\DoxyCodeLine{32     QVector<QThread *> m\_availableThreads;}
+\DoxyCodeLine{33     QVector<int> m\_threadsLoad;}
+\DoxyCodeLine{34     QVector<ServerWorker *> m\_clients; \textcolor{comment}{//uno por cliente}}
+\DoxyCodeLine{35     QTimer *m\_timer;}
+\DoxyCodeLine{36     QVector<Room *> m\_rooms;}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_parser}{Parser}} *m\_parser;}
 \DoxyCodeLine{38 }
-\DoxyCodeLine{39     \textcolor{keywordtype}{void} broadcastAll(\textcolor{keyword}{const} QJsonObject \&message, \mbox{\hyperlink{class_server_worker}{ServerWorker}} *exclude);}
-\DoxyCodeLine{40     \textcolor{keywordtype}{void} broadcastRoom(\textcolor{keyword}{const} QJsonObject \&message, \mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
-\DoxyCodeLine{41     \textcolor{keywordtype}{void} broadcastOne(\textcolor{keyword}{const} QJsonObject \&message,\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&destination, \textcolor{keyword}{const} QString \&operation);}
-\DoxyCodeLine{42     \textcolor{keywordtype}{void} jsonReceived(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QJsonObject \&doc);}
-\DoxyCodeLine{43     \textcolor{keywordtype}{void} userDisconnected(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keywordtype}{int} threadIdx);}
-\DoxyCodeLine{44     \textcolor{keywordtype}{void} userError(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
-\DoxyCodeLine{45     \textcolor{keywordtype}{void} logFinished();}
-\DoxyCodeLine{46     \textcolor{keywordtype}{void} sendPrivateMessage(\textcolor{keyword}{const} QString \&destination, \textcolor{keyword}{const} QJsonObject \&message);}
-\DoxyCodeLine{47     \textcolor{keywordtype}{void} userListRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
-\DoxyCodeLine{48 }
-\DoxyCodeLine{49     \textcolor{keywordtype}{void} createRoom(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomname);}
-\DoxyCodeLine{50     \textcolor{keywordtype}{void} sendRoomMessage(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName, \textcolor{keyword}{const} QString \&message);}
-\DoxyCodeLine{51     \textcolor{keywordtype}{void} sendOutRoomInvitations(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender,  \textcolor{keyword}{const} QString \&roomName, QJsonArray usernames);}
-\DoxyCodeLine{52     \textcolor{keywordtype}{void} roomUsersRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
-\DoxyCodeLine{53     \textcolor{keywordtype}{void} leaveRoom(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
-\DoxyCodeLine{54     \textcolor{keywordtype}{void} joinRoomRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56     \textcolor{keywordtype}{void} updateStatus(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} \textcolor{keywordtype}{int} newStatus);}
+\DoxyCodeLine{39 \textcolor{keyword}{private} slots:}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keywordtype}{void} broadcastAll(\textcolor{keyword}{const} QJsonObject \&message, \mbox{\hyperlink{class_server_worker}{ServerWorker}} *exclude);}
+\DoxyCodeLine{42     \textcolor{keywordtype}{void} broadcastRoom(\textcolor{keyword}{const} QJsonObject \&message, \mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
+\DoxyCodeLine{43     \textcolor{keywordtype}{void} broadcastOne(\textcolor{keyword}{const} QJsonObject \&message,\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&destination, \textcolor{keyword}{const} QString \&operation);}
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} jsonReceived(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QJsonObject \&doc);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} userDisconnected(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keywordtype}{int} threadIdx);}
+\DoxyCodeLine{46     \textcolor{keywordtype}{void} userError(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
+\DoxyCodeLine{47     \textcolor{keywordtype}{void} logFinished();}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} sendPrivateMessage(\textcolor{keyword}{const} QString \&destination, \textcolor{keyword}{const} QJsonObject \&message);}
+\DoxyCodeLine{49     \textcolor{keywordtype}{void} userListRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51     \textcolor{keywordtype}{void} createRoom(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomname);}
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} sendRoomMessage(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName, \textcolor{keyword}{const} QString \&message);}
+\DoxyCodeLine{53     \textcolor{keywordtype}{void} sendOutRoomInvitations(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender,  \textcolor{keyword}{const} QString \&roomName, QJsonArray usernames);}
+\DoxyCodeLine{54     \textcolor{keywordtype}{void} roomUsersRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
+\DoxyCodeLine{55     \textcolor{keywordtype}{void} leaveRoom(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} joinRoomRequest(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QString \&roomName);}
 \DoxyCodeLine{57 }
-\DoxyCodeLine{58     \textcolor{keywordtype}{void} sendConnectedUsers(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
-\DoxyCodeLine{59     \textcolor{keywordtype}{void} sendJson(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *destination, \textcolor{keyword}{const} QJsonObject \&message);}
-\DoxyCodeLine{60 \textcolor{keyword}{public} slots:}
-\DoxyCodeLine{61     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chat_server_a1f24101b3bed667ec2fcf72e57e9d472}{stopServer}}();}
-\DoxyCodeLine{62 \textcolor{keyword}{private}:}
-\DoxyCodeLine{63     \textcolor{keywordtype}{void} jsonFromLoggedOut(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QJsonObject \&doc); \textcolor{comment}{//check for the identify json}}
-\DoxyCodeLine{64     \textcolor{keywordtype}{void} jsonFromLoggedIn(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QJsonObject \&doc); \textcolor{comment}{//check for other jsons}}
-\DoxyCodeLine{65 }
-\DoxyCodeLine{66 signals:}
-\DoxyCodeLine{67     \textcolor{keywordtype}{void} logMessage(\textcolor{keyword}{const} QString \&msg);}
-\DoxyCodeLine{68     \textcolor{keywordtype}{void} stopAllClients();}
-\DoxyCodeLine{69 }
-\DoxyCodeLine{70     \textcolor{keywordtype}{void} parseJson(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QJsonObject \&doc);}
+\DoxyCodeLine{58     \textcolor{keywordtype}{void} updateStatus(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} \textcolor{keywordtype}{int} newStatus);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{void} sendConnectedUsers(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender);}
+\DoxyCodeLine{61     \textcolor{keywordtype}{void} sendJson(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *destination, \textcolor{keyword}{const} QJsonObject \&message);}
+\DoxyCodeLine{62 \textcolor{keyword}{public} slots:}
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_chat_server_a1f24101b3bed667ec2fcf72e57e9d472}{stopServer}}();}
+\DoxyCodeLine{64 \textcolor{keyword}{private}:}
+\DoxyCodeLine{65     \textcolor{keywordtype}{void} jsonFromLoggedOut(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QJsonObject \&doc); \textcolor{comment}{//check for the identify json}}
+\DoxyCodeLine{66     \textcolor{keywordtype}{void} jsonFromLoggedIn(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QJsonObject \&doc); \textcolor{comment}{//check for other jsons}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 signals:}
+\DoxyCodeLine{69     \textcolor{keywordtype}{void} logMessage(\textcolor{keyword}{const} QString \&msg);}
+\DoxyCodeLine{70     \textcolor{keywordtype}{void} stopAllClients();}
 \DoxyCodeLine{71 }
-\DoxyCodeLine{72 \};}
+\DoxyCodeLine{72     \textcolor{keywordtype}{void} parseJson(\mbox{\hyperlink{class_server_worker}{ServerWorker}} *sender, \textcolor{keyword}{const} QJsonObject \&doc);}
 \DoxyCodeLine{73 }
-\DoxyCodeLine{74 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CHATSERVER\_H}}
+\DoxyCodeLine{74 \};}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// CHATSERVER\_H}}
 
 \end{DoxyCode}
