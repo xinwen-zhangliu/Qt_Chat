@@ -45,4 +45,4 @@ Para hablar con usuarios en chat privado necesitas dar doble click al usuario en
   
 Si es que cierras la ventana de algún chat privado o grupal, y lo vuelves a abrir no se mostrarán los mensajes anteriores, solo podrás ver los nuevos que recibas. 
   
-Para crear un grupo necesitas seleccionar a los usuarios de la lista, escribir el nombre del grupo en la parte de edición y dar al botón de crear grupo. 
+Para crear un grupo necesitas seleccionar a los usuarios de la lista, escribir el nombre del grupo en la parte de edición y dar al botón de crear grupo. La ventana se abrira  cuando responda el servidor.
