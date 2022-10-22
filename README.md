@@ -32,9 +32,17 @@ cd Server/
 ```
 ###### Especificaciones
 Para evita confusiones, en el diseño de la aplicación decidí considerar a los nombres de usuarios y grupos de forma Case Insensitive, por lo que el usuario "User1" y "user1" es considerado como el mismo nombre y note dejará conectarte , por lo que solo habrá un usuario o grupo con alguna conbinación específica de caracteres. 
+
+Para correr el servidor es necesaario pulsar el boton de start server y al pulsar stop server este desconecta a los cliente, lso cuales muestran un pop-up message.
+
 Si el servidor tiene algún error al parsear el json de algún usuario, automáticamente lo desconectará.
+
 Para cambiar el estado de algún usuario enecesitará escribir <STATUS>** en la parte para enviar mensaje publicos, ejemplo si quiero cambiar mi estado a away necesito escribir "AWAY**" y enviarlo como si fuera un mensaje público. Es necesario escribirlo en mayúsculas, si el status no es algunos de los tres descritos en el protocolo se va a ignorar.
+  
 Los estados están representados por colores , ACTIVE= verde, AWAY = amarillo, BUSY= rojo, todo usuario sale como verde hasta que cambie su estado.
+  
 Para hablar con usuarios en chat privado necesitas dar doble click al usuario en la lista de usuarios, y si recibes algún mensaje privado de alguien con el cual no tienes abirto ningún chat privado automáticamente se te mostrará la ventana con el mensaje. 
+  
 Si es que cierras la ventana de algún chat privado o grupal, y lo vuelves a abrir no se mostrarán los mensajes anteriores, solo podrás ver los nuevos que recibas. 
+  
 Para crear un grupo necesitas seleccionar a los usuarios de la lista, escribir el nombre del grupo en la parte de edición y dar al botón de crear grupo. 
