@@ -8,7 +8,10 @@
 #include <QDataStream>
 #include <QJsonParseError>
 
-
+/*!
+ * \brief ChatClient::ChatClient model class for the client, contains the socket, reads and writes
+ * \param parent
+ */
 ChatClient::ChatClient(QObject *parent)
     : QObject(parent)
     , m_clientSocket(new QTcpSocket(this))
@@ -20,11 +23,9 @@ ChatClient::ChatClient(QObject *parent)
     connect(m_clientSocket, &QTcpSocket::connected, this, &ChatClient::connected);
     connect(m_clientSocket, &QTcpSocket::disconnected, this, &ChatClient::disconnected);
 
-    //connect(m_parser, &Parser::sendJson, this, &ChatClient::sendJson);
 
 
     connect(m_clientSocket, &QTcpSocket::readyRead, this, &ChatClient::onReadyRead);
-    //connect(this, &ChatClient::jsonReceived, m_parser, &Parser::parseJson);
 
 #if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
     connect(m_clientSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &ChatClient::error);

@@ -3,6 +3,11 @@
 
 #include <QJsonObject>
 
+/*!
+ * \brief PrivateChat::PrivateChat this is the controller class for the private chat interface
+ * \param chatPartner person you are chatting with
+ * \param parent instances are created in ChatWindow
+ */
 PrivateChat::PrivateChat( QString chatPartner,QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::PrivateChat)
