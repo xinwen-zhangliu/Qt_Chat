@@ -83,7 +83,7 @@ Public Slots</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>parseJson</b> (const QJsonObject &amp;json)</td></tr>
 <tr class="separator:ad0cfb2a014f445c48d5d32a0d7bdf7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5267a68d866ec909793a186d7f5cac89"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_parser.html#a5267a68d866ec909793a186d7f5cac89">parseJson</a> (<a class="el" href="../../d2/dec/class_server_worker.html">ServerWorker</a> *sender, const QJsonObject &amp;json)</td></tr>
-<tr class="memdesc:a5267a68d866ec909793a186d7f5cac89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parser::parseJson This is the parser class for the server, when <a class="el" href="../../d2/dec/class_server_worker.html">ServerWorker</a> receives json it tells <a class="el" href="../../df/d71/class_chat_server.html">ChatServer</a> and chatServer calls <a class="el" href="../../dc/db7/class_parser.html">Parser</a>.  <a href="../../dc/db7/class_parser.html#a5267a68d866ec909793a186d7f5cac89">More...</a><br /></td></tr>
+<tr class="memdesc:a5267a68d866ec909793a186d7f5cac89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parser::parseJson when <a class="el" href="../../d2/dec/class_server_worker.html">ServerWorker</a> receives json it tells <a class="el" href="../../df/d71/class_chat_server.html">ChatServer</a> and chatServer calls parserJson.  <a href="../../dc/db7/class_parser.html#a5267a68d866ec909793a186d7f5cac89">More...</a><br /></td></tr>
 <tr class="separator:a5267a68d866ec909793a186d7f5cac89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="signals" name="signals"></a>
@@ -182,7 +182,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>joinRoomRequest</b> (
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7541c757aaea76a24227074efe730a25"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/db7/class_parser.html#a7541c757aaea76a24227074efe730a25">Parser</a> (QObject *parent=nullptr)</td></tr>
-<tr class="memdesc:a7541c757aaea76a24227074efe730a25"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dc/db7/class_parser.html#a7541c757aaea76a24227074efe730a25" title="Parser::Parser.">Parser::Parser</a>.  <a href="../../dc/db7/class_parser.html#a7541c757aaea76a24227074efe730a25">More...</a><br /></td></tr>
+<tr class="memdesc:a7541c757aaea76a24227074efe730a25"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dc/db7/class_parser.html#a7541c757aaea76a24227074efe730a25" title="Parser::Parser This is the parser class for the server,.">Parser::Parser</a> This is the parser class for the server,.  <a href="../../dc/db7/class_parser.html#a7541c757aaea76a24227074efe730a25">More...</a><br /></td></tr>
 <tr class="separator:a7541c757aaea76a24227074efe730a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7541c757aaea76a24227074efe730a25"><td class="memItemLeft" align="right" valign="top"><a id="a7541c757aaea76a24227074efe730a25" name="a7541c757aaea76a24227074efe730a25"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Parser</b> (QObject *parent=nullptr)</td></tr>
@@ -213,10 +213,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../dc/db7/class_parser.html#a7541c757aaea76a24227074efe730a25" title="Parser::Parser.">Parser::Parser</a>. </p>
+<p><a class="el" href="../../dc/db7/class_parser.html#a7541c757aaea76a24227074efe730a25" title="Parser::Parser This is the parser class for the server,.">Parser::Parser</a> This is the parser class for the server,. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">parent</td><td></td></tr>
+    <tr><td class="paramname">parent</td><td>only one instances in <a class="el" href="../../df/d71/class_chat_server.html">ChatServer</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -258,7 +258,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parser::parseJson This is the parser class for the server, when <a class="el" href="../../d2/dec/class_server_worker.html">ServerWorker</a> receives json it tells <a class="el" href="../../df/d71/class_chat_server.html">ChatServer</a> and chatServer calls <a class="el" href="../../dc/db7/class_parser.html">Parser</a>. </p>
+<p>Parser::parseJson when <a class="el" href="../../d2/dec/class_server_worker.html">ServerWorker</a> receives json it tells <a class="el" href="../../df/d71/class_chat_server.html">ChatServer</a> and chatServer calls parserJson. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td>the sender of the json </td></tr>

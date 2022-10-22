@@ -14,7 +14,10 @@
 #include <QTimer>
 #include <QDebug>
 #include <QJsonDocument>
-
+/*!
+ * \brief ChatWindow::ChatWindow this is the controller for the main chat window from which private and groups chats also connnect
+ * \param parent intance is created in main
+ */
 ChatWindow::ChatWindow(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::ChatWindow)
@@ -96,7 +99,10 @@ ChatWindow::~ChatWindow(){
     delete ui;
 }
 
-
+/*!
+ * \brief ChatWindow::getChatClient gets the instance of the chatClient created
+ * \return the instance of the chaClient created
+ */
 ChatClient* ChatWindow::getChatClient(){
     return m_chatClient;
 }

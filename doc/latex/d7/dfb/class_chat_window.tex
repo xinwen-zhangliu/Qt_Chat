@@ -1,5 +1,14 @@
 \hypertarget{class_chat_window}{}\doxysection{Chat\+Window Class Reference}
 \label{class_chat_window}\index{ChatWindow@{ChatWindow}}
+
+
+The \mbox{\hyperlink{class_chat_window}{Chat\+Window}} class this is the controller for the main chat window from which private and groups chats also connnect.  
+
+
+
+
+{\ttfamily \#include $<$chatwindow.\+h$>$}
+
 Inheritance diagram for Chat\+Window\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,12 +30,47 @@ void {\bfseries invitation\+Received} (const QString \&sender, const QString \&r
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\hyperlink{class_chat_window_a870f144a418794b7da640ceed7af32c9}{Chat\+Window}} (QWidget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chat_window_a870f144a418794b7da640ceed7af32c9}{Chat\+Window\+::\+Chat\+Window}} this is the controller for the main chat window from which private and groups chats also connnect. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_chat_client}{Chat\+Client}} $\ast$ \mbox{\hyperlink{class_chat_window_a1b2e1610e54015f1732f54184148b836}{get\+Chat\+Client}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_chat_window_a1b2e1610e54015f1732f54184148b836}{Chat\+Window\+::get\+Chat\+Client}} gets the instance of the chat\+Client created. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_chat_window}{Chat\+Window}} class this is the controller for the main chat window from which private and groups chats also connnect. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
 \mbox{\Hypertarget{class_chat_window_a870f144a418794b7da640ceed7af32c9}\label{class_chat_window_a870f144a418794b7da640ceed7af32c9}} 
-{\bfseries Chat\+Window} (QWidget $\ast$parent=nullptr)
-\item 
+\index{ChatWindow@{ChatWindow}!ChatWindow@{ChatWindow}}
+\index{ChatWindow@{ChatWindow}!ChatWindow@{ChatWindow}}
+\doxysubsubsection{\texorpdfstring{ChatWindow()}{ChatWindow()}}
+{\footnotesize\ttfamily Chat\+Window\+::\+Chat\+Window (\begin{DoxyParamCaption}\item[{QWidget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\mbox{\hyperlink{class_chat_window_a870f144a418794b7da640ceed7af32c9}{Chat\+Window\+::\+Chat\+Window}} this is the controller for the main chat window from which private and groups chats also connnect. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & intance is created in main \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{class_chat_window_a1b2e1610e54015f1732f54184148b836}\label{class_chat_window_a1b2e1610e54015f1732f54184148b836}} 
-\mbox{\hyperlink{class_chat_client}{Chat\+Client}} $\ast$ {\bfseries get\+Chat\+Client} ()
-\end{DoxyCompactItemize}
+\index{ChatWindow@{ChatWindow}!getChatClient@{getChatClient}}
+\index{getChatClient@{getChatClient}!ChatWindow@{ChatWindow}}
+\doxysubsubsection{\texorpdfstring{getChatClient()}{getChatClient()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_chat_client}{Chat\+Client}} $\ast$ Chat\+Window\+::get\+Chat\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_chat_window_a1b2e1610e54015f1732f54184148b836}{Chat\+Window\+::get\+Chat\+Client}} gets the instance of the chat\+Client created. 
+
+\begin{DoxyReturn}{Returns}
+the instance of the cha\+Client created 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

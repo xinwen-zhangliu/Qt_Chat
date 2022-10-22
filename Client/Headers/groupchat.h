@@ -11,6 +11,9 @@
 
 namespace Ui {class GroupChat;}
 
+/*!
+ * \brief The GroupChat class this is the controller for the group chat
+ */
 class GroupChat : public QDialog
 {
     Q_OBJECT

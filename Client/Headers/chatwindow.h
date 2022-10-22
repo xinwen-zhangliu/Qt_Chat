@@ -17,8 +17,10 @@ class GroupChat;
 
 
 namespace Ui { class ChatWindow; }
-
-
+/*!
+ * \brief The ChatWindow class
+ * this is the controller for the main chat window from which private and groups chats also connnect
+ */
 class ChatWindow : public QWidget
 {
     Q_OBJECT

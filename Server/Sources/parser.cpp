@@ -8,8 +8,8 @@
 
 //Parser of Server
 /*!
- * \brief Parser::Parser
- * \param parent
+ * \brief Parser::Parser This is the parser class for the server,
+ * \param parent only one instances in ChatServer
  */
 Parser::Parser(QObject *parent)
     : QObject{parent}
@@ -18,7 +18,7 @@ Parser::Parser(QObject *parent)
 }
 
 /*!
- * \brief Parser::parseJson This is the parser class for the server, when ServerWorker receives json it tells ChatServer and chatServer calls Parser
+ * \brief Parser::parseJson  when ServerWorker receives json it tells ChatServer and chatServer calls parserJson
  * \param sender the sender of the json
  * \param json the json received
  */

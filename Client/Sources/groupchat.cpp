@@ -6,6 +6,11 @@
 #include <QStandardItemModel>
 #include <QJsonArray>
 
+/*!
+ * \brief GroupChat::GroupChat controller for the groups chat, diplays infomation received from the server
+ * \param roomName the name of the room
+ * \param parent QObject parent , intances are created in ChatWindow
+ */
 GroupChat::GroupChat(QString roomName, QWidget* parent)
     : QDialog(parent)
     , ui(new Ui::GroupChat)
@@ -44,6 +49,11 @@ QString GroupChat::getRoomName(){
     return this->roomName;
 }
 
+/*!
+ * \brief GroupChat::receivedRoomMessage displays messages received
+ * \param sender the sender of the message
+ * \param message the text of the message
+ */
 void GroupChat::receivedRoomMessage(const QString sender, const QString &message){
     int newRow = m_chatModel->rowCount();
 
@@ -134,6 +144,10 @@ void GroupChat::leaveRoom(){
     emit leavingRoom(this->roomName);
 }
 
+/*!
+ * \brief GroupChat::userJoined displays a message when a user joins the room
+ * \param username the username of the person that joined
+ */
 void GroupChat::userJoined(const QString &username)
 {
     //add it as a message in the public chat
@@ -156,6 +170,12 @@ void GroupChat::userJoined(const QString &username)
 
 
 }
+
+/*!
+ * \brief GroupChat::receivedUserList displays the list of active users in the room
+ * \param list the list of users
+ *
+ */
 void GroupChat::receivedUserList(const QString &list){
     const int newRow = m_chatModel->rowCount();
 
@@ -170,6 +190,11 @@ void GroupChat::receivedUserList(const QString &list){
     ui->chatView->scrollToBottom();
 }
 
+/*!
+ * \brief GroupChat::userLeft
+ * displays notifications for when a user leaves
+ * \param username the username of the person that left
+ */
 void GroupChat::userLeft(const QString &username)
 {
     qDebug() << "group chat user left";

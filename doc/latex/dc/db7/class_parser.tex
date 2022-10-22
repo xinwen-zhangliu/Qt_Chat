@@ -13,7 +13,7 @@ Inheritance diagram for Parser\+:\begin{figure}[H]
 void {\bfseries parse\+Json} (const QJson\+Object \&json)
 \item 
 void \mbox{\hyperlink{class_parser_a5267a68d866ec909793a186d7f5cac89}{parse\+Json}} (\mbox{\hyperlink{class_server_worker}{Server\+Worker}} $\ast$sender, const QJson\+Object \&json)
-\begin{DoxyCompactList}\small\item\em Parser\+::parse\+Json This is the parser class for the server, when \mbox{\hyperlink{class_server_worker}{Server\+Worker}} receives json it tells \mbox{\hyperlink{class_chat_server}{Chat\+Server}} and chat\+Server calls \mbox{\hyperlink{class_parser}{Parser}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Parser\+::parse\+Json when \mbox{\hyperlink{class_server_worker}{Server\+Worker}} receives json it tells \mbox{\hyperlink{class_chat_server}{Chat\+Server}} and chat\+Server calls parser\+Json. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
@@ -111,7 +111,7 @@ void {\bfseries join\+Room\+Request} (\mbox{\hyperlink{class_server_worker}{Serv
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser}} (QObject $\ast$parent=nullptr)
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser\+::\+Parser}}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser\+::\+Parser}} This is the parser class for the server,. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{class_parser_a7541c757aaea76a24227074efe730a25}\label{class_parser_a7541c757aaea76a24227074efe730a25}} 
 {\bfseries Parser} (QObject $\ast$parent=nullptr)
 \end{DoxyCompactItemize}
@@ -126,11 +126,11 @@ void {\bfseries join\+Room\+Request} (\mbox{\hyperlink{class_server_worker}{Serv
 
 
 
-\mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser\+::\+Parser}}. 
+\mbox{\hyperlink{class_parser_a7541c757aaea76a24227074efe730a25}{Parser\+::\+Parser}} This is the parser class for the server,. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em parent} & \\
+{\em parent} & only one instances in \mbox{\hyperlink{class_chat_server}{Chat\+Server}} \\
 \hline
 \end{DoxyParams}
 
@@ -144,7 +144,7 @@ void {\bfseries join\+Room\+Request} (\mbox{\hyperlink{class_server_worker}{Serv
 
 
 
-Parser\+::parse\+Json This is the parser class for the server, when \mbox{\hyperlink{class_server_worker}{Server\+Worker}} receives json it tells \mbox{\hyperlink{class_chat_server}{Chat\+Server}} and chat\+Server calls \mbox{\hyperlink{class_parser}{Parser}}. 
+Parser\+::parse\+Json when \mbox{\hyperlink{class_server_worker}{Server\+Worker}} receives json it tells \mbox{\hyperlink{class_chat_server}{Chat\+Server}} and chat\+Server calls parser\+Json. 
 
 
 \begin{DoxyParams}{Parameters}

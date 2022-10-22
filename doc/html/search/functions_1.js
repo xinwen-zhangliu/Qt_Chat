@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stopserver_0',['stopServer',['../df/d71/class_chat_server.html#a1f24101b3bed667ec2fcf72e57e9d472',1,'ChatServer']]]
+  ['getchatclient_0',['getChatClient',['../d7/dfb/class_chat_window.html#a1b2e1610e54015f1732f54184148b836',1,'ChatWindow']]]
 ];
